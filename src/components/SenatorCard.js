@@ -1,21 +1,22 @@
 import React from 'react'
-// import { Card } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 // import { throws } from 'assert';
 
-class Senator extends React.Component {
+class SenatorCard extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = { ''
-    }
-  }
+    this.state = {
+        front: true
+     }
+   }
 
-  // togglePokemon = () =>{
+  // toggleSenator = () =>{
   //   this.setState((prevState)=>{
   //     return {front: !prevState.front}
   //   })
   // }
-
+  //
   // frontBack = () =>{
   //   {this.state.front ? sprites.front : sprites.back}
   // }
@@ -24,24 +25,26 @@ class Senator extends React.Component {
   render() {
 
     return (
-      <Senator onClick={this.togglePokemon}>
-        <div>
-          <div className="image">
-            <img alt={sprites.front} src={this.state.front ? sprites.front : sprites.back}/>
-          </div>
-          <div className="content">
-            <div className="header">{name}</div>
-          </div>
-          <div className="extra content">
-            <span>
-              <i className="icon heartbeat red" />
-              {hp} hp
-            </span>
-          </div>
-        </div>
-      </Card>
+      <Card>
+    <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Seal_of_the_United_States_Senate.svg/1920px-Seal_of_the_United_States_Senate.svg.png' wrapped ui={false} />
+    <Card.Content>
+      <Card.Header>Sen. {this.props.senator.first_name} {this.props.senator.last_name}, {this.props.senator.party}-{this.props.senator.state}</Card.Header>
+      <Card.Meta>
+        <span className='next-election'>Up for re-election: {this.props.senator.next_election} </span>
+      </Card.Meta>
+      <Card.Description>
+        <a href="#">Facebook</a>
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <a>
+        <Icon name='user' />
+        22 Friends
+      </a>
+    </Card.Content>
+  </Card>
     )
   }
 }
 
-export default PokemonCard
+export default SenatorCard

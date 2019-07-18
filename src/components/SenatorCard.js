@@ -23,6 +23,10 @@ class SenatorCard extends React.Component {
 
 
   render() {
+     // let URL = `${BASE_PATH}\`${this.props.fieldName}\``
+     const FB_PATH = "https://www.facebook.com/"
+     let account = this.props.senator.facebook_account
+     let fb_page = FB_PATH + account
 
     return (
       <Card>
@@ -33,7 +37,7 @@ class SenatorCard extends React.Component {
         <span className='next-election'>Up for re-election: {this.props.senator.next_election} </span>
       </Card.Meta>
       <Card.Description>
-        <a href="#">Facebook</a>
+        <a href={fb_page}>Facebook</a>
       </Card.Description>
     </Card.Content>
     <Card.Content extra>

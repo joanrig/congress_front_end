@@ -8,24 +8,40 @@ class Congress extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showComponent: false,
+      showSenate: false,
+      showHouse: false
     }
   }
 
-  handleClick = () => {
+  handleSenateClick = () => {
     this.setState({
-      showComponent: true
+      showSenate: true,
+      showHouse: false
     })
   }
+
+  handleHouseClick = () => {
+    this.setState({
+      showHouse: true,
+      showSenate: false
+    })
+  }
+
+
+
 
   render() {
     return (
       <>
         <h1>Congress container</h1>
-        <Button className="Senate" onClick={this.handleClick}>
+        <Button className="senate" onClick={this.handleSenateClick}>
           Senate
         </Button>
-        {this.state.showComponent ? <Senate /> : null}
+        <Button className="house" onClick={this.handleHouseClick}>
+          House
+        </Button>
+        {this.state.showSenate ? <Senate /> : null}
+        {this.state.showHouse ? <House /> : null}
       </>
     )
   }

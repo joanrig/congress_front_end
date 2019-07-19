@@ -45,7 +45,7 @@ class SenatorCard extends React.Component {
         <Card.Content extra>
           <div>
 
-            <a href={facebook}><Icon name='facebook' /></a>   <a href={twitter}>Twitter</a>    <a href={youtube}>YouTube</a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
+            <a href={facebook}><Icon name='facebook' /></a>   <a href={twitter}><Icon name='twitter' /></a>    <a href={youtube}>YouTube</a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
           </div>
         </Card.Content>
       </Card>

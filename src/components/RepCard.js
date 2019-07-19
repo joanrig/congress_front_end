@@ -29,7 +29,7 @@ class RepCard extends React.Component {
           <Card.Header>Rep.
             {this.props.rep.first_name} {this.props.rep.last_name}, {this.props.rep.party}-{this.props.rep.state}
             <h3>District: {this.props.rep.district}</h3>
-            <LikeButton />
+            <LikeButton key={this.props.rep.id} rep={this.props.rep}/>
           </Card.Header>
 
           <Card.Meta>

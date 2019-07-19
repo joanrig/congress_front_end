@@ -33,6 +33,7 @@ class Congress extends React.Component {
   }
 
   handleResetClick = () => {
+    console.log("reset state fired")
     this.setState({
       senate: [],
       house: [],
@@ -51,7 +52,7 @@ class Congress extends React.Component {
         <Button className="house" onClick={this.handleHouseClick}>
           House
         </Button>
-        <Button className="reset" onClick={this.handleResetlick}>
+        <Button className="reset" onClick={this.handleResetClick}>
           Reset State
         </Button>
         {this.state.showSenate ? <Senate /> : null}

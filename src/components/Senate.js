@@ -3,6 +3,7 @@ import { fetchSenate } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import SenateCard from './SenatorCard'
+// import Filter from './Filter'
 
 
 class Senate extends React.Component {

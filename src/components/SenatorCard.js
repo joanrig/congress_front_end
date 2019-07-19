@@ -20,7 +20,6 @@ class SenatorCard extends React.Component {
      let contact_form = this.props.senator.contact_form
 
 
-//figure out how to serve up logo from locally stored images.
     return (
       <Card>
         <Image src={this.props.senator.party_logo} wrapped ui={false} />
@@ -44,7 +43,6 @@ class SenatorCard extends React.Component {
 
         <Card.Content extra>
           <div>
-
             <a href={facebook}><Icon name='facebook' /></a>   <a href={twitter}><Icon name='twitter' /></a>    <a href={youtube}><Icon name='youtube' /></a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
           </div>
         </Card.Content>

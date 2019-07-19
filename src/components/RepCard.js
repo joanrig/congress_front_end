@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
-// import Republicanlogo from '../images/Republicanlogo.svg'
+import LikeButton from './LikeButton'
 
 
 class RepCard extends React.Component {
@@ -20,7 +20,7 @@ class RepCard extends React.Component {
      let contact_form = this.props.rep.contact_form
 
 
-//figure out how to serve up logo from locally stored images.
+
     return (
       <Card>
         <Image src={this.props.rep.party_logo} wrapped ui={false} />
@@ -29,6 +29,7 @@ class RepCard extends React.Component {
           <Card.Header>Rep.
             {this.props.rep.first_name} {this.props.rep.last_name}, {this.props.rep.party}-{this.props.rep.state}
             <h3>District: {this.props.rep.district}</h3>
+            <LikeButton />
           </Card.Header>
 
           <Card.Meta>

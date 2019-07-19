@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 // import Republicanlogo from '../images/Republicanlogo.svg'
 
 
@@ -24,8 +24,8 @@ class RepCard extends React.Component {
     return (
       <Card>
         <Image src={this.props.rep.party_logo} wrapped ui={false} />
-        <Card.Content>
 
+        <Card.Content>
           <Card.Header>Rep.
             {this.props.rep.first_name} {this.props.rep.last_name}, {this.props.rep.party}-{this.props.rep.state}
             <h3>District: {this.props.rep.district}</h3>
@@ -41,12 +41,12 @@ class RepCard extends React.Component {
             Missed votes % {this.props.rep.missed_votes_pct}<br/>
             Votes with party % {this.props.rep.votes_with_party_pct}
           </Card.Description>
-
         </Card.Content>
+
         <Card.Content extra>
-          <a>
+          <div>
               <a href={facebook}>Facebook</a>   <a href={twitter}>Twitter</a>   <a href={youtube}>YouTube</a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
-          </a>
+          </div>
         </Card.Content>
       </Card>
     )

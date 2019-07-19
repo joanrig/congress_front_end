@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import SenateCard from './SenatorCard'
 
+
 class Senate extends React.Component {
   state = { senators: []}
 
@@ -16,7 +17,8 @@ class Senate extends React.Component {
       <div>
         <h1>Senate component</h1>
         <Card.Group itemsPerRow={5}>
-          {this.props.senate.map(senator => <SenateCard key={senator.id} senator={senator}/>)}
+          {this.props.senate.map(senator =>
+            <SenateCard key={senator.id} senator={senator}/>)}
         </Card.Group>
       </div>
     )

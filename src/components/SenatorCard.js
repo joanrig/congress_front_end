@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card, Button, Icon, Image } from 'semantic-ui-react'
-import Republicanlogo from '../images/Republicanlogo.svg'
-// import { throws } from 'assert';
+import { Card, Image } from 'semantic-ui-react'
+
+
 
 class SenatorCard extends React.Component {
   constructor(props) {
@@ -11,31 +11,6 @@ class SenatorCard extends React.Component {
         front: true
      }
    }
-
-   // componentDidMount(){
-   //    switch(this.props.senator.party) {
-   //     case "D":
-   //       let logo = "https://upload.wikimedia.org/wikipedia/commons/0/02/DemocraticLogo.svg"
-   //       return logo
-   //     case "R":
-   //       return logo = "https://upload.wikimedia.org/wikipedia/commons/9/9b/Republicanlogo.svg"
-   //     case "I":
-   //       return logo =  "https://www.justthinking.us/sites/default/files/image/Photos/Independence.png"
-   //     default:
-   //       return logo =  "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Seal_of_the_United_States_Senate.svg/1920px-Seal_of_the_United_States_Senate.svg.png"
-   //   }
-   // }
-
-  // toggleSenator = () =>{
-  //   this.setState((prevState)=>{
-  //     return {front: !prevState.front}
-  //   })
-  // }
-  //
-  // frontBack = () =>{
-  //   {this.state.front ? sprites.front : sprites.back}
-  // }
-
 
   render() {
      let facebook = this.props.senator.facebook_account
@@ -49,27 +24,28 @@ class SenatorCard extends React.Component {
     return (
       <Card>
         <Image src={this.props.senator.party_logo} wrapped ui={false} />
+
         <Card.Content>
-          <Card.Header>Sen. {this.props.senator.first_name} {this.props.senator.last_name}, {this.props.senator.party}-{this.props.senator.state}</Card.Header>
+          <Card.Header>
+            Sen. {this.props.senator.first_name} {this.props.senator.last_name}, {this.props.senator.party}-{this.props.senator.state}
+          </Card.Header>
+
           <Card.Meta>
             <span className='seniority'>Years in office: {this.props.senator.seniority} </span><br/>
             <span className='age'>Age: {this.props.senator.age} </span><br/>
             <span className='next-election'>Up for re-election: {this.props.senator.next_election} </span>
           </Card.Meta>
+
           <Card.Description>
             Missed votes % {this.props.senator.missed_votes_pct}<br/>
             Votes with party % {this.props.senator.votes_with_party_pct}
           </Card.Description>
         </Card.Content>
+
         <Card.Content extra>
-          <a>
-            <Icon name='social' />
-              <a href={website}>Website</a>
-              <a href={facebook}><Icon name='facebook'/></a>
-              <a href={twitter}><Icon name='twitter'/></a>
-              <a href={youtube}><Icon name='youtube'/></a>
-              <a href={contact_form}>Contact Form</a>
-          </a>
+          <div>
+            <a href={facebook}>Facebook</a>   <a href={twitter}>Twitter</a>    <a href={youtube}>YouTube</a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
+          </div>
         </Card.Content>
       </Card>
     )

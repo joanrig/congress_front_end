@@ -8,25 +8,36 @@ class Congress extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      senate: [],
+      house: [],
       showSenate: false,
       showHouse: false
     }
   }
 
   handleSenateClick = () => {
+    console.log("handleSenateClick fired")
     this.setState({
-      showSenate: true,
-      showHouse: false
+      house: [],
+      showHouse: false,
+      showSenate: true
     })
   }
 
   handleHouseClick = () => {
     this.setState({
+      senate: [],
+      showSenate: false,
       showHouse: true,
-      showSenate: false
     })
   }
 
+  handleResetClick = () => {
+    this.setState({
+      senate: [],
+      house: [],
+    })
+  }
 
 
 
@@ -39,6 +50,9 @@ class Congress extends React.Component {
         </Button>
         <Button className="house" onClick={this.handleHouseClick}>
           House
+        </Button>
+        <Button className="reset" onClick={this.handleResetlick}>
+          Reset State
         </Button>
         {this.state.showSenate ? <Senate /> : null}
         {this.state.showHouse ? <House /> : null}

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import Republicanlogo from '../images/Republicanlogo.svg'
 // import { throws } from 'assert';
 
@@ -42,6 +42,7 @@ class SenatorCard extends React.Component {
      let twitter = this.props.senator.twitter_account
      let youtube = this.props.senator.you_tube_account
      let website = this.props.senator.website
+     let contact_form = this.props.senator.contact_form
 
 
 //figure out how to serve up logo from locally stored images.
@@ -61,8 +62,12 @@ class SenatorCard extends React.Component {
         </Card.Content>
         <Card.Content extra>
           <a>
-            <Icon name='stats' />
-              <a href={facebook}>Facebook</a>   <a href={twitter}>Twitter</a>   <a href={youtube}>YouTube</a>    <a href={website}>Website</a>
+            <Icon name='social' />
+              <a href={website}>Website</a>
+              <a href={facebook}><Icon name='facebook'/></a>
+              <a href={twitter}><Icon name='twitter'/></a>
+              <a href={youtube}><Icon name='youtube'/></a>
+              <a href={contact_form}>Contact Form</a>
           </a>
         </Card.Content>
       </Card>

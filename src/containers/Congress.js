@@ -3,6 +3,7 @@ import Senate from '../components/Senate'
 import House from '../components/House'
 import { Button } from 'semantic-ui-react'
 
+
 class Congress extends React.Component {
 
   constructor(props) {
@@ -32,12 +33,7 @@ class Congress extends React.Component {
     })
   }
 
-  handleResetClick = () => {
-    this.setState({
-      senate: [],
-      house: [],
-    })
-  }
+
 
 
 
@@ -50,9 +46,6 @@ class Congress extends React.Component {
         </Button>
         <Button className="house" onClick={this.handleHouseClick}>
           House
-        </Button>
-        <Button className="reset" onClick={this.handleResetlick}>
-          Reset State
         </Button>
         {this.state.showSenate ? <Senate /> : null}
         {this.state.showHouse ? <House /> : null}

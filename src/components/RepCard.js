@@ -27,25 +27,26 @@ class RepCard extends React.Component {
 
         <Card.Content>
           <Card.Header>Rep.
-            {this.props.rep.first_name} {this.props.rep.last_name}, {this.props.rep.party}-{this.props.rep.state}
-            <h3>District: {this.props.rep.district}</h3>
+            {this.props.rep.first_name} {this.props.rep.last_name}<br/> {this.props.rep.party}-{this.props.rep.state}<br/>
+            District {this.props.rep.district}
           </Card.Header>
 
-          <Card.Meta>
-            <span className='seniority'>Years in office: {this.props.rep.seniority} </span><br/>
-            <span className='age'>Age: {this.props.rep.age} </span><br/>
-            <span className='next-election'>Up for re-election: {this.props.rep.next_election} </span>
-          </Card.Meta>
-
           <Card.Description>
-            Missed votes % {this.props.rep.missed_votes_pct}<br/>
-            Votes with party % {this.props.rep.votes_with_party_pct}
+            Years in office: {this.props.rep.seniority} <br/>
+            Age: {this.props.rep.age}<br/>
+            Next election: {this.props.rep.next_election}<br/>
+            Missed votes: {this.props.rep.missed_votes_pct}%<br/>
+            Votes party line {this.props.rep.votes_with_party_pct}%
           </Card.Description>
         </Card.Content>
 
         <Card.Content extra>
           <div>
-              <a href={facebook}><Icon name='facebook' /></a>   <a href={twitter}><Icon name='twitter' /></a>   <a href={youtube}><Icon name='youtube' /></a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
+              <a href={facebook}><Icon name='facebook' /></a>
+              <a href={twitter}><Icon name='twitter' /></a>
+              <a href={youtube}><Icon name='youtube' /></a>
+              <a href={contact_form}><Icon name='mail'/></a>
+              <a href={website}>WEBSITE</a>
           </div>
         </Card.Content>
       </Card>

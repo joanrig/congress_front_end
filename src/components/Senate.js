@@ -16,7 +16,7 @@ class Senate extends React.Component {
     return (
       <div>
         <h1>Senate component</h1>
-        <Card.Group itemsPerRow={5}>
+        <Card.Group itemsPerRow={7}>
           {this.props.senate.map(senator =>
             <SenateCard key={senator.id} senator={senator}/>)}
         </Card.Group>

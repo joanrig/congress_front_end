@@ -15,7 +15,7 @@ class House extends React.Component {
     return (
       <div>
         <h1>House component</h1>
-        <Card.Group itemsPerRow={5}>
+        <Card.Group itemsPerRow={7}>
           {this.props.house.map(rep => <RepCard key={rep.id} rep={rep}/>)}
         </Card.Group>
       </div>

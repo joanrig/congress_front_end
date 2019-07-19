@@ -33,6 +33,7 @@ class RepCard extends React.Component {
 
           <Card.Meta>
             <span className='seniority'>Years in office: {this.props.rep.seniority} </span><br/>
+            <span className='age'>Age: {this.props.rep.age} </span><br/>
             <span className='next-election'>Up for re-election: {this.props.rep.next_election} </span>
           </Card.Meta>
 

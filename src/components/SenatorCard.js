@@ -53,6 +53,7 @@ class SenatorCard extends React.Component {
           <Card.Header>Sen. {this.props.senator.first_name} {this.props.senator.last_name}, {this.props.senator.party}-{this.props.senator.state}</Card.Header>
           <Card.Meta>
             <span className='seniority'>Years in office: {this.props.senator.seniority} </span><br/>
+            <span className='age'>Age: {this.props.senator.age} </span><br/>
             <span className='next-election'>Up for re-election: {this.props.senator.next_election} </span>
           </Card.Meta>
           <Card.Description>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import Republicanlogo from '../images/Republicanlogo.svg'
 // import { throws } from 'assert';
 
 class SenatorCard extends React.Component {
@@ -10,6 +11,20 @@ class SenatorCard extends React.Component {
         front: true
      }
    }
+
+   // componentDidMount(){
+   //    switch(this.props.senator.party) {
+   //     case "D":
+   //       let logo = "https://upload.wikimedia.org/wikipedia/commons/0/02/DemocraticLogo.svg"
+   //       return logo
+   //     case "R":
+   //       return logo = "https://upload.wikimedia.org/wikipedia/commons/9/9b/Republicanlogo.svg"
+   //     case "I":
+   //       return logo =  "https://www.justthinking.us/sites/default/files/image/Photos/Independence.png"
+   //     default:
+   //       return logo =  "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Seal_of_the_United_States_Senate.svg/1920px-Seal_of_the_United_States_Senate.svg.png"
+   //   }
+   // }
 
   // toggleSenator = () =>{
   //   this.setState((prevState)=>{
@@ -23,40 +38,33 @@ class SenatorCard extends React.Component {
 
 
   render() {
-     // let URL = `${BASE_PATH}\`${this.props.fieldName}\``
-     const FB_PATH = "https://www.facebook.com/"
-     let fb_account = this.props.senator.facebook_account
-     let fb_page = FB_PATH + fb_account
+     let facebook = this.props.senator.facebook_account
+     let twitter = this.props.senator.twitter_account
+     let youtube = this.props.senator.you_tube_account
+     let website = this.props.senator.website
 
-     const TWITTER_PATH = "https://twitter.com/"
-     let twitter_account = this.props.senator.twitter_account
-     let twitter_page = TWITTER_PATH + twitter_account
 
-     const YOUTUBE_PATH = "https://www.youtube.com/user/"
-     let youtube_account = this.props.senator.you_tube_account
-     let youtube_page = TWITTER_PATH + youtube_account
-
-     
-
+//figure out how to serve up logo from locally stored images.
     return (
       <Card>
-    <Image src='https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Seal_of_the_United_States_Senate.svg/1920px-Seal_of_the_United_States_Senate.svg.png' wrapped ui={false} />
-    <Card.Content>
-      <Card.Header>Sen. {this.props.senator.first_name} {this.props.senator.last_name}, {this.props.senator.party}-{this.props.senator.state}</Card.Header>
-      <Card.Meta>
-        <span className='next-election'>Up for re-election: {this.props.senator.next_election} </span>
-      </Card.Meta>
-      <Card.Description>
-        <a href={fb_page}>Facebook</a>   <a href={twitter_page}>Twitter</a>   <a href={youtube_page}>YouTube</a>
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <a>
-        <Icon name='user' />
-        22 Friends
-      </a>
-    </Card.Content>
-  </Card>
+        <Image src={this.props.senator.party_logo} wrapped ui={false} />
+        <Card.Content>
+          <Card.Header>Sen. {this.props.senator.first_name} {this.props.senator.last_name}, {this.props.senator.party}-{this.props.senator.state}</Card.Header>
+          <Card.Meta>
+            <span className='next-election'>Up for re-election: {this.props.senator.next_election} </span>
+          </Card.Meta>
+          <Card.Description>
+            Missed votes % {this.props.senator.missed_votes_pct}<br/>
+            Votes with party % {this.props.senator.votes_with_party_pct}
+          </Card.Description>
+        </Card.Content>
+        <Card.Content extra>
+          <a>
+            <Icon name='stats' />
+              <a href={facebook}>Facebook</a>   <a href={twitter}>Twitter</a>   <a href={youtube}>YouTube</a>    <a href={website}>Website</a>
+          </a>
+        </Card.Content>
+      </Card>
     )
   }
 }

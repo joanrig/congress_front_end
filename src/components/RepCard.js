@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 // import Republicanlogo from '../images/Republicanlogo.svg'
 
 
@@ -45,7 +45,7 @@ class RepCard extends React.Component {
 
         <Card.Content extra>
           <div>
-              <a href={facebook}>Facebook</a>   <a href={twitter}>Twitter</a>   <a href={youtube}>YouTube</a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
+              <a href={facebook}><Icon name='facebook' /></a>   <a href={twitter}>Twitter</a>   <a href={youtube}>YouTube</a>    <a href={website}>Website</a>    <a href={contact_form}>Contact Form</a>
           </div>
         </Card.Content>
       </Card>

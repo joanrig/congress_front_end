@@ -30,9 +30,3 @@ const mapStateToProps = state => ({senate: state.senate})
 
 
 export default connect(mapStateToProps, {fetchSenate})(Senate)
-
-
-//  <button class="ui button get_senate" role="button">Senate</button>
-  // <button class="ui button get_house" role="button">House</button>
-
-    // {this.props.senate.map(senator => <li>{senator.party}-{senator.state}: {senator.last_name}, {senator.first_name}</li>)}

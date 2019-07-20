@@ -19,7 +19,7 @@ class House extends React.Component {
   }
 
   updateSearch= (event) => {
-    this.setState({search: event.target.value.substr(0, 15)})
+    this.setState({search: event.target.value.substr(0, 100)})
   }
 
   render() {

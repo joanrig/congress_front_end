@@ -20,7 +20,7 @@ class Senate extends React.Component {
   }
 
   updateSearch= (event) => {
-    this.setState({search: event.target.value.substr(0, 15)})
+    this.setState({search: event.target.value.substr(0, 100)})
   }
 
   render() {
@@ -44,6 +44,7 @@ class Senate extends React.Component {
         <br/>
         <br/>
 
+        {filteredSenators.size} senators meet your search requirements<br/>
         <Card.Group itemsPerRow={7}>
           {filteredSenators.map(senator =>
             <SenateCard key={senator.id} senator={senator}/>)}

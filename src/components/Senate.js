@@ -26,8 +26,15 @@ class Senate extends React.Component {
   render() {
     let filteredSenators = this.props.senate.filter(
       (senator) => {
-        let name = senator.last_name.toUpperCase() + senator.first_name.toUpperCase() + senator.state_full_name.toUpperCase()
+        let name = senator.last_name.toUpperCase() + senator.first_name.toUpperCase() + senator.state_full_name.toUpperCase() +
+        senator.gender_search_term.toUpperCase() + senator.party_full_name.toUpperCase()
+
         let input = this.state.search.toUpperCase()
+          if (input === "MALE"){
+            input = "WOMENFALSE"
+          } else if (input === "FEMALE"){
+            input = "WOMENTRUE"
+          }
         //!== -1 means not found?
         return name.indexOf(input) !== -1
       }

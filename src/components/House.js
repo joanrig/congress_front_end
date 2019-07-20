@@ -25,8 +25,14 @@ class House extends React.Component {
   render() {
     let filteredReps = this.props.house.filter(
       (rep) => {
-        let name = rep.last_name.toUpperCase() + rep.first_name.toUpperCase() + rep.state_full_name.toUpperCase()
+        let name = rep.last_name.toUpperCase() + rep.first_name.toUpperCase() + rep.state_full_name.toUpperCase() + rep.gender_search_term.toUpperCase() + rep.party_full_name.toUpperCase()
+
         let input = this.state.search.toUpperCase()
+          if (input === "MALE"){
+            input = "WOMENFALSE"
+          } else if (input === "FEMALE"){
+            input = "WOMENTRUE"
+          }
         //!== -1 means not found?
         return name.indexOf(input) !== -1
       }

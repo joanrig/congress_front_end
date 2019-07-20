@@ -45,7 +45,6 @@ class RepCard extends React.Component {
               <a href={facebook}><Icon name='facebook' /></a>
               <a href={twitter}><Icon name='twitter' /></a>
               <a href={youtube}><Icon name='youtube' /></a>
-              <a href={contact_form}><Icon name='mail'/></a>
               <a href={website}>WEBSITE</a>
           </div>
         </Card.Content>

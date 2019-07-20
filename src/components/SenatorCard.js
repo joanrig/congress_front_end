@@ -17,10 +17,16 @@ class SenatorCard extends React.Component {
      let twitter = this.props.senator.twitter_account
      let youtube = this.props.senator.you_tube_account
      let website = this.props.senator.website
-     let contact_form = this.props.senator.contact_form
 
+     //does not work - trying to show contact form icon/ link only if it exists
+     const contact_form = () => {
+       if (!!this.props.senator.contact_form){
+         return `<a href={this.props.senator.contact_form}><Icon name='mail' /><a>`
+       } else {
+         return null
+       }
+     }
 
-//figure out how to serve up logo from locally stored images.
     return (
       <Card>
         <Image src={this.props.senator.party_logo} wrapped ui={false} />
@@ -46,7 +52,7 @@ class SenatorCard extends React.Component {
             <a href={facebook}><Icon name='facebook' /></a>
             <a href={twitter}><Icon name='twitter' /></a>
             <a href={youtube}><Icon name='youtube' /></a>
-            <a href={contact_form}><Icon name='mail'/></a>
+            {contact_form}
             <a href={website}>WEBSITE</a>
           </div>
         </Card.Content>

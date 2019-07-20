@@ -25,7 +25,7 @@ class House extends React.Component {
   render() {
     let filteredReps = this.props.house.filter(
       (rep) => {
-        let name = rep.last_name.toUpperCase() + rep.first_name.toUpperCase()
+        let name = rep.last_name.toUpperCase() + rep.first_name.toUpperCase() + rep.state_full_name.toUpperCase()
         let input = this.state.search.toUpperCase()
         //!== -1 means not found?
         return name.indexOf(input) !== -1

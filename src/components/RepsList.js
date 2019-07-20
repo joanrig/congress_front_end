@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import RepCard from '../components/RepCard'
 
-class House extends React.Component {
+class RepsList extends React.Component {
   constructor(){
     super()
 
@@ -60,4 +60,4 @@ class House extends React.Component {
 const mapStateToProps = state => ({house: state.house})
 
 
-export default connect(mapStateToProps, {fetchHouse})(House)
+export default connect(mapStateToProps, {fetchHouse})(RepsList)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Senate from './Senate'
-import House from './House'
+import SenatorsList from '../components/SenatorsList'
+import RepsList from '../components/RepsList'
 import { Button } from 'semantic-ui-react'
 
 
@@ -33,10 +33,6 @@ class Congress extends React.Component {
     })
   }
 
-
-
-
-
   render() {
     return (
       <>
@@ -47,8 +43,8 @@ class Congress extends React.Component {
         <Button className="house" onClick={this.handleHouseClick}>
           House
         </Button>
-        {this.state.showSenate ? <Senate /> : null}
-        {this.state.showHouse ? <House /> : null}
+        {this.state.showSenate ? <SenatorsList /> : null}
+        {this.state.showHouse ? <RepsList /> : null}
       </>
     )
   }

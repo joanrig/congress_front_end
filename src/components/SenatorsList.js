@@ -7,7 +7,7 @@ import SenateCard from '../components/SenatorCard'
 import Sort from '../components/Sort'
 
 
-class Senate extends React.Component {
+class SenatorsList extends React.Component {
   constructor() {
     super()
 
@@ -82,4 +82,4 @@ class Senate extends React.Component {
 const mapStateToProps = state => ({senate: state.senate})
 
 
-export default connect(mapStateToProps, {fetchSenate})(Senate)
+export default connect(mapStateToProps, {fetchSenate})(SenatorsList)

@@ -51,7 +51,7 @@ class Senate extends React.Component {
         <br/>
         <br/>
 
-        {filteredSenators.size} senators meet your search requirements<br/>
+        <h2>{filteredSenators.length} senators meet your search requirements</h2><br/>
         <Card.Group itemsPerRow={7}>
           {filteredSenators.map(senator =>
             <SenateCard key={senator.id} senator={senator}/>)}

@@ -48,7 +48,7 @@ class House extends React.Component {
         />
         <br/>
         <br/>
-
+        <h2>{filteredReps.length} representatives meet your search requirements</h2><br/>
         <Card.Group itemsPerRow={7}>
           {filteredReps.map(rep => <RepCard key={rep.id} rep={rep}/>)}
         </Card.Group>

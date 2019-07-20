@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { fetchSenate } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
-import SenateCard from './SenatorCard'
+import SenateCard from '../components/SenatorCard'
 
 
 class Senate extends React.Component {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { fetchHouse } from '../actions/house'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
-import RepCard from './RepCard'
+import RepCard from '../components/RepCard'
 
 class House extends React.Component {
   constructor(){

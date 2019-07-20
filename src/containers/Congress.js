@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Senate from '../components/Senate'
-import House from '../components/House'
+import Senate from './Senate'
+import House from './House'
 import { Button } from 'semantic-ui-react'
 
 

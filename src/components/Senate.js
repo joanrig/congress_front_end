@@ -6,20 +6,32 @@ import SenateCard from './SenatorCard'
 
 
 class Senate extends React.Component {
-  state = { senators: []}
+  constructor() {
+    super()
+
+    this.state = {
+      senators: [],
+      search: 'search'
+    }
+  }
 
   componentDidMount(){
     this.props.fetchSenate()
+  }
+
+  updateSearch= (event) => {
+    this.setState({search: event.target.value.substr(0, 30)})
   }
 
   render() {
     return (
       <div>
         <h1>Senate component</h1>
-        <Card.Group itemsPerRow={7}>
-          {this.props.senate.map(senator =>
-            <SenateCard key={senator.id} senator={senator}/>)}
-        </Card.Group>
+        <input type="text"
+          value={this.state.search}
+          onChange={this.updateSearch}
+        />
+        <h3>this was the card group</h3>
       </div>
     )
   }

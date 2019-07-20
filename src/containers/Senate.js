@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { fetchSenate } from '../actions/senate'
+import { fetchLoyalists } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import SenateCard from '../components/SenatorCard'
@@ -12,7 +13,8 @@ class Senate extends React.Component {
 
     this.state = {
       senators: [],
-      search: ''
+      search: '',
+      sort: ''
     }
   }
 
@@ -24,7 +26,17 @@ class Senate extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-  render() {
+  handleChoice = (event) => {
+    this.setState({sort: event.target.value})
+
+    if (this.state.sort === "loyalists"){
+      let loyalists = this.props.fetchLoyalists()
+      this.setState({ senators: loyalists })
+    }
+  }
+
+
+  render(){
     let filteredSenators = this.props.senate.filter(
       (senator) => {
         let searchTerm = senator.last_name + senator.first_name + senator.state_full_name +
@@ -44,7 +56,7 @@ class Senate extends React.Component {
     return (
       <div>
         <h1>U.S. Senate</h1>
-        < Sort />
+        < Sort handleChoice={this.handleChoice}/>
         <br/>
         <br/>
         ... or search for senators by name, state, party or gender
@@ -65,6 +77,7 @@ class Senate extends React.Component {
     )
   }
 }
+
 
 const mapStateToProps = state => ({senate: state.senate})
 

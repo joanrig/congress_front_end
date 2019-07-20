@@ -11,9 +11,11 @@ export const fetchSenate = () => {
 }
 
 export const fetchLoyalists = () => {
+  console.log("fetchLoyalists fired from actions/senate")
+
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/senate_loyalists')
-      .then(resp => resp.json())
-      .then(senate =>dispatch({type:"LOYALISTS", loyalists} ))
-     };
+    return fetch('http://localhost:3000/search/senate_loyalists')
+    .then(resp => resp.json())
+    .then(loyalists =>dispatch({type:"LOYALISTS", loyalists} ))
+   };
 }

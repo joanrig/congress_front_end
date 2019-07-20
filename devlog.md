@@ -44,4 +44,5 @@ figure out how to display contact_form icon only if contact_form exists
 
 
 ###STRETCH
+* multiple filters in one search https://codepen.io/amwill/pen/OyByPq
 * add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2

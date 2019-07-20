@@ -6,8 +6,9 @@ export default (state = [], action) => {
       return action.senate
 
     case "LOYALISTS":
-      return action.loyalists
-
+      console.log("senate action loyalists fired")
+      // 
+      // return { ...state, senators: [state.senators, action.payload}
 
      default:
         return state;

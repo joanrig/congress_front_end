@@ -3,6 +3,7 @@ import { fetchSenate } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import SenateCard from '../components/SenatorCard'
+import Sort from '../components/Sort'
 
 
 class Senate extends React.Component {
@@ -26,24 +27,28 @@ class Senate extends React.Component {
   render() {
     let filteredSenators = this.props.senate.filter(
       (senator) => {
-        let searchTerm = senator.last_name.toUpperCase() + senator.first_name.toUpperCase() + senator.state_full_name.toUpperCase() +
-        senator.gender_search_term.toUpperCase() + senator.party_full_name.toUpperCase()
+        let searchTerm = senator.last_name + senator.first_name + senator.state_full_name +
+        senator.gender_search_term + senator.party_full_name
 
-        let input = this.state.search.toUpperCase()
-          if (input === "MALE"){
-            input = "WOMENFALSE"
-          } else if (input === "FEMALE"){
-            input = "WOMENTRUE"
+        let input = this.state.search.toLowerCase()
+          if (input === "male"){
+            input = "womenfalse"
+          } else if (input === "female"){
+            input = "womentrue"
           }
         //!== -1 means not found?
-        return searchTerm.indexOf(input) !== -1
+        return searchTerm.toLowerCase().indexOf(input) !== -1
       }
     )
 
     return (
       <div>
         <h1>U.S. Senate</h1>
-        Search for a senators by name, state, party or gender
+        < Sort />
+        <br/>
+        <br/>
+        ... or search for senators by name, state, party or gender
+        (<em>note: type the whole word "male" or "female") to search by gender</em>)
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}

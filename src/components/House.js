@@ -5,22 +5,49 @@ import { Card } from 'semantic-ui-react'
 import RepCard from './RepCard'
 
 class House extends React.Component {
-  state = { reps: []}
+  constructor(){
+    super()
+
+    this.state = {
+      reps: [],
+      search: ''
+    }
+  }
 
   componentDidMount(){
     this.props.fetchHouse()
   }
 
+  updateSearch= (event) => {
+    this.setState({search: event.target.value.substr(0, 15)})
+  }
+
   render() {
+    let filteredReps = this.props.house.filter(
+      (rep) => {
+        let name = rep.last_name.toUpperCase()
+        let input = this.state.search.toUpperCase()
+        //!== -1 means not found?
+        return name.indexOf(input) !== -1
+      }
+    )
+
     return (
       <div>
-        <h1>House component</h1>
+        <h1>U.S. House of Representatives</h1>
+        Search for a representative by last name
+        <input type="text"
+          value={this.state.search}
+          onChange={this.updateSearch}
+        />
+        <br/>
+        <br/>
+
         <Card.Group itemsPerRow={7}>
-          {this.props.house.map(rep => <RepCard key={rep.id} rep={rep}/>)}
+          {filteredReps.map(rep => <RepCard key={rep.id} rep={rep}/>)}
         </Card.Group>
       </div>
     )
-
   }
 }
 

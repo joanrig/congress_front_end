@@ -32,6 +32,7 @@ class Senate extends React.Component {
         return name.indexOf(input) !== -1
       }
     )
+
     return (
       <div>
         <h1>U.S. Senate</h1>
@@ -40,6 +41,9 @@ class Senate extends React.Component {
           value={this.state.search}
           onChange={this.updateSearch}
         />
+        <br/>
+        <br/>
+
         <Card.Group itemsPerRow={7}>
           {filteredSenators.map(senator =>
             <SenateCard key={senator.id} senator={senator}/>)}
@@ -47,7 +51,6 @@ class Senate extends React.Component {
       </div>
     )
   }
-
 }
 
 const mapStateToProps = state => ({senate: state.senate})

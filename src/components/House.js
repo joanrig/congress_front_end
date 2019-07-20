@@ -25,7 +25,7 @@ class House extends React.Component {
   render() {
     let filteredReps = this.props.house.filter(
       (rep) => {
-        let name = rep.last_name.toUpperCase() + rep.first_name.toUpperCase() + rep.state_full_name.toUpperCase() + rep.gender_search_term.toUpperCase() + rep.party_full_name.toUpperCase()
+        let searchTerm = rep.last_name.toUpperCase() + rep.first_name.toUpperCase() + rep.state_full_name.toUpperCase() + rep.gender_search_term.toUpperCase() + rep.party_full_name.toUpperCase()
 
         let input = this.state.search.toUpperCase()
           if (input === "MALE"){
@@ -34,14 +34,14 @@ class House extends React.Component {
             input = "WOMENTRUE"
           }
         //!== -1 means not found?
-        return name.indexOf(input) !== -1
+        return searchTerm.indexOf(input) !== -1
       }
     )
 
     return (
       <div>
         <h1>U.S. House of Representatives</h1>
-        Search for a representative by name
+        Search for representatives by name, state, party or gender
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}

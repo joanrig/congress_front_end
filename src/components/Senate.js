@@ -26,7 +26,7 @@ class Senate extends React.Component {
   render() {
     let filteredSenators = this.props.senate.filter(
       (senator) => {
-        let name = senator.last_name.toUpperCase() + senator.first_name.toUpperCase() + senator.state_full_name.toUpperCase() +
+        let searchTerm = senator.last_name.toUpperCase() + senator.first_name.toUpperCase() + senator.state_full_name.toUpperCase() +
         senator.gender_search_term.toUpperCase() + senator.party_full_name.toUpperCase()
 
         let input = this.state.search.toUpperCase()
@@ -36,14 +36,14 @@ class Senate extends React.Component {
             input = "WOMENTRUE"
           }
         //!== -1 means not found?
-        return name.indexOf(input) !== -1
+        return searchTerm.indexOf(input) !== -1
       }
     )
 
     return (
       <div>
         <h1>U.S. Senate</h1>
-        Search for a senator by name
+        Search for a senators by name, state, party or gender
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}

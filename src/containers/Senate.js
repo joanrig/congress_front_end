@@ -78,8 +78,12 @@ class Senate extends React.Component {
   }
 }
 
+const mapDispatchToProps = dispatch =>{
+  return{
+    fetchSenate: () => dispatch(fetchSenate()),
+  }
+}
 
 const mapStateToProps = state => ({senate: state.senate})
 
-
-export default connect(mapStateToProps, {fetchSenate})(Senate)
+export default connect(mapStateToProps, mapDispatchToProps)(Senate)

@@ -11,7 +11,7 @@ class Senate extends React.Component {
 
     this.state = {
       senators: [],
-      search: 'search'
+      search: ''
     }
   }
 
@@ -20,18 +20,30 @@ class Senate extends React.Component {
   }
 
   updateSearch= (event) => {
-    this.setState({search: event.target.value.substr(0, 30)})
+    this.setState({search: event.target.value.substr(0, 15)})
   }
 
   render() {
+    let filteredSenators = this.props.senate.filter(
+      (senator) => {
+        let name = senator.last_name.toUpperCase()
+        let input = this.state.search.toUpperCase()
+        //!== -1 means not found?
+        return name.indexOf(input) !== -1
+      }
+    )
     return (
       <div>
-        <h1>Senate component</h1>
+        <h1>U.S. Senate</h1>
+        Search for a senator by last name
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}
         />
-        <h3>this was the card group</h3>
+        <Card.Group itemsPerRow={7}>
+          {filteredSenators.map(senator =>
+            <SenateCard key={senator.id} senator={senator}/>)}
+        </Card.Group>
       </div>
     )
   }

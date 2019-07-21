@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/senate'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import SenateCard from './SenatorCard'
 
 
@@ -47,11 +47,13 @@ class SenatorsList extends React.Component {
           United States Senate
         </h1>
         <br/>
-        <button onClick={() => this.props.fetchLoyalists()}>Party Loyalists</button>
-        <button onClick={() => this.props.fetchMavericks()}>Party Mavericks</button>
-        <button onClick={() => this.props.fetchTruants()}>Most Truant</button>
-        <button onClick={() => this.props.fetchBySeniority()}>Longest Serving</button>
-        <button onClick={() => this.props.fetchByAge()}>Oldest</button>
+        <div class='social center'>
+          <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
+          <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
+          <Button size="huge" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
+          <Button size="huge" color="black" onClick={() => this.props.fetchBySeniority()}>Longest Serving</Button>
+          <Button size="huge" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
+        </div>
         <br/>
         <br/>
         ... or search for senators by name, state, party or gender

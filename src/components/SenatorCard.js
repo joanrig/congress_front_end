@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Button, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
+import LikeButton from './LikeButton'
 
 
 class SenatorCard extends React.Component {
@@ -43,7 +44,7 @@ class SenatorCard extends React.Component {
             Missed votes: {this.props.senator.missed_votes_pct}%<br/>
             Votes party line {this.props.senator.votes_with_party_pct}%<br/>
             Favorite: {this.props.senator.favorite}
-            <LikeButton key={this.props.rep.id} rep={this.props.rep}/>
+            <LikeButton key={this.props.senator.id} rep={this.props.rep}/>
 
           </Card.Description>
         </Card.Content>

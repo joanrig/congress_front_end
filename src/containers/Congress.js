@@ -51,8 +51,3 @@ class Congress extends React.Component {
 }
 
 export default Congress
-
-
-//two fetch requests, one to senate, one to house. on each component you have filter -
-//as is - separate fetch request for each data presentation
-//senate and house will have their own state

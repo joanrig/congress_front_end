@@ -59,3 +59,23 @@ export function fetchByAge(){
       .then(age =>dispatch({type:"AGE", age} ))
      };
 }
+
+//does not work
+export function toggleFavorite(favorite) {
+  return (dispatch) =>{
+  return fetch('http://localhost:3000/senators', {
+    method: 'PATCH',
+    Headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+
+    body: JSON.stringify({
+      favorite: favorite })
+    })
+
+    .then(resp => resp.json())
+    .then(favorite => dispatch({type:"TOGGLE_FAVORITE", favorite}))
+    .catch(error => console.error(error))
+  }
+}

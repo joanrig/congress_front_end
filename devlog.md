@@ -1,11 +1,10 @@
 ###to do
 
 ###requirements - todo
-
-## You should be using fetch() within your actions to GET and POST data from your API - do not use jQuery methods.
+use FETCH to POST data to your API - do not use jQuery methods.
 
 ## There should be 5 stateless components
-1. dropdown when you get it working
+1. ??
 2. some presentational component for Congress container
 3. some presentational component for Senate container
 4. some presentational component for House container
@@ -15,19 +14,21 @@ note: you can also remove card front/back to turn Senate and House cards into st
 ## There should be 3 routes
 The Application must make use of react-router and proper RESTful routing
 
+##There should be 2 container components
+1. Congress
+
+
 
 
 
 
 ###requirements - completed
+DONE: You should be using fetch() within your actions to GET data from your api
 
 DONE: The code should be written in ES6 as much as possible
 DONE: Use the create-react-app generator to start your project.
 DONE: Your app should have one HTML page to render your react-redux application
-There should be 2 container components
-1. Congress
-2. Senate
-3. House
+
 
 DONE: Use Redux middleware to respond to and modify state change
 1. added thunk

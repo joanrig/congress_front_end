@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Button, Icon, Image } from 'semantic-ui-react'
 
 
 class SenatorCard extends React.Component {
@@ -41,7 +41,10 @@ class SenatorCard extends React.Component {
             Age: {this.props.senator.age}<br/>
             Next election: {this.props.senator.next_election}<br/>
             Missed votes: {this.props.senator.missed_votes_pct}%<br/>
-            Votes party line {this.props.senator.votes_with_party_pct}%
+            Votes party line {this.props.senator.votes_with_party_pct}%<br/>
+            Favorite: {this.props.senator.favorite}
+            <Icon name="heart"/>
+
           </Card.Description>
         </Card.Content>
 

@@ -44,10 +44,12 @@ class SenatorsList extends React.Component {
       <div>
         <br/>
         <h1 class="ui block header center">
-          United States Senate
+          Who's Who in the U.S. Senate?  Let's sort them out!
         </h1>
         <br/>
-        <div class='social center'>
+
+
+        <div class='senate social center'>
           <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
           <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
           <Button size="huge" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
@@ -55,16 +57,23 @@ class SenatorsList extends React.Component {
           <Button size="huge" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
         </div>
         <br/>
-        <br/>
-        ... or search for senators by name, state, party or gender
+
+
+
+        <h3 class="ui block header center">... or search for senators by name, state, party or gender
         (<em>note: type the whole word "male" or "female") to search by gender</em>)
-        <input type="text"
-          value={this.state.search}
-          onChange={this.updateSearch}
-        />
+          <div class="ui input focus center">
+            <input type="text"
+              value={this.state.search}
+              onChange={this.updateSearch}
+            />
+          </div>
+        </h3>
+
+
         <br/>
-        <br/>
-        <h2 class='center'>{filteredSenators.length} senators meet your search requirements</h2><br/>
+
+        <h2 class='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2><br/>
 
         <Card.Group itemsPerRow={7}>
           {filteredSenators.map(senator =>

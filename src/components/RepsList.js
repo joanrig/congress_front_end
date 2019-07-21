@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/house'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import RepCard from './RepCard'
 
 class RepsList extends React.Component {
@@ -45,24 +45,36 @@ class RepsList extends React.Component {
     return (
       <div>
         <br/>
-        <h1 class="ui block header center">
-          United States House of Representatives
+        <h1 class="ui block header center" color="blue">
+          Who's Who in the U.S. House of Representatives? Let's sort them out!
         </h1>
-        <button class="huge ui button" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</button>
-        <button class="huge ui button" onClick={() => this.props.fetchMavericks()}>Party Mavericks</button>
-        <button class="huge ui button" onClick={() => this.props.fetchTruants()}>Most Truant</button>
-        <button class="huge ui button" onClick={() => this.props.fetchBySeniority()}>Longest Serving</button>
-        <button class="huge ui button" onClick={() => this.props.fetchByAge()}>Oldest</button>
+        <br/>
+
+
+        <div class='senate social center'>
+          <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
+          <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
+          <Button size="huge" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
+          <Button size="huge" color="black" onClick={() => this.props.fetchBySeniority()}>Longest Serving</Button>
+          <Button size="huge" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
+        </div>
         <br/>
         <br/>
-        ... or search for representatives by name, state, party or gender
-        <input type="text"
-          value={this.state.search}
-          onChange={this.updateSearch}
-        />
+
+        <h3 class="ui block header center">... or search for representatives by name, state, party or gender
+        (<em>note: type the whole word "male" or "female") to search by gender</em>)
+          <div class="ui input focus center">
+            <input type="text"
+              value={this.state.search}
+              onChange={this.updateSearch}
+            />
+          </div>
+        </h3>
+
         <br/>
-        <br/>
-        <h2 class='center'>{filteredReps.length} representatives meet your search requirements</h2><br/>
+
+        <h2 class='ui block header center'>{filteredReps.length} representatives meet your search requirements</h2><br/>
+
         <Card.Group itemsPerRow={7}>
           {filteredReps.map(rep => <RepCard key={rep.id} rep={rep}/>)}
         </Card.Group>

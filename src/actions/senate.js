@@ -50,3 +50,12 @@ export function fetchBySeniority(){
       .then(seniority =>dispatch({type:"SENIORITY", seniority} ))
      };
 }
+
+//works
+export function fetchByAge(){
+  return (dispatch) => {
+      return fetch('http://localhost:3000/search/senators_by_age')
+      .then(resp => resp.json())
+      .then(age =>dispatch({type:"AGE", age} ))
+     };
+}

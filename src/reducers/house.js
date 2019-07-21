@@ -17,6 +17,9 @@ export default (state = [], action) => {
     case "SENIORITY":
       return action.seniority
 
+    case "AGE":
+      return action.age
+
      default:
         return state;
     }

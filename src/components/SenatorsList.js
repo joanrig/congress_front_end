@@ -24,17 +24,6 @@ class SenatorsList extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-//dropdown - can't get it to recognize selection
-  handleChoice = (event) => {
-    console.log('dropdown handleChoice fired')
-    if (event.target.value === "loyalists") {
-      this.props.fetchLoyalists()
-    } else if (event.target.value === "mavericks") {
-      this.props.fetchMavericks()
-    }
-
-  }
-
 
   render(){
     let filteredSenators = this.props.senate.filter(
@@ -58,7 +47,6 @@ class SenatorsList extends React.Component {
         <h1>U.S. Senate</h1>
         <button onClick={() => this.props.fetchLoyalists()}>Loyalists</button>
         <button onClick={() => this.props.fetchMavericks()}>Mavericks</button>
-        <Sort handleChoice={this.handleChoice}/>
         <br/>
         <br/>
         ... or search for senators by name, state, party or gender

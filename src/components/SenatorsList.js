@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { fetchSenate } from '../actions/senate'
-import { fetchLoyalists } from '../actions/senate'
+import { fetchSenate, fetchLoyalists } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import SenateCard from '../components/SenatorCard'
@@ -26,7 +25,7 @@ class SenatorsList extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-//dropdown - can't get it to recognize click
+//dropdown - can't get it to recognize selection
   handleChoice = (event) => {
     console.log('handleChoice called')
     this.setState({sort: event.target.value})
@@ -35,13 +34,6 @@ class SenatorsList extends React.Component {
       let loyalists = this.props.fetchLoyalists()
       this.setState({ senators: loyalists })
     }
-  }
-
-//loyalists button
-  handleClick = (event) => {
-    console.log('loyalists button was clicked')
-    console.log('this.props', this.props)
-    this.props.fetchLoyalists()
   }
 
 
@@ -65,7 +57,7 @@ class SenatorsList extends React.Component {
     return (
       <div>
         <h1>U.S. Senate</h1>
-        <button onClick={this.handleClick}>Loyalists</button>
+        <button onClick={() => this.props.fetchLoyalists()}>Loyalists</button>
         <Sort handleChoice={this.handleChoice}/>
         <br/>
         <br/>
@@ -90,6 +82,5 @@ class SenatorsList extends React.Component {
 
 
 const mapStateToProps = state => ({senate: state.senate})
-
 
 export default connect(mapStateToProps, {fetchSenate, fetchLoyalists})(SenatorsList)

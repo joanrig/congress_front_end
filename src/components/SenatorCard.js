@@ -36,7 +36,6 @@ class SenatorCard extends React.Component {
             {this.props.senator.party}-{this.props.senator.state}
           </Card.Header>
 
-
           <Card.Description>
             Years in office: {this.props.senator.seniority} <br/>
             Age: {this.props.senator.age}<br/>
@@ -51,7 +50,6 @@ class SenatorCard extends React.Component {
             <a href={facebook}><Icon name='facebook' /></a>
             <a href={twitter}><Icon name='twitter' /></a>
             <a href={youtube}><Icon name='youtube' /></a>
-            {contact_form}
             <a href={website}>WEBSITE</a>
           </div>
         </Card.Content>

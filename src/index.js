@@ -6,12 +6,16 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk';
+import logger from 'redux-logger'
+import thunk from 'redux-thunk'
 import rootReducer from './reducers/index'
+
+const middleware = [logger, thunk]
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
-let store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
+let store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middleware)))
 
 
  ReactDOM.render(

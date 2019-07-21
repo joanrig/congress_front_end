@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-import { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/senate'
+import { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '.../actions/senate'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
-import SenateCard from '../components/SenatorCard'
-import Sort from '../components/Sort'
+import SenateCard from './senate/SenatorCard'
 
 
 class SenatorsList extends React.Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SenatorsList from '../components/SenatorsList'
+import SenatorsList from '../components/senate/SenatorsList'
 import RepsList from '../components/RepsList'
 import { Button } from 'semantic-ui-react'
 

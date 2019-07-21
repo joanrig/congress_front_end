@@ -4,15 +4,12 @@
 use FETCH to POST data to your API - do not use jQuery methods.
 
 ## There should be 5 stateless components
-1. Sort
+1. Home - homepage
 2. some presentational component for Congress container
 3. some presentational component for Senate container
 4. some presentational component for House container
 5. ??
 note: you can also remove card front/back to turn Senate and House cards into stateless components
-
-## There should be 3 routes
-The Application must make use of react-router and proper RESTful routing
 
 ##There should be 2 container components
 1. Congress
@@ -24,6 +21,7 @@ The Application must make use of react-router and proper RESTful routing
 
 
 ###requirements - completed
+The Application must make use of react-router and proper RESTful routing
 DONE: You should be using fetch() within your actions to GET data from your api
 DONE: The code should be written in ES6 as much as possible
 DONE: Use the create-react-app generator to start your project.

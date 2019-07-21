@@ -43,7 +43,7 @@ class SenatorCard extends React.Component {
             Missed votes: {this.props.senator.missed_votes_pct}%<br/>
             Votes party line {this.props.senator.votes_with_party_pct}%<br/>
             Favorite: {this.props.senator.favorite}
-            <Icon name="heart"/>
+            <LikeButton key={this.props.rep.id} rep={this.props.rep}/>
 
           </Card.Description>
         </Card.Content>

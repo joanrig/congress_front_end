@@ -27,6 +27,12 @@
   text-align:center
 }
 
+.inline-image {
+  float: left;
+}
+
+
+
 
 
 @keyframes App-logo-spin {

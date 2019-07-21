@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/senate'
 import { connect } from 'react-redux'
-import { Card, Button } from 'semantic-ui-react'
+import { Container, Card, Button } from 'semantic-ui-react'
 import SenateCard from './SenatorCard'
 
 
@@ -41,7 +41,7 @@ class SenatorsList extends React.Component {
     )
 
     return (
-      <div>
+      <Container>
         <br/>
         <h1 class="ui block header center">
           Who's Who in the U.S. Senate?  Let's sort them out!
@@ -70,16 +70,13 @@ class SenatorsList extends React.Component {
           </div>
         </h3>
 
-
-        <br/>
-
         <h2 class='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2><br/>
 
         <Card.Group itemsPerRow={7}>
           {filteredSenators.map(senator =>
             <SenateCard key={senator.id} senator={senator}/>)}
         </Card.Group>
-      </div>
+      </Container>
     )
   }
 }

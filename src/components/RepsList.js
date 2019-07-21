@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/house'
 import { connect } from 'react-redux'
-import { Card, Button } from 'semantic-ui-react'
+import { Container, Card, Button } from 'semantic-ui-react'
 import RepCard from './RepCard'
 
 class RepsList extends React.Component {
@@ -43,7 +43,7 @@ class RepsList extends React.Component {
     )
 
     return (
-      <div>
+      <Container>
         <br/>
         <h1 class="ui block header center" color="blue">
           Who's Who in the U.S. House of Representatives? Let's sort them out!
@@ -70,15 +70,12 @@ class RepsList extends React.Component {
             />
           </div>
         </h3>
-
-        <br/>
-
         <h2 class='ui block header center'>{filteredReps.length} representatives meet your search requirements</h2><br/>
 
         <Card.Group itemsPerRow={7}>
           {filteredReps.map(rep => <RepCard key={rep.id} rep={rep}/>)}
         </Card.Group>
-      </div>
+      </Container>
     )
   }
 }

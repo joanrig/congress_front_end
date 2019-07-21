@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchHouse } from '../actions/house'
+import { fetchHouse, fetchLoyalists, fetchMavericks } from '../actions/house'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import RepCard from '../components/RepCard'
@@ -25,7 +25,11 @@ class RepsList extends React.Component {
   render() {
     let filteredReps = this.props.house.filter(
       (rep) => {
-        let searchTerm = rep.last_name + rep.first_name + rep.state_full_name + rep.gender_search_term + rep.party_full_name
+        let searchTerm = rep.last_name +
+        rep.first_name +
+        rep.state_full_name +
+        rep.gender_search_term +
+        rep.party_full_name
 
         let input = this.state.search.toLowerCase()
           if (input === "male"){
@@ -41,6 +45,8 @@ class RepsList extends React.Component {
     return (
       <div>
         <h1>U.S. House of Representatives</h1>
+        <button onClick={() => this.props.fetchLoyalists()}>Loyalists</button>
+        <button onClick={() => this.props.fetchMavericks()}>Mavericks</button>
         Search for representatives by name, state, party or gender
         <input type="text"
           value={this.state.search}
@@ -60,4 +66,4 @@ class RepsList extends React.Component {
 const mapStateToProps = state => ({house: state.house})
 
 
-export default connect(mapStateToProps, {fetchHouse})(RepsList)
+export default connect(mapStateToProps, {fetchHouse, fetchLoyalists, fetchMavericks})(RepsList)

@@ -1,5 +1,6 @@
-import senate from "../reducers/senate";
-import loyalists from "../reducers/senate"
+import senate from '../reducers/senate'
+import loyalists from '../reducers/senate'
+import mavericks from '../reducers/senate'
 
 
 // async action
@@ -13,11 +14,17 @@ export function fetchSenate(){
 }
 
 export function fetchLoyalists(){
-  console.log('fetchLoyalists fired from senate actions')
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senate_loyalists')
       .then(resp => resp.json())
       .then(loyalists =>dispatch({type:"LOYALISTS", loyalists} ))
      };
-    console.log('in senate actions fetchLoyalists, loyalists is', loyalists)
+}
+
+export function fetchMavericks(){
+  return (dispatch) => {
+      return fetch('http://localhost:3000/search/senate_mavericks')
+      .then(resp => resp.json())
+      .then(mavericks =>dispatch({type:"MAVERICKS", mavericks} ))
+     };
 }

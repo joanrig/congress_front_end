@@ -5,7 +5,7 @@ use FETCH to POST data to your API - do not use jQuery methods.
 
 ## There should be 5 stateless components
 1. NavBar
-2. HomePage
+2. Home
 3. About
 4. some presentational component for House container
 5. ??

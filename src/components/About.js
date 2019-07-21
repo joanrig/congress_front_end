@@ -15,11 +15,7 @@ const About = () => {
       <br/>
       <br/>
       <p>
-        I grew up with School House Rock, which made it fun to learn about the workings of Congress. In that spirit, I'm hoping this app to makes it fun to learn about who's who in Congress (however frightening some of their policies may be!)
-      </p>
-
-      <p>
-        In addition to look up your own representatives and sorting them by party and gender you can also sort them by fun facts, like how often they show up to vote and how often they vote the party line.
+        I grew up with School House Rock, which made it fun to learn about the workings of Congress. In that spirit, I'm hoping this app to makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to looking up your own representatives and sorting them by party and gender you can also sort them by fun facts, like how often they show up to vote and how often they vote the party line.
       </p>
 
       <h3>Under the Hood</h3>

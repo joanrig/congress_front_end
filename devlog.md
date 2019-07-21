@@ -6,7 +6,7 @@ use FETCH to POST data to your API - do not use jQuery methods.
 ## There should be 5 stateless components
 1. NavBar
 2. HomePage
-3. some presentational component for Senate container
+3. About
 4. some presentational component for House container
 5. ??
 note: you can also remove card front/back to turn Senate and House cards into stateless components

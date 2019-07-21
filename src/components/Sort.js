@@ -1,6 +1,8 @@
 import React from 'react'
 import { Dropdown } from 'semantic-ui-react'
 
+
+
 const options = [
   { key: 'loyalists', text: 'most likely to vote the party line', value: 'loyalists' },
   { key: 'mavericks', text: 'least likely to vote the party line', value: 'mavericks' },

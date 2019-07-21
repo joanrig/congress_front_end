@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
 
-
 class SenatorCard extends React.Component {
   constructor(props) {
     super(props)

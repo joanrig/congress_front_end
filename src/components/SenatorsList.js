@@ -26,13 +26,22 @@ class SenatorsList extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
+//dropdown - can't get it to recognize click
   handleChoice = (event) => {
+    console.log('handleChoice called')
     this.setState({sort: event.target.value})
 
     if (this.state.sort === "loyalists"){
       let loyalists = this.props.fetchLoyalists()
       this.setState({ senators: loyalists })
     }
+  }
+
+//loyalists button
+  handleClick = (event) => {
+    console.log('loyalists button was clicked')
+    console.log('this.props', this.props)
+    this.props.fetchLoyalists()
   }
 
 
@@ -56,7 +65,8 @@ class SenatorsList extends React.Component {
     return (
       <div>
         <h1>U.S. Senate</h1>
-        < Sort handleChoice={this.handleChoice}/>
+        <button onClick={this.handleClick}>Loyalists</button>
+        <Sort handleChoice={this.handleChoice}/>
         <br/>
         <br/>
         ... or search for senators by name, state, party or gender
@@ -82,4 +92,4 @@ class SenatorsList extends React.Component {
 const mapStateToProps = state => ({senate: state.senate})
 
 
-export default connect(mapStateToProps, {fetchSenate})(SenatorsList)
+export default connect(mapStateToProps, {fetchSenate, fetchLoyalists})(SenatorsList)

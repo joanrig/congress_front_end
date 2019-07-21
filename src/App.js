@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Congress from './containers/Congress'
-import SenatorsList from './components/senate/SenatorsList'
+import SenatorsList from './components/SenatorsList'
 import RepsList from './components/RepsList'
 import NavBar from './components/NavBar'
 import Home from './components/Home'

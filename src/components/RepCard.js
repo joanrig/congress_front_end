@@ -1,7 +1,5 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
-// import Republicanlogo from '../images/Republicanlogo.svg'
-
 
 class RepCard extends React.Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/house'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
-import RepCard from '../components/RepCard'
+import RepCard from './RepCard'
 
 class RepsList extends React.Component {
   constructor(){
@@ -69,6 +69,5 @@ class RepsList extends React.Component {
 }
 
 const mapStateToProps = state => ({house: state.house})
-
 
 export default connect(mapStateToProps, {fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge})(RepsList)

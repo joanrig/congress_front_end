@@ -18,10 +18,12 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 let store = createStore(rootReducer, composeEnhancers(applyMiddleware(...middleware)))
 
 
+
+
  ReactDOM.render(
-<Provider store = {store}>
-    <App />
-</Provider>
+  <Provider store = {store}>
+      <App />
+  </Provider>
 , document.getElementById('root'))
 
 // If you want your app to work offline and load faster, you can change

@@ -42,7 +42,11 @@ class SenatorsList extends React.Component {
 
     return (
       <div>
-        <h1>U.S. Senate</h1>
+        <br/>
+        <h1 class="ui block header center">
+          United States Senate
+        </h1>
+        <br/>
         <button onClick={() => this.props.fetchLoyalists()}>Party Loyalists</button>
         <button onClick={() => this.props.fetchMavericks()}>Party Mavericks</button>
         <button onClick={() => this.props.fetchTruants()}>Most Truant</button>
@@ -58,7 +62,7 @@ class SenatorsList extends React.Component {
         />
         <br/>
         <br/>
-        <h2>{filteredSenators.length} senators meet your search requirements</h2><br/>
+        <h2 class='center'>{filteredSenators.length} senators meet your search requirements</h2><br/>
 
         <Card.Group itemsPerRow={7}>
           {filteredSenators.map(senator =>

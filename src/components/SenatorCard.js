@@ -18,14 +18,6 @@ class SenatorCard extends React.Component {
      let youtube = this.props.senator.you_tube_account
      let website = this.props.senator.website
 
-     //does not work - trying to show contact form icon/ link only if it exists
-     const contact_form = () => {
-       if (!!this.props.senator.contact_form){
-         return `<a href={this.props.senator.contact_form}><Icon name='mail' /><a>`
-       } else {
-         return null
-       }
-     }
 
     return (
       <Card>

@@ -4,7 +4,7 @@
 use FETCH to POST data to your API - do not use jQuery methods.
 
 ## There should be 5 stateless components
-1. ??
+1. Sort
 2. some presentational component for Congress container
 3. some presentational component for Senate container
 4. some presentational component for House container

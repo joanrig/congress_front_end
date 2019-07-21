@@ -3,7 +3,6 @@ import SenatorsList from '../components/SenatorsList'
 import RepsList from '../components/RepsList'
 import { Button } from 'semantic-ui-react'
 
-
 class Congress extends React.Component {
 
   constructor(props) {

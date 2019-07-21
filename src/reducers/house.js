@@ -2,7 +2,6 @@
 export default (state = [], action) => {
     switch(action.type){
 
-
     case "SET_HOUSE":
         return action.house
 
@@ -11,6 +10,12 @@ export default (state = [], action) => {
 
     case "MAVERICKS":
       return action.mavericks
+
+    case "TRUANTS":
+      return action.truants
+
+    case "SENIORITY":
+      return action.seniority
 
      default:
         return state;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchHouse, fetchLoyalists, fetchMavericks } from '../actions/house'
+import { fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority } from '../actions/house'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import RepCard from '../components/RepCard'
@@ -47,7 +47,13 @@ class RepsList extends React.Component {
         <h1>U.S. House of Representatives</h1>
         <button onClick={() => this.props.fetchLoyalists()}>Loyalists</button>
         <button onClick={() => this.props.fetchMavericks()}>Mavericks</button>
-        Search for representatives by name, state, party or gender
+        <button onClick={() => this.props.fetchTruants()}>Truants</button>
+        <br/>
+        <button onClick={() => this.props.fetchBySeniority()}>Seniority</button>
+        <br/>
+        <br/>
+        <br/>
+        ... or search for representatives by name, state, party or gender
         <input type="text"
           value={this.state.search}
           onChange={this.updateSearch}
@@ -66,4 +72,4 @@ class RepsList extends React.Component {
 const mapStateToProps = state => ({house: state.house})
 
 
-export default connect(mapStateToProps, {fetchHouse, fetchLoyalists, fetchMavericks})(RepsList)
+export default connect(mapStateToProps, {fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority})(RepsList)

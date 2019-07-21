@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { fetchSenate, fetchLoyalists, fetchMavericks } from '../actions/senate'
+import { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import SenateCard from '../components/SenatorCard'
@@ -47,6 +47,9 @@ class SenatorsList extends React.Component {
         <h1>U.S. Senate</h1>
         <button onClick={() => this.props.fetchLoyalists()}>Loyalists</button>
         <button onClick={() => this.props.fetchMavericks()}>Mavericks</button>
+        <button onClick={() => this.props.fetchTruants()}>Truants</button>
+        <br/>
+        <button onClick={() => this.props.fetchBySeniority()}>Seniority</button>
         <br/>
         <br/>
         ... or search for senators by name, state, party or gender
@@ -71,4 +74,4 @@ class SenatorsList extends React.Component {
 
 const mapStateToProps = state => ({senate: state.senate})
 
-export default connect(mapStateToProps, { fetchSenate, fetchLoyalists, fetchMavericks })(SenatorsList)
+export default connect(mapStateToProps, { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority })(SenatorsList)

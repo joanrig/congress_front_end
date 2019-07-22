@@ -24,8 +24,8 @@ class RepCard extends React.Component {
         <Image src={this.props.rep.party_logo} wrapped ui={false} />
 
         <Card.Content>
-          <Card.Header>Rep.
-            {this.props.rep.first_name} {this.props.rep.last_name}<br/> {this.props.rep.party}-{this.props.rep.state}<br/>
+          <Card.Header>
+            Rep. {this.props.rep.first_name} {this.props.rep.last_name}<br/> {this.props.rep.party}-{this.props.rep.state}<br/>
             District {this.props.rep.district}
           </Card.Header>
 

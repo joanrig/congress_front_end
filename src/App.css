@@ -23,6 +23,12 @@
   color: #61dafb;
 }
 
+.NavBar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
 .center {
   text-align:center
 }

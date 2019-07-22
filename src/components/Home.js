@@ -8,9 +8,11 @@ const Home = () => {
   return (
     <Container>
       <h1 class="ui block header center">
+        Who's Who in Congress?
         The 116th U.S. Congress Flashcards
       </h1>
       <br/>
+      <h3 class="center">powered by data from ProPublica</h3>
       <h4 class="ui block header center">
         Who represents you? Who's served the longest? Who's the oldest? Most truant? Most Maverick? How many are women? Click the buttons above to find out!
       </h4>

@@ -1,23 +1,26 @@
 import React from 'react';
-import { Container, Image } from 'semantic-ui-react'
+import { Container, Segment, Image } from 'semantic-ui-react'
 
 
 const About = () => {
   return (
-    <div>
-      <Container>
+
+    <Container>
+      <Segment>
         <br/>
         <h1 class="ui block header">
           About
         </h1>
         <br/>
-        <Image class="inline-image" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/justabill-1445706901.jpg?resize=*:2637"/>
+        <div>
+          <Image src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/justabill-1445706901.jpg?resize=*:2637" floated="left"/>
+        </div>
         <br/>
         <p>
-          I grew up with School House Rock, which made it fun to learn about the workings of Congress. In that spirit, I'm hoping this app to makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to looking up your own representatives and sorting them by party and gender you can also sort them by fun facts, like how often they show up to vote and how often they vote the party line.
+          I grew up with School House Rock, which made it fun to learn about the workings of Congress. So I'm hoping this app makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to looking up your own representatives and sorting them by party and gender you can also sort them by fun facts, like how often they show up to vote and how often they vote the party line.
         </p>
 
-        <h3>Under the Hood</h3>
+        <h1>Under the Hood</h1>
         <p>
           This app is built with a Ruby on Rails API and a Postgres database on the back end; and with React and Redux on the front end. It is written in JavaScript ES6.  I developed this app for my final portfolio project at the <a href="https://flatironschool.com/">Flatiron School</a>, where I am just about to graduate from the full-time, online, structured engineering immersion course.
         </p>
@@ -30,9 +33,9 @@ const About = () => {
           Here is the repo for the project's <a href="https://github.com/joanrig/congress_front_end">Front End</a> and <a href="https://github.com/joanrig/congress_api">Back End</a>
         </p>
 
-        <h3>Thanks to Propublica!</h3>
+        <h1>Thanks to Propublica!</h1>
         <p>
-          I couldn't have made this app without the data from ProPublica, which is used as the data source for many sites, including Nate Silver's election analysis website<a href="https://fivethirtyeight.com/">FiveThirtyEight</a>. Remember him? He predicted the election of Donald Trump.
+          I couldn't have made this app without the data from ProPublica, which is used as the data source for many sites, including Nate Silver's election analysis website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.  Remember him? He predicted the election of Donald Trump.
         </p>
 
         <p>
@@ -45,7 +48,7 @@ const About = () => {
 
         <h1>Hire me!</h1>
         <p>
-          About me: I'm a <a href="http://joanrigdon.com/">formal journalist</a> (Wall Street Journal, Red Herring, ForbesWoman and others); I once spent two years cycling around the world <a href="http://online.wsj.com/public/resources/documents/info-wsj10forgotten.html">(and wrote about it for The Wall Street Journal Online)</a>; and I spent the last 10 years building and running my own afterschool STEM company, where fabulous instructors teach elementary school kids robotics and programming (and other fun things like Storybook Science!).
+          About me: My name is Joan Indiana Lyness. I'm a <a href="http://joanrigdon.com/">formal journalist</a> (writing under the name Joan Indiana Rigdon for The Wall Street Journal, Red Herring, ForbesWoman and others). During that time I spent two years cycling around the world <a href="http://online.wsj.com/public/resources/documents/info-wsj10forgotten.html">(and wrote about it for The Wall Street Journal Online)</a>. As for the last 10 years? I spent most of them building and running my own afterschool STEM company, where fabulous instructors teach elementary school kids robotics and programming (and other fun things like Storybook Science!). I live near Washington D.C.
         </p>
 
         <p>
@@ -54,8 +57,8 @@ const About = () => {
         <br/>
         <br/>
         <br/>
-      </Container>
-    </div>
+      </Segment>
+    </Container>
 
   )
 }

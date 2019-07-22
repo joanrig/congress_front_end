@@ -15,10 +15,6 @@ class SenatorsList extends React.Component {
     }
   }
 
-  componentDidMount(){
-    this.props.fetchSenate()
-  }
-
   updateSearch= (event) => {
     this.setState({search: event.target.value.substr(0, 100)})
   }
@@ -57,7 +53,6 @@ class SenatorsList extends React.Component {
           <Button size="huge" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
         </div>
         <br/>
-
 
 
         <h3 class="ui block header center">... or search for senators by name, state, party or gender

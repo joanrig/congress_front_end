@@ -7,38 +7,29 @@ const About = () => {
 
     <Container>
       <Segment>
-        <br/>
         <h1 class="ui block header">
           About
         </h1>
-        <br/>
         <div>
           <Image src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/justabill-1445706901.jpg?resize=*:2637" floated="left"/>
         </div>
         <br/>
         <p>
-          I grew up with School House Rock, which made it fun to learn about the workings of Congress. So I'm hoping this app makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to looking up your own representatives and sorting them by party and gender you can also sort them by fun facts, like how often they show up to vote and how often they vote the party line.
+          I grew up with <a href="https://www.youtube.com/watch?v=tyeJ55o3El0">School House Rock</a>, which made it fun to learn about the workings of Congress. So I'm hoping this app makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to looking up your own representatives and sorting them by party and gender you can also sort them by fun facts, like how often they show up to vote and how often they vote the party line.
         </p>
 
-        <h1>Under the Hood</h1>
+        <h3>Under the Hood</h3>
         <p>
           This app is built with a Ruby on Rails API and a Postgres database on the back end; and with React and Redux on the front end. It is written in JavaScript ES6.  I developed this app for my final portfolio project at the <a href="https://flatironschool.com/">Flatiron School</a>, where I am just about to graduate from the full-time, online, structured engineering immersion course.
         </p>
 
         <p>
-          The front-end was created with the create-react-app generator. It is a Single Page Application, which means that its one page is dyamically re-rendered to show different information as you click on buttons. But it <em> seems </em> to have more than one page because it uses React routing to change the address in the address bar as you shift between the nav buttons.
+          The front-end was created with the create-react-app generator. It is a Single Page Application, which means that its one page is dyamically re-rendered to show different information as you click on buttons. But it <em> seems </em> to have more than one page because it uses React routing to change the address in the address bar as you shift between the nav buttons. Here is the repo for the project's <a href="https://github.com/joanrig/congress_front_end">Front End</a> and <a href="https://github.com/joanrig/congress_api">Back End</a>
         </p>
 
-        <p>
-          Here is the repo for the project's <a href="https://github.com/joanrig/congress_front_end">Front End</a> and <a href="https://github.com/joanrig/congress_api">Back End</a>
-        </p>
-
-        <h1>Thanks to Propublica!</h1>
+        <h3>Thanks to Propublica!</h3>
         <p>
           I couldn't have made this app without the data from ProPublica, which is used as the data source for many sites, including Nate Silver's election analysis website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.  Remember him? He predicted the election of Donald Trump.
-        </p>
-
-        <p>
           In case you're curious, this app is based mainly on this <a href="https://www.propublica.org/datastore/api/propublica-congress-api">API</a>. Thank you to the good folks at Propublica for maintaining this API, and to the good folks at The New York Times, <a href="https://open.blogs.nytimes.com/2009/01/08/introducing-the-congress-api">who actually started this API in 2009</a>.
         </p>
 
@@ -48,7 +39,7 @@ const About = () => {
 
         <h1>Hire me!</h1>
         <p>
-          About me: My name is Joan Indiana Lyness. I'm a <a href="http://joanrigdon.com/">formal journalist</a> (writing under the name Joan Indiana Rigdon for The Wall Street Journal, Red Herring, ForbesWoman and others). During that time I spent two years cycling around the world <a href="http://online.wsj.com/public/resources/documents/info-wsj10forgotten.html">(and wrote about it for The Wall Street Journal Online)</a>. As for the last 10 years? I spent most of them building and running my own afterschool STEM company, where fabulous instructors teach elementary school kids robotics and programming (and other fun things like Storybook Science!). I live near Washington D.C.
+          About me: My name is Joan Indiana Lyness. I'm a <a href="http://joanrigdon.com/">formal journalist</a> (wrote under the name Joan Indiana Rigdon for The Wall Street Journal, Red Herring, ForbesWoman and others). During that time I spent two years cycling around the world <a href="http://online.wsj.com/public/resources/documents/info-wsj10forgotten.html">(and wrote about it for The Wall Street Journal Online)</a>. As for the last 10 years? I spent most of them building and running my own afterschool STEM company, where fabulous instructors teach elementary school kids robotics and programming (and other fun things like Storybook Science!). I live near Washington D.C.
         </p>
 
         <p>

@@ -7,11 +7,11 @@ const About = () => {
 
     <Container>
       <Segment>
-        <h1 class="ui block header">
+        <h1 class="ui block header center">
           About
         </h1>
         <div>
-          <Image src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/justabill-1445706901.jpg?resize=*:2637" floated="left"/>
+          <Image src="https://vignette.wikia.nocookie.net/p__/images/f/f3/Bill_schoolhouse_rock.png/revision/latest?cb=20161029171330&path-prefix=protagonist" floated="left"/>
         </div>
         <br/>
         <p>

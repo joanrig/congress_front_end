@@ -11,26 +11,21 @@ class SortButtons extends React.Component {
 
   render (){
     return (
+      <>
+        <h1 class="ui block header center">
+          Who's Who in the U.S. Senate?  Let's sort them out!
+        </h1>
         <div class='social center'>
           <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
           <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
           <Button size="huge" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
           <Button size="huge" color="black" onClick={() => this.props.fetchBySeniority()}>Longest Serving</Button>
           <Button size="huge" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
-        </div>    
+        </div>
+      </>
     )
   }
 }
 
-
-
-// const mapDispatchToProps = dispatch => ({
-//   fetchSenate: () => dispatch({ type: 'FETCH_SENATE', senate }),
-//   fetchLoyalists: () => dispatch({ type: 'LOYALISTS', loyalists}),
-//   fetchMavericks: () => dispatch({ type: 'MAVERICKS', mavericks }),
-//   fetchTruants: () => dispatch({ type: 'TRUANTS', truants}),
-//   fetchBySeniority: () => dispatch({ type: 'SENIORITY', seniority}),
-//   fetchByAge: () => dispatch({ type: 'AGE', age})
-// })
 
 export default connect(null, { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge })(SortButtons)

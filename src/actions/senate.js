@@ -1,3 +1,4 @@
+//reducers/senate.js
 import senate from '../reducers/senate'
 import loyalists from '../reducers/senate'
 import mavericks from '../reducers/senate'
@@ -7,7 +8,6 @@ import seniority from '../reducers/senate'
 
 // async action
 export function fetchSenate(){
-  //return async function (dispatch){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senators')
       .then(resp => resp.json())

@@ -1,11 +1,11 @@
 
+          //why is this not return { ...state, senate}
 
-
+// reducers/senate
 export default (state = [], action) => {
     switch(action.type){
 
     case "SET_SENATE":
-      //why is this not return { ...state, senate}
       return action.senate
 
     case "LOYALISTS":

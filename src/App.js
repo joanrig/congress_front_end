@@ -20,7 +20,6 @@ function App() {
           <Route exact path='/senate' component={SenateContainer}/>
           <Route exact path='/house' component={RepsList} />
           <Route exact path='/about' component={About} />
-
         </div>
       </Router>
     </>

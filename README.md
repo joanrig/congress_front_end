@@ -16,7 +16,16 @@ Future versions of this app will include information on who belongs to what comm
 I hope you can use this free app to learn more about Congress.
 
 
+
 ## Blog Posts
+1. Rails API Project Part 1: Using Postman to check out APIs
+https://medium.com/@joanrigdon/hey-mr-postman-f30b9662a786
+
+2. Rails API Project Part 2: Seeding your database from an external API
+https://medium.com/@joanrigdon/rails-api-project-part-2-the-art-of-seeding-256a21747ab7
+
+3. Rails API Project Part 3: Adding a React-Redux front-end
+https://medium.com/@joanrigdon/rails-api-project-part-3-adding-a-front-end-with-react-redux-be6ad25865d6
 
 
 

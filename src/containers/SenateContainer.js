@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSenate } from '../actions/senate'
-import { Container, Card, Button } from 'semantic-ui-react'
-import SenateCard from '../components/SenatorCard'
-import SortButtons from '../components/SortButtons'
+import { Container } from 'semantic-ui-react'
+import SenateSorter from '../components/SenateSorter'
 import SenateSearchBar from '../components/SenateSearchBar'
 
 
@@ -25,7 +24,7 @@ class SenateContainer extends React.Component {
       <Container>
         <br/>
         <br/>
-        <SortButtons/>
+        <SenateSorter/>
         <br/>
         <SenateSearchBar/>
       </Container>

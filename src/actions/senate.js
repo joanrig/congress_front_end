@@ -1,9 +1,3 @@
-//reducers/senate.js
-import senate from '../reducers/senate'
-import loyalists from '../reducers/senate'
-import mavericks from '../reducers/senate'
-import truants from '../reducers/senate'
-import seniority from '../reducers/senate'
 
 
 // async action

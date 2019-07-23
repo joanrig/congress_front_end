@@ -3,7 +3,7 @@ import { Card, Icon, Image } from 'semantic-ui-react'
 
 
 
-class SenatorCard extends React.Component {
+class SenateCard extends React.Component {
   constructor(props) {
     super(props)
 
@@ -52,4 +52,4 @@ class SenatorCard extends React.Component {
   }
 }
 
-export default SenatorCard
+export default SenateCard

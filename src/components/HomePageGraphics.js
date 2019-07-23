@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Grid, Image } from 'semantic-ui-react'
+import { Grid, Image } from 'semantic-ui-react'
 
 
 const HomePageGraphics = () => (

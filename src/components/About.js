@@ -7,7 +7,7 @@ const About = () => {
 
     <Container>
       <Segment>
-        <h1 class="ui block header center">
+        <h1 className="ui block header center">
           About
         </h1>
         <div>

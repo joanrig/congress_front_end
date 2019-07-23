@@ -7,11 +7,12 @@ const NavBar = () => {
 
     <Container>
         <br/>
-        <div class='navbar' class='center'>
-          <Link to='/' exact><Button size='massive' color='purple'>Home</Button></Link>
-          <Link to='/senate' exact><Button size='massive' color='red'>Senate</Button></Link>
-          <Link to='/house' exact><Button size='massive' color='blue'>House</Button></Link>
-          <Link to='/about' exact><Button size='massive' color='grey'>About</Button></Link>
+        <div className='navbar center'>
+          <Link to='/' ><Button size='massive' color='purple'>Home</Button></Link>
+          <Link to='/senate' ><Button size='massive' color='red'>Senate</Button></Link>
+          <Link to='/house' ><Button size='massive' color='blue'>House</Button></Link>
+
+          <Link to='/about' ><Button size='massive' color='grey'>About</Button></Link>
           <br/>
           <br/>
         </div>
@@ -20,3 +21,5 @@ const NavBar = () => {
 };
 
 export default NavBar;
+
+// <Link to='/presidential-candidates' ><Button size='massive' color='pink'>up for President</Button></Link>

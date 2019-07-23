@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
-class RepCard extends React.Component {
+class HouseCard extends React.Component {
   constructor(props) {
     super(props)
 
@@ -11,11 +11,12 @@ class RepCard extends React.Component {
    }
 
   render() {
+    //figure out how to only show these if they exist
      let facebook = this.props.rep.facebook_account
      let twitter = this.props.rep.twitter_account
      let youtube = this.props.rep.you_tube_account
      let website = this.props.rep.website
-     let contact_form = this.props.rep.contact_form
+     // let contact_form = this.props.rep.contact_form
 
 
 //figure out how to serve up logo from locally stored images.
@@ -51,4 +52,4 @@ class RepCard extends React.Component {
   }
 }
 
-export default RepCard
+export default HouseCard

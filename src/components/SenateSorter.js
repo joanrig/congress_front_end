@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Button } from 'semantic-ui-react'
 import { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/senate'
 import { connect } from 'react-redux'
 
 
-class SortButtons extends React.Component {
+class SenateSorter extends React.Component {
   constructor(props) {
     super()
   }
@@ -12,10 +12,10 @@ class SortButtons extends React.Component {
   render (){
     return (
       <>
-        <h1 class="ui block header center">
+        <h1 className="ui block header center">
           Who's Who in the U.S. Senate?  Let's sort them out!
         </h1>
-        <div class='social center'>
+        <div className='social center'>
           <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
           <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
           <Button size="huge" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
@@ -28,4 +28,4 @@ class SortButtons extends React.Component {
 }
 
 
-export default connect(null, { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge })(SortButtons)
+export default connect(null, { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge })(SenateSorter)

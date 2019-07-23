@@ -1,12 +1,8 @@
-import house from '../reducers/house'
-import loyalists from '../reducers/house'
-import mavericks from '../reducers/house'
-import truants from '../reducers/house'
-import seniority from '../reducers/house'
 
 
 // async action
 export function fetchHouse(){
+  console.log('firing fetchHouse')
   return (dispatch) => {
       return fetch('http://localhost:3000/search/reps')
       .then(resp => resp.json())

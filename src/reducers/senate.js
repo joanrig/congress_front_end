@@ -1,7 +1,4 @@
 
-          //why is this not return { ...state, senate}
-
-// reducers/senate
 export default (state = [], action) => {
     switch(action.type){
 

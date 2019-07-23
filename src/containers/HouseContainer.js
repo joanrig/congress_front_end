@@ -15,10 +15,6 @@ class HouseContainer extends React.Component {
     }
   }
 
-  componentDidMount(){
-    console.log("about to fire fetchHouse from house container")
-    this.props.fetchHouse()
-  }
 
   render(){
     console.log('hello from house container render')

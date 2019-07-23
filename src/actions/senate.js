@@ -9,7 +9,7 @@ export function fetchSenate(){
      };
 }
 
-//works
+
 export function fetchLoyalists(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senate_loyalists')
@@ -18,7 +18,7 @@ export function fetchLoyalists(){
      };
 }
 
-//doesn't work
+
 export function fetchMavericks(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senate_mavericks')
@@ -27,7 +27,7 @@ export function fetchMavericks(){
      };
 }
 
-//works
+
 export function fetchTruants(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/truant_senators')
@@ -36,7 +36,7 @@ export function fetchTruants(){
      };
 }
 
-//works
+
 export function fetchBySeniority(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senators_by_seniority')
@@ -45,11 +45,19 @@ export function fetchBySeniority(){
      };
 }
 
-//works
+
 export function fetchByAge(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senators_by_age')
       .then(resp => resp.json())
       .then(age =>dispatch({type:"AGE", age} ))
+     };
+}
+
+export function fetchBillsByMember(){
+  return (dispatch) => {
+      return fetch(`http://localhost:3000/search/{params[:term]}`)
+      .then(resp => resp.json())
+      .then(bills =>dispatch({type:"BILLS_BY_MEMBER", bills} ))
      };
 }

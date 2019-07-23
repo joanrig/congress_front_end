@@ -1,5 +1,6 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
+import { fetchBillsByMember } from '../actions/senate'
 
 
 
@@ -62,6 +63,7 @@ class SenateCard extends React.Component {
             <a href={facebook}><Icon name='facebook' /></a>
             <a href={twitter}><Icon name='twitter' /></a>
             <a href={youtube}><Icon name='youtube' /></a>
+            <Icon onClick={this.props.fetchBillsByMember} name="legal icon" />
             <a href={website}>WEBSITE</a>
             {gender}
           </div>
@@ -71,4 +73,4 @@ class SenateCard extends React.Component {
   }
 }
 
-export default SenateCard
+export default connect(null, {fetchBillsByMember })(SenateCard)

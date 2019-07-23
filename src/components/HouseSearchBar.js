@@ -17,11 +17,6 @@ class HouseSearchBar extends React.Component {
     }
   }
 
-  componentDidMount(){
-    //does not hit - component never mounts
-    console.log("hello from house search bar componentDidMount")
-  }
-
 
   updateSearch= (event) => {
     this.setState({search: event.target.value.substr(0, 100)})

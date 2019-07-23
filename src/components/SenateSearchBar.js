@@ -9,7 +9,7 @@ class SenateSearchBar extends React.Component {
     super()
 
     this.state = {
-      search: ''
+      search: '',
     }
   }
 
@@ -17,11 +17,10 @@ class SenateSearchBar extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-  //flip = () =>
-  //change cards so all the names say guess who on the front
-
-
-
+  // flip = () =>
+  // this.setState((prevState)=>{
+  //   return {showNames: !prevState.showNames}
+  // })
 
 
   render (){
@@ -81,6 +80,6 @@ class SenateSearchBar extends React.Component {
 }
 
 
-const mapStateToProps = state => ({senate: state.senate})
+const mapStateToProps = state => ({ senate: state.senate })
 
 export default connect(mapStateToProps)(SenateSearchBar)

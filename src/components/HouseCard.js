@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 
+
+
 class HouseCard extends React.Component {
   constructor(props) {
     super(props)
@@ -25,16 +27,21 @@ class HouseCard extends React.Component {
      // let contact_form = this.props.rep.contact_form
 
      let name
-     this.state.front? name = "Guess Who?" : name = this.props.senator.first_name + ' ' + this.props.senator.last_name
+     this.state.front? name = this.props.rep.first_name + ' ' + this.props.rep.last_name : name = "Guess Who?"
+
+     let gender
+     if (this.props.rep.gender == "F"){
+       gender = <i class="female icon large" ></i>
+     }
 
 
     return (
       <Card>
         <Image src={this.props.rep.party_logo} wrapped ui={false} />
 
-        <Card.Content>
+        <Card.Content onClick={this.toggleCard}>
           <Card.Header>
-            Rep. {name}<br/> {this.props.rep.party}-{this.props.rep.state}<br/>
+            Rep. {name}<br/> {this.props.rep.party}-{this.props.rep.state_full_name}<br/>
             District {this.props.rep.district}
           </Card.Header>
 
@@ -53,6 +60,7 @@ class HouseCard extends React.Component {
               <a href={twitter}><Icon name='twitter' /></a>
               <a href={youtube}><Icon name='youtube' /></a>
               <a href={website}>WEBSITE</a>
+              {gender}
           </div>
         </Card.Content>
       </Card>

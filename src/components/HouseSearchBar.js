@@ -5,7 +5,6 @@ import HouseCard from './HouseCard'
 
 
 class HouseSearchBar extends React.Component {
-  debugger
   constructor(props) {
     super()
     /*senate search bar works and looks like this:
@@ -34,7 +33,6 @@ class HouseSearchBar extends React.Component {
     let instructions =
       "Search for senators by name, party, state, next election year or gender (type the full word 'male' or 'female'). Type 'president' to see which senators are running for President."
 
-    debugger
     //this.props is undefined - this error crashes app
     let filteredReps = this.props.reps.filter(
       (rep) => {
@@ -44,8 +42,8 @@ class HouseSearchBar extends React.Component {
           searchTerm += "president"
         }
 
-        if (rep.seniority.to_i <= 1){
-          searchTerm += "freshman"
+        if (rep.seniority < 2){
+          searchTerm += "freshmen"
         }
 
         let input = this.state.search.toLowerCase()
@@ -85,6 +83,6 @@ class HouseSearchBar extends React.Component {
 }
 
 
-const mapStateToProps = state => ({reps: state.reps})
+const mapStateToProps = state => ({reps: state.house})
 
 export default connect(mapStateToProps)(HouseSearchBar)

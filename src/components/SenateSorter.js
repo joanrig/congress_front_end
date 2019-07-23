@@ -10,7 +10,6 @@ class SenateSorter extends React.Component {
   }
 
 
-
   render (){
     return (
       <>

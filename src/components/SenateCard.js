@@ -32,7 +32,7 @@ class SenateCard extends React.Component {
 
      let gender
      if (this.props.senator.gender == "F"){
-       gender = <i class="female icon large" floated="right"></i>
+       gender = <i class="female icon large" ></i>
      }
 
 
@@ -40,10 +40,10 @@ class SenateCard extends React.Component {
       <Card >
         <Image src={this.props.senator.party_logo} wrapped ui={false} />
 
-        <Card.Content>
-          <Card.Header onClick={this.toggleCard}>
+        <Card.Content onClick={this.toggleCard}>
+          <Card.Header>
             Sen. {name}<br/>
-            {this.props.senator.party}-{this.props.senator.state}
+            {this.props.senator.party}-{this.props.senator.state_full_name}
           </Card.Header>
 
           <Card.Description>
@@ -52,7 +52,6 @@ class SenateCard extends React.Component {
             Next election: {this.props.senator.next_election}<br/>
             Missed votes: {this.props.senator.missed_votes_pct}%<br/>
             Votes party line {this.props.senator.votes_with_party_pct}%<br/>
-
           </Card.Description>
         </Card.Content>
 

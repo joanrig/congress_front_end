@@ -15,6 +15,7 @@ class HouseSorter extends React.Component {
         <h1 className="ui block header center">
           Who's Who in the U.S. House of Representatives?  Let's sort them out!
         </h1>
+
         <div className='social center'>
           <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
           <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>

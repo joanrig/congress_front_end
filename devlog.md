@@ -1,21 +1,5 @@
 ###to do
 
-###requirements - todo
-use FETCH to POST data to your API - do not use jQuery methods.
-fox loyalists/ mavericks
-
-## There should be 5 stateless components
-1. NavBar
-2. Home
-3. About
-4. HomePageGraphics
-5. ??
-note: you can also remove card front/back to turn Senate and House cards into stateless components
-
-
-
-
-
 
 
 
@@ -33,13 +17,30 @@ DONE: Your application should have some minimal styling
 DONE: There should be 2 container components
 1. SenatorsContainer
 2. HouseContainer
+DONE: There should be 5 stateless components
+1. NavBar
+2. Home
+3. SenateSorter
+4. HouseSorter
+5. About
+6. HomePageGraphics
 
 
 
 ###BUGS
+1. fix house search bar - doesn't currently get props
 figure out how to display contact_form icon only if contact_form exists
 
-'independent' search doesn't work for senate
+2. Senate mavericks fetch doesn't work
+
+3. House loyalists fetchd doesn't work
+
+4. 'independent' search doesn't work for senate
+
+#NEXT FEATURES
+1. fix flip button so you can flip all cards and play as a guess who game/ add animation to card flip
+
+2. render contact info text (address, phone) on back of card
 
 
 ###STRETCH

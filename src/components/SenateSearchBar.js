@@ -24,6 +24,10 @@ class SenateSearchBar extends React.Component {
         let searchTerm = senator.last_name + senator.first_name + senator.state_full_name +
         senator.gender_search_term + senator.party_full_name
 
+        if (senator.running_for_president === true){
+          searchTerm += "president"
+        }
+
         let input = this.state.search.toLowerCase()
           if (input === "male"){
             input = "womenfalse"

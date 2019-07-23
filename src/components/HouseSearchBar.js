@@ -34,7 +34,7 @@ class HouseSearchBar extends React.Component {
     //this.props is undefined - this error crashes app
     let filteredReps = this.props.reps.filter(
       (rep) => {
-        let searchTerm = rep.last_name + rep.first_name + rep.state_full_name + rep.gender_search_term + rep.party_full_name
+        let searchTerm = rep.last_name + rep.first_name + rep.state_full_name + rep.gender_search_term + rep.party_full_name + rep.next_election
 
         if (rep.running_for_president === true){
           searchTerm += "president"

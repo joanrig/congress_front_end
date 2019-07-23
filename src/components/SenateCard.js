@@ -12,20 +12,30 @@ class SenateCard extends React.Component {
      }
    }
 
+   toggleCard = () =>{
+    this.setState((prevState)=>{
+      return {front: !prevState.front}
+    })
+  }
+
   render() {
      let facebook = this.props.senator.facebook_account
      let twitter = this.props.senator.twitter_account
      let youtube = this.props.senator.you_tube_account
      let website = this.props.senator.website
 
+     let name
+
+     this.state.front? name = "Guess Who?" : name = this.props.senator.first_name + ' ' + this.props.senator.last_name
+
 
     return (
-      <Card>
+      <Card onClick={this.toggleCard}>
         <Image src={this.props.senator.party_logo} wrapped ui={false} />
 
         <Card.Content>
           <Card.Header>
-            Sen. {this.props.senator.first_name} {this.props.senator.last_name}<br/>
+            Sen. {name}<br/>
             {this.props.senator.party}-{this.props.senator.state}
           </Card.Header>
 

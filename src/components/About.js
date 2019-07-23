@@ -15,7 +15,7 @@ const About = () => {
         </div>
         <br/>
         <p>
-          I grew up with <a href="https://www.youtube.com/watch?v=tyeJ55o3El0">School House Rock</a>, which made it fun to learn about the workings of Congress. So I'm hoping this app makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to looking up your own representatives and sorting them by party and gender you can also sort them by fun facts, like how often they show up to vote and how often they vote the party line.
+          I grew up with <a href="https://www.youtube.com/watch?v=tyeJ55o3El0">School House Rock</a>, which made it fun to learn about the workings of Congress. So I'm hoping this app makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to searching for particular members, you can also sort Members by party, age, gender and fun facts, like how often they show up to vote and how often they vote the party line.
         </p>
 
         <h3>Under the Hood</h3>

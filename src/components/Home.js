@@ -8,8 +8,7 @@ const Home = () => {
   return (
     <Container>
       <h1 className="ui block header center">
-        Who's Who in Congress?
-        The 116th U.S. Congress Flashcards
+        Who's Who in the 116th United States Congress?
       </h1>
       <br/>
       <h3 className="center">powered by data from ProPublica</h3>

@@ -22,7 +22,7 @@ class SenateSearchBar extends React.Component {
     let filteredSenators = this.props.senate.filter(
       (senator) => {
         let searchTerm = senator.last_name + senator.first_name + senator.state_full_name +
-        senator.gender_search_term + senator.party_full_name
+        senator.gender_search_term + senator.party_full_name + senator.next_election
 
         if (senator.running_for_president === true){
           searchTerm += "president"
@@ -45,8 +45,8 @@ class SenateSearchBar extends React.Component {
 
     return (
       <>
-        <h3 className="ui block header center">... or search for senators by name, state, party or gender
-        (<em>note: type the whole word "male" or "female" to search by gender</em>)
+        <h3 className="ui block header center">Search for senators by name, state, party, next election year or gender
+        (<em>type the whole word "male" or "female")</em>). <br/>Try 'president' for presidential candidates, or 'freshmen' for new faces.<br/>
           <div className="ui input focus center">
             <input type="text"
               value={this.state.search}

@@ -58,7 +58,7 @@ class HouseSearchBar extends React.Component {
     return (
       <>
         <h3 className="ui block header center">... or search for representatives by name, state, party or gender
-        (<em>note: type the whole word "male" or "female") to search by gender</em>)
+        (<em>note: type the whole word "male" or "female" to search by gender</em>)
           <div className="ui input focus center">
             <input type="text"
               value={this.state.search}

@@ -28,6 +28,10 @@ class SenateSearchBar extends React.Component {
           searchTerm += "president"
         }
 
+        if (senator.seniority < 2){
+          searchTerm += "freshmen"
+        }
+
         let input = this.state.search.toLowerCase()
           if (input === "male"){
             input = "womenfalse"

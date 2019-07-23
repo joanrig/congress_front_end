@@ -40,6 +40,10 @@ class HouseSearchBar extends React.Component {
           searchTerm += "president"
         }
 
+        if (rep.seniority.to_i <= 1){
+          searchTerm += "freshman"
+        }
+
         let input = this.state.search.toLowerCase()
           if (input === "male"){
             input = "womenfalse"

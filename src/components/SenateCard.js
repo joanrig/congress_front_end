@@ -25,8 +25,7 @@ class SenateCard extends React.Component {
      let website = this.props.senator.website
 
      let name
-
-     this.state.front? name = "Guess Who?" : name = this.props.senator.first_name + ' ' + this.props.senator.last_name
+     this.state.front? name = this.props.senator.first_name + ' ' + this.props.senator.last_name : name = "Guess Who?"
 
 
     return (

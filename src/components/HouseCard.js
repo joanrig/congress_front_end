@@ -10,6 +10,12 @@ class HouseCard extends React.Component {
      }
    }
 
+   toggleCard = () =>{
+    this.setState((prevState)=>{
+      return {front: !prevState.front}
+    })
+  }
+
   render() {
     //figure out how to only show these if they exist
      let facebook = this.props.rep.facebook_account
@@ -18,15 +24,17 @@ class HouseCard extends React.Component {
      let website = this.props.rep.website
      // let contact_form = this.props.rep.contact_form
 
+     let name
+     this.state.front? name = "Guess Who?" : name = this.props.senator.first_name + ' ' + this.props.senator.last_name
 
-//figure out how to serve up logo from locally stored images.
+
     return (
       <Card>
         <Image src={this.props.rep.party_logo} wrapped ui={false} />
 
         <Card.Content>
           <Card.Header>
-            Rep. {this.props.rep.first_name} {this.props.rep.last_name}<br/> {this.props.rep.party}-{this.props.rep.state}<br/>
+            Rep. {name}<br/> {this.props.rep.party}-{this.props.rep.state}<br/>
             District {this.props.rep.district}
           </Card.Header>
 

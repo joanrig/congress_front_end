@@ -9,12 +9,15 @@ class SenateSorter extends React.Component {
     super()
   }
 
+
+
   render (){
     return (
       <>
-        <h1 className="ui block header center">
-          Who's Who in the U.S. Senate?  Let's sort them out!
+        <h1 className="center">
+          Who's Who in the U.S. Senate?  Let's sort them out. Or ... click 'FLIP' to guess!
         </h1>
+
         <div className='social center'>
           <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
           <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>

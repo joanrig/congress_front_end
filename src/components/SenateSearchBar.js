@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Button, Segment, Icon, Popup } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import SenateCard from './SenateCard'
 
 
@@ -16,6 +16,12 @@ class SenateSearchBar extends React.Component {
   updateSearch= (event) => {
     this.setState({search: event.target.value.substr(0, 100)})
   }
+
+  //flip = () =>
+  //change cards so all the names say guess who on the front
+
+
+
 
   render (){
 
@@ -50,9 +56,10 @@ class SenateSearchBar extends React.Component {
       <>
         <br/>
         <div class="ui fluid icon input">
+          <Button label="FLIP" onClick={this.flip}/>
           <input
             type="text"
-            placeholder="search by name, state, party, next election year or gender (type the full word 'female' or 'male') Type 'president' for presidential candidates or 'freshmen' to see the newest faces!"
+            placeholder="search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
             value={this.state.search}
             onChange={this.updateSearch}
           />

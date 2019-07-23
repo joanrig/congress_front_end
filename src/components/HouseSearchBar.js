@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import HouseCard from './HouseCard'
 
 
@@ -30,6 +30,10 @@ class HouseSearchBar extends React.Component {
 
 
   render (){
+
+    let instructions =
+      "Search for senators by name, party, state, next election year or gender (type the full word 'male' or 'female'). Type 'president' to see which senators are running for President."
+
     debugger
     //this.props is undefined - this error crashes app
     let filteredReps = this.props.reps.filter(
@@ -57,15 +61,17 @@ class HouseSearchBar extends React.Component {
 
     return (
       <>
-        <h3 className="ui block header center">... or search for representatives by name, state, party or gender
-        (<em>note: type the whole word "male" or "female" to search by gender</em>)
-          <div className="ui input focus center">
-            <input type="text"
-              value={this.state.search}
-              onChange={this.updateSearch}
-            />
-          </div>
-        </h3>
+        <br/>
+        <div class="ui fluid icon input">
+          <Button label="FLIP" onClick={this.flip}/>
+          <input
+            type="text"
+            placeholder="search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
+            value={this.state.search}
+            onChange={this.updateSearch}
+          />
+          <i class="search icon"></i>
+        </div>
 
         <h2 className='ui block header center'>{filteredReps.length} representatives meet your search requirements</h2><br/>
 

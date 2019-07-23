@@ -37,6 +37,15 @@ p {
   font-size: 1.1em;
 }
 
+.ui.card>.content.extra,
+.ui.cards>.card>.content.extra {
+  background-color: 243,244,245;
+}
+
+.color {
+  background-color: pink;
+}
+
 
 
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Button } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 
 const NavBar = () => {
   return (
 
-    <Container>
+    <div>
         <br/>
         <div className='navbar center'>
           <Link to='/' ><Button size='massive' color='purple'>Home</Button></Link>
@@ -15,7 +15,7 @@ const NavBar = () => {
           <br/>
           <br/>
         </div>
-    </Container>
+    </div>
   );
 };
 

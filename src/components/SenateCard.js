@@ -18,7 +18,10 @@ class SenateCard extends React.Component {
     })
   }
 
+
+
   render() {
+    //go back to api, add fields for facebook and youtube handles
      let facebook = this.props.senator.facebook_account
      let twitter = this.props.senator.twitter_account
      let youtube = this.props.senator.you_tube_account
@@ -27,13 +30,18 @@ class SenateCard extends React.Component {
      let name
      this.state.front? name = this.props.senator.first_name + ' ' + this.props.senator.last_name : name = "Guess Who?"
 
+     let gender
+     if (this.props.senator.gender == "F"){
+       gender = <i class="female icon large" floated="right"></i>
+     }
+
 
     return (
-      <Card onClick={this.toggleCard}>
+      <Card >
         <Image src={this.props.senator.party_logo} wrapped ui={false} />
 
         <Card.Content>
-          <Card.Header>
+          <Card.Header onClick={this.toggleCard}>
             Sen. {name}<br/>
             {this.props.senator.party}-{this.props.senator.state}
           </Card.Header>
@@ -48,12 +56,13 @@ class SenateCard extends React.Component {
           </Card.Description>
         </Card.Content>
 
-        <Card.Content extra>
+        <Card.Content extra >
           <div>
             <a href={facebook}><Icon name='facebook' /></a>
             <a href={twitter}><Icon name='twitter' /></a>
             <a href={youtube}><Icon name='youtube' /></a>
             <a href={website}>WEBSITE</a>
+            {gender}
           </div>
         </Card.Content>
       </Card>

@@ -24,13 +24,13 @@ const About = () => {
         </p>
 
         <p>
-          The front-end was created with the create-react-app generator. It is a Single Page Application, which means that its one page is dyamically re-rendered to show different information as you click on buttons. But it <em> seems </em> to have more than one page because it uses React routing to change the address in the address bar as you shift between the nav buttons. Here is the repo for the project's <a href="https://github.com/joanrig/congress_front_end">Front End</a> and <a href="https://github.com/joanrig/congress_api">Back End</a>
+          The front-end was created with the create-react-app generator. It is a Single Page Application, which means that its one page is dyamically re-rendered to show different information as you click on buttons. But it <em> seems </em> to have more than one page because it uses React routing to change the address in the address bar as you shift between the nav buttons. Here is the repo for the project's <a href="https://github.com/joanrig/congress_front_end">Front End</a> and <a href="https://github.com/joanrig/congress_api">Back End</a>.
         </p>
 
-        <h3>Thanks to Propublica!</h3>
+        <h3>Thanks to ProPublica!</h3>
         <p>
-          I couldn't have made this app without the data from ProPublica, which is used as the data source for many sites, including Nate Silver's election analysis website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.  Remember him? He predicted the election of Donald Trump.
-          In case you're curious, this app is based mainly on this <a href="https://www.propublica.org/datastore/api/propublica-congress-api">API</a>. Thank you to the good folks at Propublica for maintaining this API, and to the good folks at The New York Times, <a href="https://open.blogs.nytimes.com/2009/01/08/introducing-the-congress-api">who actually started this API in 2009</a>.
+          I couldn't have made this app without the data from the non-profit investigative journalism group<a href="https://www.propublica.org/about/">ProPublica</a>, whose data helps power many sites, including Nate Silver's election analysis website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.  Remember him? He predicted the election of Donald Trump.
+          In case you're curious, this app is based mainly on this <a href="https://www.propublica.org/datastore/api/propublica-congress-api">API</a>. Thank you to the good folks at Propublica for maintaining it, and to the good folks at The New York Times, <a href="https://open.blogs.nytimes.com/2009/01/08/introducing-the-congress-api">who actually started this API in 2009</a>.
         </p>
 
         <p>

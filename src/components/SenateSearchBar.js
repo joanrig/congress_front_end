@@ -23,6 +23,7 @@ class SenateSearchBar extends React.Component {
 
 
 
+
   render (){
 
     let instructions =
@@ -40,6 +41,7 @@ class SenateSearchBar extends React.Component {
         if (senator.seniority < 2){
           searchTerm += "freshmen"
         }
+
 
         let input = this.state.search.toLowerCase()
           if (input === "male"){

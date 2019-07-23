@@ -10,6 +10,8 @@ class SenateSearchBar extends React.Component {
 
     this.state = {
       search: '',
+      showNames: true,
+      senate: props.senate
     }
   }
 
@@ -17,10 +19,12 @@ class SenateSearchBar extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-  // flip = () =>
-  // this.setState((prevState)=>{
-  //   return {showNames: !prevState.showNames}
-  // })
+  flip = () => {
+    console.log('firing flip')
+    this.setState((prevState)=>{
+      return {showNames: !prevState.showNames}
+    })
+  }
 
 
   render (){
@@ -72,7 +76,7 @@ class SenateSearchBar extends React.Component {
 
         <Card.Group itemsPerRow={5}>
           {filteredSenators.map(senator =>
-            <SenateCard key={senator.id} senator={senator}/>)}
+            <SenateCard showNames={this.state.showNames} key={senator.id} senator={senator}/>)}
         </Card.Group>
       </>
     )

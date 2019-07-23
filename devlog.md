@@ -28,14 +28,7 @@ DONE: There should be 5 stateless components
 
 
 ###BUGS
-1. fix house search bar - doesn't currently get props
-figure out how to display contact_form icon only if contact_form exists
 
-2. Senate mavericks fetch doesn't work
-
-3. House loyalists fetchd doesn't work
-
-4. 'independent' search doesn't work for senate
 
 #NEXT FEATURES
 1. fix flip button so you can flip all cards and play as a guess who game/ add animation to card flip

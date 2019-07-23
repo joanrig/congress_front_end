@@ -8,7 +8,7 @@ class SenateCard extends React.Component {
     super(props)
 
     this.state = {
-        front: true
+        front: props.showNames
      }
    }
 
@@ -17,6 +17,8 @@ class SenateCard extends React.Component {
       return {front: !prevState.front}
     })
   }
+
+
 
 
 

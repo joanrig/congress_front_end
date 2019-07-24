@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsByMember } from '../actions/senate'
+import { connect } from 'react-redux'
 
 
 
@@ -34,7 +35,7 @@ class SenateCard extends React.Component {
      this.state.front? name = this.props.senator.first_name + ' ' + this.props.senator.last_name : name = "Guess Who?"
 
      let gender
-     if (this.props.senator.gender == "F"){
+     if (this.props.senator.gender === "F"){
        gender = <i class="female icon large" ></i>
      }
 
@@ -63,7 +64,6 @@ class SenateCard extends React.Component {
             <a href={facebook}><Icon name='facebook' /></a>
             <a href={twitter}><Icon name='twitter' /></a>
             <a href={youtube}><Icon name='youtube' /></a>
-            <Icon onClick={this.props.fetchBillsByMember} name="legal icon" />
             <a href={website}>WEBSITE</a>
             {gender}
           </div>
@@ -74,3 +74,5 @@ class SenateCard extends React.Component {
 }
 
 export default connect(null, {fetchBillsByMember })(SenateCard)
+
+// <Icon onClick={this.props.fetchBillsByMember} name="legal icon" />

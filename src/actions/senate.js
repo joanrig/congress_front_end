@@ -45,7 +45,6 @@ export function fetchBySeniority(){
      };
 }
 
-
 export function fetchByAge(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senators_by_age')
@@ -54,9 +53,9 @@ export function fetchByAge(){
      };
 }
 
-export function fetchBillsByMember(){
+export function fetchBillsByMember(id){
   return (dispatch) => {
-      return fetch(`http://localhost:3000/search/{params[:term]}`)
+      return fetch(`http://localhost:3000/search/memberbills`+id)
       .then(resp => resp.json())
       .then(bills =>dispatch({type:"BILLS_BY_MEMBER", bills} ))
      };

@@ -29,8 +29,8 @@ class SenateSearchBar extends React.Component {
 
   render (){
 
-    let instructions =
-      "Search for senators by name, party, state, next election year or gender (type the full word 'male' or 'female'). Type 'president' to see which senators are running for President."
+    let searchInstructions =
+      "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
 
     let filteredSenators = this.props.senate.filter(
       (senator) => {
@@ -60,15 +60,15 @@ class SenateSearchBar extends React.Component {
     return (
       <>
         <br/>
-        <div class="ui fluid icon input">
+        <div className="ui fluid icon input">
           <Button label="FLIP" onClick={this.flip}/>
           <input
             type="text"
-            placeholder="search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
+            placeholder={searchInstructions}
             value={this.state.search}
             onChange={this.updateSearch}
           />
-          <i class="search icon"></i>
+          <i className="search icon"></i>
         </div>
 
 

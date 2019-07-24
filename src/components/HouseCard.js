@@ -30,7 +30,7 @@ class HouseCard extends React.Component {
      this.state.front? name = this.props.rep.first_name + ' ' + this.props.rep.last_name : name = "Guess Who?"
 
      let gender
-     if (this.props.rep.gender == "F"){
+     if (this.props.rep.gender === "F"){
        gender = <i class="female icon large" ></i>
      }
 

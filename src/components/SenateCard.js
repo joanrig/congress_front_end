@@ -12,7 +12,7 @@ class SenateCard extends React.Component {
     super(props)
 
     this.state = {
-        // bills: []
+      front: props.showNames
      }
    }
 

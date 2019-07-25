@@ -10,10 +10,3 @@ export default (state = { bills: [] }, action) => {
         return state;
     }
   }
-
-//   // action creator
-// export const setSearch = (searchTerm) =>{
-//     return{
-//         type:"SET_SEARCH", search:searchTerm
-//     }
-// }

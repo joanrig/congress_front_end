@@ -2,6 +2,8 @@ import React from 'react'
 import { Card, Button, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsByMember } from '../actions/bills'
 import { connect } from 'react-redux'
+import { Redirect } from 'react-router'
+
 
 
 
@@ -21,18 +23,21 @@ class SenateCard extends React.Component {
     })
   }
 
-  handleBillsClick = () => {
+  handleClick = () => {
     let id = this.props.senator.propublica_id
-    // let newBills = this.props.fetchBillsByMember(id)
-    // this.setState({
-    //     bills: [...this.state.bills, newBills]
-    //   })
     this.props.fetchBillsByMember(id)
+    //after fetch, redirect to /bills, but HOW do you bring fetch result with you?
+    this.setState({redirect: true})
   }
 
 
 
+
   render() {
+    if (this.state.redirect) {
+      return <Redirect push to="/bills" />;
+    }
+
     //go back to api, add fields for facebook and youtube handles
      let facebook = this.props.senator.facebook_account
      let twitter = this.props.senator.twitter_account
@@ -47,6 +52,10 @@ class SenateCard extends React.Component {
        gender = <i className="female icon large" ></i>
      }
 
+     let bills = ""
+     if (this.props.senator.bills){
+       bills = this.props.senator.bills.length
+      }
 
     return (
       <Card >
@@ -64,12 +73,13 @@ class SenateCard extends React.Component {
             Next election: {this.props.senator.next_election}<br/>
             Missed votes: {this.props.senator.missed_votes_pct}%<br/>
             Votes party line {this.props.senator.votes_with_party_pct}%<br/>
+            {bills}
           </Card.Description>
         </Card.Content>
 
         <Card.Content extra >
           <div>
-            <Button onClick={this.handleBillsClick} />
+            <Icon onClick={this.handleClick} name="legal icon" />
             <a href={facebook}><Icon name='facebook' /></a>
             <a href={twitter}><Icon name='twitter' /></a>
             <a href={youtube}><Icon name='youtube' /></a>
@@ -86,4 +96,4 @@ const mapStateToProps = state => ({ bills: state.bills })
 
 export default connect(mapStateToProps, { fetchBillsByMember })(SenateCard)
 
-// <Icon onClick={this.props.fetchBillsByMember} name="legal icon" />
+//

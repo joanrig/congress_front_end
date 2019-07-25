@@ -63,7 +63,7 @@ class HouseSearchBar extends React.Component {
             value={this.state.search}
             onChange={this.updateSearch}
           />
-          <i class="search icon"></i>
+          <i className="search icon"></i>
         </div>
 
         <h2 className='ui block header center'>{filteredReps.length} representatives meet your search requirements</h2><br/>

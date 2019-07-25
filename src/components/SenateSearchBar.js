@@ -21,7 +21,6 @@ class SenateSearchBar extends React.Component {
   }
 
   handleFlipClick = () => {
-    debugger
     this.setState((prevState)=>{
       return {front: !prevState.front}
     })
@@ -45,7 +44,6 @@ class SenateSearchBar extends React.Component {
         if (senator.seniority < 2){
           searchTerm += "freshmen"
         }
-
 
         let input = this.state.search.toLowerCase()
           if (input === "male"){

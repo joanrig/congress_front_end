@@ -23,25 +23,26 @@ class SenateCard extends React.Component {
   }
 
   handleClick = () => {
-    let id = this.props.senator.propublica_id
+    let id = this.props.propublica_id
+    // this.interval = setInterval(() =>{this.props.fetchBillsByMember(id)},250)
     this.props.fetchBillsByMember(id)
-    //after fetch, redirect to /bills, but HOW do you bring fetch result with you?
-    // this.setState({redirect: true})
   }
 
 
 
   render() {
-    let senator = this.props.senator
-    if (this.state.redirect) {
-      return <Redirect push to="/bills" />;
-    }
+    let senator = this.props
+
+
+    // if (this.state.redirect) {
+    //   return <Redirect push to="/bills" />;
+    // }
 
     //go back to api, add fields for facebook and youtube handles
-     let facebook = this.props.senator.facebook_account
-     let twitter = this.props.senator.twitter_account
-     let youtube = this.props.senator.you_tube_account
-     let website = this.props.senator.website
+     let facebook = senator.facebook_account
+     let twitter = senator.twitter_account
+     let youtube = senator.you_tube_account
+     let website = senator.website
 
      let name
      this.state.front? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
@@ -52,8 +53,8 @@ class SenateCard extends React.Component {
      }
 
      let bills = ""
-     if (this.props.senator.bills){
-       bills = this.props.senator.bills.length
+     if (senator.bills[0]){
+       bills = senator.bills[0].short_title.substring(0,85)+'...'
       }
 
     return (
@@ -72,9 +73,17 @@ class SenateCard extends React.Component {
             Next election: {senator.next_election}<br/>
             Missed votes: {senator.missed_votes_pct}%<br/>
             Votes party line {senator.votes_with_party_pct}%<br/>
+            <br/>
+            <div class="ui bottom attached button">
+              <i class="add icon"></i>
+              Bills
+            </div>
+            Most recent bill:<br/>
             {bills}
           </Card.Description>
+
         </Card.Content>
+
 
         <Card.Content extra >
           <div>
@@ -91,8 +100,8 @@ class SenateCard extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({ bills: state.bills })
+// const mapStateToProps = state => ({ bills: state.bills })
 
-export default connect(mapStateToProps, { fetchBillsByMember })(SenateCard)
+export default connect(null, { fetchBillsByMember })(SenateCard)
 
 //

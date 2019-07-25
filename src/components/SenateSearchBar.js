@@ -76,7 +76,7 @@ class SenateSearchBar extends React.Component {
 
         <Card.Group itemsPerRow={5}>
           {filteredSenators.map(senator =>
-            <SenateCard showNames={this.state.showNames} key={senator.id} senator={senator}/>)}
+            <SenateCard showNames={this.state.showNames} bills={[]} key={senator.id} {...senator}/>)}
         </Card.Group>
       </>
     )

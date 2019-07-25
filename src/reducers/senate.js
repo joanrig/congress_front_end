@@ -20,6 +20,18 @@ export default (state = [], action) => {
     case "AGE":
       return action.age
 
+    case "FETCH_BILLS_BY_SENATOR":
+      let bills = action.payload.bills
+      let senate = state.map(senator => {
+        //find senator update bills
+        if (senator.propublica_id === action.payload.id){
+          senator.bills = bills
+        }
+        return senator
+      }
+    )
+      return senate
+
      default:
         return state;
     }

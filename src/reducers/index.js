@@ -5,6 +5,6 @@ import bills from './bills'
 
  export default combineReducers({
   senate,
-  house,
-  bills
+  house
+
 });

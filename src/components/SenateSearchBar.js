@@ -75,8 +75,14 @@ class SenateSearchBar extends React.Component {
         <h2 className='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2><br/>
 
         <Card.Group itemsPerRow={5}>
-          {filteredSenators.map(senator =>
-            <SenateCard showNames={this.state.showNames} bills={[]} key={senator.id} {...senator}/>)}
+          <div class="ui five stackable cards">
+            {filteredSenators.map(senator =>
+              <SenateCard
+                showNames={this.state.showNames}
+                bills={[]}
+                key={senator.id} {...senator}/>
+              )}
+          </div>
         </Card.Group>
       </>
     )

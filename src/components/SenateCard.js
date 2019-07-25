@@ -27,7 +27,7 @@ class SenateCard extends React.Component {
     let id = this.props.senator.propublica_id
     this.props.fetchBillsByMember(id)
     //after fetch, redirect to /bills, but HOW do you bring fetch result with you?
-    this.setState({redirect: true})
+    // this.setState({redirect: true})
   }
 
 

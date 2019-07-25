@@ -3,7 +3,11 @@
 1. add bills by member
 DONE - upgrade back end
 DONE - add button, make fetch action work on front End
-TODO - show the info!
+TODO - show the info! - trying 2 approaches.
+  -click to change info on senator card (requires page refresh to update- why?)
+  -navigate to bills page to show bill cards for senator (fetched bills don't carry over to new page)
+
+2. figure out how to flip all cards.
 
 
 

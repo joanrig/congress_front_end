@@ -31,8 +31,6 @@ class SenateCard extends React.Component {
   }
 
 
-
-
   render() {
     if (this.state.redirect) {
       return <Redirect push to="/bills" />;
@@ -53,8 +51,8 @@ class SenateCard extends React.Component {
      }
 
      let bills = ""
-     if (this.props.senator.bills){
-       bills = this.props.senator.bills.length
+     if (this.props.bills){
+       bills = this.props.bills.length
       }
 
     return (

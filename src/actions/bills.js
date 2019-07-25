@@ -3,11 +3,9 @@
 
 export function fetchBillsByMember(id){
   return (dispatch) => {
-      return fetch("http://localhost:3000/search/memberbills-"+id)
+      console.log("now fetching to http://localhost:3000/search/bills/", id)
+      return fetch("http://localhost:3000/search/bills/"+id)
       .then(resp => resp.json())
       .then(bills =>dispatch({type:"FETCH_BILLS_BY_MEMBER", bills} ))
     }
 }
-
-
-    // `https://api.propublica.org/congress/v1/members/"+id+"/bills/introduced.json`

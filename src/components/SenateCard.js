@@ -1,6 +1,6 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
-import { fetchBillsByMember } from '../actions/senate'
+import { Card, Button, Icon, Image } from 'semantic-ui-react'
+import { fetchBillsByMember } from '../actions/bills'
 import { connect } from 'react-redux'
 
 
@@ -10,7 +10,8 @@ class SenateCard extends React.Component {
     super(props)
 
     this.state = {
-        front: props.showNames
+        front: props.showNames,
+        bills: []
      }
    }
 
@@ -20,7 +21,13 @@ class SenateCard extends React.Component {
     })
   }
 
-
+  handleBillsClick = () => {
+    let id = this.props.senator.propublica_id
+    let newBills = this.props.fetchBillsByMember(id)
+    this.setState({
+        bills: [...this.state.bills, newBills]
+      })
+  }
 
 
 
@@ -36,7 +43,7 @@ class SenateCard extends React.Component {
 
      let gender
      if (this.props.senator.gender === "F"){
-       gender = <i class="female icon large" ></i>
+       gender = <i className="female icon large" ></i>
      }
 
 
@@ -61,6 +68,7 @@ class SenateCard extends React.Component {
 
         <Card.Content extra >
           <div>
+            <Button onClick={this.handleBillsClick} />
             <a href={facebook}><Icon name='facebook' /></a>
             <a href={twitter}><Icon name='twitter' /></a>
             <a href={youtube}><Icon name='youtube' /></a>
@@ -73,6 +81,8 @@ class SenateCard extends React.Component {
   }
 }
 
-export default connect(null, {fetchBillsByMember })(SenateCard)
+const mapStateToProps = state => ({ bills: state.bills })
+
+export default connect(null, { fetchBillsByMember })(SenateCard)
 
 // <Icon onClick={this.props.fetchBillsByMember} name="legal icon" />

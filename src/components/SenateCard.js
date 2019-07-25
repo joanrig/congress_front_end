@@ -12,7 +12,7 @@ class SenateCard extends React.Component {
     super(props)
 
     this.state = {
-        bills: []
+        // bills: []
      }
    }
 
@@ -52,8 +52,8 @@ class SenateCard extends React.Component {
      }
 
      let bills = ""
-     if (this.props.bills){
-       bills = this.props.bills.length
+     if (this.props.senator.bills){
+       bills = this.props.senator.bills.length
       }
 
     return (

@@ -1,10 +1,10 @@
 //state is the state of bills
 
-export default (state = { bills: [] }, action) => {
+export default (state =  [] , action) => {
     switch(action.type){
 
     case "FETCH_BILLS_BY_MEMBER":
-      return [...state, bills [ ...bills, action.bills]
+      return action.bills
 
      default:
         return state;

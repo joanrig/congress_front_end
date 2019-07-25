@@ -10,7 +10,7 @@ class SenateSearchBar extends React.Component {
 
     this.state = {
       search: '',
-      front: true,
+      showNames: true,
       senate: props.senate,
       bills: []
     }
@@ -20,15 +20,16 @@ class SenateSearchBar extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-  handleFlipClick = () => {
-    debugger
+  flip = () => {
+    console.log('firing flip')
     this.setState((prevState)=>{
-      return {front: !prevState.front}
+      return {showNames: !prevState.showNames}
     })
   }
 
 
   render (){
+    debugger
 
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
@@ -62,7 +63,7 @@ class SenateSearchBar extends React.Component {
       <>
         <br/>
         <div className="ui fluid icon input">
-          <Button label="FLIP" onClick={this.handleFlipClick}/>
+          <Button label="FLIP" onClick={this.flip}/>
           <input
             type="text"
             placeholder={searchInstructions}
@@ -77,7 +78,7 @@ class SenateSearchBar extends React.Component {
 
         <Card.Group itemsPerRow={5}>
           {filteredSenators.map(senator =>
-            <SenateCard showNames={this.state.front} key={senator.id} senator={senator}/>)}
+            <SenateCard showNames={this.state.showNames} key={senator.id} senator={senator}/>)}
         </Card.Group>
       </>
     )

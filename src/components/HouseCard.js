@@ -19,38 +19,39 @@ class HouseCard extends React.Component {
   }
 
   render() {
+    let rep = this.props.rep
     //figure out how to only show these if they exist
-     let facebook = this.props.rep.facebook_account
-     let twitter = this.props.rep.twitter_account
-     let youtube = this.props.rep.you_tube_account
-     let website = this.props.rep.website
-     // let contact_form = this.props.rep.contact_form
+     let facebook = rep.facebook_account
+     let twitter = rep.twitter_account
+     let youtube = rep.you_tube_account
+     let website = rep.website
+     // let contact_form = rep.contact_form
 
      let name
-     this.state.front? name = this.props.rep.first_name + ' ' + this.props.rep.last_name : name = "Guess Who?"
+     this.state.front? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
      let gender
-     if (this.props.rep.gender === "F"){
+     if (rep.gender === "F"){
        gender = <i className="female icon large" ></i>
      }
 
 
     return (
       <Card>
-        <Image src={this.props.rep.party_logo} wrapped ui={false} />
+        <Image src={rep.party_logo} wrapped ui={false} />
 
         <Card.Content onClick={this.toggleCard}>
           <Card.Header>
-            Rep. {name}<br/> {this.props.rep.party}-{this.props.rep.state_full_name}<br/>
-            District {this.props.rep.district}
+            Rep. {name}<br/> {rep.party}-{rep.state_full_name}<br/>
+            District {rep.district}
           </Card.Header>
 
           <Card.Description>
-            Years in office: {this.props.rep.seniority} <br/>
-            Age: {this.props.rep.age}<br/>
-            Next election: {this.props.rep.next_election}<br/>
-            Missed votes: {this.props.rep.missed_votes_pct}%<br/>
-            Votes party line {this.props.rep.votes_with_party_pct}%
+            Years in office: {rep.seniority} <br/>
+            Age: {rep.age}<br/>
+            Next election: {rep.next_election}<br/>
+            Missed votes: {rep.missed_votes_pct}%<br/>
+            Votes party line {rep.votes_with_party_pct}%
           </Card.Description>
         </Card.Content>
 

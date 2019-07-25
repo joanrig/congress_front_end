@@ -11,7 +11,8 @@ class SenateSearchBar extends React.Component {
     this.state = {
       search: '',
       showNames: true,
-      senate: props.senate
+      senate: props.senate,
+      bills: []
     }
   }
 

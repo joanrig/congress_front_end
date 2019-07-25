@@ -15,6 +15,10 @@ class HouseContainer extends React.Component {
     }
   }
 
+  componentDidMount(){
+    this.props.fetchHouse()
+  }
+
 
   render(){
     console.log('hello from house container render')

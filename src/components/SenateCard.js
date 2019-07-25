@@ -23,10 +23,11 @@ class SenateCard extends React.Component {
 
   handleBillsClick = () => {
     let id = this.props.senator.propublica_id
-    let newBills = this.props.fetchBillsByMember(id)
-    this.setState({
-        bills: [...this.state.bills, newBills]
-      })
+    // let newBills = this.props.fetchBillsByMember(id)
+    // this.setState({
+    //     bills: [...this.state.bills, newBills]
+    //   })
+    this.props.fetchBillsByMember(id)
   }
 
 
@@ -83,6 +84,6 @@ class SenateCard extends React.Component {
 
 const mapStateToProps = state => ({ bills: state.bills })
 
-export default connect(null, { fetchBillsByMember })(SenateCard)
+export default connect(mapStateToProps, { fetchBillsByMember })(SenateCard)
 
 // <Icon onClick={this.props.fetchBillsByMember} name="legal icon" />

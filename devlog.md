@@ -1,5 +1,9 @@
-###to do
+###extra things to do
 
+1. add bills by member
+DONE - upgrade back end
+DONE - add button, make fetch action work on front End
+TODO - show the info!
 
 
 
@@ -37,7 +41,7 @@ DONE: There should be 5 stateless components
 
 
 ###STRETCH
-* add sponsored bills from here:
+WORKING * add sponsored bills from here:
 https://projects.propublica.org/api-docs/congress-api/bills/#search-bills
 
 * add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2

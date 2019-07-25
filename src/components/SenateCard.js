@@ -52,9 +52,11 @@ class SenateCard extends React.Component {
        gender = <i className="female icon large" ></i>
      }
 
-     let bills = ""
+     let url = ""
+     let title = ""
      if (senator.bills[0]){
-       bills = senator.bills[0].short_title.substring(0,85)+'...'
+       title = senator.bills[0].short_title.substring(0,85)+'...'
+       url = senator.bills[0].govtrack_url
       }
 
     return (
@@ -74,12 +76,9 @@ class SenateCard extends React.Component {
             Missed votes: {senator.missed_votes_pct}%<br/>
             Votes party line {senator.votes_with_party_pct}%<br/>
             <br/>
-            <div class="ui bottom attached button">
-              <i class="add icon"></i>
-              Bills
-            </div>
+            <hr/>
             Most recent bill:<br/>
-            {bills}
+            <a href={url}>{title}</a>
           </Card.Description>
 
         </Card.Content>

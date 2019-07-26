@@ -31,7 +31,7 @@ class SenateSorter extends React.Component {
             color="yellow"
             className="ui icon button"
             data-tooltip={tips}>
-            <i class="question icon"></i>
+            <i className="question icon"></i>
           </Button>
         </div>
       </>

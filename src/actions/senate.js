@@ -54,11 +54,7 @@ export function fetchBillsBySenator(id){
       console.log("now fetching to http://localhost:3000/search/bills/", id)
       return fetch("http://localhost:3000/search/bills/"+id)
       .then(resp => resp.json())
-      .then(bills =>dispatch
-        ({
-          type:"FETCH_BILLS_BY_SENATOR",
-          payload: {bills: bills, id:id}
-        })
+      .then(bills =>dispatch({type:"FETCH_BILLS_BY_SENATOR", payload: {bills: bills, id:id}})
       )
     }
 }

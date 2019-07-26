@@ -2,7 +2,7 @@ import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router'
+// import { Redirect } from 'react-router'
 
 
 class SenateCard extends React.Component {
@@ -28,15 +28,11 @@ class SenateCard extends React.Component {
   render() {
     let senator = this.props
 
-
-    // if (this.state.redirect) {
-    //   return <Redirect push to="/bills" />;
-    // }
-
      let facebook = senator.facebook_account
      let twitter = senator.twitter_account
      let youtube = senator.you_tube_account
      let website = senator.website
+     // let contact_form = senator.contact_form
 
      let name
      this.state.front? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
@@ -75,13 +71,10 @@ class SenateCard extends React.Component {
             Most recent bill:<br/>
             <a href={url}>{title}</a>
           </Card.Description>
-
         </Card.Content>
-
 
         <Card.Content extra >
           <div>
-
             <a href={facebook}><Icon className='large facebook' /></a>
             <a href={twitter}><Icon className='large twitter' /></a>
             <a href={youtube}><Icon className='large youtube' /></a>
@@ -95,8 +88,4 @@ class SenateCard extends React.Component {
   }
 }
 
-// const mapStateToProps = state => ({ bills: state.bills })
-
 export default connect(null, { fetchBillsBySenator })(SenateCard)
-
-//

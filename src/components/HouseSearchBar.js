@@ -7,13 +7,10 @@ import HouseCard from './HouseCard'
 class HouseSearchBar extends React.Component {
   constructor(props) {
     super()
-    /*senate search bar works and looks like this:
     this.state = {
-      search: ''
-    }
-  */
-    this.state = {
-      search: ''
+      search: '',
+      showNames: true,
+      senate: props.house
     }
   }
 
@@ -22,13 +19,15 @@ class HouseSearchBar extends React.Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
+//handle flipclick
+
 
   render (){
 
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
 
-    //this.props is undefined - this error crashes app
+
     let filteredReps = this.props.reps.filter(
       (rep) => {
         let searchTerm = rep.last_name + rep.first_name + rep.state_full_name + rep.gender_search_term + rep.party_full_name + rep.next_election
@@ -56,7 +55,7 @@ class HouseSearchBar extends React.Component {
       <>
         <br/>
         <div className="ui fluid icon input">
-          <Button label="FLIP" onClick={this.flip}/>
+          <Button label="FLIP" onClick={this.handleFlipClick}/>
           <input
             type="text"
             placeholder={searchInstructions}
@@ -69,8 +68,14 @@ class HouseSearchBar extends React.Component {
         <h2 className='ui block header center'>{filteredReps.length} representatives meet your search requirements</h2><br/>
 
         <Card.Group itemsPerRow={5}>
+        <div className="ui five stackable cards">
           {filteredReps.map(rep =>
-            <HouseCard key={rep.id} rep={rep}/>)}
+            <HouseCard
+              showNames={this.state.showNames}
+              bills={[]}
+              key={rep.id} {...rep}/>
+            )}
+        </div>
         </Card.Group>
       </>
     )

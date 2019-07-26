@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
-
+import { fetchBillsByRep } from '../actions/house'
+import { connect } from 'react-redux'
 
 
 class HouseCard extends React.Component {
@@ -8,7 +9,7 @@ class HouseCard extends React.Component {
     super(props)
 
     this.state = {
-        front: true
+        front: props.showName
      }
    }
 
@@ -18,8 +19,13 @@ class HouseCard extends React.Component {
     })
   }
 
+  handleClick = () => {
+    let id = this.props.propublica_id
+    this.props.fetchBillsByRep(id)
+  }
+
   render() {
-    let rep = this.props.rep
+    let rep = this.props
     //figure out how to only show these if they exist
      let facebook = rep.facebook_account
      let twitter = rep.twitter_account
@@ -32,9 +38,17 @@ class HouseCard extends React.Component {
 
      let gender
      if (rep.gender === "F"){
-       gender = <i className="female icon large" ></i>
+       gender = <i className="large female icon" ></i>
      }
 
+
+ //for showing latest bill
+      let url = ""
+      let title = "nothing here? Click gavel below."
+      if (rep.bills[0]){
+        title = rep.bills[0].short_title.substring(0,75)+'...'
+        url = rep.bills[0].govtrack_url
+       }
 
     return (
       <Card>
@@ -51,16 +65,21 @@ class HouseCard extends React.Component {
             Age: {rep.age}<br/>
             Next election: {rep.next_election}<br/>
             Missed votes: {rep.missed_votes_pct}%<br/>
-            Votes party line {rep.votes_with_party_pct}%
+            Votes party line {rep.votes_with_party_pct}%<br/>
+            <br/>
+            <hr/>
+            Most recent bill:<br/>
+            <a href={url}>{title}</a>
           </Card.Description>
         </Card.Content>
 
         <Card.Content extra>
           <div>
-              <a href={facebook}><Icon name='facebook' /></a>
-              <a href={twitter}><Icon name='twitter' /></a>
-              <a href={youtube}><Icon name='youtube' /></a>
-              <a href={website}>WEBSITE</a>
+              <a href={facebook}><Icon classNname='large facebook' /></a>
+              <a href={twitter}><Icon className='large twitter' /></a>
+              <a href={youtube}><Icon className='large youtube' /></a>
+              <a href={website}><Icon className="large home icon" /></a>
+              <Icon onClick={this.handleClick} className="large legal icon" />
               {gender}
           </div>
         </Card.Content>
@@ -69,4 +88,4 @@ class HouseCard extends React.Component {
   }
 }
 
-export default HouseCard
+export default connect(null, { fetchBillsByRep })(HouseCard)

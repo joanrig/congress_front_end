@@ -1,11 +1,7 @@
 ###extra things to do
 
-1. add bills by member
-DONE - upgrade back end
-DONE - add button, make fetch action work on front End
-TODO - show the info! - trying 2 approaches.
-  -click to change info on senator card (requires page refresh to update- why?)
-  -navigate to bills page to show bill cards for senator (fetched bills don't carry over to new page)
+
+
 
 2. figure out how to flip all cards.
 
@@ -38,14 +34,26 @@ DONE: There should be 5 stateless components
 ###BUGS
 
 
+
+
+
 #NEXT FEATURES
 1. fix flip button so you can flip all cards and play as a guess who game/ add animation to card flip
 
 2. render contact info text (address, phone) on back of card
 
+3. make bill sorter view.
+
 
 ###STRETCH
-WORKING * add sponsored bills from here:
-https://projects.propublica.org/api-docs/congress-api/bills/#search-bills
+
 
 * add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2
+
+
+###STRETCH DONE
+DONE* add bills by member
+https://projects.propublica.org/api-docs/congress-api/bills/#search-bills
+DONE - upgrade back end
+DONE - add button, make fetch action work on front End
+DONE - show the info!

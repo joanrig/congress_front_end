@@ -27,6 +27,7 @@ class BillCard extends React.Component {
         <Card.Content onClick={this.toggleCard}>
           <Card.Header>
             Bill title goes here
+            
           </Card.Header>
 
           <Card.Description>

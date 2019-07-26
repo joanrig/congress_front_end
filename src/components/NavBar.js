@@ -11,6 +11,7 @@ const NavBar = () => {
           <Link to='/' ><Button size='massive' color='purple'>Home</Button></Link>
           <Link to='/senate' ><Button size='massive' color='red'>Senate</Button></Link>
           <Link to='/house' ><Button size='massive' color='blue'>House</Button></Link>
+          <Link to='/bills' ><Button size='massive' color='pink'>Bills</Button></Link>
           <Link to='/about' ><Button size='massive' color='grey'>About</Button></Link>
           <br/>
           <br/>

@@ -51,8 +51,7 @@ export function fetchByAge(){
 
 export function fetchBillsBySenator(id){
   return (dispatch) => {
-      console.log("now fetching to http://localhost:3000/search/bills/", id)
-      return fetch("http://localhost:3000/search/bills/"+id)
+      return fetch("http://localhost:3000/search/bills/member/"+id)
       .then(resp => resp.json())
       .then(bills =>dispatch({type:"FETCH_BILLS_BY_SENATOR", payload: {bills: bills, id:id}})
       )

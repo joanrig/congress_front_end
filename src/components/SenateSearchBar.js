@@ -72,7 +72,9 @@ class SenateSearchBar extends React.Component {
         </div>
 
 
-        <h2 className='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2><br/>
+        
+        <h2 className='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2>
+        <br/>
 
         <Card.Group itemsPerRow={5}>
           <div class="ui five stackable cards">

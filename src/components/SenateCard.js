@@ -49,13 +49,13 @@ class SenateCard extends React.Component {
 
      let gender
      if (senator.gender === "F"){
-       gender = <i className="female icon large" ></i>
+       gender = <i className="large female icon" ></i>
      }
 
      let url = ""
      let title = ""
      if (senator.bills[0]){
-       title = senator.bills[0].short_title.substring(0,85)+'...'
+       title = senator.bills[0].short_title.substring(0,75)+'...'
        url = senator.bills[0].govtrack_url
       }
 
@@ -86,11 +86,12 @@ class SenateCard extends React.Component {
 
         <Card.Content extra >
           <div>
-            <Icon onClick={this.handleClick} className="legal icon" />
-            <a href={facebook}><Icon name='facebook' /></a>
-            <a href={twitter}><Icon name='twitter' /></a>
-            <a href={youtube}><Icon name='youtube' /></a>
-            <a href={website}>WEBSITE</a>
+
+            <a href={facebook}><Icon className='large facebook' /></a>
+            <a href={twitter}><Icon className='large twitter' /></a>
+            <a href={youtube}><Icon className='large youtube' /></a>
+            <a href={website}><Icon className="large home icon" /></a>
+            <Icon onClick={this.handleClick} className="large legal icon" />
             {gender}
           </div>
         </Card.Content>

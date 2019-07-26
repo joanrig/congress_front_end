@@ -9,7 +9,7 @@ class HouseCard extends React.Component {
     super(props)
 
     this.state = {
-        front: props.showName
+        front: props.showNames
      }
    }
 

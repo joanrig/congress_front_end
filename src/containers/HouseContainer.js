@@ -21,7 +21,6 @@ class HouseContainer extends React.Component {
 
 
   render(){
-    console.log('hello from house container render')
     return (
       <Container>
         <br/>

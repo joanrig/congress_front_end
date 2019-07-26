@@ -10,9 +10,12 @@ class HouseSorter extends React.Component {
   }
 
   render (){
+    let tips = (
+      `Click on any card's gavel icon to get or update the Senator's most recent bill!`
+    )
     return (
       <>
-        <h1 className="ui block header center">
+        <h1 className="center">
           Who's Who in the U.S. House of Representatives?  Let's sort them out!
         </h1>
 
@@ -22,6 +25,13 @@ class HouseSorter extends React.Component {
           <Button size="huge" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
           <Button size="huge" color="black" onClick={() => this.props.fetchBySeniority()}>Longest Serving</Button>
           <Button size="huge" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
+          <Button
+            size="huge"
+            color="yellow"
+            className="ui icon button"
+            data-tooltip={tips}>
+            <i className="question icon"></i>
+          </Button>
         </div>
       </>
     )

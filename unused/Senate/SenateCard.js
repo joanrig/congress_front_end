@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Button, Icon, Image } from 'semantic-ui-react'
-import { fetchBillsByMember } from '../actions/bills'
+import { fetchBillsByMember } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
 

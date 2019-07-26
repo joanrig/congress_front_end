@@ -1,10 +1,8 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
-import { fetchBillsByMember } from '../actions/bills'
+import { fetchBillsBySenator } from '../actions/senate'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router'
-
-
 
 
 class SenateCard extends React.Component {
@@ -24,11 +22,8 @@ class SenateCard extends React.Component {
 
   handleClick = () => {
     let id = this.props.propublica_id
-    // this.interval = setInterval(() =>{this.props.fetchBillsByMember(id)},250)
-    this.props.fetchBillsByMember(id)
+    this.props.fetchBillsBySenator(id)
   }
-
-
 
   render() {
     let senator = this.props
@@ -38,7 +33,6 @@ class SenateCard extends React.Component {
     //   return <Redirect push to="/bills" />;
     // }
 
-    //go back to api, add fields for facebook and youtube handles
      let facebook = senator.facebook_account
      let twitter = senator.twitter_account
      let youtube = senator.you_tube_account
@@ -52,8 +46,9 @@ class SenateCard extends React.Component {
        gender = <i className="large female icon" ></i>
      }
 
+//for showing latest bill
      let url = ""
-     let title = ""
+     let title = "nothing here? Click gavel below."
      if (senator.bills[0]){
        title = senator.bills[0].short_title.substring(0,75)+'...'
        url = senator.bills[0].govtrack_url
@@ -102,6 +97,6 @@ class SenateCard extends React.Component {
 
 // const mapStateToProps = state => ({ bills: state.bills })
 
-export default connect(null, { fetchBillsByMember })(SenateCard)
+export default connect(null, { fetchBillsBySenator })(SenateCard)
 
 //

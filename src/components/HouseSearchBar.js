@@ -10,7 +10,6 @@ class HouseSearchBar extends React.Component {
     this.state = {
       search: '',
       showNames: true,
-      senate: props.house
     }
   }
 

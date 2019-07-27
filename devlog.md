@@ -46,7 +46,10 @@ DONE: There should be 5 stateless components
 
 
 ###STRETCH
-
+add search by subject
+DONE 1. upgrade backend
+XXXX 2. add button, make fetch action work on front end
+3. show the info.
 
 * add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2
 

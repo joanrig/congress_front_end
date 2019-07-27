@@ -20,9 +20,9 @@ class SenateSearchBar extends React.Component {
   }
 
   handleFlipClick = () => {
-    console.log('firing flip')
+    debugger
     this.setState((prevState)=>{
-      return {showNames: !prevState.showNames}
+      return {showNames: !prevState.showNames}      
     })
   }
 

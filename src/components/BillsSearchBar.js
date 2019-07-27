@@ -21,8 +21,7 @@ class BillsSearchBar extends React.Component {
   handleSubmit= (event) => {
     event.preventDefault() 
     fetchBillsBySubject(this.state.search)
-    
-    debugger
+    console.log("finished calling fetch bills by subject, query is", this.state.search)
   }
 
   render (){

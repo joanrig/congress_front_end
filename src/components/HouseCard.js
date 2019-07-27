@@ -75,7 +75,7 @@ class HouseCard extends React.Component {
 
         <Card.Content extra>
           <div>
-              <a href={facebook}><Icon classNname='large facebook' /></a>
+              <a href={facebook}><Icon className='large facebook' /></a>
               <a href={twitter}><Icon className='large twitter' /></a>
               <a href={youtube}><Icon className='large youtube' /></a>
               <a href={website}><Icon className="large home icon" /></a>

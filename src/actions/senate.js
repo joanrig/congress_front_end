@@ -57,3 +57,15 @@ export function fetchBillsBySenator(id){
       )
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+//

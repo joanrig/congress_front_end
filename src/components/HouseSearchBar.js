@@ -68,14 +68,13 @@ class HouseSearchBar extends React.Component {
         <h2 className='ui block header center'>{filteredReps.length} representatives meet your search requirements</h2><br/>
 
         <Card.Group itemsPerRow={5}>
-        <div className="ui five stackable cards">
           {filteredReps.map(rep =>
             <HouseCard
               showNames={this.state.showNames}
               bills={[]}
               key={rep.id} {...rep}/>
             )}
-        </div>
+
         </Card.Group>
       </>
     )

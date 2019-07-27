@@ -18,15 +18,16 @@ class HouseSorter extends React.Component {
         <h1 className="center">
           Who's Who in the U.S. House of Representatives?  Let's sort them out!
         </h1>
+        <h4 className="center">How to play: sort representatives or narrow results with search.  Then see if you can guess the name!  Stumped? Click on "Guess Who?"</h4>
 
         <div className='social center'>
-          <Button size="huge" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
-          <Button size="huge" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
-          <Button size="huge" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
-          <Button size="huge" color="black" onClick={() => this.props.fetchBySeniority()}>Longest Serving</Button>
-          <Button size="huge" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
+          <Button size="big" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
+          <Button size="big" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
+          <Button size="big" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>
+          <Button size="big" color="black" onClick={() => this.props.fetchBySeniority()}>Longest Serving</Button>
+          <Button size="big" color="orange" onClick={() => this.props.fetchByAge()}>Oldest</Button>
           <Button
-            size="huge"
+            size="big"
             color="yellow"
             className="ui icon button"
             data-tooltip={tips}>

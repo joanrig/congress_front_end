@@ -42,9 +42,11 @@ p {
   background-color: 243,244,245;
 }
 
-.color {
-  background-color: pink;
+.ui.cards>.card>.content.extra.female {
+  background-color: rgb(244,0,106,0.2);
 }
+
+
 
 
 

@@ -10,7 +10,7 @@ class SenateSearchBar extends React.Component {
 
     this.state = {
       search: '',
-      showNames: true,
+      showNames: false,
       senate: props.house
     }
   }
@@ -22,7 +22,7 @@ class SenateSearchBar extends React.Component {
   handleFlipClick = () => {
     debugger
     this.setState((prevState)=>{
-      return {showNames: !prevState.showNames}      
+      return {showNames: !prevState.showNames}
     })
   }
 
@@ -71,8 +71,7 @@ class SenateSearchBar extends React.Component {
         </div>
 
 
-
-        <h2 className='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2><br/>
+        <h2 className='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2>
 
         <Card.Group itemsPerRow={5}>
           {filteredSenators.map(senator =>

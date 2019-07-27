@@ -36,23 +36,29 @@ class HouseCard extends React.Component {
      let name
      this.state.front? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
-     let gender
+     let genderName
      if (rep.gender === "F"){
-       gender = <i className="large female icon" ></i>
+       genderName = "female"
      }
 
+     let runningForPresident
+     if (rep.running_for_president){
+       runningForPresident = <h4>I'm running for President!</h4>
+     }
 
- //for showing latest bill
-      let url = ""
-      let title = "nothing here? Click gavel below."
-      if (rep.bills[0]){
-        title = rep.bills[0].short_title.substring(0,75)+'...'
-        url = rep.bills[0].govtrack_url
-       }
+     let url = ""
+     let billTitle
+     if (rep.bills[0]){
+       let title = rep.bills[0].short_title.substring(0,75)+'...'
+       url = rep.bills[0].govtrack_url
+       billTitle = <a href={url}>{title}</a>
+     } else {
+       billTitle = "nothing here? Click gavel below."
+     }
 
     return (
       <Card>
-        <Image src={rep.party_logo} wrapped ui={false} />
+        <Image src={rep.party_logo} wrapped ui={false} className={genderName}/>
 
         <Card.Content onClick={this.toggleCard}>
           <Card.Header>
@@ -66,21 +72,21 @@ class HouseCard extends React.Component {
             Next election: {rep.next_election}<br/>
             Missed votes: {rep.missed_votes_pct}%<br/>
             Votes party line {rep.votes_with_party_pct}%<br/>
+            {runningForPresident}
             <br/>
             <hr/>
             Most recent bill:<br/>
-            <a href={url}>{title}</a>
+            {billTitle}
           </Card.Description>
         </Card.Content>
 
-        <Card.Content extra>
+        <Card.Content extra className={genderName}>
           <div>
               <a href={facebook}><Icon className='large facebook' /></a>
               <a href={twitter}><Icon className='large twitter' /></a>
               <a href={youtube}><Icon className='large youtube' /></a>
               <a href={website}><Icon className="large home icon" /></a>
               <Icon onClick={this.handleClick} className="large legal icon" />
-              {gender}
           </div>
         </Card.Content>
       </Card>

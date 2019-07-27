@@ -1,8 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchBillsBySubject } from '../actions/bills'
-import { Container, Card } from 'semantic-ui-react'
-import BillCard from '../components/BillCard'
+import { Container } from 'semantic-ui-react'
 import BillsSearchBar from '../components/BillsSearchBar'
 
 
@@ -16,16 +14,16 @@ class BillsContainer extends React.Component {
     }
   }
 
-
+  // componentDidMount(){
+  //   console.log("hello from componentDidMount")
+  //   this.props.fetchBillsBySubject()
+  // }
 
 
   render(){
     return (
       <Container>
         <BillsSearchBar/>
-        <Card.Group itemsPerRow={5}>
-          <BillCard />
-        </Card.Group>
       </Container>
     )
   }
@@ -33,4 +31,4 @@ class BillsContainer extends React.Component {
 
 const mapStateToProps = state => ({bills: state.bills})
 
-export default connect(mapStateToProps, { fetchBillsBySubject })(BillsContainer)
+export default connect(mapStateToProps)(BillsContainer)

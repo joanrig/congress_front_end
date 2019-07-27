@@ -51,7 +51,7 @@ class SenateCard extends React.Component {
       }
 
     return (
-      <Card >
+      <Card>
         <Image src={senator.party_logo} wrapped ui={false} />
 
         <Card.Content onClick={this.toggleCard}>

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container, Card, Button } from 'semantic-ui-react'
+import { Card, Form } from 'semantic-ui-react'
+import { fetchBillsBySubject } from '../actions/bills'
 import BillCard from './BillCard'
 
 
@@ -14,14 +15,21 @@ class BillsSearchBar extends React.Component {
   }
 
   updateSearch= (event) => {
-    this.setState({search: event.target.value.substr(0, 100)})
+    this.setState({search: event.target.value.substr(0, 50)})
+  }
+
+  handleSubmit= (event) => {
+    event.preventDefault() 
+    fetchBillsBySubject(this.state.search)
+    
+    debugger
   }
 
   render (){
-    let searchInstructions =
-      "enter a subject, i.e. 'guns', 'education', 'China'"
 
-    let input = this.state.search.toLowerCase()
+
+    // for separate filtering method after bills are fetched:
+    // let input = this.state.search.toLowerCase()
     // let filteredBills = this.props.bills.filter(
     //   (bill => {
     //     let searchTerm = bill.primary_subject
@@ -31,25 +39,27 @@ class BillsSearchBar extends React.Component {
 
     return (
       <>
+        <br/>
+          <Form onSubmit={this.handleSubmit}>
+            <div className="ui fluid action input">
+              <input
+                type="search"
+                value={this.state.search}
+                placeholder="Search bills by subject..."
+                onChange={this.updateSearch} />
+              <input type="submit" value="search" />
+            </div>
+          </Form>
 
-          <br/>
-          <div className="ui fluid icon input">
-            <input
-              type="text"
-              placeholder={searchInstructions}
-              value={this.state.search}
-              onChange={this.updateSearch}
-            />
-            <i className="search icon"></i>
-          </div>
-          <br/>
-          <br/>
-          <Card.Group itemsPerRow={5}>
+        <br/>
+        <br/>
+        <Card.Group itemsPerRow={5}>
           <div className="ui five stackable cards">
-
+            {this.state.bills.map(bill =>
+            <BillCard key={bill.id} {...bill} />
+          )}
           </div>
-          </Card.Group>
-
+        </Card.Group>
       </>
     )
   }
@@ -58,4 +68,4 @@ class BillsSearchBar extends React.Component {
 
 const mapStateToProps = state => ({bills: state.bills})
 
-export default connect(mapStateToProps)(BillsSearchBar)
+export default connect(mapStateToProps, {fetchBillsBySubject})(BillsSearchBar)

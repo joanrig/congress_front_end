@@ -18,7 +18,7 @@ class HouseSorter extends React.Component {
         <h1 className="center">
           Who's Who in the U.S. House of Representatives?  Let's sort them out!
         </h1>
-        <h4 className="center">How to play: sort representatives or narrow results with search.  Then see if you can guess the name!  Stumped? Click on "Guess Who?"</h4>
+        <h4 className="center">How to play: Search or sort to narrow results, then see if you can guess the names!  Stumped? Click on "Guess Who?"</h4>
 
         <div className='social center'>
           <Button size="big" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>

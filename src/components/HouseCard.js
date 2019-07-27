@@ -47,27 +47,27 @@ class HouseCard extends React.Component {
 
     let facebook
     if (rep.facebook_account) {
-      facebook = <a href={rep.facebook_account} target="_blank"><Icon className='large facebook' /></a>
+      facebook = <a href={rep.facebook_account} ><Icon className='large facebook' /></a>
     }
 
     let twitter
     if (rep.twitter_account) {
-      twitter = <a href={rep.twitter_account} target="_blank"><Icon className='large twitter' /></a>
+      twitter = <a href={rep.twitter_account} ><Icon className='large twitter' /></a>
     }
 
     let youTube
     if (rep.youtube_account) {
-      youTube = <a href={rep.youtube_account} target="_blank"><Icon className='large youtube' /></a>
+      youTube = <a href={rep.youtube_account} ><Icon className='large youtube' /></a>
     }
 
     let website
     if (rep.website) {
-      website = <a href={rep.website} target="_blank"><Icon className='large home icon' /></a>
+      website = <a href={rep.website} ><Icon className='large home icon' /></a>
     }
 
     let contact_form
     if (rep.contact_form) {
-      contact_form = <a href={rep.contact_form} target="_blank"><Icon className='large mail' /></a>
+      contact_form = <a href={rep.contact_form} ><Icon className='large mail' /></a>
     }
 
     let gavel = <Icon onClick={this.handleClick} className="large legal icon" />

@@ -20,9 +20,15 @@ class SenateCard extends React.Component {
     })
   }
 
-  handleClick = () => {
+  handleGavelClick = () => {
     let id = this.props.propublica_id
     this.props.fetchBillsBySenator(id)
+  }
+
+  handlePhoneClick= () => {
+    console.log(this.props.phone)
+    window.open('tel:900300400')
+
   }
 
   render() {
@@ -49,30 +55,34 @@ class SenateCard extends React.Component {
 
      let facebook
      if (senator.facebook_account) {
-       facebook = <a href={senator.facebook_account} target="_blank"><Icon className='large facebook' /></a>
+       facebook = <a href={senator.facebook_account} ><Icon className='large facebook' /></a>
      }
 
      let twitter
      if (senator.twitter_account) {
-       twitter = <a href={senator.twitter_account} target="_blank"><Icon className='large twitter' /></a>
+       twitter = <a href={senator.twitter_account} ><Icon className='large twitter' /></a>
      }
 
      let youTube
      if (senator.youtube_account) {
-       youTube = <a href={senator.youtube_account} target="_blank"><Icon className='large youtube' /></a>
+       youTube = <a href={senator.youtube_account} ><Icon className='large youtube' /></a>
      }
 
      let website
      if (senator.website) {
-       website = <a href={senator.website} target="_blank"><Icon className='large home icon' /></a>
+       website = <a href={senator.website} ><Icon className='large home icon' /></a>
      }
 
      let contact_form
      if (senator.contact_form) {
-       contact_form = <a href={senator.contact_form} target="_blank"><Icon className='large mail' /></a>
+       contact_form = <a href={senator.contact_form} ><Icon className='large mail' /></a>
      }
 
-     let gavel = <Icon onClick={this.handleClick} className="large legal icon" />
+     let gavel = <Icon onClick={this.handleGavelClick} className="large legal icon" />
+
+     let phone = <a href={senator.clickable_phone}><Icon className="large phone icon" /></a>
+
+        // let phone =<a href=”tel:111222333″>Click to call</a>
 
 //show latest bill
      let url = ""
@@ -82,7 +92,7 @@ class SenateCard extends React.Component {
        url = senator.bills[0].govtrack_url
        billTitle = <a href={url} target="_blank">{title}</a>
      } else {
-       billTitle = "nothing here? Click gavel below."
+       billTitle = "nothing here? Click the gavel!"
      }
 
     return (
@@ -105,8 +115,9 @@ class SenateCard extends React.Component {
             {runningForPresident}
             <br/>
             <hr/>
-            Most recent bill:<br/>
+            Most recent bill: {gavel}<br/>
             {billTitle}
+
 
           </Card.Description>
         </Card.Content>
@@ -118,7 +129,7 @@ class SenateCard extends React.Component {
             {youTube}
             {website}
             {contact_form}
-            {gavel}
+            {phone}
           </div>
         </Card.Content>
       </Card>

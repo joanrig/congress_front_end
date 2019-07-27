@@ -42,32 +42,37 @@ class SenateCard extends React.Component {
       runningForPresident = <h4>I'm running for President!</h4>
     }
 
-   let facebook
-   if (senator.facebook_account) {
-     facebook = <a href={senator.facebook_account} target="_blank"><Icon className='large facebook' /></a>
-   }
+    let leaving
+    if (senator.status){
+      leaving = <h5>{senator.status_note}</h5>
+    }
 
-   let twitter
-   if (senator.twitter_account) {
-     twitter = <a href={senator.twitter_account} target="_blank"><Icon className='large twitter' /></a>
-   }
+     let facebook
+     if (senator.facebook_account) {
+       facebook = <a href={senator.facebook_account} target="_blank"><Icon className='large facebook' /></a>
+     }
 
-   let youTube
-   if (senator.youtube_account) {
-     youTube = <a href={senator.youtube_account} target="_blank"><Icon className='large youtube' /></a>
-   }
+     let twitter
+     if (senator.twitter_account) {
+       twitter = <a href={senator.twitter_account} target="_blank"><Icon className='large twitter' /></a>
+     }
 
-   let website
-   if (senator.website) {
-     website = <a href={senator.website} target="_blank"><Icon className='large home icon' /></a>
-   }
+     let youTube
+     if (senator.youtube_account) {
+       youTube = <a href={senator.youtube_account} target="_blank"><Icon className='large youtube' /></a>
+     }
 
-   let contact_form
-   if (senator.contact_form) {
-     contact_form = <a href={senator.contact_form} target="_blank"><Icon className='large mail' /></a>
-   }
+     let website
+     if (senator.website) {
+       website = <a href={senator.website} target="_blank"><Icon className='large home icon' /></a>
+     }
 
-   let gavel = <Icon onClick={this.handleClick} className="large legal icon" />
+     let contact_form
+     if (senator.contact_form) {
+       contact_form = <a href={senator.contact_form} target="_blank"><Icon className='large mail' /></a>
+     }
+
+     let gavel = <Icon onClick={this.handleClick} className="large legal icon" />
 
 //show latest bill
      let url = ""
@@ -96,6 +101,7 @@ class SenateCard extends React.Component {
             Next election: {senator.next_election}<br/>
             Missed votes: {senator.missed_votes_pct}%<br/>
             Votes party line {senator.votes_with_party_pct}%<br/>
+            {leaving}
             {runningForPresident}
             <br/>
             <hr/>

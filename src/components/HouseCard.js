@@ -40,6 +40,11 @@ class HouseCard extends React.Component {
       runningForPresident = <h4>I'm running for President!</h4>
     }
 
+    let leaving
+    if (rep.status){
+      leaving = <h5>{rep.status_note}</h5>
+    }
+
     let facebook
     if (rep.facebook_account) {
       facebook = <a href={rep.facebook_account} target="_blank"><Icon className='large facebook' /></a>

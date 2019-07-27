@@ -24,7 +24,7 @@ class HouseSearchBar extends React.Component {
   render (){
 
     let searchInstructions =
-      "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
+      "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
 
     let filteredReps = this.props.reps.filter(
@@ -37,6 +37,10 @@ class HouseSearchBar extends React.Component {
 
         if (rep.seniority < 2){
           searchTerm += "freshmen"
+        }
+
+        if (rep.status){
+          searchTerm += "leaving"
         }
 
         let input = this.state.search.toLowerCase()

@@ -30,7 +30,7 @@ class SenateSearchBar extends React.Component {
   render (){
 
     let searchInstructions =
-      "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for presidential candidates,'freshmen' for the newest faces!"
+      "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
     let filteredSenators = this.props.senate.filter(
       (senator) => {
@@ -43,6 +43,10 @@ class SenateSearchBar extends React.Component {
 
         if (senator.seniority < 2){
           searchTerm += "freshmen"
+        }
+
+        if (senator.status){
+          searchTerm += "leaving"
         }
 
         let input = this.state.search.toLowerCase()

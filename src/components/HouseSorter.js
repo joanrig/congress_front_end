@@ -11,7 +11,7 @@ class HouseSorter extends React.Component {
 
   render (){
     let tips = (
-      `Click on any card's gavel icon to get or update the Senator's most recent bill!`
+        `You can sort after searching or vice-versa!`
     )
     return (
       <>

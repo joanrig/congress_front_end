@@ -100,6 +100,7 @@ class HouseCard extends React.Component {
             Next election: {rep.next_election}<br/>
             Missed votes: {rep.missed_votes_pct}%<br/>
             Votes party line {rep.votes_with_party_pct}%<br/>
+            {leaving}
             {runningForPresident}
             <br/>
             <hr/>

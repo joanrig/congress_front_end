@@ -12,14 +12,14 @@ class SenateSorter extends React.Component {
 
   render (){
     let tips = (
-      `Click on any card's gavel icon to get or update the Senator's most recent bill!`
+      `You can sort after searching or vice-versa!`
     )
     return (
       <>
         <h1 className="center">
           Who's Who in the U.S. Senate?  Let's sort them out.
         </h1>
-        <h4 className="center">How to play: sort senators or narrow results with search.  Then see if you can guess the name!  Stumped?  Click on "Guess Who?"</h4>
+        <h4 className="center">How to play: use search or sort (or both) to narrow results.  Then see if you can who's who!  Stumped?  Click on "Guess Who?"</h4>
 
         <div className='social center'>
           <Button size="big" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>

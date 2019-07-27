@@ -26,25 +26,48 @@ class HouseCard extends React.Component {
 
   render() {
     let rep = this.props
-    //figure out how to only show these if they exist
-     let facebook = rep.facebook_account
-     let twitter = rep.twitter_account
-     let youtube = rep.you_tube_account
-     let website = rep.website
-     // let contact_form = rep.contact_form
 
-     let name
-     this.state.front? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
+    let name
+    this.state.front? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
-     let genderName
-     if (rep.gender === "F"){
-       genderName = "female"
-     }
+    let genderName
+    if (rep.gender === "F"){
+      genderName = "female"
+    }
 
-     let runningForPresident
-     if (rep.running_for_president){
-       runningForPresident = <h4>I'm running for President!</h4>
-     }
+    let runningForPresident
+    if (rep.running_for_president){
+      runningForPresident = <h4>I'm running for President!</h4>
+    }
+
+    let facebook
+    if (rep.facebook_account) {
+      facebook = <a href={rep.facebook_account} target="_blank"><Icon className='large facebook' /></a>
+    }
+
+    let twitter
+    if (rep.twitter_account) {
+      twitter = <a href={rep.twitter_account} target="_blank"><Icon className='large twitter' /></a>
+    }
+
+    let youTube
+    if (rep.youtube_account) {
+      youTube = <a href={rep.youtube_account} target="_blank"><Icon className='large youtube' /></a>
+    }
+
+    let website
+    if (rep.website) {
+      website = <a href={rep.website} target="_blank"><Icon className='large home icon' /></a>
+    }
+
+    let contact_form
+    if (rep.contact_form) {
+      contact_form = <a href={rep.contact_form} target="_blank"><Icon className='large mail' /></a>
+    }
+
+    let gavel = <Icon onClick={this.handleClick} className="large legal icon" />
+
+
 
      let url = ""
      let billTitle
@@ -82,11 +105,12 @@ class HouseCard extends React.Component {
 
         <Card.Content extra className={genderName}>
           <div>
-              <a href={facebook}><Icon className='large facebook' /></a>
-              <a href={twitter}><Icon className='large twitter' /></a>
-              <a href={youtube}><Icon className='large youtube' /></a>
-              <a href={website}><Icon className="large home icon" /></a>
-              <Icon onClick={this.handleClick} className="large legal icon" />
+            {facebook}
+            {twitter}
+            {youTube}
+            {website}
+            {contact_form}
+            {gavel}
           </div>
         </Card.Content>
       </Card>

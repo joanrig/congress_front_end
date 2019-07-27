@@ -28,38 +28,54 @@ class SenateCard extends React.Component {
   render() {
     let senator = this.props
 
-     let facebook = senator.facebook_account
-     let twitter = senator.twitter_account
+    let name
+    this.state.front? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
 
-     let youTube
-     if (senator.youtube_account) {
-       youTube = <a href={senator.youtube_account}><Icon className='large youtube' /></a>
-     }
+    //change className of <Card content extra> to change bg color based on gender / running for pres
+    let genderName
+    if (senator.gender === "F"){
+      genderName = "female"
+    }
 
-     let website = senator.website
-     // let contact_form = senator.contact_form
+    let runningForPresident
+    if (senator.running_for_president){
+      runningForPresident = <h4>I'm running for President!</h4>
+    }
 
-     let name
-     this.state.front? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
+   let facebook
+   if (senator.facebook_account) {
+     facebook = <a href={senator.facebook_account} target="_blank"><Icon className='large facebook' /></a>
+   }
 
-     //change className of <Card content extra> to change bg color based on gender / running for pres
-     let genderName
-     if (senator.gender === "F"){
-       genderName = "female"
-     }
+   let twitter
+   if (senator.twitter_account) {
+     twitter = <a href={senator.twitter_account} target="_blank"><Icon className='large twitter' /></a>
+   }
 
-     let runningForPresident
-     if (senator.running_for_president){
-       runningForPresident = <h4>I'm running for President!</h4>
-     }
+   let youTube
+   if (senator.youtube_account) {
+     youTube = <a href={senator.youtube_account} target="_blank"><Icon className='large youtube' /></a>
+   }
 
-//for showing latest bill
+   let website
+   if (senator.website) {
+     website = <a href={senator.website} target="_blank"><Icon className='large home icon' /></a>
+   }
+
+   let contact_form
+   if (senator.contact_form) {
+     contact_form = <a href={senator.contact_form} target="_blank"><Icon className='large mail' /></a>
+   }
+
+   let gavel = <Icon onClick={this.handleClick} className="large legal icon" />
+
+//show latest bill
      let url = ""
      let billTitle
      if (senator.bills[0]){
        let title = senator.bills[0].short_title.substring(0,75)+'...'
        url = senator.bills[0].govtrack_url
-       billTitle = <a href={url}>{title}</a>
+       billTitle = <a href={url} target="_blank">{title}</a>
      } else {
        billTitle = "nothing here? Click gavel below."
      }
@@ -91,11 +107,12 @@ class SenateCard extends React.Component {
 
         <Card.Content extra className={genderName}>
           <div>
-            <a href={facebook}><Icon className='large facebook' /></a>
-            <a href={twitter}><Icon className='large twitter' /></a>
+            {facebook}
+            {twitter}
             {youTube}
-            <a href={website}><Icon className="large home icon" /></a>
-            <Icon onClick={this.handleClick} className="large legal icon" />
+            {website}
+            {contact_form}
+            {gavel}
           </div>
         </Card.Content>
       </Card>

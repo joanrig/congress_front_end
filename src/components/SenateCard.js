@@ -1,8 +1,10 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
+import { showSenatorBills } from '../actions/bills'
 import { connect } from 'react-redux'
-// import { Redirect } from 'react-router'
+import { Link } from 'react-router-dom';
+
 
 
 class SenateCard extends React.Component {
@@ -25,10 +27,11 @@ class SenateCard extends React.Component {
     this.props.fetchBillsBySenator(id)
   }
 
-  handlePhoneClick= () => {
-    console.log(this.props.phone)
-    window.open('tel:900300400')
 
+  handleMoreBillsClick = () => {
+    console.log("handle more bills was clicked")
+    let bills = this.props.bills
+    this.props.showSenatorBills(bills)
   }
 
   render() {
@@ -37,7 +40,7 @@ class SenateCard extends React.Component {
     let name
     this.state.front? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
 
-    //change className of <Card content extra> to change bg color based on gender / running for pres
+    //change className to change bg color based on gender
     let genderName
     if (senator.gender === "F"){
       genderName = "female"
@@ -78,11 +81,10 @@ class SenateCard extends React.Component {
        contact_form = <a href={senator.contact_form} ><Icon className='large mail' /></a>
      }
 
-     let gavel = <Icon onClick={this.handleGavelClick} className="large legal icon" />
+     let gavel = <Icon onClick={this.handleGavelClick} className="legal icon" />
 
-     let phone = <a href={senator.clickable_phone}><Icon className="large phone icon" /></a>
+     let phone = <a href={senator.phone_clickable}><Icon className="large phone icon" /></a>
 
-        // let phone =<a href=”tel:111222333″>Click to call</a>
 
 //show latest bill
      let url = ""
@@ -90,7 +92,7 @@ class SenateCard extends React.Component {
      if (senator.bills[0]){
        let title = senator.bills[0].short_title.substring(0,75)+'...'
        url = senator.bills[0].govtrack_url
-       billTitle = <a href={url} target="_blank">{title}</a>
+       billTitle = <a href={url}>{title}</a>
      } else {
        billTitle = "nothing here? Click the gavel!"
      }
@@ -99,26 +101,28 @@ class SenateCard extends React.Component {
       <Card>
         <Image src={senator.party_logo} wrapped ui={false}  />
 
-        <Card.Content onClick={this.toggleCard}>
-          <Card.Header >
+        <Card.Content >
+          <Card.Header onClick={this.toggleCard}>
             Sen. {name}<br/>
             {senator.party}-{senator.state_full_name}
           </Card.Header>
 
           <Card.Description>
             Years in office: {senator.seniority} <br/>
-            Age: {senator.age}<br/>
-            Next election: {senator.next_election}<br/>
-            Missed votes: {senator.missed_votes_pct}%<br/>
-            Votes party line {senator.votes_with_party_pct}%<br/>
+            Age: {senator.age} <br/>
+            Next election: {senator.next_election} <br/>
+            Missed votes: {senator.missed_votes_pct}% <br/>
+            Votes party line {senator.votes_with_party_pct}% <br/>
             {leaving}
             {runningForPresident}
             <br/>
             <hr/>
             Most recent bill: {gavel}<br/>
             {billTitle}
-
-
+            <Link to={'./bills'} onClick={this.handleMoreBillsClick}>
+              more bills
+            </Link>
+            <hr/>
           </Card.Description>
         </Card.Content>
 
@@ -137,4 +141,4 @@ class SenateCard extends React.Component {
   }
 }
 
-export default connect(null, { fetchBillsBySenator })(SenateCard)
+export default connect(null, { fetchBillsBySenator, showSenatorBills })(SenateCard)

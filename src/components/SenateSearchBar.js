@@ -11,7 +11,6 @@ class SenateSearchBar extends React.Component {
     this.state = {
       search: '',
       showNames: false,
-      senate: props.house
     }
   }
 
@@ -20,9 +19,9 @@ class SenateSearchBar extends React.Component {
   }
 
   handleFlipClick = () => {
-    debugger
     this.setState((prevState)=>{
       return {showNames: !prevState.showNames}
+      debugger
     })
   }
 

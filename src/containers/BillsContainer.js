@@ -4,23 +4,22 @@ import { Container } from 'semantic-ui-react'
 import BillsSearchBar from '../components/BillsSearchBar'
 
 
-
 class BillsContainer extends React.Component {
   constructor(props) {
     super()
 
     this.state = {
-      bills: [],
+      bills: []
     }
   }
 
-  // componentDidMount(){
-  //   console.log("hello from componentDidMount")
-  //   this.props.fetchBillsBySubject()
-  // }
+  componentDidMount(){
+    this.setState({bills: this.props.bills})
+   }
 
 
   render(){
+    // this.state.bills => {bills: Array(0)}
     return (
       <Container>
         <BillsSearchBar/>

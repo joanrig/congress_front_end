@@ -18,13 +18,14 @@ class BillsSearchBar extends React.Component {
     this.setState({search: event.target.value.substr(0, 50)})
   }
 
-  handleSubmit= (event) => {
+  handleSubmit = (event) => {
     event.preventDefault() 
-    fetchBillsBySubject(this.state.search)
+    this.props.fetchBillsBySubject(this.state.search)
     console.log("finished calling fetch bills by subject, query is", this.state.search)
   }
 
   render (){
+    let senator = this.props.senate
 
 
     // for separate filtering method after bills are fetched:

@@ -19,7 +19,7 @@ class HouseCard extends React.Component {
     })
   }
 
-  handleClick = () => {
+  handleGavelClick = () => {
     let id = this.props.propublica_id
     this.props.fetchBillsByRep(id)
   }
@@ -70,8 +70,9 @@ class HouseCard extends React.Component {
       contact_form = <a href={rep.contact_form} ><Icon className='large mail' /></a>
     }
 
-    let gavel = <Icon onClick={this.handleClick} className="large legal icon" />
+    let gavel = <Icon onClick={this.handleGavelClick} className="large legal icon" />
 
+    let phone = <a href={rep.phone_clickable}><Icon className="large phone icon" /></a>
 
 
      let url = ""
@@ -88,8 +89,8 @@ class HouseCard extends React.Component {
       <Card>
         <Image src={rep.party_logo} wrapped ui={false} className={genderName}/>
 
-        <Card.Content onClick={this.toggleCard}>
-          <Card.Header>
+        <Card.Content >
+          <Card.Header onClick={this.toggleCard}>
             Rep. {name}<br/> {rep.party}-{rep.state_full_name}<br/>
             District {rep.district}
           </Card.Header>
@@ -104,7 +105,7 @@ class HouseCard extends React.Component {
             {runningForPresident}
             <br/>
             <hr/>
-            Most recent bill:<br/>
+            Most recent bill: {gavel}<br/>
             {billTitle}
           </Card.Description>
         </Card.Content>
@@ -116,7 +117,8 @@ class HouseCard extends React.Component {
             {youTube}
             {website}
             {contact_form}
-            {gavel}
+            {phone}
+
           </div>
         </Card.Content>
       </Card>

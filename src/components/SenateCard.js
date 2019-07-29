@@ -1,7 +1,6 @@
 import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
-import { showSenatorBills } from '../actions/bills'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 
@@ -141,4 +140,4 @@ class SenateCard extends React.Component {
   }
 }
 
-export default connect(null, { fetchBillsBySenator, showSenatorBills })(SenateCard)
+export default connect(null, { fetchBillsBySenator })(SenateCard)

@@ -29,33 +29,37 @@ class BillCard extends React.Component {
     let democratSponsors
     let republicanSponsors
     let independentSponsors
+    let cos = bill.cosponsors_by_party
 
-    if (bill.cosponsors_by_party["D"]){
-      democratSponsors = "Democrats" +' '+ bill.cosponsors_by_party["D"]
+    if (cos["D"]){
+      democratSponsors = "Democrats" +' '+ cos["D"]
     }
 
-    if (bill.cosponsors_by_party["R"]){
-      republicanSponsors = "Republicans" + ' '+bill.cosponsors_by_party["R"]
+    if (cos["R"]){
+      republicanSponsors = "Republicans" + ' '+cos["R"]
     }
 
-    if (bill.cosponsors_by_party["I"]){
-      independentSponsors = "Independents" + ' ' +bill.cosponsors_by_party["I"]
+    if (cos["I"]){
+      independentSponsors = "Independents" + ' ' +cos["I"]
     }
 
-    let color
+    //tried to move to back end, doesn't work there.
+    let sponsorColor
     if (bill.cosponsors){
-      if(bill.cosponsors_by_party["R"] &&
-        bill.cosponsors_by_party["R"] > bill.cosponsors_by_party["D"]){
-        color = "red"
-      } else if (bill.cosponsors_by_party["D"] &&
-        bill.cosponsors_by_party["D"] > bill.cosponsors_by_party["R"]){
-        color = "blue"
-      } else if (bill.cosponsors_by_party["R"] &&
-        bill.cosponsors_by_party["D"] && bill.cosponsors_by_party["R"] === bill.cosponsors_by_party["D"])
-        color = "purple"
+      if(cos["R"] && cos["R"] > cos["D"]){
+        sponsorColor = "red"
+      } else if (cos["R"] && !cos["D"]){
+        sponsorColor = "red"
+      } else if (cos["D"] && cos["D"] > cos["R"]){
+        sponsorColor = "blue"
+      } else if (cos["D"] && !cos["R"]){
+        sponsorColor = "red"
+      } else if (cos["R"] && cos["D"] && cos["R"] === cos["D"]){
+        sponsorColor = "purple"
       }
-    else {
-      color = "white"
+      else {
+        sponsorColor = "white"
+      }
     }
 
 
@@ -83,23 +87,27 @@ class BillCard extends React.Component {
           </Card.Header>
 
           <Card.Description>
-            Sponsor: <br/>
-            {sponsorName}<br/>
-            {sponsorInfo}<br/>
+            <h3>
+              Sponsor <br/>
+              {sponsorName}<br/>
+              {sponsorInfo}<br/>
+            </h3>
+            <br/>
             {billTitle}<br/>
             <hr />
-            Primary Subject: {bill.primary_subject}<br/>
-
+            Primary Subject: <br/>
+            {bill.primary_subject}<br/>
+            {bill.active}
           </Card.Description>
         </Card.Content>
 
 
-        <Card.Content extra background-color={color}>
+        <Card.Content extra className={sponsorColor}>
           <div>
-            Cosponsors: {bill.cosponsors}<br/>
+            <strong>Cosponsors: {bill.cosponsors}</strong><br/>
             {democratSponsors}<br/>
             {republicanSponsors}<br/>
-            {independentSponsors}<br/>
+            {independentSponsors}
           </div>
         </Card.Content>
       </Card>

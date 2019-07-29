@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card, Form } from 'semantic-ui-react'
+import { Card, Form, Segment } from 'semantic-ui-react'
 import { fetchBillsBySubject } from '../actions/bills'
+// import BillsFilter from './BillsFilter'
 import BillCard from './BillCard'
 
 
@@ -25,6 +26,16 @@ class BillsSearchBar extends React.Component {
   }
 
   render (){
+
+    let content
+    if (this.props.bills){
+      content = this.props.bills.map(bill =><BillCard key={bill.id} {...bill} />)
+
+   } else {
+     content = "searching for your bills ..."
+   }
+
+
 
 
     // for separate filtering method after bills are fetched:
@@ -53,9 +64,7 @@ class BillsSearchBar extends React.Component {
         <br/>
         <br/>
         <Card.Group itemsPerRow={5}>
-        {this.props.bills && this.props.bills.map(bill =>
-           <BillCard key={bill.id} {...bill} />
-         )}
+          {content}
         </Card.Group>
       </>
     )

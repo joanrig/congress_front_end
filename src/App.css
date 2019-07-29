@@ -46,6 +46,22 @@ p {
   background-color: rgb(244,0,106,0.2);
 }
 
+.ui.cards>.card>.content.extra.red {
+  background-color: rgb(231,70,64,0.6);
+}
+
+.ui.cards>.card>.content.extra.blue {
+  background-color: rgb(14,78,193,0.2);
+}
+
+.ui.cards>.card>.content.extra.purple {
+  background-color: rgb(155,103, 179, 0.2);
+}
+
+.ui.cards>.card>.content.extra.white {
+  background-color: 243,244,245);
+}
+
 
 
 

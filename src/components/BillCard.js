@@ -10,7 +10,6 @@ class BillCard extends React.Component {
 
     this.state = {
       search: '',
-      bills: []
     }
   }
 
@@ -18,7 +17,38 @@ class BillCard extends React.Component {
   //   this.setState({search: event.target.value.substr(0, 100)})
   // }
 
+
   render (){
+    const bill = this.props
+
+
+    let url = ""
+    let billTitle
+    let title = bill.short_title.substring(0,75)+'...'
+    url = bill.govtrack_url
+    billTitle = <a href={url}>{title}</a>
+
+    let democratSponsors
+    let republicanSponsors
+    let independentSponsors
+
+    if (bill.sponsors && bill.cosponsorsByParty["D"]){
+      democratSponsors = bill.cosponsorsByParty["D"]
+    }
+
+
+    if (bill.sponsors && bill.cosponsorsByParty["R"]){
+      republicanSponsors = bill.cosponsorsByParty["R"]
+    }
+
+
+    if (bill.sponsors && bill.cosponsorsByParty["R"]){
+      independentSponsors = bill.cosponsorsByParty["I"]
+    }
+
+
+
+
     return (
 
       <Card >
@@ -26,24 +56,23 @@ class BillCard extends React.Component {
 
         <Card.Content onClick={this.toggleCard}>
           <Card.Header>
-            Bill title goes here
-            
+            {bill.number}<br/>
+            {bill.primary_subject}
+            {bill.sponsor_name}
+            {bill.status}
           </Card.Header>
 
           <Card.Description>
-            bill info <br/>
-            bill info <br/>
-            bill info <br/>
-            bill info <br/>
-            bill info <br/>
+            {billTitle}
           </Card.Description>
         </Card.Content>
 
         <Card.Content extra >
           <div>
-            more bill info <br/>
-            more bill info <br/>
-            more bill info <br/>
+            Cosponsors: {bill.cosponsors} <br/>
+            {democratSponsors} <br/>
+            {republicanSponsors} <br/>
+            {independentSponsors}
           </div>
         </Card.Content>
       </Card>

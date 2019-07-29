@@ -21,11 +21,10 @@ class BillsSearchBar extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault() 
     this.props.fetchBillsBySubject(this.state.search)
-    console.log("finished calling fetch bills by subject, query is", this.state.search)
+    //this.props does not have 20 bills, but global state does
   }
 
   render (){
-    let senator = this.props.senate
 
 
     // for separate filtering method after bills are fetched:
@@ -54,11 +53,9 @@ class BillsSearchBar extends React.Component {
         <br/>
         <br/>
         <Card.Group itemsPerRow={5}>
-          <div className="ui five stackable cards">
-            {this.state.bills.map(bill =>
-            <BillCard key={bill.id} {...bill} />
-          )}
-          </div>
+        {this.props.bills && this.props.bills.map(bill =>
+           <BillCard key={bill.id} {...bill} />
+         )}
         </Card.Group>
       </>
     )
@@ -66,6 +63,6 @@ class BillsSearchBar extends React.Component {
 }
 
 
-const mapStateToProps = state => ({bills: state.bills})
+const mapStateToProps = state => ({bills: state.bills.bills })
 
 export default connect(mapStateToProps, {fetchBillsBySubject})(BillsSearchBar)

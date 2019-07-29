@@ -31,7 +31,7 @@ class SenateCard extends React.Component {
   handleMoreBillsClick = () => {
     console.log("handle more bills was clicked")
     let bills = this.props.bills
-    this.props.showSenatorBills(bills)
+    // <Link to={'/bills'} senator={this.props} />
   }
 
   render() {

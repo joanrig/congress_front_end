@@ -21,7 +21,6 @@ class SenateSearchBar extends React.Component {
   handleFlipClick = () => {
     this.setState((prevState)=>{
       return {showNames: !prevState.showNames}
-      debugger
     })
   }
 

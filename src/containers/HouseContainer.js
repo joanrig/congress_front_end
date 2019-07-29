@@ -19,6 +19,14 @@ class HouseContainer extends React.Component {
     this.props.fetchHouse()
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+   if (this.props.reps === nextProps.reps) {
+     return false;
+   } else {
+     return true;
+   }
+ }
+
 
   render(){
     return (

@@ -17,10 +17,8 @@ class BillCard extends React.Component {
   //   this.setState({search: event.target.value.substr(0, 100)})
   // }
 
-
   render (){
     const bill = this.props
-
 
     let url = ""
     let billTitle
@@ -32,47 +30,76 @@ class BillCard extends React.Component {
     let republicanSponsors
     let independentSponsors
 
-    if (bill.sponsors && bill.cosponsorsByParty["D"]){
-      democratSponsors = bill.cosponsorsByParty["D"]
+    if (bill.cosponsors_by_party["D"]){
+      democratSponsors = "Democrats" +' '+ bill.cosponsors_by_party["D"]
+    }
+
+    if (bill.cosponsors_by_party["R"]){
+      republicanSponsors = "Republicans" + ' '+bill.cosponsors_by_party["R"]
+    }
+
+    if (bill.cosponsors_by_party["I"]){
+      independentSponsors = "Independents" + ' ' +bill.cosponsors_by_party["I"]
+    }
+
+    let color
+    if (bill.cosponsors){
+      if(bill.cosponsors_by_party["R"] &&
+        bill.cosponsors_by_party["R"] > bill.cosponsors_by_party["D"]){
+        color = "red"
+      } else if (bill.cosponsors_by_party["D"] &&
+        bill.cosponsors_by_party["D"] > bill.cosponsors_by_party["R"]){
+        color = "blue"
+      } else if (bill.cosponsors_by_party["R"] &&
+        bill.cosponsors_by_party["D"] && bill.cosponsors_by_party["R"] === bill.cosponsors_by_party["D"])
+        color = "purple"
+      }
+    else {
+      color = "white"
     }
 
 
-    if (bill.sponsors && bill.cosponsorsByParty["R"]){
-      republicanSponsors = bill.cosponsorsByParty["R"]
+
+    let sponsorTitle
+    if (bill.bill_type === "s"){
+      sponsorTitle = "Sen."
+    } else {
+      sponsorTitle = "Rep."
     }
 
-
-    if (bill.sponsors && bill.cosponsorsByParty["R"]){
-      independentSponsors = bill.cosponsorsByParty["I"]
-    }
-
+    let sponsorInfo = bill.sponsor_party + '-' + bill.sponsor_state
+    let sponsorName = sponsorTitle + ' ' + bill.sponsor_name
 
 
 
     return (
 
       <Card >
-        <Image src="https://vignette.wikia.nocookie.net/p__/images/f/f3/Bill_schoolhouse_rock.png/revision/latest?cb=20161029171330&path-prefix=protagonist" wrapped ui={false} />
+        <Image src="https://vignette.wikia.nocookie.net/p__/images/f/f3/Bill_schoolhouse_rock.png/revision/latest?cb=20161029171330&path-prefix=protagonist" wrapped ui={false} background-color="blue" />
 
         <Card.Content onClick={this.toggleCard}>
           <Card.Header>
             {bill.number}<br/>
-            {bill.primary_subject}
-            {bill.sponsor_name}
-            {bill.status}
           </Card.Header>
 
           <Card.Description>
-            {billTitle}
+            Sponsor: <br/>
+            {sponsorName}<br/>
+            {sponsorInfo}<br/>
+            {billTitle}<br/>
+            <hr />
+            Primary Subject: {bill.primary_subject}<br/>
+
           </Card.Description>
         </Card.Content>
 
-        <Card.Content extra >
+
+        <Card.Content extra background-color={color}>
           <div>
-            Cosponsors: {bill.cosponsors} <br/>
-            {democratSponsors} <br/>
-            {republicanSponsors} <br/>
-            {independentSponsors}
+            Cosponsors: {bill.cosponsors}<br/>
+            {democratSponsors}<br/>
+            {republicanSponsors}<br/>
+            {independentSponsors}<br/>
           </div>
         </Card.Content>
       </Card>

@@ -2,12 +2,17 @@
 
 // async action
 export function fetchHouse(){
-  console.log('firing fetchHouse')
+  //console.log('firing fetchHouse')
+  console.log("c")
   return (dispatch) => {
       return fetch('http://localhost:3000/search/reps')
       .then(resp => resp.json())
-      .then(house =>dispatch({type:"SET_HOUSE", house} ))
+      .then(house =>{
+        console.log("d")
+        return dispatch({type:"SET_HOUSE", house} )
+      })
      }
+     console.log("e")
 }
 
 //doesn't work

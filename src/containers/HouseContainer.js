@@ -16,7 +16,10 @@ class HouseContainer extends React.Component {
   }
 
   componentDidMount(){
+    console.log("a")
     this.props.fetchHouse()
+    console.log("b")
+    //a, b, c, d, a
   }
 
   shouldComponentUpdate(nextProps, nextState) {

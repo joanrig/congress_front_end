@@ -1,8 +1,9 @@
 import React, { Component} from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Button, Image } from 'semantic-ui-react'
 import { fetchBillsByRep } from '../actions/house'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 
 
 class HouseCard extends Component {
@@ -10,7 +11,8 @@ class HouseCard extends Component {
     super(props)
 
     this.state = {
-        front: props.showNames
+        front: props.showNames,
+        // upVoteCount: 0
      }
    }
 
@@ -25,8 +27,11 @@ class HouseCard extends Component {
     this.props.fetchBillsByRep(id)
   }
 
+
   render() {
     let rep = this.props
+
+    let upVoteCount = this.state.upVoteCount
 
     let name
     this.state.front? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
@@ -119,7 +124,7 @@ class HouseCard extends Component {
               bills={this.props.bills}>
               <br/>
               <br/>
-                more bills
+                more bills<br/>
             </Link>
           </Card.Description>
         </Card.Content>

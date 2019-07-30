@@ -10,7 +10,7 @@ const RegisterToVote = () => {
       <br/>
       <br/>
       <br/>
-      <iframe src="https://register.rockthevote.com/?partner=1&source=ovrpage" width="100%" height="600" marginheight="0" frameborder="0"></iframe>
+      <iframe src="https://register.rockthevote.com/?partner=1&source=ovrpage" width="100%" height="1200" marginheight="0" frameborder="0"></iframe>
     </>
     )
   }

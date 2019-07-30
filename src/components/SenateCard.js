@@ -122,7 +122,7 @@ class SenateCard extends Component {
             <Link to={{
               pathname: './bills',
               state: {
-                billls: 'bills go here',
+                bills: 'bills go here',
               }
             }}>
               more bills

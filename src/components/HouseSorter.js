@@ -13,6 +13,8 @@ class HouseSorter extends Component {
     let tips = (
         `You can sort after searching or vice-versa!`
     )
+
+
     return (
       <>
         <h1 className="center">

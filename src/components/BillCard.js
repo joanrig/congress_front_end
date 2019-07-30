@@ -59,13 +59,17 @@ class BillCard extends PureComponent {
 
     let sponsorInfo = bill.sponsor_party + '-' + bill.sponsor_state
     let sponsorName = sponsorTitle + ' ' + bill.sponsor_name
+    let image="https://vignette.wikia.nocookie.net/p__/images/f/f3/Bill_schoolhouse_rock.png/revision/latest?cb=20161029171330&path-prefix=protagonist"
 
 
     return (
 
       <Card >
-        <Image src="https://vignette.wikia.nocookie.net/p__/images/f/f3/Bill_schoolhouse_rock.png/revision/latest?cb=20161029171330&path-prefix=protagonist" wrapped ui={false} background-color="blue" />
-
+        <Image
+          src={image}
+          wrapped ui={false}
+          background-color="blue"
+        />
         <Card.Content onClick={this.toggleCard}>
           <Card.Header>
             {bill.number}<br/>

@@ -1,17 +1,9 @@
-import React from 'react'
+import React, {PureComponent} from 'react'
 import { connect } from 'react-redux'
 import { Card, Image } from 'semantic-ui-react'
 
 
-
-class BillCard extends React.Component {
-  constructor(props) {
-    super()
-
-    this.state = {
-      search: '',
-    }
-  }
+class BillCard extends PureComponent {
 
   render (){
     const bill = this.props
@@ -86,13 +78,13 @@ class BillCard extends React.Component {
               {sponsorInfo}<br/>
             </h3>
             <br/>
-            {billTitle}<br/>
+              {billTitle}<br/>
             <hr />
-            Primary Subject: <br/>
-            {bill.primary_subject}<br/>
+              Primary Subject: <br/>
+              {bill.primary_subject}<br/>
             <br/>
-            Introduced: <br/>
-            {bill.introduced_date}<br/>
+              Introduced: <br/>
+              {bill.introduced_date}<br/>
           </Card.Description>
         </Card.Content>
 

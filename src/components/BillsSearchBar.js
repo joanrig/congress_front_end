@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Form, Segment } from 'semantic-ui-react'
+import { Card, Form } from 'semantic-ui-react'
 import { fetchBillsBySubject } from '../actions/bills'
 // import BillsFilter from './BillsFilter'
 import BillCard from './BillCard'
 
 
-class BillsSearchBar extends React.Component {
+class BillsSearchBar extends Component {
+
   constructor(props) {
     super()
     this.state = {
@@ -15,12 +16,12 @@ class BillsSearchBar extends React.Component {
     }
   }
 
-  componentDidMount = () => {
-    debugger
-    this.setState({
-      bills: this.props.bills
-    })
-  }
+  // componentDidMount = () => {
+  //   debugger
+  //   this.setState({
+  //     bills: this.props.location.state.bills
+  //   })
+  // }
 
 
   updateSearch= (event) => {

@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsByRep } from '../actions/house'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 
 class HouseCard extends React.Component {
@@ -88,7 +89,7 @@ class HouseCard extends React.Component {
        url = rep.bills[0].govtrack_url
        billTitle = <a href={url}>{title}</a>
      } else {
-       billTitle = "nothing here? Click gavel below."
+       billTitle = billTitle = "nothing here? Click the gavel!"
      }
 
     return (
@@ -107,12 +108,19 @@ class HouseCard extends React.Component {
             {nextElection}<br/>
             {missedVotes} <br/>
             {votesWithParty}<br/>
-            {leaving}<br/>
+            {leaving}
             {runningForPresident}
             <br/>
             <hr/>
             Most recent bill: {gavel}<br/>
             {billTitle}
+            <Link
+              to={'./bills'}
+              bills={this.props.bills}>
+              <br/>
+              <br/>
+                more bills
+            </Link>
           </Card.Description>
         </Card.Content>
 

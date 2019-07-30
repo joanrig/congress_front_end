@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { Button } from 'semantic-ui-react'
 import { fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/house'
 import { connect } from 'react-redux'
 
 
-class HouseSorter extends React.Component {
+class HouseSorter extends Component {
   constructor(props) {
-    super()
+    super(props)
   }
 
   render (){

@@ -2,7 +2,7 @@ import React, { Component} from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 
 
@@ -22,6 +22,7 @@ class SenateCard extends Component {
   }
 
   handleGavelClick = () => {
+    debugger
     let id = this.props.propublica_id
     this.props.fetchBillsBySenator(id)
   }
@@ -111,13 +112,22 @@ class SenateCard extends Component {
             {nextElection}<br/>
             {missedVotes} <br/>
             {votesWithParty}<br/>
-            {leaving}<br />
+            {leaving}
             {runningForPresident}
             <br/>
             <hr/>
             Most recent bill: {gavel}<br/>
             {billTitle}
-            <Link to={'./bills'} senator={senator}>more bills</Link>
+            <br/>
+            <br/>
+            <Link to={{
+              pathname: './bills',
+              state: {
+                billls: 'bills go here',
+              }
+            }}>
+              more bills
+            </Link>
             <hr/>
           </Card.Description>
         </Card.Content>

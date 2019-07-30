@@ -18,12 +18,12 @@ class SenateSearchBar extends Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-  handleFlipClick = () => {
-    debugger
-    this.setState((prevState)=> {
-      return {showNames: !prevState.showNames}
-    })
-  }
+  // handleFlipClick = () => {
+  //   debugger
+  //   this.setState((prevState)=> {
+  //     return {showNames: !prevState.showNames}
+  //   })
+  // }
 
 
   render (){
@@ -63,7 +63,7 @@ class SenateSearchBar extends Component {
       <>
         <br/>
         <div className="ui fluid icon input">
-          <Button label="FLIP" onClick={this.handleFlipClick}/>
+
           <input
             type="text"
             placeholder={searchInstructions}
@@ -93,3 +93,5 @@ class SenateSearchBar extends Component {
 const mapStateToProps = state => ({ senate: state.senate })
 
 export default connect(mapStateToProps)(SenateSearchBar)
+
+//<Button label="FLIP" onClick={this.handleFlipClick}/>

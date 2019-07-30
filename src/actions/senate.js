@@ -61,7 +61,6 @@ export function fetchBillsBySenator(id){
 
 export function showSenatorBills(bills){
   //bills are still there
-  debugger
   console.log("showSenatorBills fired from actions/senate")
   return (dispatch) => ({type: 'SHOW_SENATOR_BILLS', bills})
     //how to also

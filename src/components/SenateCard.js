@@ -22,7 +22,6 @@ class SenateCard extends Component {
   }
 
   handleGavelClick = () => {
-    debugger
     let id = this.props.propublica_id
     this.props.fetchBillsBySenator(id)
   }

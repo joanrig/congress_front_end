@@ -58,7 +58,7 @@ class HouseSearchBar extends Component {
       <>
         <br/>
         <div className="ui fluid icon input">
-          <Button label="FLIP" onClick={this.handleFlipClick}/>
+
           <input
             type="text"
             placeholder={searchInstructions}
@@ -88,3 +88,5 @@ class HouseSearchBar extends Component {
 const mapStateToProps = state => ({reps: state.house})
 
 export default connect(mapStateToProps)(HouseSearchBar)
+
+//<Button label="FLIP" onClick={this.handleFlipClick}/>

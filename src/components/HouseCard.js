@@ -30,6 +30,12 @@ class HouseCard extends React.Component {
     let name
     this.state.front? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
+    let yearsServed = 'Years in office: '+  rep.seniority
+    let votesWithParty = 'Votes party line ' + rep.votes_with_party_pct + '%'
+    let missedVotes = 'Missed votes: ' + rep.missed_votes_pct + '%'
+    let nextElection = 'Next election: ' + rep.next_election
+    let age = 'Age: ' + rep.age
+
     let genderName
     if (rep.gender === "F"){
       genderName = "female"
@@ -96,12 +102,12 @@ class HouseCard extends React.Component {
           </Card.Header>
 
           <Card.Description>
-            Years in office: {rep.seniority} <br/>
-            Age: {rep.age}<br/>
-            Next election: {rep.next_election}<br/>
-            Missed votes: {rep.missed_votes_pct}%<br/>
-            Votes party line {rep.votes_with_party_pct}%<br/>
-            {leaving}
+            {age}<br/>
+            {yearsServed} <br/>
+            {nextElection}<br/>
+            {missedVotes} <br/>
+            {votesWithParty}<br/>
+            {leaving}<br/>
             {runningForPresident}
             <br/>
             <hr/>

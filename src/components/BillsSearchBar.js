@@ -15,6 +15,14 @@ class BillsSearchBar extends React.Component {
     }
   }
 
+  componentDidMount = () => {
+    debugger
+    this.setState({
+      bills: this.props.bills
+    })
+  }
+
+
   updateSearch= (event) => {
     this.setState({search: event.target.value.substr(0, 50)})
   }
@@ -26,7 +34,7 @@ class BillsSearchBar extends React.Component {
   }
 
   render (){
-
+    let bills = this.props.bills
     let content
     if (this.props.bills){
       content = this.props.bills.map(bill =><BillCard key={bill.id} {...bill} />)
@@ -35,17 +43,7 @@ class BillsSearchBar extends React.Component {
      content = "searching for your bills ..."
    }
 
-
-
-
-    // for separate filtering method after bills are fetched:
-    // let input = this.state.search.toLowerCase()
-    // let filteredBills = this.props.bills.filter(
-    //   (bill => {
-    //     let searchTerm = bill.primary_subject
-    //     return searchTerm.toLowerCase().indexOf(input) !== -1
-    //   })
-    // )
+   let searchInstructions = "Search for active bills by brief subject name, i.e. 'immigration' or 'climate'"
 
     return (
       <>
@@ -55,7 +53,7 @@ class BillsSearchBar extends React.Component {
               <input
                 type="search"
                 value={this.state.search}
-                placeholder="Search bills by subject..."
+                placeholder={searchInstructions}
                 onChange={this.updateSearch} />
               <input type="submit" value="search" />
             </div>

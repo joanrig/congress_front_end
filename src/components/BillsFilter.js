@@ -24,6 +24,7 @@ class BillFilter extends React.Component {
 
      let filteredBills = this.props.bills && this.props.bills.filter(
        (bill) => {
+         debugger
          let filterTerm = bill.title
          let input = this.state.filter.toLowerCase()
          if (filterTerm){

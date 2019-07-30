@@ -13,10 +13,6 @@ class BillCard extends React.Component {
     }
   }
 
-  // updateSearch= (event) => {
-  //   this.setState({search: event.target.value.substr(0, 100)})
-  // }
-
   render (){
     const bill = this.props
 
@@ -53,7 +49,7 @@ class BillCard extends React.Component {
       } else if (cos["D"] && cos["D"] > cos["R"]){
         sponsorColor = "blue"
       } else if (cos["D"] && !cos["R"]){
-        sponsorColor = "red"
+        sponsorColor = "blue"
       } else if (cos["R"] && cos["D"] && cos["R"] === cos["D"]){
         sponsorColor = "purple"
       }
@@ -61,8 +57,6 @@ class BillCard extends React.Component {
         sponsorColor = "white"
       }
     }
-
-
 
     let sponsorTitle
     if (bill.bill_type === "s"){
@@ -73,7 +67,6 @@ class BillCard extends React.Component {
 
     let sponsorInfo = bill.sponsor_party + '-' + bill.sponsor_state
     let sponsorName = sponsorTitle + ' ' + bill.sponsor_name
-
 
 
     return (
@@ -97,7 +90,9 @@ class BillCard extends React.Component {
             <hr />
             Primary Subject: <br/>
             {bill.primary_subject}<br/>
-            {bill.active}
+            <br/>
+            Introduced: <br/>
+            {bill.introduced_date}<br/>
           </Card.Description>
         </Card.Content>
 

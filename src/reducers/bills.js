@@ -9,6 +9,7 @@ export default (state = { bills:[], loading: false}, action) => {
       //has 20 bills
 
     case "FETCH_BILLS_BY_SUBJECT":
+    //china => 9 active bills
       return { bills: action.bills, loading: false }
 
     case 'ERROR':

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
 import { connect } from 'react-redux'
@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 
-class SenateCard extends React.Component {
+class SenateCard extends Component {
   constructor(props) {
     super(props)
 
@@ -26,18 +26,17 @@ class SenateCard extends React.Component {
     this.props.fetchBillsBySenator(id)
   }
 
-
-  handleMoreBillsClick = () => {
-    console.log("handle more bills was clicked")
-    let bills = this.props.bills
-    // <Link to={'/bills'} senator={this.props} />
-  }
-
   render() {
     let senator = this.props
 
     let name
     this.state.front? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
+
+    let yearsServed = 'Years in office: '+  senator.seniority
+    let votesWithParty = 'Votes party line ' + senator.votes_with_party_pct + '%'
+    let missedVotes = 'Missed votes: ' + senator.missed_votes_pct + '%'
+    let nextElection = 'Next election: ' + senator.next_election
+    let age = 'Age: ' + senator.age
 
     //change className to change bg color based on gender
     let genderName
@@ -107,20 +106,18 @@ class SenateCard extends React.Component {
           </Card.Header>
 
           <Card.Description>
-            Years in office: {senator.seniority} <br/>
-            Age: {senator.age} <br/>
-            Next election: {senator.next_election} <br/>
-            Missed votes: {senator.missed_votes_pct}% <br/>
-            Votes party line {senator.votes_with_party_pct}% <br/>
-            {leaving}
+            {age}<br/>
+            {yearsServed} <br/>
+            {nextElection}<br/>
+            {missedVotes} <br/>
+            {votesWithParty}<br/>
+            {leaving}<br />
             {runningForPresident}
             <br/>
             <hr/>
             Most recent bill: {gavel}<br/>
             {billTitle}
-            <Link to={'./bills'} onClick={this.handleMoreBillsClick}>
-              more bills
-            </Link>
+            <Link to={'./bills'} senator={senator}>more bills</Link>
             <hr/>
           </Card.Description>
         </Card.Content>

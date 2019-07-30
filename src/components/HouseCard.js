@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsByRep } from '../actions/house'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
-class HouseCard extends React.Component {
+class HouseCard extends Component {
   constructor(props) {
     super(props)
 

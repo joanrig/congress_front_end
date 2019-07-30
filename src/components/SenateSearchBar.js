@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Button } from 'semantic-ui-react'
 import SenateCard from './SenateCard'
 
 
-class SenateSearchBar extends React.Component {
+class SenateSearchBar extends Component {
   constructor(props) {
     super()
 
@@ -19,7 +19,8 @@ class SenateSearchBar extends React.Component {
   }
 
   handleFlipClick = () => {
-    this.setState((prevState)=>{
+    debugger
+    this.setState((prevState)=> {
       return {showNames: !prevState.showNames}
     })
   }

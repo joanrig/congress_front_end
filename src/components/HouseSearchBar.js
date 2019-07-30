@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { Card, Button } from 'semantic-ui-react'
 import HouseCard from './HouseCard'
 
 
-class HouseSearchBar extends React.Component {
+class HouseSearchBar extends Component {
   constructor(props) {
     super()
     this.state = {

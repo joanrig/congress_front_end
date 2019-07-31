@@ -30,6 +30,10 @@ font-family: 'Amatic SC', cursive;
   text-align:center
 }
 
+.left {
+  text-align:left
+}
+
 p {
   font-size: 1.1em;
 }

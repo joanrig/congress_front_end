@@ -36,7 +36,7 @@ class HouseSearchBar extends Component {
         }
 
         if (rep.seniority < 2){
-          searchTerm += "freshmen"
+          searchTerm += "freshmenfreshman"
         }
 
         if (rep.status){

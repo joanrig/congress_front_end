@@ -41,7 +41,7 @@ class SenateSearchBar extends Component {
         }
 
         if (senator.seniority < 2){
-          searchTerm += "freshmen"
+          searchTerm += "freshmenfreshman"
         }
 
         if (senator.status){

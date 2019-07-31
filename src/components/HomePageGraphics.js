@@ -44,6 +44,9 @@ const HomePageGraphics = (props) => (
       </Grid.Row>
     </Grid>
     <br/>
+    Graphic by <a className="left" href="https://www.cosmopolitan.com/politics/a19143923/survey-young-people-primaries-voter-turnout-2018/">Cosmopolitan Magazine</a>
+    <br/>
+    <br/>
     <br/>
   </>
 

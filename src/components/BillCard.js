@@ -33,22 +33,16 @@ class BillCard extends PureComponent {
 
     //tried to move to back end, doesn't work there.
     let sponsorColor
-    if (bill.cosponsors){
-      if(cos["R"] && cos["R"] > cos["D"]){
-        sponsorColor = "red"
-      } else if (cos["R"] && !cos["D"]){
-        sponsorColor = "red"
-      } else if (cos["D"] && cos["D"] > cos["R"]){
+    if (bill.sponsor_party === "D"){
         sponsorColor = "blue"
-      } else if (cos["D"] && !cos["R"]){
-        sponsorColor = "blue"
-      } else if (cos["R"] && cos["D"] && cos["R"] === cos["D"]){
+    } else if (bill.sponsor_party === "R"){
+        sponsorColor = "red"
+    } else if (cos["R"] && cos["D"] && cos["R"] === cos["D"]){
         sponsorColor = "purple"
-      }
-      else {
+    } else {
         sponsorColor = "white"
-      }
     }
+
 
     let sponsorTitle
     if (bill.bill_type === "s"){

@@ -15,7 +15,15 @@ const About = () => {
         </div>
         <br/>
         <p>
-          Remember <a href="https://www.youtube.com/watch?v=tyeJ55o3El0">School House Rock</a>? They made it fun to learn about the workings of Congress. I'm hoping this app makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) In addition to searching for particular members, you can also sort Members by party, age, gender and fun facts, like how often they show up to vote and how often they vote the party line.
+          Remember <a href="https://www.youtube.com/watch?v=tyeJ55o3El0">School House Rock</a>? They made it fun to learn about the workings of Congress. I'm hoping this app makes it fun to learn about who's who in Congress (however frightening some of their policies may be!) and what they're doing in your name! You can sort Members by party, age, gender and fun facts, like how often they show up to vote and how often they vote the party line, then narrow your search with terms like "female" or "president" etc.
+        </p>
+
+        <p>
+          Then the fun part: guess who's who! Stumped? Click on "Guess Who?" to reveal the name.
+        </p>
+
+        <p>
+          You can also click the gavel on any card to get that member's most recent bills, or head over to the Bills page to search for bills by subject. Want to contact your representatives? Each card includes icons for social media, a contact form (if available) and a click-to-call button. Not registered to vote? I added a register to vote widget so you can do that, too.
         </p>
 
         <h3>Under the Hood</h3>
@@ -31,10 +39,6 @@ const About = () => {
         <p>
           I couldn't have made this app without the data from the non-profit investigative journalism group<a href="https://www.propublica.org/about/">ProPublica</a>, whose data helps power many sites, including Nate Silver's election analysis website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.  Remember him? He predicted the election of Donald Trump.
           In case you're curious, this app is based mainly on this <a href="https://www.propublica.org/datastore/api/propublica-congress-api">API</a>. Thank you to the good folks at Propublica for maintaining it, and to the good folks at The New York Times, <a href="https://open.blogs.nytimes.com/2009/01/08/introducing-the-congress-api">who actually started this API in 2009</a>.
-        </p>
-
-        <p>
-          Next steps: add more ProPublica API calls to include info on the Congress members' commitees and bills. Add a quiz element to see if you can guess who's who based on their state and party, or their rank as the most senior member of Congress, or the most maverick!
         </p>
 
         <h1>Hire me!</h1>

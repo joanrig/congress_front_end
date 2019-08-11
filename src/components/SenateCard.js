@@ -83,31 +83,25 @@ class SenateCard extends Component {
 
     let phone = <a href={senator.phone_clickable}><Icon className="large phone icon" /></a>
 
+    let bills
+    if (senator.bills){
+      bills = senator.bills.map(bill =>
+        <a href={bill.govtrack_url}>{bill.short_title.substring(0,75)+'...'}</a>
+      )
+    }
 
-//show latest bill
-     let url
-     let bill1
-     let billTitle
-     if (senator.bills[0]){
-       let title = senator.bills[0].short_title.substring(0,75)+'...'
-       url = senator.bills[0].govtrack_url
-       bill1 = <a href={url}>{title}</a>
-     }
-
-     let bill2
-     if (senator.bills[1]){
-       let title = senator.bills[1].short_title.substring(0,75)+'...'
-       url = senator.bills[1].govtrack_url
-       bill2 = <a href={url}>{title}</a>
-     }
-
-     if (bill1 || bill2){
+    let billTitle
+     if (bills[0]){
       billTitle =
         <>
-          {bill1}
+          {bills[0]}
           <br/>
           <br/>
-          {bill2}
+          {bills[1]}
+          <br/>
+          <br/>
+          {bills[2]}
+
         </>
      } else {
        billTitle = "nothing here? Click the gavel!"
@@ -133,18 +127,11 @@ class SenateCard extends Component {
             {runningForPresident}
             <br/>
             <hr/>
-            Two most recent bills: {gavel}<br/>
+            Most recent bills: {gavel}<br/>
             {billTitle}
             <br/>
             <br/>
-            <Link to={{
-              pathname: './bills',
-              state: {
-                bills: 'bills go here',
-              }
-            }}>
-              more bills
-            </Link>
+      
             <hr/>
           </Card.Description>
         </Card.Content>

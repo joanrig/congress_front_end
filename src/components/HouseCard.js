@@ -31,8 +31,6 @@ class HouseCard extends Component {
   render() {
     let rep = this.props
 
-    let upVoteCount = this.state.upVoteCount
-
     let name
     this.state.front? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
@@ -87,14 +85,28 @@ class HouseCard extends Component {
     let phone = <a href={rep.phone_clickable}><Icon className="large phone icon" /></a>
 
 
-     let url = ""
-     let billTitle
-     if (rep.bills[0]){
-       let title = rep.bills[0].short_title.substring(0,75)+'...'
-       url = rep.bills[0].govtrack_url
-       billTitle = <a href={url}>{title}</a>
+    let bills
+    if (rep.bills){
+      bills = rep.bills.map(bill =>
+        <a href={bill.govtrack_url}>{bill.short_title.substring(0,75)+'...'}</a>
+      )
+    }
+
+    let billTitle
+     if (bills[0]){
+      billTitle =
+        <>
+          {bills[0]}
+          <br/>
+          <br/>
+          {bills[1]}
+          <br/>
+          <br/>
+          {bills[2]}
+
+        </>
      } else {
-       billTitle = billTitle = "nothing here? Click the gavel!"
+       billTitle = "nothing here? Click the gavel!"
      }
 
     return (
@@ -117,15 +129,9 @@ class HouseCard extends Component {
             {runningForPresident}
             <br/>
             <hr/>
-            Most recent bill: {gavel}<br/>
+            Most recent bills: {gavel}<br/>
             {billTitle}
-            <Link
-              to={'./bills'}
-              bills={this.props.bills}>
-              <br/>
-              <br/>
-                more bills<br/>
-            </Link>
+
           </Card.Description>
         </Card.Content>
 

@@ -14,7 +14,7 @@ class BillsSearchBar extends Component {
       search: '',
       video:
       <div className="center">
-        <iframe width="1120" height="630" src="https://www.youtube.com/embed/FFroMQlKiag?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe title="congressSession" width="1120" height="630" src="https://www.youtube.com/embed/FFroMQlKiag?start=16" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <br/>
         <br/>
         <br/>
@@ -26,19 +26,10 @@ class BillsSearchBar extends Component {
     }
   }
 
-  // componentDidMount = () => {
-  //   debugger
-  //   this.setState({
-  //     bills: this.props.location.state.bills
-  //   })
-  // }
-
-
   updateSearch= (event) => {
     this.setState({
       search: event.target.value.substr(0, 50),
     })
-
   }
 
   handleSubmit = (event) => {
@@ -50,8 +41,8 @@ class BillsSearchBar extends Component {
 
   render (){
     let bills = this.props.bills
-    let content
-    if (this.props.bills){
+    let content = ""
+    if (bills){
       content = this.props.bills.map(bill =><BillCard key={bill.id} {...bill} />)
 
    } else {
@@ -65,7 +56,6 @@ class BillsSearchBar extends Component {
    }
 
    let searchInstructions = "Hint: use broad search terms, i.e. 'immigration', 'China', 'Medicare', etc."
-
 
     return (
       <>
@@ -99,7 +89,6 @@ class BillsSearchBar extends Component {
     )
   }
 }
-
 
 const mapStateToProps = state => ({bills: state.bills.bills })
 

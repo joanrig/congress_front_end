@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Button } from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 import SenateCard from './SenateCard'
 
 
@@ -72,8 +72,6 @@ class SenateSearchBar extends Component {
           />
           <i className="search icon"></i>
         </div>
-
-
         <h2 className='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2>
 
         <Card.Group itemsPerRow={5}>

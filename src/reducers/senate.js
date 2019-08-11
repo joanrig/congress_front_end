@@ -3,7 +3,6 @@ export default (state = [], action) => {
     switch(action.type){
 
     case "SET_SENATE":
-      debugger
       return action.senate
 
     case "LOYALISTS":

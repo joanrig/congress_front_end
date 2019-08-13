@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
+import { getMemberFinances } from '../actions/financialDisclosures'
 import { connect } from 'react-redux'
 
 
@@ -13,7 +14,7 @@ class SenateCard extends Component {
      }
    }
 
-   toggleCard = () =>{
+  toggleCard = () =>{
     this.setState((prevState)=>{
       return {front: !prevState.front}
     })
@@ -22,6 +23,11 @@ class SenateCard extends Component {
   handleGavelClick = () => {
     let id = this.props.propublica_id
     this.props.fetchBillsBySenator(id)
+  }
+
+  handleFinanceClick = () => {
+    let id = this.props.crp_id
+    this.props.getMemberFinances(id)
   }
 
   render() {
@@ -105,6 +111,22 @@ class SenateCard extends Component {
        billTitle = "nothing here? Click the gavel!"
      }
 
+    let donors
+    if (senator.financial_disclosure){
+      donors = senator.donors.map(donor =>
+      <>
+        <h3>{donor.org_name}</h3>
+        <ul>
+          <li>total: ${donor.total}</li>
+          <li>pacs: ${donor.pacs}</li>
+          <li>individuals: ${donor.indivs}</li>
+        </ul>
+      </>
+    )
+    } else {
+      donors = "nothing here? click the button"
+    }
+
     return (
       <Card>
         <Image src={senator.party_logo} wrapped ui={false}  />
@@ -133,6 +155,9 @@ class SenateCard extends Component {
             <br/>
 
             <hr/>
+            <Button onClick={this.handleFinanceClick} />
+            <h4>Contributors to last election</h4>
+            {donors}
           </Card.Description>
         </Card.Content>
 
@@ -151,4 +176,4 @@ class SenateCard extends Component {
   }
 }
 
-export default connect(null, { fetchBillsBySenator })(SenateCard)
+export default connect(null, { fetchBillsBySenator, getMemberFinances })(SenateCard)

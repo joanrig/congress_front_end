@@ -1,4 +1,6 @@
 export default (state = { bills:[], loading: false}, action) => {
+
+
     switch(action.type){
 
     case "LOADING":

@@ -1,5 +1,4 @@
-export default
-  (state = { finances: [], loading: false}, action) => {
+export default (state = { finances: [], loading: false}, action) => {
 
 
     switch(action.type){
@@ -9,6 +8,9 @@ export default
 
     case "GET_MEMBER_FINANCES":
       return { finances: action.finances, loading: false }
+
+    case 'ERROR':
+      return { finances: action.error.message }
 
      default:
         return state;

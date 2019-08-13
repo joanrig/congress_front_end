@@ -115,7 +115,7 @@ class SenateCard extends Component {
     if (senator.financial_disclosure){
       donors = senator.donors.map(donor =>
       <>
-        <h3>{donor.org_name}</h3>
+        <h4>{donor.org_name}</h4>
         <ul>
           <li>total: ${donor.total}</li>
           <li>pacs: ${donor.pacs}</li>

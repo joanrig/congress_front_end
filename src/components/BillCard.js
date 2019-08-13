@@ -20,15 +20,15 @@ class BillCard extends PureComponent {
     let cos = bill.cosponsors_by_party
 
     if (cos["D"]){
-      democratSponsors = "Democrats" +' '+ cos["D"]
+      democratSponsors = "Democrats " + cos["D"]
     }
 
     if (cos["R"]){
-      republicanSponsors = "Republicans" + ' '+cos["R"]
+      republicanSponsors = "Republicans "  +cos["R"]
     }
 
     if (cos["I"]){
-      independentSponsors = "Independents" + ' ' +cos["I"]
+      independentSponsors = "Independents " +  cos["I"]
     }
 
     //tried to move to back end, doesn't work there.

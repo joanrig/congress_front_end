@@ -2,8 +2,6 @@ import React, { Component} from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-
 
 
 class SenateCard extends Component {
@@ -127,11 +125,13 @@ class SenateCard extends Component {
             {runningForPresident}
             <br/>
             <hr/>
-            Most recent bills: {gavel}<br/>
+            Most recent bills: {gavel}
+            <br/>
+            <br/>
             {billTitle}
             <br/>
             <br/>
-      
+
             <hr/>
           </Card.Description>
         </Card.Content>

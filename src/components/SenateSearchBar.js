@@ -18,13 +18,10 @@ class SenateSearchBar extends Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-  // handleFlipClick = () => {
-  //   debugger
-  //   this.setState((prevState)=> {
-  //     return {showNames: !prevState.showNames}
-  //   })
-  // }
-
+//   handleFlipClick = () => {
+//     this.setState({showNames: true})
+//     debugger
+// }
 
   render (){
 

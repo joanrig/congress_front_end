@@ -10,20 +10,32 @@ class SenateCard extends Component {
     super(props)
 
     this.state = {
-      front: props.showNames
+      //passed as props to enable flip of all cards
+      showNames: this.props.showNames,
+      //local only to toggle bills view per Card
+      showBills: false
      }
    }
 
-  toggleCard = () =>{
+  toggleName = () => {
     this.setState((prevState)=>{
-      return {front: !prevState.front}
+      return {showNames: !prevState.showNames}
+    })
+  }
+
+  toggleBills = () => {
+    this.setState((prevState)=>{
+      console.log(prevState.showBills)
+      return {showBills: !prevState.showBills}
     })
   }
 
   handleGavelClick = () => {
     let id = this.props.propublica_id
     this.props.fetchBillsBySenator(id)
+    this.setState({showBills: true})
   }
+
 
   handleFinanceClick = () => {
     let id = this.props.crp_id
@@ -34,7 +46,7 @@ class SenateCard extends Component {
     let senator = this.props
 
     let name
-    this.state.front? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
+    this.state.showNames? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
 
     let yearsServed = 'Years in office: '+  senator.seniority
     let votesWithParty = 'Votes party line ' + senator.votes_with_party_pct + '%'
@@ -83,7 +95,9 @@ class SenateCard extends Component {
       contact_form = <a href={senator.contact_form} ><Icon className='large mail' /></a>
     }
 
-    let gavel = <Icon onClick={this.handleGavelClick} className="legal icon" />
+    let gavel = <Icon onClick={this.handleGavelClick} className="legal icon"/>
+
+    let dollarSign= <Icon onClick={this.handleFinanceClick} className="dollar sign icon" />
 
     let phone = <a href={senator.phone_clickable}><Icon className="large phone icon" /></a>
 
@@ -94,37 +108,42 @@ class SenateCard extends Component {
       )
     }
 
-    let billTitle
-     if (bills[0]){
-      billTitle =
-        <>
-          {bills[0]}
-          <br/>
-          <br/>
-          {bills[1]}
-          <br/>
-          <br/>
-          {bills[2]}
-
-        </>
-     } else {
-       billTitle = "nothing here? Click the gavel!"
+    let billTitles
+    if (this.state.showBills){
+      if (bills[0]){
+        billTitles =
+          <>
+            {bills[0]}
+            <br/>
+            <br/>
+            {bills[1]}
+            <br/>
+            <br/>
+            {bills[2]}
+          </>
+       }
      }
+
+    let toggleBillsIcon
+    if (this.state.showBills){
+      toggleBillsIcon = "toggle on icon"
+    } else {
+      toggleBillsIcon = "toggle off icon"
+    }
 
     let donors
     if (senator.financial_disclosure){
-      donors = senator.donors.map(donor =>
+      donors = senator.donors.slice(0,3).map(donor =>
       <>
-        <h4>{donor.org_name}</h4>
-        <ul>
-          <li>total: ${donor.total}</li>
-          <li>pacs: ${donor.pacs}</li>
-          <li>individuals: ${donor.indivs}</li>
-        </ul>
+        <br/>
+        <strong>{donor.org_name}</strong>
+        <li>total: ${donor.total}</li>
+        <li>pacs: ${donor.pacs}</li>
+        <li>individuals: ${donor.indivs}</li>
       </>
     )
     } else {
-      donors = "nothing here? click the button"
+      donors = "nothing here? click the dollar sign"
     }
 
     return (
@@ -132,7 +151,7 @@ class SenateCard extends Component {
         <Image src={senator.party_logo} wrapped ui={false}  />
 
         <Card.Content >
-          <Card.Header onClick={this.toggleCard}>
+          <Card.Header onClick={this.toggleName}>
             Sen. {name}<br/>
             {senator.party}-{senator.state_full_name}
           </Card.Header>
@@ -147,16 +166,15 @@ class SenateCard extends Component {
             {runningForPresident}
             <br/>
             <hr/>
-            Most recent bills: {gavel}
+            Most recent bills: <button className="grey"> {gavel}</button>
+            <br/>
+            show/hide bills <Icon className={toggleBillsIcon} onClick={this.toggleBills} />
             <br/>
             <br/>
-            {billTitle}
-            <br/>
-            <br/>
-
+            {billTitles}
             <hr/>
-            <Button onClick={this.handleFinanceClick} />
-            <h4>Contributors to last election</h4>
+            Top three donors {dollarSign}
+            <br/>
             {donors}
           </Card.Description>
         </Card.Content>

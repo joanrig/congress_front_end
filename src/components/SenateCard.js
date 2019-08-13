@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
 import { getMemberFinances } from '../actions/financialDisclosures'
 import { connect } from 'react-redux'
@@ -33,7 +33,6 @@ class SenateCard extends Component {
 
   toggleBills = () => {
     this.setState((prevState)=>{
-      console.log(prevState.showBills)
       return {showBills: !prevState.showBills}
     })
   }
@@ -47,7 +46,6 @@ class SenateCard extends Component {
 
   toggleDonors = () => {
     this.setState((prevState)=>{
-      console.log(prevState.showDonors)
       return {showDonors: !prevState.showDonors}
     })
   }
@@ -105,7 +103,7 @@ class SenateCard extends Component {
       contact_form = <a href={senator.contact_form} ><Icon className='large mail' /></a>
     }
 
-    let gavel = <Icon onClick={this.handleGavelClick} className="legal icon"/>
+    let gavel = <Icon onClick={this.handleGavelClick} className=" legal icon"/>
 
     let dollarSign= <Icon onClick={this.handleFinanceClick} className="dollar sign icon" />
 
@@ -127,7 +125,6 @@ class SenateCard extends Component {
           <br/>
         </>
         )
-
        }
      }
 
@@ -153,7 +150,7 @@ class SenateCard extends Component {
       )}
     }
 
-    
+
 
     let toggleDonorsIcon
     if (this.state.showDonors){
@@ -185,7 +182,7 @@ class SenateCard extends Component {
             <hr/>
             Get most recent bills: <button className="billsButton"> {gavel}</button>
             <br/>
-            show/hide bills <Icon className={toggleBillsIcon} onClick={this.toggleBills} />
+            show/hide bills  <Icon className={toggleBillsIcon} onClick={this.toggleBills} />
             <br/>
             <br/>
             {billTitles}
@@ -193,7 +190,7 @@ class SenateCard extends Component {
             <hr/>
             Get top three donors <button className="donorsButton"> {dollarSign}</button>
             <br/>
-            show/hide donors <Icon className={toggleDonorsIcon} onClick={this.toggleDonors} />
+            show/hide donors  <Icon className={toggleDonorsIcon} onClick={this.toggleDonors} />
             <br/>
             {donors}
             <br/>

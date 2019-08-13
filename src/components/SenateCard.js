@@ -13,7 +13,8 @@ class SenateCard extends Component {
       //passed as props to enable flip of all cards
       showNames: this.props.showNames,
       //local only to toggle bills view per Card
-      showBills: false
+      showBills: false,
+      showDonors: false
      }
    }
 
@@ -23,6 +24,13 @@ class SenateCard extends Component {
     })
   }
 
+//bills
+  handleGavelClick = () => {
+    let id = this.props.propublica_id
+    this.props.fetchBillsBySenator(id)
+    this.setState({showBills: true})
+  }
+
   toggleBills = () => {
     this.setState((prevState)=>{
       console.log(prevState.showBills)
@@ -30,16 +38,18 @@ class SenateCard extends Component {
     })
   }
 
-  handleGavelClick = () => {
-    let id = this.props.propublica_id
-    this.props.fetchBillsBySenator(id)
-    this.setState({showBills: true})
-  }
-
-
+//donors
   handleFinanceClick = () => {
     let id = this.props.crp_id
     this.props.getMemberFinances(id)
+    this.setState({showDonors: true})
+  }
+
+  toggleDonors = () => {
+    this.setState((prevState)=>{
+      console.log(prevState.showDonors)
+      return {showDonors: !prevState.showDonors}
+    })
   }
 
   render() {
@@ -103,7 +113,7 @@ class SenateCard extends Component {
 
     let bills
     if (senator.bills){
-      bills = senator.bills.map(bill =>
+      bills = senator.bills.slice(0,3).map(bill =>
         <a href={bill.govtrack_url}>{bill.short_title.substring(0,75)+'...'}</a>
       )
     }
@@ -111,16 +121,13 @@ class SenateCard extends Component {
     let billTitles
     if (this.state.showBills){
       if (bills[0]){
-        billTitles =
-          <>
-            {bills[0]}
-            <br/>
-            <br/>
-            {bills[1]}
-            <br/>
-            <br/>
-            {bills[2]}
-          </>
+        billTitles = bills.map(bill =>
+        <>
+          <li>{bill}</li>
+          <br/>
+        </>
+        )
+
        }
      }
 
@@ -132,19 +139,29 @@ class SenateCard extends Component {
     }
 
     let donors
-    if (senator.financial_disclosure){
-      donors = senator.donors.slice(0,3).map(donor =>
-      <>
-        <br/>
-        <strong>{donor.org_name}</strong>
-        <li>total: ${donor.total}</li>
-        <li>pacs: ${donor.pacs}</li>
-        <li>individuals: ${donor.indivs}</li>
-      </>
-    )
-    } else {
-      donors = "nothing here? click the dollar sign"
+    if (this.state.showDonors) {
+      if (senator.financial_disclosure){
+        donors = senator.donors.slice(0,3).map(donor =>
+        <>
+          <br/>
+          <strong>{donor.org_name}</strong>
+          <li>total: ${donor.total}</li>
+          <li>pacs: ${donor.pacs}</li>
+          <li>individuals: ${donor.indivs}</li>
+          <br/>
+        </>
+      )}
     }
+
+    
+
+    let toggleDonorsIcon
+    if (this.state.showDonors){
+      toggleDonorsIcon = "toggle on icon"
+    } else {
+      toggleDonorsIcon = "toggle off icon"
+    }
+
 
     return (
       <Card>
@@ -166,16 +183,20 @@ class SenateCard extends Component {
             {runningForPresident}
             <br/>
             <hr/>
-            Most recent bills: <button className="grey"> {gavel}</button>
+            Get most recent bills: <button className="billsButton"> {gavel}</button>
             <br/>
             show/hide bills <Icon className={toggleBillsIcon} onClick={this.toggleBills} />
             <br/>
             <br/>
             {billTitles}
+            <br />
             <hr/>
-            Top three donors {dollarSign}
+            Get top three donors <button className="donorsButton"> {dollarSign}</button>
+            <br/>
+            show/hide donors <Icon className={toggleDonorsIcon} onClick={this.toggleDonors} />
             <br/>
             {donors}
+            <br/>
           </Card.Description>
         </Card.Content>
 

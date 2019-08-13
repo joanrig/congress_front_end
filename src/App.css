@@ -63,6 +63,10 @@ p {
   background-color: 243,244,245);
 }
 
-.grey {
+.billsButton {
   background-color: rgba(255,160,122,0.5);
+}
+
+.donorsButton {
+  background-color: rgba(152,251,152,0.5);
 }

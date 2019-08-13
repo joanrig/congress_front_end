@@ -164,7 +164,7 @@ class HouseCard extends Component {
 
     return (
       <Card>
-        <Image src={rep.party_logo} wrapped ui={false} className={genderName}/>
+        <Image src={rep.party_logo} wrapped ui={false} className="party-logo"/>
 
         <Card.Content >
           <Card.Header onClick={this.toggleName}>

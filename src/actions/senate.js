@@ -54,19 +54,38 @@ export function fetchBillsBySenator(id){
   return (dispatch) => {
       return fetch("http://localhost:3000/search/bills/member/"+id)
       .then(resp => resp.json())
-      .then(bills =>dispatch({type:"FETCH_BILLS_BY_SENATOR", payload: {bills: bills, id:id}})
+      .then(bills => dispatch({type:"FETCH_BILLS_BY_SENATOR", payload: {bills: bills, id:id}})
       )
     }
 }
 
 export function showSenatorBills(bills){
   //bills are still there
-  console.log("showSenatorBills fired from actions/senate")
   return (dispatch) => ({type: 'SHOW_SENATOR_BILLS', bills})
-    //how to also
-    // 1. navigate to Bills container
-    // 2. and have it know which senator's bills to show?
 }
+
+export function getSenatorFinances(id){
+  return (dispatch) => {
+      const url = "http://localhost:3000/search/financial_disclosures/member/"+id
+      fetch(url).then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong');
+        }
+      })
+      .catch(function (err) {console.log(err)})
+      .then(financialDisclosure => dispatch({type:"GET_SENATOR_FINANCES", payload: {financialDisclosure: financialDisclosure, id:id}})
+      )
+    }
+  }
+
+export function showSenatorFinances(finances){
+  return (dispatch) => ({type: 'SHOW_SENATOR_FINANCES, finances'})
+}
+
+
+
 
 
 

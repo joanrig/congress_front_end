@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { fetchBillsBySenator } from '../actions/senate'
-import { getMemberFinances } from '../actions/financialDisclosures'
+import { getSenatorFinances } from '../actions/senate'
 import { connect } from 'react-redux'
 
 
@@ -40,7 +40,7 @@ class SenateCard extends Component {
 //donors
   handleFinanceClick = () => {
     let id = this.props.crp_id
-    this.props.getMemberFinances(id)
+    this.props.getSenatorFinances(id)
     this.setState({showDonors: true})
   }
 
@@ -150,8 +150,6 @@ class SenateCard extends Component {
       )}
     }
 
-
-
     let toggleDonorsIcon
     if (this.state.showDonors){
       toggleDonorsIcon = "toggle on icon"
@@ -162,7 +160,7 @@ class SenateCard extends Component {
 
     return (
       <Card>
-        <Image src={senator.party_logo} wrapped ui={false}  />
+        <Image className="party-logo" src={senator.party_logo} wrapped ui={false}  />
 
         <Card.Content >
           <Card.Header onClick={this.toggleName}>
@@ -212,4 +210,4 @@ class SenateCard extends Component {
   }
 }
 
-export default connect(null, { fetchBillsBySenator, getMemberFinances })(SenateCard)
+export default connect(null, { fetchBillsBySenator, getSenatorFinances })(SenateCard)

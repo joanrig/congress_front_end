@@ -1,4 +1,4 @@
-export default (state = { finances: [], loading: false}, action) => {
+export default (state = { finances:[], loading: false}, action) => {
 
 
     switch(action.type){
@@ -6,11 +6,14 @@ export default (state = { finances: [], loading: false}, action) => {
     case "LOADING":
       return {loading: true}
 
-    case "GET_MEMBER_FINANCES":
-      return { finances: action.finances, loading: false }
+    case "SHOW_SENATOR_FINANCES":
+      return {
+        financialDisclosure: action.financialDisclosure, loading: false
+      }
+      //has 20 bills
 
     case 'ERROR':
-      return { finances: action.error.message }
+      return { bills: action.error.message }
 
      default:
         return state;

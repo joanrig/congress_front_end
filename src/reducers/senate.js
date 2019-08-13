@@ -32,10 +32,24 @@ export default (state = [], action) => {
     )
       return senate
 
+
+    case "GET_SENATOR_FINANCES":
+      let financialDisclosure = action.payload.financialDisclosure
+      let senate1 = state.map(senator => {
+        if (senator.crp_id === action.payload_id){
+          senator.financialDisclosure = financialDisclosure
+        }
+        return senator
+      }
+    )
+      return senate1
+
      default:
         return state;
     }
   }
+
+
 
 
 //

@@ -128,6 +128,8 @@ class HouseCard extends Component {
       )}
     }
 
+    let undoTip = "go back"
+
     let content
     if (this.state.showBills){
       content =
@@ -139,7 +141,12 @@ class HouseCard extends Component {
       <br/>
       <br/>
       <div className="center">
-        <Button onClick={this.hideBills} className="ui negative basic button"><Icon className="undo" />go back</Button>
+      <Button
+        circular icon="large undo"
+        onClick={this.hideBills}
+        className="undo button"
+        data-tooltip={undoTip}
+      />
        </div>
       </>
     } else if (this.state.showDonors) {
@@ -150,7 +157,12 @@ class HouseCard extends Component {
         <br/>
         <br/>
         <div className="center">
-         <Button onClick={this.hideDonors} className="ui negative basic button"><Icon className="undo" />go back</Button>
+        <Button
+          circular icon="large undo"
+          onClick={this.hideDonors}
+          className="undo button"
+          data-tooltip={undoTip}
+        />
         </div>
       </>
       } else {
@@ -158,8 +170,6 @@ class HouseCard extends Component {
         <>
           <HouseBio rep={this.props}/>
           {buttons}
-          <br/>
-          <br/>
           <br/>
         </>
       }

@@ -2,6 +2,7 @@ import React, { Component} from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import MemberBio from '../Member/MemberBio'
 import MemberSocial from '../Member/MemberSocial'
+import MemberBills from '../Member/MemberBills'
 import MemberDonors from '../Member/MemberDonors'
 import { fetchBillsBySenator, getSenatorFinances } from './SenateActions'
 import { connect } from 'react-redux'
@@ -55,19 +56,11 @@ class SenateCard extends Component {
   render() {
     let senator = this.props
 
-    //header
+    //card.header
     let name
     this.state.showNames? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
 
-    //content extra
-    //change className to change bg background-color based on gender
-    let genderName
-    if (senator.gender === "F"){
-      genderName = "female"
-    }
-
-
-    //description
+    //card.content.description
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
     let undoTip = "go back"
@@ -98,8 +91,6 @@ class SenateCard extends Component {
       />
      </div>
 
-
-
     let hideDonorsButton =
     <div className="center">
        <Button
@@ -111,49 +102,20 @@ class SenateCard extends Component {
     </div>
 
 
-
-
-    let bills
-    if (senator.bills){
-      bills = senator.bills.slice(0,5).map(bill =>
-        <a href={bill.govtrack_url}>{bill.short_title.substring(0,75)+'...'}</a>
-      )
-    }
-
-    let billList
-    if (this.state.showBills){
-      if (bills[0]){
-        billList = bills.map(bill =>
-        <>
-          <li>{bill}</li>
-          <br/>
-        </>
-        )
-
-       }
-     }
-
-     let billsSource =
-     <div className="center">
-       <a href="https://www.propublica.org/about/" className="center">source: Propublica</a>
-     </div>
-
     let content
     if (this.state.showBills){
       content =
       <>
-       <br/>
-       <h4 className="center">Recent Bills</h4>
-       {billList}
-       {billsSource}
-       <br/>
-       <br/>
-       {hideBillsButton}
+       <MemberBills
+        member={this.props}
+        showBills={this.state.showBills}/>
+        {hideBillsButton}
       </>
     } else if (this.state.showDonors){
       content =
       <>
-        <MemberDonors member={this.props} showDonors={this.state.showDonors}/>
+        <MemberDonors
+          member={this.props} showDonors={this.state.showDonors}/>
         {hideDonorsButton}
       </>
     } else {
@@ -165,6 +127,12 @@ class SenateCard extends Component {
       </>
     }
 
+    //card.content extra
+    //change className to change bg background-color based on gender
+    let genderName
+    if (senator.gender === "F"){
+      genderName = "female"
+    }
 
     return (
       <Card>
@@ -189,50 +157,8 @@ class SenateCard extends Component {
   }
 }
 
-const mapStateToProps = state => ({showDonors: state.showDonors})
+const mapStateToProps = state => ({showDonors: state.showDonors, showBills: state.showBills})
 
 export default connect(mapStateToProps, { fetchBillsBySenator, getSenatorFinances })(SenateCard)
 
 //       <Loader active inline='centered' />
-
-//line 115
-// let donorsSource
-// let donorList
-// if (this.state.showDonors) {
-//   if (senator.financial_disclosure){
-//     donorsSource = <a href={senator.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
-//     donorList = senator.donors.slice(0,3).map(donor =>
-//     <>
-//       <br/>
-//       <strong>{donor.org_name}</strong>
-//       <li>total: ${donor.total}</li>
-//       <li>pacs: ${donor.pacs}</li>
-//       <li>individuals: ${donor.indivs}</li>
-//       <br/>
-//     </>
-//   )}
-// }
-
-//line 157
-// <br/>
-// <h4 className="center">Top Three Donors</h4>
-// {donorList}
-// {donorsSource}
-// <br/>
-// <br/>
-//  <div className="center">
-//  <Button
-//    circular icon="large undo"
-//    onClick={this.hideDonors}
-//    className="undo button"
-//    data-tooltip={undoTip}
-//  />
-//  </div>
-
-
-//line 48
-  // hideDonors = () => {
-  //   this.setState((prevState)=>{
-  //     return {showDonors: !prevState.showDonors}
-  //   })
-  // }

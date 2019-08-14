@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
 import MemberBio from '../Member/MemberBio'
+import MemberBills from '../Member/MemberBills'
 import MemberSocial from '../Member/MemberSocial'
 import MemberDonors from '../Member/MemberDonors'
 import { fetchBillsByRep, getRepFinances } from './HouseActions'
@@ -55,22 +56,14 @@ class HouseCard extends Component {
   render() {
     let rep = this.props
 
-  //header
+    //card.header
     let name
     this.state.showNames? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
-    //content extra
-    //change className to change bg background-color based on gender
-    let genderName
-    if (rep.gender === "F"){
-      genderName = "female"
-    }
-
-    //description
+    //card.description
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
     let undoTip = "go back"
-
 
     let twoButtons =
     <div className="center">
@@ -98,8 +91,6 @@ class HouseCard extends Component {
       />
      </div>
 
-
-
     let hideDonorsButton =
     <div className="center">
        <Button
@@ -111,40 +102,13 @@ class HouseCard extends Component {
     </div>
 
 
-    let bills
-    if (rep.bills){
-      bills = rep.bills.slice(0,5).map(bill =>
-        <a href={bill.govtrack_url}>{bill.short_title.substring(0,75)+'...'}</a>
-      )
-    }
-
-    let billList
-    if (this.state.showBills){
-      if (bills[0]){
-       billList = bills.map(bill =>
-          <>
-            <li>{bill}</li>
-            <br />
-          </>
-        )
-      }
-    }
-
-    let billsSource =
-    <div className="center">
-      <a href="https://www.propublica.org/about/" className="center">source: Propublica</a>
-    </div>
-
     let content
     if (this.state.showBills){
       content =
       <>
-        <br/>
-        <h4 className="center">Recent Bills</h4>
-        {billList}
-        {billsSource}
-        <br/>
-        <br/>
+       <MemberBills
+        member={this.props}
+        showBills={this.state.showBills}/>
         {hideBillsButton}
       </>
       } else if (this.state.showDonors) {
@@ -160,6 +124,13 @@ class HouseCard extends Component {
           {twoButtons}
           <br/>
         </>
+      }
+
+      //card.content extra
+      //change className to change bg background-color based on gender
+      let genderName
+      if (rep.gender === "F"){
+        genderName = "female"
       }
 
 
@@ -186,6 +157,6 @@ class HouseCard extends Component {
   }
 }
 
-const mapStateToProps = state => ({showDonors: state.showDonors})
+const mapStateToProps = state => ({showDonors: state.showDonors, showBills: state.showBills})
 
 export default connect(mapStateToProps, { fetchBillsByRep, getRepFinances })(HouseCard)

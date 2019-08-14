@@ -73,7 +73,7 @@ p {
   color: white;
 }
 
-.undo.button {
+#hideBills, #hideDonors {
   background-color: rgb(211,0,4);
   color:white;
 }

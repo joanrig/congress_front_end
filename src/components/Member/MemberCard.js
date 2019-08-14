@@ -74,7 +74,7 @@ class MemberCard extends Component {
       } else {
         title = "Rep. "
       }
-      
+
     if (this.state.showNames){
       name = title + fullName
     }  else {
@@ -107,17 +107,18 @@ class MemberCard extends Component {
       <Button
         circular icon="large undo"
         onClick={this.hideBills}
-        className="undo button"
+        id="hideBills"
         data-tooltip={undoTip}
       />
      </div>
+
 
     let hideDonorsButton =
     <div className="center">
        <Button
          circular icon="large undo"
          onClick={this.hideDonors}
-         className="undo button"
+         id="hideDonors"
          data-tooltip={undoTip}
        />
     </div>

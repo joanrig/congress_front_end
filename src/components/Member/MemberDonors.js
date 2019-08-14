@@ -10,13 +10,6 @@ class MemberDonors extends Component {
        }
      }
 
-  hideDonors = () => {
-    this.setState((prevState)=>{
-      return {showDonors: !prevState.showDonors}
-    })
-  }
-
-
 
   render(){
     let member = this.props.member
@@ -38,7 +31,6 @@ class MemberDonors extends Component {
       )}
     }
 
-    let undoTip = "memberDonors go back"
 
 
     return (
@@ -49,15 +41,6 @@ class MemberDonors extends Component {
         {donorsSource}
         <br/>
         <br/>
-         <div className="center">
-         <Button
-           circular icon="large undo"
-           onClick={this.hideDonors}
-           className="undo button"
-           data-tooltip={undoTip}
-         />
-       </div>
-
       </div>
     )
 

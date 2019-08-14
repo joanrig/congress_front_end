@@ -51,6 +51,7 @@ class SenateCard extends Component {
     })
   }
 
+
   render() {
     let senator = this.props
 
@@ -112,23 +113,6 @@ class SenateCard extends Component {
        <a href="https://www.propublica.org/about/" className="center">source: Propublica</a>
      </div>
 
-     let donorsSource
-     let donorList
-     if (this.state.showDonors) {
-       if (senator.financial_disclosure){
-         donorsSource = <a href={senator.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
-         donorList = senator.donors.slice(0,3).map(donor =>
-         <>
-           <br/>
-           <strong>{donor.org_name}</strong>
-           <li>total: ${donor.total}</li>
-           <li>pacs: ${donor.pacs}</li>
-           <li>individuals: ${donor.indivs}</li>
-           <br/>
-         </>
-       )}
-     }
-
     let undoTip = "go back"
 
     let content
@@ -154,7 +138,14 @@ class SenateCard extends Component {
       content =
       <>
         <MemberDonors member={this.props} showDonors={this.state.showDonors}/>
-
+        <div className="center">
+         <Button
+           circular icon="large undo"
+           onClick={this.hideDonors}
+           className="undo button"
+           data-tooltip={undoTip}
+         />
+        </div>
       </>
     } else {
       content =
@@ -195,6 +186,23 @@ export default connect(mapStateToProps, { fetchBillsBySenator, getSenatorFinance
 
 //       <Loader active inline='centered' />
 
+//line 115
+// let donorsSource
+// let donorList
+// if (this.state.showDonors) {
+//   if (senator.financial_disclosure){
+//     donorsSource = <a href={senator.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
+//     donorList = senator.donors.slice(0,3).map(donor =>
+//     <>
+//       <br/>
+//       <strong>{donor.org_name}</strong>
+//       <li>total: ${donor.total}</li>
+//       <li>pacs: ${donor.pacs}</li>
+//       <li>individuals: ${donor.indivs}</li>
+//       <br/>
+//     </>
+//   )}
+// }
 
 //line 157
 // <br/>
@@ -211,3 +219,11 @@ export default connect(mapStateToProps, { fetchBillsBySenator, getSenatorFinance
 //    data-tooltip={undoTip}
 //  />
 //  </div>
+
+
+//line 48
+  // hideDonors = () => {
+  //   this.setState((prevState)=>{
+  //     return {showDonors: !prevState.showDonors}
+  //   })
+  // }

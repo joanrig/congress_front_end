@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchHouse } from './HouseActions'
 import { Container } from 'semantic-ui-react'
 import HouseSorter from './HouseSorter'
-import HouseSearchBar from './HouseSearchBar'
+// import HouseSearchBar from './HouseSearchBar'
+import MemberSearchBar from '../Member/MemberSearchBar'
 
 
-class HouseContainer extends React.Component {
+class HouseContainer extends Component {
   constructor() {
     super()
 
     this.state = {
-      reps: [],
+      members: [],
     }
   }
 
@@ -22,14 +23,6 @@ class HouseContainer extends React.Component {
     //a, b, c, d, a
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-   if (this.props.reps === nextProps.reps) {
-     return false;
-   } else {
-     return true;
-   }
- }
-
 
   render(){
     return (
@@ -38,12 +31,12 @@ class HouseContainer extends React.Component {
         <br/>
         <HouseSorter/>
         <br/>
-        <HouseSearchBar />
+        <MemberSearchBar members={this.state.members}/>
       </Container>
     )
   }
 }
 
-const mapStateToProps = state => ({reps: state.reps})
+const mapStateToProps = state => ({members: state.members})
 
 export default connect(mapStateToProps, {fetchHouse })(HouseContainer)

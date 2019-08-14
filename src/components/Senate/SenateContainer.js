@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchSenate } from './SenateActions'
+// import { fetchSenate } from './SenateActions'
+import { fetchSenate } from '../Member/MemberActions'
 import { Container } from 'semantic-ui-react'
 import SenateSorter from './SenateSorter'
 import MemberSearchBar from '../Member/MemberSearchBar'
@@ -11,7 +12,7 @@ class SenateContainer extends React.Component {
     super()
 
     this.state = {
-      members: [],
+      senate: [],
     }
   }
 
@@ -26,12 +27,12 @@ class SenateContainer extends React.Component {
         <br/>
         <SenateSorter/>
         <br/>
-        <MemberSearchBar members={this.state.members}/>
+        <MemberSearchBar members={this.state.senate}/>
       </Container>
     )
   }
 }
 
-const mapStateToProps = state => ({members: state.members})
+const mapStateToProps = state => ({members: state.senate})
 
-export default connect(mapStateToProps, {fetchSenate })(SenateContainer)
+export default connect(mapStateToProps, { fetchSenate })(SenateContainer)

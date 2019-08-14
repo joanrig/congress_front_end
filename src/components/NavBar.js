@@ -8,12 +8,12 @@ const NavBar = () => {
     <div>
         <br/>
         <div className='navbar center'>
-          <Link to='/' ><Button size='massive' color='purple'>Home</Button></Link>
-          <Link to='/senate' ><Button size='massive' color='red'>Senate</Button></Link>
-          <Link to='/house' ><Button size='massive' color='blue'>House</Button></Link>
-          <Link to='/bills' ><Button size='massive' color='pink'>Bills</Button></Link>
-          <Link to='/vote' ><Button size='massive' color='green'>Vote</Button></Link>
-          <Link to='/about' ><Button size='massive' color='grey'>About</Button></Link>
+          <Link to='/' ><Button size='huge' color='purple'>Home</Button></Link>
+          <Link to='/senate' ><Button size='huge' color='red' className="senate">Senate</Button></Link>
+          <Link to='/house' ><Button size='huge' color='blue' className="house">House</Button></Link>
+          <Link to='/bills' ><Button size='huge' color='pink'>Bills</Button></Link>
+          <Link to='/vote' ><Button size='huge' color='green'>Vote</Button></Link>
+          <Link to='/about' ><Button size='huge' color='grey'>About</Button></Link>
           <br/>
           <br/>
         </div>

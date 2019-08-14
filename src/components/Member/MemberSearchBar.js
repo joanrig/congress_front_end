@@ -19,11 +19,21 @@ class MemberSearchBar extends Component {
   }
 
   render (){
+    debugger
 
 
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
+    // let members
+    // if (this.state.house){
+    //   members = this.props.house
+    // } else {
+    //   members = this.props.senate
+    // }
+
+
+    // let filteredMembers = this.props.house.filter(
     let filteredMembers = this.props.members.filter(
       (member) => {
         let searchTerm =
@@ -85,7 +95,7 @@ class MemberSearchBar extends Component {
 }
 
 
-const mapStateToProps = state => ({ members: state.senate })
+const mapStateToProps = state => ({ members: state.members })
 
 export default connect(mapStateToProps)(MemberSearchBar)
 

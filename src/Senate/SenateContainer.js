@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSenate } from '../actions/senate'
 import { Container } from 'semantic-ui-react'
-import SenateSorter from '../components/SenateSorter'
-import SenateSearchBar from '../components/SenateSearchBar'
+import SenateSorter from './SenateSorter'
+import SenateSearchBar from './SenateSearchBar'
 
 
 class SenateContainer extends React.Component {

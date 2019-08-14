@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Card, Button } from 'semantic-ui-react'
 import SenateCard from './SenateCard'
 
 
@@ -18,12 +18,16 @@ class SenateSearchBar extends Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-//   handleFlipClick = () => {
-//     this.setState({showNames: true})
-//     debugger
-// }
+  handleFlipClick = (prevState) => {
+    this.setState(prevState => ({
+      showNames: !prevState.showNames
+    }))
+    console.log('senate search bar: this.state.showNames is', this.state.showNames)
+}
 
   render (){
+
+    let value = this.state.showNames
 
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
@@ -59,6 +63,7 @@ class SenateSearchBar extends Component {
     return (
       <>
         <br/>
+        <Button onClick={this.handleFlipClick} >Flip</Button>
         <div className="ui fluid icon input">
 
           <input
@@ -74,8 +79,9 @@ class SenateSearchBar extends Component {
         <Card.Group itemsPerRow={5}>
           {filteredSenators.map(senator =>
             <SenateCard
-              showNames={this.state.showNames}
+              showNames={value}
               bills={[]}
+              donors={[]}
               key={senator.id} {...senator}/>
             )}
         </Card.Group>

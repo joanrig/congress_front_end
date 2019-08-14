@@ -107,7 +107,7 @@ class HouseCard extends Component {
     let donorList
     if (this.state.showDonors) {
       if (rep.financial_disclosure){
-        source = <a href={rep.financial_disclosure.source} className="center">source: OpenSecrets.org</a>
+        source = <a href={rep.financial_disclosure.source} className="center">source: Center for Responsive Politics</a>
         donorList = rep.donors.slice(0,3).map(donor =>
         <>
           <br/>

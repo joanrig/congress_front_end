@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 class SenateCard extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       //passed as props to enable flip of all cards
       showNames: this.props.showNames,
@@ -38,7 +37,7 @@ class SenateCard extends Component {
     })
   }
 
-//donors
+  //donors
   handleFinanceClick = () => {
     let id = this.props.crp_id
     this.props.getSenatorFinances(id)
@@ -109,7 +108,7 @@ class SenateCard extends Component {
      let donorList
      if (this.state.showDonors) {
        if (senator.financial_disclosure){
-         source = <a href={senator.financial_disclosure.source} className="center">source: OpenSecrets.org</a>
+         source = <a href={senator.financial_disclosure.source} className="center">source: Center for Responsive Politics</a>
          donorList = senator.donors.slice(0,3).map(donor =>
          <>
            <br/>
@@ -125,6 +124,7 @@ class SenateCard extends Component {
     if (this.state.showBills){
       content =
       <>
+       <br/>
        <br/>
        {billList}
        <div className="center">
@@ -168,3 +168,5 @@ class SenateCard extends Component {
 }
 
 export default connect(null, { fetchBillsBySenator, getSenatorFinances })(SenateCard)
+
+//       <Loader active inline='centered' />

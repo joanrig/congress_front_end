@@ -40,6 +40,10 @@ const About = () => {
           I couldn't have made this app without the data from the non-profit investigative journalism group<a href="https://www.propublica.org/about/">ProPublica</a>, whose data helps power many sites, including Nate Silver's election analysis website <a href="https://fivethirtyeight.com/">FiveThirtyEight</a>.  Remember him? He predicted the election of Donald Trump.
           In case you're curious, this app is based mainly on this <a href="https://www.propublica.org/datastore/api/propublica-congress-api">API</a>. Thank you to the good folks at Propublica for maintaining it, and to the good folks at The New York Times, <a href="https://open.blogs.nytimes.com/2009/01/08/introducing-the-congress-api">who actually started this API in 2009</a>.
         </p>
+        <p>
+          <h3>Thanks to the Center for Responsive Politics!</h3>
+          For data on who donated to which Congress members, I relied on the Center for Responsive Politics and their OpenSecrets campaign finance API. I chose to use their <a href="https://www.opensecrets.org/api/?method=candContrib&output=doc">candidates contributon summary method</a> to display the top three donors to each Congress member's most recent campaign. But that's just the tip of the iceberg. For lots more campaign finance data, including which industries are donating to members of which congressional committees, click on the "source" link at the bottom of the donors list.
+        </p>
 
         <h1>Hire me!</h1>
         <p>

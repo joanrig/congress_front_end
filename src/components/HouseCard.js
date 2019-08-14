@@ -1,5 +1,5 @@
 import React, { Component} from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Icon, Button, Image } from 'semantic-ui-react'
 import { fetchBillsByRep } from '../actions/house'
 import { getMemberFinances } from '../actions/financialDisclosures'
 import { connect } from 'react-redux'
@@ -103,12 +103,33 @@ class HouseCard extends Component {
       contact_form = <a href={rep.contact_form} ><Icon className='large mail' /></a>
     }
 
-    let gavel = <Icon onClick={this.handleGavelClick} className=" legal icon" />
+    let gavel = <Icon className=" legal icon" />
 
-    let dollarSign= <Icon onClick={this.handleFinanceClick} className="dollar sign icon" />
+    let dollarSign= <Icon className="dollar sign icon" />
 
     let phone = <a href={rep.phone_clickable}><Icon className="large phone icon" /></a>
 
+
+    let content =
+    <>
+      {age}<br/>
+      {yearsServed} <br/>
+      {nextElection}<br/>
+      {missedVotes} <br/>
+      {votesWithParty}<br/>
+      {leaving}
+      {runningForPresident}
+      <br/>
+      <br/>
+      <Button className="ui primary basic button"  onClick={this.handleGavelClick} >{gavel}Most recent bills </Button>
+      <br/>
+      <br/>
+      <br/>
+      <Button className="ui positive basic button" onClick={this.handleFinanceClick}>{dollarSign} Top three donors</Button>
+      <br/>
+      <br/>
+      <br/>
+    </>
 
     let bills
     if (rep.bills){
@@ -117,10 +138,10 @@ class HouseCard extends Component {
       )
     }
 
-    let billTitles
+    let billList
     if (this.state.showBills){
       if (bills[0]){
-       billTitles = bills.map(bill =>
+       billList = bills.map(bill =>
           <>
             <li>{bill}</li>
             <br />
@@ -129,12 +150,7 @@ class HouseCard extends Component {
       }
     }
 
-    let toggleBillsIcon
-    if (this.state.showBills){
-      toggleBillsIcon = "toggle on icon"
-    } else {
-      toggleBillsIcon = "toggle off icon"
-    }
+
 
     let source
     let donorList
@@ -153,22 +169,21 @@ class HouseCard extends Component {
       )}
     }
 
-    let donors =
+    if (this.state.showBills){
+      content =
+      <>
+       {billList}
+       go back <Icon className="undo" onClick={this.toggleBills} />
+      </>
+    } else if (this.state.showDonors)
+      content =
       <>
         {donorList}
         {source}
+        <br/>
+        <br/>
+        go back  <Icon className="undo" onClick={this.toggleDonors} />
       </>
-
-
-
-    let toggleDonorsIcon
-    if (this.state.showDonors){
-      toggleDonorsIcon = "toggle on icon"
-    } else {
-      toggleDonorsIcon = "toggle off icon"
-    }
-
-
 
 
 
@@ -183,29 +198,7 @@ class HouseCard extends Component {
           </Card.Header>
 
           <Card.Description>
-            {age}<br/>
-            {yearsServed} <br/>
-            {nextElection}<br/>
-            {missedVotes} <br/>
-            {votesWithParty}<br/>
-            {leaving}
-            {runningForPresident}
-            <br/>
-            <hr/>
-            Get most recent bills: <button className="billsButton"> {gavel}</button>
-            <br/>
-            show/hide bills  <Icon className={toggleBillsIcon} onClick={this.toggleBills} />
-            <br/>
-            <br/>
-            {billTitles}
-            <br/>
-            <hr/>
-            Get top three donors <button className="donorsButton"> {dollarSign}</button>
-            <br/>
-            show/hide donors  <Icon className={toggleDonorsIcon} onClick={this.toggleDonors} />
-            <br/>
-            {donors}
-            <br/>
+            {content}
           </Card.Description>
         </Card.Content>
 

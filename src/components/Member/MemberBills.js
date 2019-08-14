@@ -42,6 +42,7 @@ class MemberDonors extends Component {
         <h4 className="center">Recent Bills</h4>
         {billList}
         {billsSource}
+        <br/>
       </div>
     )
 

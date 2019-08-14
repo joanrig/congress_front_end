@@ -20,7 +20,6 @@ class SenateSearchBar extends Component {
 
   render (){
 
-    let value = this.state.showNames
 
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
@@ -64,6 +63,7 @@ class SenateSearchBar extends Component {
             placeholder={searchInstructions}
             value={this.state.search}
             onChange={this.updateSearch}
+            className="search text"
           />
           <i className="search icon"></i>
         </div>
@@ -72,7 +72,7 @@ class SenateSearchBar extends Component {
         <Card.Group itemsPerRow={5}>
           {filteredSenators.map(senator =>
             <MemberCard
-              showNames={value}
+              showNames={this.state.showNames}
               bills={[]}
               donors={[]}
               key={senator.id} {...senator}/>

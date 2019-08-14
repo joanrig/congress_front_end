@@ -33,7 +33,7 @@ class SenateCard extends Component {
     this.setState({showBills: true})
   }
 
-  toggleBills = () => {
+  hideBills = () => {
     this.setState((prevState)=>{
       return {showBills: !prevState.showBills}
     })
@@ -46,7 +46,7 @@ class SenateCard extends Component {
     this.setState({showDonors: true})
   }
 
-  toggleDonors = () => {
+  hideDonors = () => {
     this.setState((prevState)=>{
       return {showDonors: !prevState.showDonors}
     })
@@ -128,7 +128,7 @@ class SenateCard extends Component {
       <>
        <br/>
        {billList}
-       go back <Icon className="undo" onClick={this.toggleBills} />
+       go back <Icon className="undo" onClick={this.hideBills} />
       </>
     } else if (this.state.showDonors)
       content =
@@ -137,7 +137,7 @@ class SenateCard extends Component {
         {source}
         <br/>
         <br/>
-        go back  <Icon className="undo" onClick={this.toggleDonors} />
+        go back  <Icon className="undo" onClick={this.hideDonors} />
       </>
 
 

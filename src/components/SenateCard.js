@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
-import SenatorSocial from './SenatorSocial'
+import SenateSocial from './SenateSocial'
 import { fetchBillsBySenator } from '../actions/senate'
 import { getSenatorFinances } from '../actions/senate'
 import { connect } from 'react-redux'
@@ -177,7 +177,7 @@ class SenateCard extends Component {
         </Card.Content>
 
         <Card.Content extra className={genderName}>
-          <SenatorSocial senator={this.props}/>
+          <SenateSocial senator={this.props}/>
         </Card.Content>
       </Card>
     )

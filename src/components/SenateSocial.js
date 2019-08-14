@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react'
 
 
 
-class SenatorSocial extends Component {
+class SenateSocial extends Component {
   constructor(props) {
     super()
   }
@@ -56,4 +56,4 @@ class SenatorSocial extends Component {
 
 
 }
-export default SenatorSocial;
+export default SenateSocial;

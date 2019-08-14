@@ -21,7 +21,7 @@ class SenateContainer extends React.Component {
 
   render(){
     return (
-      <Container>
+      <Container >
         <br/>
         <br/>
         <SenateSorter/>

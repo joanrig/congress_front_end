@@ -136,10 +136,12 @@ class HouseCard extends Component {
       toggleBillsIcon = "toggle off icon"
     }
 
-    let donors
+    let source
+    let donorList
     if (this.state.showDonors) {
       if (rep.financial_disclosure){
-        donors = rep.donors.slice(0,3).map(donor =>
+        source = <a href={rep.financial_disclosure.source} className="center">source: OpenSecrets.org</a>
+        donorList = rep.donors.slice(0,3).map(donor =>
         <>
           <br/>
           <strong>{donor.org_name}</strong>
@@ -150,6 +152,14 @@ class HouseCard extends Component {
         </>
       )}
     }
+
+    let donors =
+      <>
+        {donorList}
+        {source}
+      </>
+
+
 
     let toggleDonorsIcon
     if (this.state.showDonors){
@@ -188,7 +198,7 @@ class HouseCard extends Component {
             <br/>
             <br/>
             {billTitles}
-            <br />
+            <br/>
             <hr/>
             Get top three donors <button className="donorsButton"> {dollarSign}</button>
             <br/>
@@ -196,7 +206,6 @@ class HouseCard extends Component {
             <br/>
             {donors}
             <br/>
-
           </Card.Description>
         </Card.Content>
 

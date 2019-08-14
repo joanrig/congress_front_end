@@ -32,6 +32,19 @@ export default (state = [], action) => {
     )
       return house
 
+
+    case "GET_REP_FINANCES":
+      let financialDisclosure = action.payload.financialDisclosure
+      let house1 = state.map(rep => {
+        if (rep.crp_id === action.payload_id){
+          rep.financialDisclosure = financialDisclosure
+        }
+        return rep
+      }
+    )
+      return house1
+
+
      default:
         return state;
     }

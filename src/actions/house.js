@@ -61,10 +61,25 @@ export function fetchByAge(){
 
 export function fetchBillsByRep(id){
   return (dispatch) => {
-      console.log("now fetching to http://localhost:3000/search/bills/", id)
       return fetch("http://localhost:3000/search/bills/member/"+id)
       .then(resp => resp.json())
-      .then(bills =>dispatch({type:"FETCH_BILLS_BY_REP", payload: {bills: bills, id:id}})
+      .then(bills => dispatch({type:"FETCH_BILLS_BY_REP", payload: {bills: bills, id:id}})
       )
     }
 }
+
+export function getRepFinances(id){
+  return (dispatch) => {
+      const url = "http://localhost:3000/search/financial_disclosures/member/"+id
+      fetch(url).then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Something went wrong');
+        }
+      })
+      .catch(function (err) {console.log(err)})
+      .then(financialDisclosure => dispatch({type:"GET_REP_FINANCES", payload: {financialDisclosure: financialDisclosure, id:id}})
+      )
+    }
+  }

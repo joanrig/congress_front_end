@@ -59,10 +59,6 @@ export function fetchBillsBySenator(id){
     }
 }
 
-export function showSenatorBills(bills){
-  //bills are still there
-  return (dispatch) => ({type: 'SHOW_SENATOR_BILLS', bills})
-}
 
 export function getSenatorFinances(id){
   return (dispatch) => {
@@ -79,10 +75,6 @@ export function getSenatorFinances(id){
       )
     }
   }
-
-export function showSenatorFinances(finances){
-  return (dispatch) => ({type: 'SHOW_SENATOR_FINANCES, finances'})
-}
 
 
 

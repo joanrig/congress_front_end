@@ -3,7 +3,7 @@ import { Card, Icon, Button, Image } from 'semantic-ui-react'
 import HouseBio from './HouseBio'
 import HouseSocial from './HouseSocial'
 import { fetchBillsByRep } from '../actions/house'
-import { getMemberFinances } from '../actions/financialDisclosures'
+import { getRepFinances } from '../actions/house'
 import { connect } from 'react-redux'
 
 
@@ -42,7 +42,7 @@ class HouseCard extends Component {
   //donors
   handleFinanceClick = () => {
       let id = this.props.crp_id
-      this.props.getMemberFinances(id)
+      this.props.getRepFinances(id)
       this.setState({showDonors: true})
     }
 
@@ -162,4 +162,4 @@ class HouseCard extends Component {
   }
 }
 
-export default connect(null, { fetchBillsByRep, getMemberFinances })(HouseCard)
+export default connect(null, { fetchBillsByRep, getRepFinances })(HouseCard)

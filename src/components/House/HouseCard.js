@@ -106,13 +106,16 @@ class HouseCard extends Component {
       }
     }
 
+    let billsSource =
+    <div className="center">
+      <a href="https://www.propublica.org/about/" className="center">source: Propublica</a>
+    </div>
 
-
-    let source
+    let donorsSource
     let donorList
     if (this.state.showDonors) {
       if (rep.financial_disclosure){
-        source = <a href={rep.financial_disclosure.source} className="center">source: Center for Responsive Politics</a>
+        donorsSource = <a href={rep.financial_disclosure.source} className="center">source: Center for Responsive Politics</a>
         donorList = rep.donors.slice(0,3).map(donor =>
         <>
           <br/>
@@ -132,6 +135,9 @@ class HouseCard extends Component {
       <br/>
       <h4 className="center">Recent Bills</h4>
       {billList}
+      {billsSource}
+      <br/>
+      <br/>
       <div className="center">
         <Button onClick={this.hideBills} className="ui negative basic button"><Icon className="undo" />go back</Button>
        </div>
@@ -140,7 +146,7 @@ class HouseCard extends Component {
       content =
       <>
         {donorList}
-        {source}
+        {donorsSource}
         <br/>
         <br/>
         <div className="center">

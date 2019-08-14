@@ -7,7 +7,7 @@ import { fetchBillsBySenator, getSenatorFinances } from './SenateActions'
 import { connect } from 'react-redux'
 
 
-class SenateCard extends Component {
+class MemberCard extends Component {
   constructor(props) {
     super(props)
 
@@ -164,4 +164,4 @@ class SenateCard extends Component {
   }
 }
 
-export default connect(null, { fetchBillsBySenator, getSenatorFinances })(SenateCard)
+export default connect(null, { fetchBillsBySenator, getSenatorFinances })(MemberCard)

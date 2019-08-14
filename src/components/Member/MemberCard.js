@@ -1,14 +1,16 @@
 import React, { Component} from 'react'
 import { Card, Image, Button } from 'semantic-ui-react'
-import MemberBio from '../Member/MemberBio'
-import MemberBills from '../Member/MemberBills'
-import MemberSocial from '../Member/MemberSocial'
-import MemberDonors from '../Member/MemberDonors'
-import { fetchBillsByRep, getRepFinances } from './HouseActions'
+import MemberBio from './MemberBio'
+import MemberSocial from './MemberSocial'
+import MemberBills from './MemberBills'
+import MemberDonors from './MemberDonors'
+import { fetchBillsBySenator, getSenatorFinances } from '../Senate/SenateActions'
+import { fetchBillsByRep, getRepFinances } from '../House/HouseActions'
+
 import { connect } from 'react-redux'
 
 
-class HouseCard extends Component {
+class MemberCard extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -20,7 +22,7 @@ class HouseCard extends Component {
      }
    }
 
-   toggleName = () =>{
+  toggleName = () => {
     this.setState((prevState)=>{
       return {showNames: !prevState.showNames}
     })
@@ -29,7 +31,11 @@ class HouseCard extends Component {
   //bills
   handleGavelClick = () => {
     let id = this.props.propublica_id
-    this.props.fetchBillsByRep(id)
+    if (this.props.chamber === "senate"){
+      this.props.fetchBillsBySenator(id)
+    } else if (this.props.chamber === "house"){
+      this.props.fetchBillsByRep(id)
+    }
     this.setState({showBills: true})
   }
 
@@ -41,29 +47,43 @@ class HouseCard extends Component {
 
   //donors
   handleDonorsClick = () => {
-      let id = this.props.crp_id
+    let id = this.props.crp_id
+    if (this.props.chamber === "senate"){
+      this.props.getSenatorFinances(id)
+    } else if (this.props.chamber === "house"){
       this.props.getRepFinances(id)
-      this.setState({showDonors: true})
     }
+    this.setState({showDonors: true})
+  }
 
   hideDonors = () => {
-      this.setState((prevState)=>{
-        return {showDonors: !prevState.showDonors}
-      })
-    }
-
+    this.setState((prevState)=>{
+      return {showDonors: !prevState.showDonors}
+    })
+  }
 
   render() {
-    let rep = this.props
+    let member = this.props
 
     //card.header
     let name
-    this.state.showNames? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
+    let fullName = member.first_name + ' ' + member.last_name
+    let title
+      if (member.chamber === "senate") {
+        title = "Sen. "
+      } else {
+        title = "Rep. "
+      }
+      
+    if (this.state.showNames){
+      name = title + fullName
+    }  else {
+      name = "Guess Who?"
+    }
 
-    //card.description
+    //card.content.description
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
-    let undoTip = "go back"
 
     let twoButtons =
     <div className="center">
@@ -81,6 +101,7 @@ class HouseCard extends Component {
       />
     </div>
 
+    let undoTip = "go back"
     let hideBillsButton =
     <div className="center">
       <Button
@@ -101,7 +122,6 @@ class HouseCard extends Component {
        />
     </div>
 
-
     let content
     if (this.state.showBills){
       content =
@@ -111,37 +131,37 @@ class HouseCard extends Component {
         showBills={this.state.showBills}/>
         {hideBillsButton}
       </>
-      } else if (this.state.showDonors) {
-        content =
-        <>
-          <MemberDonors member={this.props} showDonors={this.state.showDonors}/>
-          {hideDonorsButton}
-        </>
-      } else {
-        content =
-        <>
-          <MemberBio member={this.props}/>
-          {twoButtons}
-          <br/>
-        </>
-      }
+    } else if (this.state.showDonors){
+      content =
+      <>
+        <MemberDonors
+          member={this.props} showDonors={this.state.showDonors}/>
+        {hideDonorsButton}
+      </>
+    } else {
+      content =
+      <>
+        <MemberBio member={this.props}/>
+        {twoButtons}
+        <br/>
+      </>
+    }
 
-      //card.content extra
-      //change className to change bg background-color based on gender
-      let genderName
-      if (rep.gender === "F"){
-        genderName = "female"
-      }
+    //card.content extra/ changes bg color
+    let genderName
+    if (member.gender === "F"){
+      genderName = "female"
+    }
 
 
     return (
       <Card>
-        <Image src={rep.party_logo} wrapped ui={false} className="party-logo"/>
+        <Image className="party-logo" src={member.party_logo} wrapped ui={false}  />
 
         <Card.Content >
           <Card.Header onClick={this.toggleName}>
-            Rep. {name}<br/> {rep.party}-{rep.state_full_name}<br/>
-            District {rep.district}
+            {name}<br/>
+            {member.party}-{member.state_full_name}
           </Card.Header>
 
           <Card.Description>
@@ -150,7 +170,7 @@ class HouseCard extends Component {
         </Card.Content>
 
         <Card.Content extra className={genderName}>
-         <MemberSocial member={this.props} />
+          <MemberSocial member={this.props}/>
         </Card.Content>
       </Card>
     )
@@ -159,4 +179,4 @@ class HouseCard extends Component {
 
 const mapStateToProps = state => ({showDonors: state.showDonors, showBills: state.showBills})
 
-export default connect(mapStateToProps, { fetchBillsByRep, getRepFinances })(HouseCard)
+export default connect(mapStateToProps, { fetchBillsBySenator, fetchBillsByRep, getSenatorFinances, getRepFinances })(MemberCard)

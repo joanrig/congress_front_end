@@ -1,5 +1,4 @@
 
-
 // async action
 export function fetchHouse(){
   //console.log('firing fetchHouse')
@@ -9,12 +8,11 @@ export function fetchHouse(){
       .then(resp => resp.json())
       .then(house =>{
         console.log("d")
-        return dispatch({type:"SET_HOUSE", house} )
-      })
-     }
+        return dispatch({type:"SET_HOUSE", house})
+    })
+  }
 }
 
-//doesn't work
 export function fetchLoyalists(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/house_loyalists')

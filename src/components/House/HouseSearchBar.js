@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
-import HouseCard from './HouseCard'
+import MemberCard from '../Member/MemberCard'
 
 
 class HouseSearchBar extends Component {
@@ -78,7 +78,7 @@ class HouseSearchBar extends Component {
 
         <Card.Group itemsPerRow={5}>
           {filteredReps.map(rep =>
-            <HouseCard
+            <MemberCard
               showNames={value}
               bills={[]}
               donors={[]}

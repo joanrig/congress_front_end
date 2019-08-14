@@ -124,7 +124,9 @@ class HouseCard extends Component {
       content =
       <>
        {billList}
-       go back <Icon className="undo" onClick={this.hideBills} />
+       <div className="center">
+         <Button onClick={this.hideBills} className="ui negative basic button"><Icon className="undo" />go back</Button>
+       </div>
       </>
     } else if (this.state.showDonors)
       content =
@@ -133,7 +135,9 @@ class HouseCard extends Component {
         {source}
         <br/>
         <br/>
-        go back  <Icon className="undo" onClick={this.hideDonors} />
+        <div className="center">
+         <Button onClick={this.hideDonors} className="ui negative basic button"><Icon className="undo" />go back</Button>
+        </div>
       </>
 
 

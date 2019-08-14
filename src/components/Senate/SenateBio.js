@@ -35,7 +35,6 @@ class SenateBio extends Component {
         {leaving}
         {runningForPresident}
       <br/>
-      <br/>
       </div>
     )
 

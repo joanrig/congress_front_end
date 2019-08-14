@@ -36,7 +36,6 @@ class HouseBio extends Component {
         {leaving}
         {runningForPresident}
       <br/>
-      <br/>
       </div>
     )
 

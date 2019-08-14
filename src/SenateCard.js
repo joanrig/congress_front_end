@@ -3,6 +3,7 @@ import { Card, Icon, Image, Button } from 'semantic-ui-react'
 import SenateBio from './SenateBio'
 import SenateSocial from './SenateSocial'
 import { fetchBillsBySenator, getSenatorFinances } from './SenateActions'
+
 import { connect } from 'react-redux'
 
 
@@ -127,9 +128,7 @@ class SenateCard extends Component {
       <>
        <br/>
        {billList}
-       <div className="center">
-         <Button onClick={this.hideBills} className="ui negative basic button">go back</Button>
-        </div>
+       go back <Icon className="undo" onClick={this.hideBills} />
       </>
     } else if (this.state.showDonors)
       content =
@@ -138,9 +137,7 @@ class SenateCard extends Component {
         {source}
         <br/>
         <br/>
-         <div className="center">
-           <Button onClick={this.hideDonors} className="ui negative basic button">go back</Button>
-         </div>
+        go back  <Icon className="undo" onClick={this.hideDonors} />
       </>
 
 

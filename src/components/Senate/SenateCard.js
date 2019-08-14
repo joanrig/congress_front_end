@@ -1,7 +1,8 @@
 import React, { Component} from 'react'
-import { Card, Icon, Image, Button } from 'semantic-ui-react'
-import SenateBio from './SenateBio'
-import SenateSocial from './SenateSocial'
+import { Card, Image, Button } from 'semantic-ui-react'
+import MemberBio from '../Member/MemberBio'
+import MemberSocial from '../Member/MemberSocial'
+import MemberDonors from '../Member/MemberDonors'
 import { fetchBillsBySenator, getSenatorFinances } from './SenateActions'
 import { connect } from 'react-redux'
 
@@ -115,7 +116,7 @@ class SenateCard extends Component {
      let donorList
      if (this.state.showDonors) {
        if (senator.financial_disclosure){
-         donorsSource = <a href={senator.financial_disclosure.source} className="center">source: Center for Responsive Politics</a>
+         donorsSource = <a href={senator.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
          donorList = senator.donors.slice(0,3).map(donor =>
          <>
            <br/>
@@ -152,25 +153,13 @@ class SenateCard extends Component {
     } else if (this.state.showDonors){
       content =
       <>
-        <br/>
-        <h4 className="center">Top Three Donors</h4>
-        {donorList}
-        {donorsSource}
-        <br/>
-        <br/>
-         <div className="center">
-         <Button
-           circular icon="large undo"
-           onClick={this.hideDonors}
-           className="undo button"
-           data-tooltip={undoTip}
-         />
-         </div>
+        <MemberDonors member={this.props} showDonors={this.state.showDonors}/>
+
       </>
     } else {
       content =
       <>
-        <SenateBio senator={this.props}/>
+        <MemberBio member={this.props}/>
         {buttons}
         <br/>
       </>
@@ -193,13 +182,32 @@ class SenateCard extends Component {
         </Card.Content>
 
         <Card.Content extra className={genderName}>
-          <SenateSocial senator={this.props}/>
+          <MemberSocial member={this.props}/>
         </Card.Content>
       </Card>
     )
   }
 }
 
-export default connect(null, { fetchBillsBySenator, getSenatorFinances })(SenateCard)
+const mapStateToProps = state => ({showDonors: state.showDonors})
+
+export default connect(mapStateToProps, { fetchBillsBySenator, getSenatorFinances })(SenateCard)
 
 //       <Loader active inline='centered' />
+
+
+//line 157
+// <br/>
+// <h4 className="center">Top Three Donors</h4>
+// {donorList}
+// {donorsSource}
+// <br/>
+// <br/>
+//  <div className="center">
+//  <Button
+//    circular icon="large undo"
+//    onClick={this.hideDonors}
+//    className="undo button"
+//    data-tooltip={undoTip}
+//  />
+//  </div>

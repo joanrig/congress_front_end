@@ -1,7 +1,7 @@
 import React, { Component} from 'react'
-import { Card, Icon, Button, Image } from 'semantic-ui-react'
-import HouseBio from './HouseBio'
-import HouseSocial from './HouseSocial'
+import { Card, Button, Image } from 'semantic-ui-react'
+import MemberBio from '../Member/MemberBio'
+import MemberSocial from '../Member/MemberSocial'
 import { fetchBillsByRep, getRepFinances } from './HouseActions'
 import { connect } from 'react-redux'
 
@@ -115,7 +115,7 @@ class HouseCard extends Component {
     let donorList
     if (this.state.showDonors) {
       if (rep.financial_disclosure){
-        donorsSource = <a href={rep.financial_disclosure.source} className="center">source: Center for Responsive Politics</a>
+        donorsSource = <a href={rep.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
         donorList = rep.donors.slice(0,3).map(donor =>
         <>
           <br/>
@@ -168,7 +168,7 @@ class HouseCard extends Component {
       } else {
         content =
         <>
-          <HouseBio rep={this.props}/>
+          <MemberBio member={this.props}/>
           {buttons}
           <br/>
         </>
@@ -191,7 +191,7 @@ class HouseCard extends Component {
         </Card.Content>
 
         <Card.Content extra className={genderName}>
-         <HouseSocial rep={this.props} />
+         <MemberSocial member={this.props} />
         </Card.Content>
       </Card>
     )

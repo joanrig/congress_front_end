@@ -1,9 +1,7 @@
 ###extra things to do
 
-
-
-
-2. figure out how to flip all cards.
+1. figure out how to flip all cards.
+2. add loading status/ indicators
 
 
 
@@ -32,6 +30,7 @@ DONE: There should be 5 stateless components
 
 
 ###BUGS
+freshman/ freshmen search doesn't work for house
 
 
 
@@ -40,21 +39,21 @@ DONE: There should be 5 stateless components
 #NEXT FEATURES
 1. fix flip button so you can flip all cards and play as a guess who game/ add animation to card flip
 
-2. render contact info text (address, phone) on back of card
-
-3. make bill sorter view.
 
 
 ###STRETCH
-add search by subject
-DONE 1. upgrade backend
-XXXX 2. add button, make fetch action work on front end
-3. show the info.
+
+
 
 * add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2
 
 
 ###STRETCH DONE
+DONE - display bills and top donors on back of card
+DONE - get top campaign donors
+DONE - add search bills by subject
+DONE 1. upgrade backend
+DONE 2. add button, make fetch action work on front end
 DONE* add bills by member
 https://projects.propublica.org/api-docs/congress-api/bills/#search-bills
 DONE - upgrade back end

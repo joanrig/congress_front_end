@@ -44,7 +44,7 @@ p {
 }
 
 .ui.cards>.card>.content.extra.female {
-  background-color: rgb(255,102,102,0.1);
+  background-color: rgb(255,102,102,0.3);
 }
 
 .ui.cards>.card>.content.extra.red {
@@ -76,6 +76,10 @@ p {
 .undo.button {
   background-color: rgb(211,0,4);
   color:white;
+}
+
+.social {
+
 }
 
 .party-logo {

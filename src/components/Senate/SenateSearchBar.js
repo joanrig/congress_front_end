@@ -67,7 +67,7 @@ class SenateSearchBar extends Component {
           />
           <i className="search icon"></i>
         </div>
-        <h2 className='ui block header center'>{filteredSenators.length} senators meet your search requirements</h2>
+        <h2 className='ui block header center'>{filteredSenators.length} senators meet your search for {this.state.search}</h2>
 
         <Card.Group itemsPerRow={5}>
           {filteredSenators.map(senator =>

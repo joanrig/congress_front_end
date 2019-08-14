@@ -74,7 +74,7 @@ class HouseSearchBar extends Component {
           <i className="search icon"></i>
         </div>
 
-        <h2 className='ui block header center'>{filteredReps.length} representatives meet your search requirements</h2>
+        <h2 className='ui block header center'>{filteredReps.length} representatives meet your search requirements for {this.state.search}</h2>
 
         <Card.Group itemsPerRow={5}>
           {filteredReps.map(rep =>

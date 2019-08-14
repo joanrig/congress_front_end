@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Component }from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
 import BillsSearchBar from '../components/BillsSearchBar'
 
 
-class BillsContainer extends React.Component {
+class BillsContainer extends Component {
   constructor(props) {
     super()
 

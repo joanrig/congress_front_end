@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import SenatorSocial from './SenatorSocial'
 import { fetchBillsBySenator } from '../actions/senate'
 import { getSenatorFinances } from '../actions/senate'
 import { connect } from 'react-redux'
@@ -78,36 +79,10 @@ class SenateCard extends Component {
       leaving = <h5>{senator.status_note}</h5>
     }
 
-    let facebook
-    if (senator.facebook_account) {
-      facebook = <a href={senator.facebook_account} ><Icon className='large facebook' /></a>
-    }
-
-    let twitter
-    if (senator.twitter_account) {
-      twitter = <a href={senator.twitter_account} ><Icon className='large twitter' /></a>
-    }
-
-    let youTube
-    if (senator.youtube_account) {
-      youTube = <a href={senator.youtube_account} ><Icon className='large youtube' /></a>
-    }
-
-    let website
-    if (senator.website) {
-      website = <a href={senator.website} ><Icon className='large home icon' /></a>
-    }
-
-    let contact_form
-    if (senator.contact_form) {
-      contact_form = <a href={senator.contact_form} ><Icon className='large mail' /></a>
-    }
-
     let gavel = <Icon className="legal icon"/>
 
     let dollarSign= <Icon className="dollar sign icon" />
 
-    let phone = <a href={senator.phone_clickable}><Icon className="large phone icon" /></a>
 
 
     let content =
@@ -171,6 +146,7 @@ class SenateCard extends Component {
     if (this.state.showBills){
       content =
       <>
+       <br/>
        {billList}
        go back <Icon className="undo" onClick={this.toggleBills} />
       </>
@@ -201,14 +177,7 @@ class SenateCard extends Component {
         </Card.Content>
 
         <Card.Content extra className={genderName}>
-          <div>
-            {facebook}
-            {twitter}
-            {youTube}
-            {website}
-            {contact_form}
-            {phone}
-          </div>
+          <SenatorSocial senator={this.props}/>
         </Card.Content>
       </Card>
     )

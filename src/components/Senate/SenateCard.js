@@ -128,7 +128,7 @@ class SenateCard extends Component {
        <br/>
        {billList}
        <div className="center">
-         <Button onClick={this.hideBills} className="ui negative basic button">go back</Button>
+         <Button onClick={this.hideBills} className="ui negative basic button"><Icon className="undo" />go back</Button>
         </div>
       </>
     } else if (this.state.showDonors)
@@ -139,7 +139,7 @@ class SenateCard extends Component {
         <br/>
         <br/>
          <div className="center">
-           <Button onClick={this.hideDonors} className="ui negative basic button">go back</Button>
+           <Button onClick={this.hideDonors} className="ui negative basic button"><Icon className="undo" />go back</Button>
          </div>
       </>
 

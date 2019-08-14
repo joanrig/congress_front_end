@@ -59,6 +59,14 @@ export function fetchBillsBySenator(id){
     }
 }
 
+export function showSenatorBills(){
+  return (dispatch) => {
+    dispatch({type: 'SHOW_SENATOR_BILLS'
+    })
+  }
+}
+
+
 
 export function getSenatorFinances(id){
   return (dispatch) => {

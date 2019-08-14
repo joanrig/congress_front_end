@@ -39,7 +39,7 @@ class SenateCard extends Component {
   }
 
   //donors
-  handleFinanceClick = () => {
+  handleDonorsClick = () => {
     let id = this.props.crp_id
     this.props.getSenatorFinances(id)
     this.setState({showDonors: true})
@@ -70,8 +70,9 @@ class SenateCard extends Component {
     //description
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
+    let undoTip = "go back"
 
-    let buttons =
+    let twoButtons =
     <div className="center">
       <Button
         circular icon="large legal"
@@ -81,11 +82,35 @@ class SenateCard extends Component {
       />
       <Button
         circular icon="large dollar sign"
-        onClick={this.handleFinanceClick}
+        onClick={this.handleDonorsClick}
         className="donors button"
         data-tooltip={moneyTip}
       />
     </div>
+
+    let hideBillsButton =
+    <div className="center">
+      <Button
+        circular icon="large undo"
+        onClick={this.hideBills}
+        className="undo button"
+        data-tooltip={undoTip}
+      />
+     </div>
+
+
+
+    let hideDonorsButton =
+    <div className="center">
+       <Button
+         circular icon="large undo"
+         onClick={this.hideDonors}
+         className="undo button"
+         data-tooltip={undoTip}
+       />
+    </div>
+
+
 
 
     let bills
@@ -113,8 +138,6 @@ class SenateCard extends Component {
        <a href="https://www.propublica.org/about/" className="center">source: Propublica</a>
      </div>
 
-    let undoTip = "go back"
-
     let content
     if (this.state.showBills){
       content =
@@ -125,33 +148,19 @@ class SenateCard extends Component {
        {billsSource}
        <br/>
        <br/>
-       <div className="center">
-         <Button
-           circular icon="large undo"
-           onClick={this.hideBills}
-           className="undo button"
-           data-tooltip={undoTip}
-         />
-        </div>
+       {hideBillsButton}
       </>
     } else if (this.state.showDonors){
       content =
       <>
         <MemberDonors member={this.props} showDonors={this.state.showDonors}/>
-        <div className="center">
-         <Button
-           circular icon="large undo"
-           onClick={this.hideDonors}
-           className="undo button"
-           data-tooltip={undoTip}
-         />
-        </div>
+        {hideDonorsButton}
       </>
     } else {
       content =
       <>
         <MemberBio member={this.props}/>
-        {buttons}
+        {twoButtons}
         <br/>
       </>
     }

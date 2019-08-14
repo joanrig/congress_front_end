@@ -1,7 +1,8 @@
 import React, { Component} from 'react'
-import { Card, Button, Image } from 'semantic-ui-react'
+import { Card, Image, Button } from 'semantic-ui-react'
 import MemberBio from '../Member/MemberBio'
 import MemberSocial from '../Member/MemberSocial'
+import MemberDonors from '../Member/MemberDonors'
 import { fetchBillsByRep, getRepFinances } from './HouseActions'
 import { connect } from 'react-redux'
 
@@ -38,7 +39,7 @@ class HouseCard extends Component {
   }
 
   //donors
-  handleFinanceClick = () => {
+  handleDonorsClick = () => {
       let id = this.props.crp_id
       this.props.getRepFinances(id)
       this.setState({showDonors: true})
@@ -68,9 +69,10 @@ class HouseCard extends Component {
     //description
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
+    let undoTip = "go back"
 
 
-    let buttons =
+    let twoButtons =
     <div className="center">
       <Button
         circular icon="large legal"
@@ -80,10 +82,32 @@ class HouseCard extends Component {
       />
       <Button
         circular icon="large dollar sign"
-        onClick={this.handleFinanceClick}
+        onClick={this.handleDonorsClick}
         className="donors button"
         data-tooltip={moneyTip}
       />
+    </div>
+
+    let hideBillsButton =
+    <div className="center">
+      <Button
+        circular icon="large undo"
+        onClick={this.hideBills}
+        className="undo button"
+        data-tooltip={undoTip}
+      />
+     </div>
+
+
+
+    let hideDonorsButton =
+    <div className="center">
+       <Button
+         circular icon="large undo"
+         onClick={this.hideDonors}
+         className="undo button"
+         data-tooltip={undoTip}
+       />
     </div>
 
 
@@ -111,65 +135,29 @@ class HouseCard extends Component {
       <a href="https://www.propublica.org/about/" className="center">source: Propublica</a>
     </div>
 
-    let donorsSource
-    let donorList
-    if (this.state.showDonors) {
-      if (rep.financial_disclosure){
-        donorsSource = <a href={rep.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
-        donorList = rep.donors.slice(0,3).map(donor =>
-        <>
-          <br/>
-          <strong>{donor.org_name}</strong>
-          <li>total: ${donor.total}</li>
-          <li>pacs: ${donor.pacs}</li>
-          <li>individuals: ${donor.indivs}</li>
-          <br/>
-        </>
-      )}
-    }
-
-    let undoTip = "go back"
-
     let content
     if (this.state.showBills){
       content =
       <>
-      <br/>
-      <h4 className="center">Recent Bills</h4>
-      {billList}
-      {billsSource}
-      <br/>
-      <br/>
-      <div className="center">
-      <Button
-        circular icon="large undo"
-        onClick={this.hideBills}
-        className="undo button"
-        data-tooltip={undoTip}
-      />
-       </div>
-      </>
-    } else if (this.state.showDonors) {
-      content =
-      <>
-        {donorList}
-        {donorsSource}
+        <br/>
+        <h4 className="center">Recent Bills</h4>
+        {billList}
+        {billsSource}
         <br/>
         <br/>
-        <div className="center">
-        <Button
-          circular icon="large undo"
-          onClick={this.hideDonors}
-          className="undo button"
-          data-tooltip={undoTip}
-        />
-        </div>
+        {hideBillsButton}
       </>
+      } else if (this.state.showDonors) {
+        content =
+        <>
+          <MemberDonors member={this.props} showDonors={this.state.showDonors}/>
+          {hideDonorsButton}
+        </>
       } else {
         content =
         <>
           <MemberBio member={this.props}/>
-          {buttons}
+          {twoButtons}
           <br/>
         </>
       }
@@ -198,4 +186,6 @@ class HouseCard extends Component {
   }
 }
 
-export default connect(null, { fetchBillsByRep, getRepFinances })(HouseCard)
+const mapStateToProps = state => ({showDonors: state.showDonors})
+
+export default connect(mapStateToProps, { fetchBillsByRep, getRepFinances })(HouseCard)

@@ -18,13 +18,6 @@ class SenateSearchBar extends Component {
     this.setState({search: event.target.value.substr(0, 100)})
   }
 
-//   handleFlipClick = (prevState) => {
-//     this.setState(prevState => ({
-//       showNames: !prevState.showNames
-//     }))
-//     console.log('senate search bar: this.state.showNames is', this.state.showNames)
-// }
-
   render (){
 
     let value = this.state.showNames
@@ -94,3 +87,11 @@ class SenateSearchBar extends Component {
 const mapStateToProps = state => ({ senate: state.senate })
 
 export default connect(mapStateToProps)(SenateSearchBar)
+
+
+//   handleFlipClick = (prevState) => {
+//     this.setState(prevState => ({
+//       showNames: !prevState.showNames
+//     }))
+//     console.log('senate search bar: this.state.showNames is', this.state.showNames)
+// }

@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SenateContainer from './containers/SenateContainer'
-import HouseContainer from './containers/HouseContainer'
+import HouseContainer from './components/House/HouseContainer'
 import BillsContainer from './containers/BillsContainer'
 import RegisterToVote from './components/RegisterToVote'
 import NavBar from './components/NavBar'

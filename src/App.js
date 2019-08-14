@@ -6,7 +6,7 @@ import HouseContainer from './House/HouseContainer'
 import BillsContainer from './Bills/BillsContainer'
 import RegisterToVote from './components/RegisterToVote'
 import NavBar from './components/NavBar'
-import Home from './components/Home'
+import Home from './components/Home/Home'
 import About from './components/About'
 
 

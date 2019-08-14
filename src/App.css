@@ -44,7 +44,7 @@ p {
 }
 
 .ui.cards>.card>.content.extra.female {
-  background-color: rgb(244,0,106,0.1);
+  background-color: rgb(255,102,102,0.1);
 }
 
 .ui.cards>.card>.content.extra.red {
@@ -63,16 +63,22 @@ p {
   background-color: 243,244,245);
 }
 
-.billsButton {
-  background-color:pink;
-  /* background-color: rgba(152,251,152,0.5); */
+.bills.button {
+  background-color: rgba(5,0,172,0.9);
+  color: white;
 }
 
-.donorsButton {
-  background-color: rgba(152,251,152,0.5);
+.donors.button {
+  background-color: rgba(35,177,54,0.9);
+  color: white;
+
 }
 
 .party-logo {
   width: 100%;
   height: 200px;
+}
+
+.tips {
+  display:inline;
 }

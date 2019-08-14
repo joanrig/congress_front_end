@@ -9,7 +9,6 @@ import { connect } from 'react-redux'
 class HouseCard extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       //passed as props to enable flip of all cards
       showNames: this.props.showNames,
@@ -55,36 +54,42 @@ class HouseCard extends Component {
   render() {
     let rep = this.props
 
+  //header
     let name
     this.state.showNames? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
+    //content extra
+    //change className to change bg background-color based on gender
     let genderName
     if (rep.gender === "F"){
       genderName = "female"
     }
 
+    //description
+    let legalTip = "five most recent bills"
+    let moneyTip = "top three donors to last campaign"
 
-    let gavel = <Icon className=" legal icon" />
 
-    let dollarSign= <Icon className="dollar sign icon" />
+    let buttons =
+    <div className="center">
+      <Button
+        circular icon="large legal"
+        onClick={this.handleGavelClick}
+        className="bills button"
+        data-tooltip={legalTip}
+      />
+      <Button
+        circular icon="large dollar sign"
+        onClick={this.handleFinanceClick}
+        className="donors button"
+        data-tooltip={moneyTip}
+      />
+    </div>
 
-
-    let content =
-    <>
-      <HouseBio rep={this.props} />
-      <Button className="ui primary basic button"  onClick={this.handleGavelClick} >{gavel}Most recent bills </Button>
-      <br/>
-      <br/>
-      <br/>
-      <Button className="ui positive basic button" onClick={this.handleFinanceClick}>{dollarSign} Top three donors</Button>
-      <br/>
-      <br/>
-      <br/>
-    </>
 
     let bills
     if (rep.bills){
-      bills = rep.bills.slice(0,3).map(bill =>
+      bills = rep.bills.slice(0,5).map(bill =>
         <a href={bill.govtrack_url}>{bill.short_title.substring(0,75)+'...'}</a>
       )
     }
@@ -120,15 +125,18 @@ class HouseCard extends Component {
       )}
     }
 
+    let content
     if (this.state.showBills){
       content =
       <>
-       {billList}
-       <div className="center">
-         <Button onClick={this.hideBills} className="ui negative basic button"><Icon className="undo" />go back</Button>
+      <br/>
+      <h4 className="center">Recent Bills</h4>
+      {billList}
+      <div className="center">
+        <Button onClick={this.hideBills} className="ui negative basic button"><Icon className="undo" />go back</Button>
        </div>
       </>
-    } else if (this.state.showDonors)
+    } else if (this.state.showDonors) {
       content =
       <>
         {donorList}
@@ -139,7 +147,16 @@ class HouseCard extends Component {
          <Button onClick={this.hideDonors} className="ui negative basic button"><Icon className="undo" />go back</Button>
         </div>
       </>
-
+      } else {
+        content =
+        <>
+          <HouseBio rep={this.props}/>
+          {buttons}
+          <br/>
+          <br/>
+          <br/>
+        </>
+      }
 
 
     return (

@@ -58,31 +58,33 @@ class SenateCard extends Component {
     this.state.showNames? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
 
     //content extra
-    //change className to change bg color based on gender
+    //change className to change bg background-color based on gender
     let genderName
     if (senator.gender === "F"){
       genderName = "female"
     }
 
 
-    let gavel = <Icon className="legal icon"/>
+    //description
+    let legalTip = "five most recent bills"
+    let moneyTip = "top three donors to last campaign"
 
-    let dollarSign= <Icon className="dollar sign icon" />
+    let buttons =
+    <div className="center">
+      <Button
+        circular icon="large legal"
+        onClick={this.handleGavelClick}
+        className="bills button"
+        data-tooltip={legalTip}
+      />
+      <Button
+        circular icon="large dollar sign"
+        onClick={this.handleFinanceClick}
+        className="donors button"
+        data-tooltip={moneyTip}
+      />
+    </div>
 
-
-
-    let content =
-    <>
-      <SenateBio senator={this.props}/>
-      <Button className="ui primary basic button"  onClick={this.handleGavelClick} >{gavel}Most recent bills </Button>
-      <br/>
-      <br/>
-      <br/>
-      <Button className="ui positive basic button" onClick={this.handleFinanceClick}>{dollarSign} Top three donors</Button>
-      <br/>
-      <br/>
-      <br/>
-    </>
 
     let bills
     if (senator.bills){
@@ -121,19 +123,22 @@ class SenateCard extends Component {
        )}
      }
 
+    let content
     if (this.state.showBills){
       content =
       <>
        <br/>
-       <br/>
+       <h4 className="center">Recent Bills</h4>
        {billList}
        <div className="center">
          <Button onClick={this.hideBills} className="ui negative basic button"><Icon className="undo" />go back</Button>
         </div>
       </>
-    } else if (this.state.showDonors)
+    } else if (this.state.showDonors){
       content =
       <>
+        <br/>
+        <h4 className="center">Top Three Donors</h4>
         {donorList}
         {source}
         <br/>
@@ -142,6 +147,16 @@ class SenateCard extends Component {
            <Button onClick={this.hideDonors} className="ui negative basic button"><Icon className="undo" />go back</Button>
          </div>
       </>
+    } else {
+      content =
+      <>
+        <SenateBio senator={this.props}/>
+        {buttons}
+        <br/>
+        <br/>
+        <br/>
+      </>
+    }
 
 
     return (

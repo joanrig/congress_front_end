@@ -23,13 +23,19 @@ class HouseSearchBar extends Component {
 
   render (){
 
+    let value = this.state.showNames
+
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
 
     let filteredReps = this.props.reps.filter(
       (rep) => {
-        let searchTerm = rep.last_name + rep.first_name + rep.state_full_name + rep.gender_search_term + rep.party_full_name + rep.next_election
+        let searchTerm =
+        rep.last_name +
+        rep.first_name +
+        rep.state_full_name + rep.gender_search_term + rep.party_full_name +
+        rep.next_election
 
         if (rep.running_for_president === true){
           searchTerm += "president"
@@ -73,11 +79,11 @@ class HouseSearchBar extends Component {
         <Card.Group itemsPerRow={5}>
           {filteredReps.map(rep =>
             <HouseCard
-              showNames={this.state.showNames}
+              showNames={value}
               bills={[]}
+              donors={[]}
               key={rep.id} {...rep}/>
             )}
-
         </Card.Group>
       </>
     )
@@ -88,5 +94,3 @@ class HouseSearchBar extends Component {
 const mapStateToProps = state => ({reps: state.house})
 
 export default connect(mapStateToProps)(HouseSearchBar)
-
-//<Button label="FLIP" onClick={this.handleFlipClick}/>

@@ -34,7 +34,8 @@ class SenateSearchBar extends Component {
 
     let filteredSenators = this.props.senate.filter(
       (senator) => {
-        let searchTerm = senator.last_name + senator.first_name + senator.state_full_name +
+        let searchTerm =
+        senator.last_name + senator.first_name + senator.state_full_name +
         senator.gender_search_term + senator.party_full_name + senator.next_election
 
         if (senator.running_for_president === true){
@@ -94,5 +95,3 @@ class SenateSearchBar extends Component {
 const mapStateToProps = state => ({ senate: state.senate })
 
 export default connect(mapStateToProps)(SenateSearchBar)
-
-//<Button label="FLIP" onClick={this.handleFlipClick}/>

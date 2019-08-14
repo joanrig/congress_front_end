@@ -17,8 +17,9 @@ class SenateBio extends Component {
 
     let runningForPresident
     if (senator.running_for_president){
-      runningForPresident = <h4>I'm running for President!</h4>
-    }
+      runningForPresident =
+      <h4>I'm running for President!</h4>
+    } 
 
     let leaving
     if (senator.status){

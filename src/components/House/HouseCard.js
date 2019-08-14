@@ -2,8 +2,7 @@ import React, { Component} from 'react'
 import { Card, Icon, Button, Image } from 'semantic-ui-react'
 import HouseBio from './HouseBio'
 import HouseSocial from './HouseSocial'
-import { fetchBillsByRep } from '../actions/house'
-import { getRepFinances } from '../actions/house'
+import { fetchBillsByRep, getRepFinances } from './HouseActions'
 import { connect } from 'react-redux'
 
 

@@ -3,7 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import SenateContainer from './Senate/SenateContainer'
 import HouseContainer from './House/HouseContainer'
-import BillsContainer from './containers/BillsContainer'
+import BillsContainer from './Bills/BillsContainer'
 import RegisterToVote from './components/RegisterToVote'
 import NavBar from './components/NavBar'
 import Home from './components/Home'

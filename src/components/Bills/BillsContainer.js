@@ -1,7 +1,7 @@
 import React, { Component }from 'react'
 import { connect } from 'react-redux'
 import { Container } from 'semantic-ui-react'
-import BillsSearchBar from '../components/BillsSearchBar'
+import BillsSearchBar from './BillsSearchBar'
 
 
 class BillsContainer extends Component {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchSenate } from '../actions/senate'
+import { fetchSenate } from './SenateActions'
 import { Container } from 'semantic-ui-react'
 import SenateSorter from './SenateSorter'
 import SenateSearchBar from './SenateSearchBar'

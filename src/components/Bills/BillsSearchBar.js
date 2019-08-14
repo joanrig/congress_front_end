@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Form, Image } from 'semantic-ui-react'
-import { fetchBillsBySubject } from '../actions/bills'
+import { fetchBillsBySubject } from './BillsActions'
 // import BillsFilter from './BillsFilter'
 import BillCard from './BillCard'
 

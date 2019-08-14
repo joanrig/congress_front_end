@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 import { connect } from 'react-redux'
-import { toggleFavorite } from '../actions/senate'
 
 class LikeButton extends Component {
   state = {}

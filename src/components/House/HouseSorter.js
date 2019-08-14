@@ -1,23 +1,21 @@
-import React from 'react'
+import React, { Component} from 'react'
 import { Button } from 'semantic-ui-react'
-import { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from '../actions/senate'
+import { fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge } from './HouseActions'
 import { connect } from 'react-redux'
 
 
-class SenateSorter extends React.Component {
-  constructor(props) {
-    super()
-  }
-
+class HouseSorter extends Component {
 
   render (){
     let tips = (
-      `You can sort after searching or vice-versa!`
+        `You can sort after searching or vice-versa!`
     )
+
+
     return (
       <>
         <h1 className="center">
-          Who's Who in the U.S. Senate?  Let's sort them out.
+          Who's Who in the U.S. House of Representatives?  Let's sort them out!
         </h1>
         <h4 className="center">How to play: Search or sort to narrow results, then see if you can guess the names!  Stumped? Click on "Guess Who?"</h4>
 
@@ -41,6 +39,4 @@ class SenateSorter extends React.Component {
 }
 
 
-
-
-export default connect(null, { fetchSenate, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge })(SenateSorter)
+export default connect(null, { fetchHouse, fetchLoyalists, fetchMavericks, fetchTruants, fetchBySeniority, fetchByAge })(HouseSorter)

@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import { Card, Icon, Image, Button } from 'semantic-ui-react'
+import SenateBio from './SenateBio'
 import SenateSocial from './SenateSocial'
 import { fetchBillsBySenator } from '../actions/senate'
 import { getSenatorFinances } from '../actions/senate'
@@ -25,7 +26,7 @@ class SenateCard extends Component {
     })
   }
 
-//bills
+  //bills
   handleGavelClick = () => {
     let id = this.props.propublica_id
     this.props.fetchBillsBySenator(id)
@@ -54,30 +55,17 @@ class SenateCard extends Component {
   render() {
     let senator = this.props
 
+    //header
     let name
     this.state.showNames? name = senator.first_name + ' ' + senator.last_name : name = "Guess Who?"
 
-    let yearsServed = 'Years in office: '+  senator.seniority
-    let votesWithParty = 'Votes party line ' + senator.votes_with_party_pct + '%'
-    let missedVotes = 'Missed votes: ' + senator.missed_votes_pct + '%'
-    let nextElection = 'Next election: ' + senator.next_election
-    let age = 'Age: ' + senator.age
-
+    //content extra
     //change className to change bg color based on gender
     let genderName
     if (senator.gender === "F"){
       genderName = "female"
     }
 
-    let runningForPresident
-    if (senator.running_for_president){
-      runningForPresident = <h4>I'm running for President!</h4>
-    }
-
-    let leaving
-    if (senator.status){
-      leaving = <h5>{senator.status_note}</h5>
-    }
 
     let gavel = <Icon className="legal icon"/>
 
@@ -87,15 +75,7 @@ class SenateCard extends Component {
 
     let content =
     <>
-      {age}<br/>
-      {yearsServed} <br/>
-      {nextElection}<br/>
-      {missedVotes} <br/>
-      {votesWithParty}<br/>
-      {leaving}
-      {runningForPresident}
-      <br/>
-      <br/>
+      <SenateBio senator={this.props}/>
       <Button className="ui primary basic button"  onClick={this.handleGavelClick} >{gavel}Most recent bills </Button>
       <br/>
       <br/>

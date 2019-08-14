@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import { Card, Icon, Button, Image } from 'semantic-ui-react'
+import HouseBio from './HouseBio'
 import HouseSocial from './HouseSocial'
 import { fetchBillsByRep } from '../actions/house'
 import { getMemberFinances } from '../actions/financialDisclosures'
@@ -58,26 +59,11 @@ class HouseCard extends Component {
     let name
     this.state.showNames? name = rep.first_name + ' ' + rep.last_name : name = "Guess Who?"
 
-    let yearsServed = 'Years in office: '+  rep.seniority
-    let votesWithParty = 'Votes party line ' + rep.votes_with_party_pct + '%'
-    let missedVotes = 'Missed votes: ' + rep.missed_votes_pct + '%'
-    let nextElection = 'Next election: ' + rep.next_election
-    let age = 'Age: ' + rep.age
-
     let genderName
     if (rep.gender === "F"){
       genderName = "female"
     }
 
-    let runningForPresident
-    if (rep.running_for_president){
-      runningForPresident = <h4>I'm running for President!</h4>
-    }
-
-    let leaving
-    if (rep.status){
-      leaving = <h5>{rep.status_note}</h5>
-    }
 
     let gavel = <Icon className=" legal icon" />
 
@@ -86,15 +72,7 @@ class HouseCard extends Component {
 
     let content =
     <>
-      {age}<br/>
-      {yearsServed} <br/>
-      {nextElection}<br/>
-      {missedVotes} <br/>
-      {votesWithParty}<br/>
-      {leaving}
-      {runningForPresident}
-      <br/>
-      <br/>
+      <HouseBio rep={this.props} />
       <Button className="ui primary basic button"  onClick={this.handleGavelClick} >{gavel}Most recent bills </Button>
       <br/>
       <br/>

@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-import {  } from 'semantic-ui-react'
-
+import React, { Component } from 'react'
 
 
 class SenateBio extends Component {

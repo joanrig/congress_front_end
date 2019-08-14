@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import { Card, Icon, Button, Image } from 'semantic-ui-react'
+import HouseSocial from './HouseSocial'
 import { fetchBillsByRep } from '../actions/house'
 import { getMemberFinances } from '../actions/financialDisclosures'
 import { connect } from 'react-redux'
@@ -78,36 +79,9 @@ class HouseCard extends Component {
       leaving = <h5>{rep.status_note}</h5>
     }
 
-    let facebook
-    if (rep.facebook_account) {
-      facebook = <a href={rep.facebook_account} ><Icon className='large facebook' /></a>
-    }
-
-    let twitter
-    if (rep.twitter_account) {
-      twitter = <a href={rep.twitter_account} ><Icon className='large twitter' /></a>
-    }
-
-    let youTube
-    if (rep.youtube_account) {
-      youTube = <a href={rep.youtube_account} ><Icon className='large youtube' /></a>
-    }
-
-    let website
-    if (rep.website) {
-      website = <a href={rep.website} ><Icon className='large home icon' /></a>
-    }
-
-    let contact_form
-    if (rep.contact_form) {
-      contact_form = <a href={rep.contact_form} ><Icon className='large mail' /></a>
-    }
-
     let gavel = <Icon className=" legal icon" />
 
     let dollarSign= <Icon className="dollar sign icon" />
-
-    let phone = <a href={rep.phone_clickable}><Icon className="large phone icon" /></a>
 
 
     let content =
@@ -203,15 +177,7 @@ class HouseCard extends Component {
         </Card.Content>
 
         <Card.Content extra className={genderName}>
-          <div>
-            {facebook}
-            {twitter}
-            {youTube}
-            {website}
-            {contact_form}
-            {phone}
-
-          </div>
+         <HouseSocial rep={this.props} />
         </Card.Content>
       </Card>
     )

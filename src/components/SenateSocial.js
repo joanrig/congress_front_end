@@ -56,4 +56,4 @@ class SenateSocial extends Component {
 
 
 }
-export default SenateSocial;
+export default SenateSocial

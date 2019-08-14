@@ -12,7 +12,6 @@ export function fetchHouse(){
         return dispatch({type:"SET_HOUSE", house} )
       })
      }
-     console.log("e")
 }
 
 //doesn't work

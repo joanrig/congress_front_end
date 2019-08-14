@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchHouse } from '../../actions/house'
+import { fetchHouse } from '../actions/house'
 import { Container } from 'semantic-ui-react'
 import HouseSorter from './HouseSorter'
 import HouseSearchBar from './HouseSearchBar'

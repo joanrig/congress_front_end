@@ -65,6 +65,9 @@ class MemberCard extends Component {
   render() {
     let member = this.props
 
+    //card.image
+    let image = <Image className="party-logo" src={member.party_logo} wrapped ui={false}  />
+
     //card.header
     let name
     let fullName = member.first_name + ' ' + member.last_name
@@ -125,6 +128,7 @@ class MemberCard extends Component {
 
     let content
     if (this.state.showBills){
+      image = ""
       content =
       <>
        <MemberBills
@@ -133,6 +137,7 @@ class MemberCard extends Component {
         {hideBillsButton}
       </>
     } else if (this.state.showDonors){
+      image = ""
       content =
       <>
         <MemberDonors
@@ -157,8 +162,7 @@ class MemberCard extends Component {
 
     return (
       <Card>
-        <Image className="party-logo" src={member.party_logo} wrapped ui={false}  />
-
+        {image}
         <Card.Content >
           <Card.Header onClick={this.toggleName}>
             {name}<br/>

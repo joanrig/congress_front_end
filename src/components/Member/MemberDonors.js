@@ -26,7 +26,6 @@ class MemberDonors extends Component {
           <li>total: ${donor.total}</li>
           <li>pacs: ${donor.pacs}</li>
           <li>individuals: ${donor.indivs}</li>
-          <br/>
         </>
       )}
     }
@@ -35,17 +34,17 @@ class MemberDonors extends Component {
     <div className="center">
       <Popup
         content={member.financial_disclosure.notice}
-        trigger={<Button circular icon='large question' color="yellow"/>}
+        trigger={<Button circular icon='question' color="yellow"/>}
         id="donorNotice"
       />
     </div>
 
     return (
       <div>
-        <br/>
         <h4 className="center">Top Three Donors</h4>
         {notice}
         {donorList}
+        <br/>
         {donorsSource}
         <br/>
         <br/>

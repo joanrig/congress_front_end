@@ -165,7 +165,7 @@ class MemberCard extends Component {
             {member.party}-{member.state_full_name}
           </Card.Header>
 
-          <Card.Description>
+          <Card.Description className="description">
             {content}
           </Card.Description>
         </Card.Content>

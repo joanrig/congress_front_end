@@ -27,12 +27,15 @@ class HouseSearchBar extends Component {
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
 
-    let filteredReps = this.props.reps.filter(
+    let filteredReps =
+    this.props.reps.filter(
       (rep) => {
         let searchTerm =
         rep.last_name +
         rep.first_name +
-        rep.state_full_name + rep.gender_search_term + rep.party_full_name +
+        rep.state_full_name +
+        rep.gender_search_term +
+        rep.party_full_name +
         rep.next_election
 
         if (rep.running_for_president === true){
@@ -47,7 +50,8 @@ class HouseSearchBar extends Component {
           searchTerm += "leaving"
         }
 
-        let input = this.state.search.toLowerCase()
+        let input =
+        this.state.search.toLowerCase()
           if (input === "male"){
             input = "womenfalse"
           } else if (input === "female"){

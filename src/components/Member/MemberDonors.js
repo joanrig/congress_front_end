@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Popup, Button } from 'semantic-ui-react'
 
 
 class MemberDonors extends Component {
@@ -30,11 +31,20 @@ class MemberDonors extends Component {
       )}
     }
 
+    let notice =
+    <div className="center">
+      <Popup
+        content={member.financial_disclosure.notice}
+        trigger={<Button circular icon='large question' color="yellow"/>}
+        id="donorNotice"
+      />
+    </div>
 
     return (
       <div>
         <br/>
         <h4 className="center">Top Three Donors</h4>
+        {notice}
         {donorList}
         {donorsSource}
         <br/>

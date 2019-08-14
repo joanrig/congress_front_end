@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-class MemberDonors extends Component {
+class MemberBills extends Component {
   constructor(props) {
     super(props)
       this.state = {
@@ -49,4 +49,4 @@ class MemberDonors extends Component {
   }
 
 }
-export default MemberDonors
+export default MemberBills

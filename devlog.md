@@ -32,6 +32,8 @@ DONE: There should be 5 stateless components
 ###BUGS
 freshman/ freshmen search doesn't work for house
 
+FIXED - hide bills button would not turn red after senate/house card changed into memberCard
+
 
 
 

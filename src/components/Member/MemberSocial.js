@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Icon } from 'semantic-ui-react'
 
 
 
-class MemberSocial extends Component {
+class MemberSocial extends PureComponent {
   constructor(props) {
     super()
   }

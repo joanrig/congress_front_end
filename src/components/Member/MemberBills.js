@@ -39,6 +39,8 @@ class MemberBills extends Component {
 
     return (
       <div>
+        <br/>
+        <hr/>
         <h4 className="center">Recent Bills</h4>
         {billList}
         {billsSource}

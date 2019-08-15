@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import MemberCard from './MemberCard'
 
 
-class MemberSearchBar extends Component {
+//note - this is senate search bar but does not work for house search bar - notes at end
+
+class MemberSearchBar extends PureComponent {
   constructor(props) {
     super()
 
@@ -20,11 +22,13 @@ class MemberSearchBar extends Component {
 
   render (){
 
-
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
-    let filteredMembers = this.props.members.filter(
+    //find way to toggle between this.props.senate/house based on which action was just called?
+
+    // let filteredMembers = this.props.house.filter(
+    let filteredMembers = this.props.senate.filter(
       (member) => {
         let searchTerm =
         member.last_name +
@@ -54,6 +58,22 @@ class MemberSearchBar extends Component {
       }
     )
 
+    let count = filteredMembers.length
+    let input = this.state.search
+    let resultsCount
+    if (input) {
+      resultsCount =
+      <>
+        {count} senators found in your search for {input}
+      </>
+    } else {
+      resultsCount =
+      <>
+        {count} senators found
+      </>
+    }
+
+
     return (
       <>
         <br/>
@@ -68,7 +88,7 @@ class MemberSearchBar extends Component {
           />
           <i className="search icon"></i>
         </div>
-        <h2 className='ui block header center'>{filteredMembers.length} members found in your search for {this.state.search}</h2>
+        <h2 className='ui block header center'>{resultsCount}</h2>
 
         <Card.Group itemsPerRow={5}>
           {filteredMembers.map(member =>
@@ -84,15 +104,6 @@ class MemberSearchBar extends Component {
   }
 }
 
-
-const mapStateToProps = state => ({ members: state.senate })
+const mapStateToProps = state => ({ senate: state.senate, house: state.house })
 
 export default connect(mapStateToProps)(MemberSearchBar)
-
-
-//   handleFlipClick = (prevState) => {
-//     this.setState(prevState => ({
-//       showNames: !prevState.showNames
-//     }))
-//     console.log('senate search bar: this.state.showNames is', this.state.showNames)
-// }

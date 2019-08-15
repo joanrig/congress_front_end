@@ -42,7 +42,7 @@ class HouseSearchBar extends Component {
           searchTerm += "president"
         }
 
-        if (rep.seniority < 2){
+        if (rep.seniority < 3){
           searchTerm += "freshmenfreshman"
         }
 
@@ -62,6 +62,21 @@ class HouseSearchBar extends Component {
       }
     )
 
+    let count = filteredReps.length
+    let input = this.state.search
+    let resultsCount
+    if (input) {
+      resultsCount =
+      <>
+        {count} representatives found in your search for {input}
+      </>
+    } else {
+      resultsCount =
+      <>
+        {count} representatives found
+      </>
+    }
+
     return (
       <>
         <br/>
@@ -77,7 +92,7 @@ class HouseSearchBar extends Component {
           <i className="search icon"></i>
         </div>
 
-        <h2 className='ui block header center'>{filteredReps.length} representatives found in your search for {this.state.search}</h2>
+        <h2 className='ui block header center'>{resultsCount}</h2>
 
         <Card.Group itemsPerRow={5}>
           {filteredReps.map(rep =>

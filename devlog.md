@@ -1,8 +1,34 @@
 ###extra things to do
 
-1. figure out how to flip all cards.
-2. add loading status/ indicators
+1. add loading status/ indicators
 
+
+###BUGS
+freshman/ freshmen search doesn't work for house
+
+FIXED - hide bills button would not turn red after senate/house card changed into memberCard
+
+
+#NEXT FEATURES
+1.
+DONE, but decided against: figure out how to flip all cards.  NOTE: if you can flip all cards at once, you can't flip one at a time.
+
+
+
+###STRETCH
+
+* add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2
+
+
+###STRETCH DONE
+DONE - display bills and top donors on back of card
+DONE - get top campaign donors
+DONE - add search bills by subject
+DONE 1. upgrade backend
+DONE 2. add button, make fetch action work on front end
+DONE add bills by member
+https://projects.propublica.org/api-docs/congress-api/bills/#search-bills
+DONE - show the info!
 
 
 ###requirements - completed
@@ -26,38 +52,3 @@ DONE: There should be 5 stateless components
 4. HouseSorter
 5. About
 6. HomePageGraphics
-
-
-
-###BUGS
-freshman/ freshmen search doesn't work for house
-
-FIXED - hide bills button would not turn red after senate/house card changed into memberCard
-
-
-
-
-
-#NEXT FEATURES
-1. fix flip button so you can flip all cards and play as a guess who game/ add animation to card flip
-
-
-
-###STRETCH
-
-
-
-* add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2
-
-
-###STRETCH DONE
-DONE - display bills and top donors on back of card
-DONE - get top campaign donors
-DONE - add search bills by subject
-DONE 1. upgrade backend
-DONE 2. add button, make fetch action work on front end
-DONE* add bills by member
-https://projects.propublica.org/api-docs/congress-api/bills/#search-bills
-DONE - upgrade back end
-DONE - add button, make fetch action work on front End
-DONE - show the info!

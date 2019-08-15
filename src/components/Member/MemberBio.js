@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 
 
-class MemberBio extends Component {
+class MemberBio extends PureComponent {
   constructor(props) {
     super()
   }

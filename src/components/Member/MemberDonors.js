@@ -20,27 +20,33 @@ class MemberDonors extends Component {
       if (member.financial_disclosure){
         donorsSource = <a href={member.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
         donorList = member.donors.slice(0,3).map(donor =>
-        <>
+        <div key={donor.id}>
           <br/>
           <strong>{donor.org_name}</strong>
           <li>total: ${donor.total}</li>
           <li>pacs: ${donor.pacs}</li>
           <li>individuals: ${donor.indivs}</li>
-        </>
+        </div>
       )}
     }
 
-    let notice =
-    <div className="center">
-      <Popup
-        content={member.financial_disclosure.notice}
-        trigger={<Button circular icon='question' color="yellow"/>}
-        id="donorNotice"
-      />
-    </div>
+    let notice
+    if (member.financial_disclosure_notice){
+      notice =
+      <div className="center">
+        <Popup
+          content={member.financial_disclosure.notice}
+          trigger={<Button circular icon='question' color="yellow"/>}
+          id="donorNotice"
+        />
+      </div>
+    }
+
 
     return (
       <div>
+        <br/>
+        <hr/>
         <h4 className="center">Top Three Donors</h4>
         {notice}
         {donorList}

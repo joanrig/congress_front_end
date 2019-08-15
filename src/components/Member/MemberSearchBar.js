@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
-import MemberCard from '../Member/MemberCard'
+import MemberCard from './MemberCard'
 
 
-class SenateSearchBar extends Component {
+class MemberSearchBar extends Component {
   constructor(props) {
     super()
 
@@ -24,22 +24,22 @@ class SenateSearchBar extends Component {
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
-    let filteredSenators = this.props.senate.filter(
-      (senator) => {
+    let filteredMembers = this.props.members.filter(
+      (member) => {
         let searchTerm =
-        senator.last_name +
-        senator.first_name + senator.state_full_name +
-        senator.gender_search_term + senator.party_full_name + senator.next_election
+        member.last_name +
+        member.first_name + member.state_full_name +
+        member.gender_search_term + member.party_full_name + member.next_election
 
-        if (senator.running_for_president === true){
+        if (member.running_for_president === true){
           searchTerm += "president"
         }
 
-        if (senator.seniority < 2){
+        if (member.seniority < 2){
           searchTerm += "freshmenfreshman"
         }
 
-        if (senator.status){
+        if (member.status){
           searchTerm += "leaving"
         }
 
@@ -68,15 +68,15 @@ class SenateSearchBar extends Component {
           />
           <i className="search icon"></i>
         </div>
-        <h2 className='ui block header center'>{filteredSenators.length} senators meet your search for {this.state.search}</h2>
+        <h2 className='ui block header center'>{filteredMembers.length} members found in your search for {this.state.search}</h2>
 
         <Card.Group itemsPerRow={5}>
-          {filteredSenators.map(senator =>
+          {filteredMembers.map(member =>
             <MemberCard
               showNames={this.state.showNames}
               bills={[]}
               donors={[]}
-              key={senator.id} {...senator}/>
+              key={member.id} {...member}/>
             )}
         </Card.Group>
       </>
@@ -85,9 +85,9 @@ class SenateSearchBar extends Component {
 }
 
 
-const mapStateToProps = state => ({ senate: state.senate })
+const mapStateToProps = state => ({ members: state.senate })
 
-export default connect(mapStateToProps)(SenateSearchBar)
+export default connect(mapStateToProps)(MemberSearchBar)
 
 
 //   handleFlipClick = (prevState) => {

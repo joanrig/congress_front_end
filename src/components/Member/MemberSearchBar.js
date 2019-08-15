@@ -26,33 +26,16 @@ class MemberSearchBar extends Component {
     let members
     this.props.renderedBy === "senate" ? members = this.props.senate : members = this.props.house
 
+    let input = this.state.search.toLowerCase()
+      if (input === "male"){
+        input = "womenfalse"
+      } else if (input === "female"){
+        input = "womentrue"
+      }
 
     let filteredMembers = members.filter(
       (member) => {
-        let searchTerm =
-        member.last_name +
-        member.first_name + member.state_full_name +
-        member.gender_search_term + member.party_full_name + member.next_election
-
-        if (member.running_for_president === true){
-          searchTerm += "president"
-        }
-
-        if (member.seniority <= 2){
-          searchTerm += "freshmenfreshman"
-        }
-
-        if (member.status){
-          searchTerm += "leaving"
-        }
-
-        let input = this.state.search.toLowerCase()
-          if (input === "male"){
-            input = "womenfalse"
-          } else if (input === "female"){
-            input = "womentrue"
-          }
-        return searchTerm.toLowerCase().indexOf(input) !== -1
+        return member.search_term.toLowerCase().indexOf(input) !== -1
       }
     )
 
@@ -61,21 +44,15 @@ class MemberSearchBar extends Component {
     filteredMembers[0] && filteredMembers[0].chamber === "senate" ? member = "senator" : member = "representative"
 
     let count = filteredMembers.length
-    let input = this.state.search
     let resultsCount
     let memberPluralized
     count === 1 ? memberPluralized = member : memberPluralized = member + 's'
 
+
     if (input) {
-      resultsCount =
-      <>
-        {count} {memberPluralized} found in your search for {input}
-      </>
+      resultsCount = <>{count} {memberPluralized} found in your search for {input}</>
     } else {
-      resultsCount =
-      <>
-        {count} {memberPluralized} found
-      </>
+      resultsCount = <>{count} {memberPluralized} found</>
     }
 
 

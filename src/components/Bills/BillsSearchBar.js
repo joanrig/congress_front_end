@@ -36,7 +36,6 @@ class BillsSearchBar extends Component {
     event.preventDefault() 
     this.props.fetchBillsBySubject(this.state.search)
     this.setState({ video: ''})
-    //this.props does not have 20 bills, but global state does
   }
 
   render (){

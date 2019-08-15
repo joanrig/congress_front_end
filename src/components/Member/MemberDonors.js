@@ -27,9 +27,9 @@ class MemberDonors extends PureComponent {
         <div key={donor.id}>
           <br/>
           <strong>{donor.org_name}</strong>
-          <li>total: ${donor.total}</li>
-          <li>pacs: ${donor.pacs}</li>
-          <li>individuals: ${donor.indivs}</li>
+          <li>total: ${donor.total.toLocaleString()}</li>
+          <li>pacs: ${donor.pacs.toLocaleString()}</li>
+          <li>individuals: ${donor.indivs.toLocaleString()}</li>
         </div>
       )}
     }

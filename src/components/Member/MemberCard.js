@@ -80,21 +80,6 @@ class MemberCard extends Component {
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
 
-    let billAndDonorButtons =
-    <div className="center">
-      <Button
-        circular icon="large legal"
-        onClick={this.handleGavelClick}
-        className="bills button"
-        data-tooltip={legalTip}
-      />
-      <Button
-        circular icon="large dollar sign"
-        onClick={this.handleDonorsClick}
-        className="donors button"
-        data-tooltip={moneyTip}
-      />
-    </div>
 
     let undoTip = "go back"
     let hideBillsButton =
@@ -147,12 +132,25 @@ class MemberCard extends Component {
       content =
       <>
         <MemberBio member={this.props}/>
-        {billAndDonorButtons}
+        <div className="center">
+          <Button
+            circular icon="large legal"
+            onClick={this.handleGavelClick}
+            className="bills button"
+            data-tooltip={legalTip}
+          />
+          <Button
+            circular icon="large dollar sign"
+            onClick={this.handleDonorsClick}
+            className="donors button"
+            data-tooltip={moneyTip}
+          />
+        </div>
         <br/>
       </>
     }
 
-    //card.content extra/ changes bg color
+    //card.content extra/ add to className to change bg color
     let genderName
     if (member.gender === "F"){
       genderName = "female"

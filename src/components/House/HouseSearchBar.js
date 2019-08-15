@@ -62,18 +62,21 @@ class HouseSearchBar extends Component {
       }
     )
 
+    let reps
     let count = filteredReps.length
     let input = this.state.search
     let resultsCount
+    count === 1 ? reps = "representative" : reps = "representatives"
+    
     if (input) {
       resultsCount =
       <>
-        {count} representatives found in your search for {input}
+        {count} {reps} found in your search for {input}
       </>
     } else {
       resultsCount =
       <>
-        {count} representatives found
+        {count} {reps} found
       </>
     }
 

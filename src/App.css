@@ -27,7 +27,7 @@ font-family: 'Amatic SC', cursive;
   position: sticky;
   top: 0;
   z-index:1;
-  line-height: 40px;
+  line-height: 100px;
 }
 
 .center {

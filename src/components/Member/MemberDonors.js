@@ -31,7 +31,7 @@ class MemberDonors extends Component {
     }
 
     let notice
-    if (member.financial_disclosure_notice){
+    if (member.financial_disclosure){
       notice =
       <div className="center">
         <Popup

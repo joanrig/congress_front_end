@@ -26,9 +26,11 @@ class MemberSearchBar extends PureComponent {
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
     //find way to toggle between this.props.senate/house based on which action was just called?
+    //or if rendered by senate container / house container ??
+    let members = this.props.senate
 
-    // let filteredMembers = this.props.house.filter(
-    let filteredMembers = this.props.senate.filter(
+
+    let filteredMembers = members.filter(
       (member) => {
         let searchTerm =
         member.last_name +
@@ -39,7 +41,7 @@ class MemberSearchBar extends PureComponent {
           searchTerm += "president"
         }
 
-        if (member.seniority < 2){
+        if (member.seniority <= 2){
           searchTerm += "freshmenfreshman"
         }
 
@@ -58,18 +60,26 @@ class MemberSearchBar extends PureComponent {
       }
     )
 
+    //show # senators/ reps found with proper pluralization
+    let member
+    filteredMembers[0] && filteredMembers[0].chamber === "senate" ? member = "senator" : member = "representative"
+
+
     let count = filteredMembers.length
     let input = this.state.search
     let resultsCount
+    let memberPluralized
+    count === 1 ? memberPluralized = member : memberPluralized = member + 's'
+
     if (input) {
       resultsCount =
       <>
-        {count} senators found in your search for {input}
+        {count} {memberPluralized} found in your search for {input}
       </>
     } else {
       resultsCount =
       <>
-        {count} senators found
+        {count} {memberPluralized} found
       </>
     }
 

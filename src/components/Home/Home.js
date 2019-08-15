@@ -7,12 +7,10 @@ const Home = () => {
 
   return (
     <Container className="center">
-      <br/>
       <h1>
         Who's Who in the 116th United States Congress?
       </h1>
-      <br/>
-      <h3 >powered by data from ProPublica</h3>
+      <h3>powered by data from ProPublica</h3>
       <h4 className="ui block header">
         Who represents you? Who's served the longest? Who's the oldest? Most truant? Most Maverick? How many are women? <br/>
         Click the buttons above to find out!

@@ -1,56 +1,43 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { Grid, Image } from 'semantic-ui-react'
 
 
-const HomePageGraphics = (props) => (
+class HomePageGraphics extends PureComponent {
+  constructor(props){
+    super()
 
+  }
 
-  <>
-    <Grid columns={3} divided>
+  render(){
+
+    let column =
+    <Grid.Column>
+      <Image src={this.props.image} />
+    </Grid.Column>
+
+    let row =
       <Grid.Row>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
+        {column}
+        {column}
+        {column}
       </Grid.Row>
 
-      <Grid.Row>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-      </Grid.Row>
-
-      <Grid.Row>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-        <Grid.Column>
-          <Image src={props.image} />
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
-    <br/>
-    Graphic by <a className="left" href="https://www.cosmopolitan.com/politics/a19143923/survey-young-people-primaries-voter-turnout-2018/">Cosmopolitan Magazine</a>
-    <br/>
-    <br/>
-    <br/>
-  </>
-
-)
+    return(
+      <>
+        <Grid columns={3} divided>
+          {row}
+          {row}
+          {row}
+        </Grid>
+        <br/>
+        Graphic by <a className="left" href="https://www.cosmopolitan.com/politics/a19143923/survey-young-people-primaries-voter-turnout-2018/">Cosmopolitan Magazine</a>
+        <br/>
+        <br/>
+        <br/>
+      </>
+    )
+  }
+}
 
 
 export default HomePageGraphics

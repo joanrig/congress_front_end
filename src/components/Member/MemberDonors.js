@@ -10,7 +10,6 @@ class MemberDonors extends PureComponent {
        }
      }
 
-
   render(){
     let member = this.props.member
 
@@ -18,7 +17,12 @@ class MemberDonors extends PureComponent {
     let donorList
     if (this.state.showDonors) {
       if (member.financial_disclosure){
-        donorsSource = <a href={member.financial_disclosure.source} className="center">click for top 100 donors <br/>source: Center for Responsive Politics</a>
+        donorsSource =
+          <a href={member.financial_disclosure.source} className="center">
+          click for top 100 donors
+          <br/>
+          source: Center for Responsive Politics</a>
+
         donorList = member.donors.slice(0,3).map(donor =>
         <div key={donor.id}>
           <br/>

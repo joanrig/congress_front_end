@@ -80,7 +80,7 @@ class MemberCard extends Component {
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
 
-    let twoButtons =
+    let billAndDonorButtons =
     <div className="center">
       <Button
         circular icon="large legal"
@@ -147,7 +147,7 @@ class MemberCard extends Component {
       content =
       <>
         <MemberBio member={this.props}/>
-        {twoButtons}
+        {billAndDonorButtons}
         <br/>
       </>
     }

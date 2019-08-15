@@ -25,9 +25,10 @@ class MemberSearchBar extends PureComponent {
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
-    //find way to toggle between this.props.senate/house based on which action was just called?
-    //or if rendered by senate container / house container ??
-    let members = this.props.senate
+    //when to use which props?
+    //if rendered by senate container --> this.props.senate etc
+    let members
+    this.props.renderedBy === "senate" ? members = this.props.senate : members = this.props.house
 
 
     let filteredMembers = members.filter(
@@ -55,15 +56,13 @@ class MemberSearchBar extends PureComponent {
           } else if (input === "female"){
             input = "womentrue"
           }
-        //!== -1 means not found?
         return searchTerm.toLowerCase().indexOf(input) !== -1
       }
     )
 
-    //show # senators/ reps found with proper pluralization
+    //define members as senator vs. rep, pluralize search results notice
     let member
     filteredMembers[0] && filteredMembers[0].chamber === "senate" ? member = "senator" : member = "representative"
-
 
     let count = filteredMembers.length
     let input = this.state.search
@@ -88,7 +87,6 @@ class MemberSearchBar extends PureComponent {
       <>
         <br/>
         <div className="ui fluid icon input">
-
           <input
             type="text"
             placeholder={searchInstructions}

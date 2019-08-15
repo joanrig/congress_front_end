@@ -11,7 +11,7 @@ class SenateContainer extends React.Component {
     super()
 
     this.state = {
-      members: [],
+      senate: [],
     }
   }
 
@@ -26,7 +26,7 @@ class SenateContainer extends React.Component {
         <br/>
         <SenateSorter/>
         <br/>
-        <MemberSearchBar members={this.state.members}/>
+        <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="senate"/>
       </Container>
     )
   }

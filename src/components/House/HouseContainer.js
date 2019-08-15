@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { fetchHouse } from './HouseActions'
 import { Container } from 'semantic-ui-react'
 import HouseSorter from './HouseSorter'
-import HouseSearchBar from './HouseSearchBar'
+import MemberSearchBar from '../Member/MemberSearchBar'
 
 
 class HouseContainer extends React.Component {
@@ -38,7 +38,7 @@ class HouseContainer extends React.Component {
         <br/>
         <HouseSorter/>
         <br/>
-        <HouseSearchBar />
+        <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="house"/>
       </Container>
     )
   }

@@ -13,7 +13,7 @@ export function fetchHouse(){
   }
 }
 
-export function fetchLoyalists(){
+export function fetchHouseLoyalists(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/house_loyalists')
       .then(resp => resp.json())
@@ -22,7 +22,7 @@ export function fetchLoyalists(){
 }
 
 
-export function fetchMavericks(){
+export function fetchHouseMavericks(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/house_mavericks')
       .then(resp => resp.json())
@@ -31,7 +31,7 @@ export function fetchMavericks(){
 }
 
 
-export function fetchTruants(){
+export function fetchHouseTruants(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/truant_reps')
       .then(resp => resp.json())
@@ -39,7 +39,7 @@ export function fetchTruants(){
      }
 }
 
-export function fetchBySeniority(){
+export function fetchHouseBySeniority(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/reps_by_seniority')
       .then(resp => resp.json())
@@ -48,7 +48,7 @@ export function fetchBySeniority(){
 }
 
 
-export function fetchByAge(){
+export function fetchHouseByAge(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/reps_by_age')
       .then(resp => resp.json())

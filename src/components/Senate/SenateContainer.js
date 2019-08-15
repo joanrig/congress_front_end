@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { fetchSenate } from './SenateActions'
 import { Container } from 'semantic-ui-react'
-import SenateSorter from './SenateSorter'
+import MemberSorter from '../Member/MemberSorter'
 import MemberSearchBar from '../Member/MemberSearchBar'
 
 
@@ -24,7 +24,7 @@ class SenateContainer extends React.Component {
       <Container >
         <br/>
         <br/>
-        <SenateSorter/>
+        <MemberSorter renderedBy="senate"/>
         <br/>
         <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="senate"/>
       </Container>

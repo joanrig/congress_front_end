@@ -10,7 +10,7 @@ export function fetchSenate(){
      };
 }
 
-export function fetchLoyalists(){
+export function fetchSenateLoyalists(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senate_loyalists')
       .then(resp => resp.json())
@@ -18,7 +18,7 @@ export function fetchLoyalists(){
      };
 }
 
-export function fetchMavericks(){
+export function fetchSenateMavericks(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senate_mavericks')
       .then(resp => resp.json())
@@ -26,7 +26,7 @@ export function fetchMavericks(){
      };
 }
 
-export function fetchTruants(){
+export function fetchSenateTruants(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/truant_senators')
       .then(resp => resp.json())
@@ -34,7 +34,7 @@ export function fetchTruants(){
     };
 }
 
-export function fetchBySeniority(){
+export function fetchSenateBySeniority(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senators_by_seniority')
       .then(resp => resp.json())
@@ -42,7 +42,7 @@ export function fetchBySeniority(){
      };
 }
 
-export function fetchByAge(){
+export function fetchSenateByAge(){
   return (dispatch) => {
       return fetch('http://localhost:3000/search/senators_by_age')
       .then(resp => resp.json())

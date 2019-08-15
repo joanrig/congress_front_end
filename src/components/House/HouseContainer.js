@@ -19,7 +19,6 @@ class HouseContainer extends React.Component {
     console.log("a")
     this.props.fetchHouse()
     console.log("b")
-    //a, b, c, d, a
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -36,7 +35,7 @@ class HouseContainer extends React.Component {
       <Container>
         <br/>
         <br/>
-        <MemberSorter renderedBy="senate"/>
+        <MemberSorter renderedBy="house"/>
         <br/>
         <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="house"/>
       </Container>

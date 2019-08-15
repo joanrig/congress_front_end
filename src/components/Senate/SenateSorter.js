@@ -21,7 +21,7 @@ class SenateSorter extends React.Component {
         </h1>
         <h4 className="center">How to play: Search or sort to narrow results, then see if you can guess the names!  Stumped? Click on "Guess Who?"</h4>
 
-        <div className='center'>
+        <div className="center">
           <Button size="large" color="green" onClick={() => this.props.fetchLoyalists()}>Party Loyalists</Button>
           <Button size="large" color="blue" onClick={() => this.props.fetchMavericks()}>Party Mavericks</Button>
           <Button size="large" color="red" onClick={() => this.props.fetchTruants()}>Most Truant</Button>

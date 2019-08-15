@@ -21,9 +21,12 @@ font-family: 'Amatic SC', cursive;
 }
 
 .NavBar {
+
+  background-color:white;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  z-index:1;
 }
 
 .center {
@@ -78,9 +81,6 @@ p {
   color:white;
 }
 
-#donorNotice {
-  
-}
 
 
 .search.text{

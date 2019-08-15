@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react'
 const NavBar = () => {
   return (
 
-    <div>
+    <div className="NavBar">
         <br/>
         <div className='navbar center'>
           <Link to='/' ><Button size='huge' color='purple'>Home</Button></Link>

@@ -1,17 +1,26 @@
 ###extra things to do
 
 1. add loading status/ indicators
+2. immediate update after fetching finances.
 
 
-###BUGS
-freshman/ freshmen search doesn't work for house
+###ACTIVE BUGS
 
-FIXED - hide bills button would not turn red after senate/house card changed into memberCard
+
+### FIXED BUGS
+BUG: freshman/ freshmen search doesn't work for house
+HOW FIXED: data was updated by propublica to round up time served to 2 years, changed definition of freshmen to those with seniority under 3 years.
+
+
+BUG - hide bills button would not turn red after senate/house card changed into memberCard -
+HOW FIXED forced change by using id instead of class in css
 
 
 #NEXT FEATURES
 1.
-DONE, but decided against: figure out how to flip all cards.  NOTE: if you can flip all cards at once, you can't flip one at a time.
+
+#NIXED FEATURES
+figure out how to flip all cards.  DID IT, but if you can flip all cards at once, you can't flip one at a time.
 
 
 
@@ -21,6 +30,7 @@ DONE, but decided against: figure out how to flip all cards.  NOTE: if you can f
 
 
 ###STRETCH DONE
+DONE - abstract almost all house/senate components into member component used by both - container/ actions still separate.
 DONE - display bills and top donors on back of card
 DONE - get top campaign donors
 DONE - add search bills by subject

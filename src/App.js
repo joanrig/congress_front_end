@@ -7,7 +7,7 @@ import BillsContainer from './components/Bills/BillsContainer'
 import RegisterToVote from './components/RegisterToVote'
 import NavBar from './components/NavBar'
 import Home from './components/Home/Home'
-import About from './components/About'
+import About from './components/About/About'
 
 
 function App() {

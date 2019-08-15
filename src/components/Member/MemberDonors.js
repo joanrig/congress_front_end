@@ -19,9 +19,7 @@ class MemberDonors extends PureComponent {
       if (member.financial_disclosure){
         donorsSource =
           <a href={member.financial_disclosure.source} className="center">
-          click for top 100 donors
-          <br/>
-          source: Center for Responsive Politics</a>
+          visit Center for Responsive Politics for more details</a>
 
         donorList = member.donors.slice(0,3).map(donor =>
         <div key={donor.id}>
@@ -35,12 +33,21 @@ class MemberDonors extends PureComponent {
     }
 
     let notice
+    let popUpNotice
+
     if (member.financial_disclosure){
       notice =
+      <>
+        {member.financial_disclosure.notice}
+        <br/>
+        <em>--notice from data provider Center for Responsive Politics</em>
+      </>
+
+      popUpNotice =
       <div className="center">
         <Popup
-          content={member.financial_disclosure.notice}
-          trigger={<Button circular icon='question' color="yellow"/>}
+          content={notice}
+          trigger={<Button circular icon='large question' color="yellow"/>}
           id="donorNotice"
         />
       </div>
@@ -52,7 +59,7 @@ class MemberDonors extends PureComponent {
         <br/>
         <hr/>
         <h4 className="center">Top Three Donors</h4>
-        {notice}
+        {popUpNotice}
         {donorList}
         <br/>
         {donorsSource}

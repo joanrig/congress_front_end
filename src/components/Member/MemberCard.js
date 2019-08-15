@@ -126,9 +126,13 @@ class MemberCard extends Component {
        />
     </div>
 
+    let align
     let content
+    let space
     if (this.state.showBills){
       image = ""
+      align = "center"
+      space = <br/>
       content =
       <>
        <MemberBills
@@ -138,6 +142,8 @@ class MemberCard extends Component {
       </>
     } else if (this.state.showDonors){
       image = ""
+      align = "center"
+      space = <br/>
       content =
       <>
         <MemberDonors
@@ -164,7 +170,8 @@ class MemberCard extends Component {
       <Card>
         {image}
         <Card.Content >
-          <Card.Header onClick={this.toggleName}>
+          <Card.Header onClick={this.toggleName} className={align}>
+            {space}
             {name}<br/>
             {member.party}-{member.state_full_name}
           </Card.Header>

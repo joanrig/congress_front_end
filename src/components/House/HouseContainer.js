@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchHouse } from './HouseActions'
 import { Container } from 'semantic-ui-react'
@@ -6,7 +6,7 @@ import MemberSorter from '../Member/MemberSorter'
 import MemberSearchBar from '../Member/MemberSearchBar'
 
 
-class HouseContainer extends React.Component {
+class HouseContainer extends Component {
   constructor() {
     super()
 

@@ -1,12 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
 import MemberCard from './MemberCard'
 
 
-//note - this is senate search bar but does not work for house search bar - notes at end
-
-class MemberSearchBar extends PureComponent {
+class MemberSearchBar extends Component {
   constructor(props) {
     super()
 
@@ -25,8 +23,6 @@ class MemberSearchBar extends PureComponent {
     let searchInstructions =
       "search by name, state, party, next election year or gender (type the full word 'female' or 'male'); 'president' for candidates; 'leaving'; or 'freshmen'"
 
-    //when to use which props?
-    //if rendered by senate container --> this.props.senate etc
     let members
     this.props.renderedBy === "senate" ? members = this.props.senate : members = this.props.house
 

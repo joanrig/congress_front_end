@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Popup, Button } from 'semantic-ui-react'
 
 
-class MemberDonors extends Component {
+class MemberDonors extends PureComponent {
   constructor(props) {
     super(props)
       this.state = {

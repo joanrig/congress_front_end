@@ -70,18 +70,10 @@ class MemberCard extends Component {
 
     //card.header
     let name
-    let fullName = member.first_name + ' ' + member.last_name
-    let title
-      if (member.chamber === "senate") {
-        title = "Sen. "
-      } else {
-        title = "Rep. "
-      }
-
     if (this.state.showNames){
-      name = title + ' ' + fullName
+      name = member.title_and_name
     }  else {
-      name = title + "Guess Who?"
+      name = member.short_title + "Guess Who?"
     }
 
     //card.content.description
@@ -126,6 +118,7 @@ class MemberCard extends Component {
        />
     </div>
 
+    //format back of card
     let align
     let content
     let space

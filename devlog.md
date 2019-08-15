@@ -1,36 +1,38 @@
-###extra things to do
+###to do
 
-1. add loading status/ indicators
-2. immediate update after fetching finances.
+1. fix bugs below
+2. add loading status/ indicators
+3. add countdown until next federal election day.
+4. format dollars to include commas.
+
 
 
 ###ACTIVE BUGS
+1. card won't immediate update after fetching finances; you must re-render, re-find card, re-flip.
 
 
 ### FIXED BUGS
-BUG: freshman/ freshmen search doesn't work for house
+BUG: freshman/ freshmen stopped working for house
 HOW FIXED: data was updated by propublica to round up time served to 2 years, changed definition of freshmen to those with seniority under 3 years.
 
 
 BUG - hide bills button would not turn red after senate/house card changed into memberCard -
-HOW FIXED forced change by using id instead of class in css
+HOW FIXED: used #id instead of .class in css
 
 
 #NEXT FEATURES
-1.
+
 
 #NIXED FEATURES
 figure out how to flip all cards.  DID IT, but if you can flip all cards at once, you can't flip one at a time.
 
 
-
 ###STRETCH
-
 * add SASS https://scotch.io/tutorials/using-sass-in-create-react-app-v2
 
 
 ###STRETCH DONE
-DONE - abstract almost all house/senate components into member component used by both - container/ actions still separate.
+DONE - abstract almost all house/senate components into member component used by both - container/ actions are ok separate.
 DONE - display bills and top donors on back of card
 DONE - get top campaign donors
 DONE - add search bills by subject

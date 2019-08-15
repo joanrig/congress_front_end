@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { Button } from 'semantic-ui-react'
 import { fetchSenateLoyalists, fetchSenateMavericks, fetchSenateTruants, fetchSenateBySeniority, fetchSenateByAge } from '../Senate/SenateActions'
 import { fetchHouseLoyalists, fetchHouseMavericks, fetchHouseTruants, fetchHouseBySeniority, fetchHouseByAge } from '../House/HouseActions'
@@ -6,7 +6,7 @@ import { fetchHouseLoyalists, fetchHouseMavericks, fetchHouseTruants, fetchHouse
 import { connect } from 'react-redux'
 
 
-class MemberSorter extends React.Component {
+class MemberSorter extends PureComponent {
   constructor(props) {
     super()
   }

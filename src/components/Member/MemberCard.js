@@ -79,9 +79,9 @@ class MemberCard extends Component {
       }
 
     if (this.state.showNames){
-      name = title + fullName
+      name = title + ' ' + fullName
     }  else {
-      name = "Guess Who?"
+      name = title + "Guess Who?"
     }
 
     //card.content.description

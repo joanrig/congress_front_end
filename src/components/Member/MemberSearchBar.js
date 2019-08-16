@@ -41,7 +41,7 @@ class MemberSearchBar extends Component {
 
     //define members as senator vs. rep, pluralize search results notice
     let member
-    filteredMembers[0] && filteredMembers[0].chamber === "senate" ? member = "senator" : member = "representative"
+    this.props.renderedBy === "senate" ? member = "senator" : member = "representative"
 
     let count = filteredMembers.length
     let resultsCount

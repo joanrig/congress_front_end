@@ -4,8 +4,10 @@ import MemberBio from './MemberBio'
 import MemberSocial from './MemberSocial'
 import MemberBills from './MemberBills'
 import MemberDonors from './MemberDonors'
-import { fetchBillsBySenator, getSenatorFinances } from '../Senate/SenateActions'
-import { fetchBillsByRep, getRepFinances } from '../House/HouseActions'
+import MemberAssets from './MemberAssets'
+import { fetchBillsBySenator, getSenatorFinances, getSenatorAssets } from '../Senate/SenateActions'
+import { fetchBillsByRep, getRepFinances, getRepAssets } from '../House/HouseActions'
+
 
 import { connect } from 'react-redux'
 
@@ -18,7 +20,8 @@ class MemberCard extends Component {
       showNames: this.props.showNames,
       //local only to toggle bills view per Card
       showBills: false,
-      showDonors: false
+      showDonors: false,
+      showAssets: false
      }
    }
 
@@ -62,6 +65,23 @@ class MemberCard extends Component {
     })
   }
 
+  //assets
+  handleAssetsClick = () => {
+    let id = this.props.crp_id
+    if (this.props.chamber === "senate"){
+      this.props.getSenatorAssets(id)
+    } else if (this.props.chamber === "house"){
+      this.props.getRepFinances(id)
+    }
+    this.setState({showAssets: true})
+  }
+
+  hideAssets = () => {
+    this.setState((prevState)=>{
+      return {showAssets: !prevState.showAssets}
+    })
+  }
+
   render() {
     let member = this.props
 
@@ -79,6 +99,7 @@ class MemberCard extends Component {
     //card.content.description
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
+    let assetsTip = "net worth and assets"
 
 
     let undoTip = "go back"
@@ -99,6 +120,16 @@ class MemberCard extends Component {
          circular icon="large undo"
          onClick={this.hideDonors}
          id="hideDonors"
+         data-tooltip={undoTip}
+       />
+    </div>
+
+    let hideAssetsButton =
+    <div className="center">
+       <Button
+         circular icon="large undo"
+         onClick={this.hideAssets}
+         id="hideAssets"
          data-tooltip={undoTip}
        />
     </div>
@@ -128,6 +159,16 @@ class MemberCard extends Component {
           member={this.props} showDonors={this.state.showDonors}/>
         {hideDonorsButton}
       </>
+    } else if (this.state.showAssets){
+      image = ""
+      align = "center"
+      space = <br/>
+      content =
+      <>
+        <MemberAssets
+          member={this.props} showAssets={this.state.showAssets}/>
+        {hideAssetsButton}
+      </>
     } else {
       content =
       <>
@@ -144,6 +185,12 @@ class MemberCard extends Component {
             onClick={this.handleDonorsClick}
             className="donors button"
             data-tooltip={moneyTip}
+          />
+          <Button
+            circular icon="large coffee"
+            onClick={this.handleAssetsClick}
+            className="assets button"
+            data-tooltip={assetsTip}
           />
         </div>
         <br/>
@@ -182,4 +229,4 @@ class MemberCard extends Component {
 
 const mapStateToProps = state => ({showDonors: state.showDonors, showBills: state.showBills})
 
-export default connect(mapStateToProps, { fetchBillsBySenator, fetchBillsByRep, getSenatorFinances, getRepFinances })(MemberCard)
+export default connect(mapStateToProps, { fetchBillsBySenator, fetchBillsByRep, getSenatorFinances, getRepFinances, getSenatorAssets, getRepAssets })(MemberCard)

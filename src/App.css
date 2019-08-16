@@ -77,7 +77,12 @@ p {
   color: white;
 }
 
-#hideBills, #hideDonors {
+.assets.button {
+  background-color: darkgreen;
+  color:white;
+}
+
+#hideBills, #hideDonors, #hideAssets {
   background-color: rgb(211,0,4);
   color:white;
 }

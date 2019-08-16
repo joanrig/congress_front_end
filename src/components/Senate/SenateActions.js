@@ -85,6 +85,23 @@ export function getSenatorFinances(id){
   }
 
 
+  export function getSenatorAssets(id){
+    return (dispatch) => {
+        const url = "http://localhost:3000/search/assets/member/"+id
+        fetch(url).then((response) => {
+          if (response.ok) {
+            return response.json()
+          } else {
+            throw new Error('Something went wrong')
+          }
+        })
+        .catch(function (err) {console.log(err)})
+        .then(assetReport => dispatch({type:"GET_SENATOR_ASSETS", payload: {assetReport: assetReport, id:id}})
+        )
+      }
+    }
+
+
 
 
 

@@ -44,6 +44,17 @@ export default (state = [], action) => {
     )
       return house1
 
+    case "GET_REP_ASSETS":
+      let assetReport = action.payload.assetReport
+      let house2 = state.map(rep => {
+        if (rep.crp_id === action.payload_id){
+          rep.assetReport = assetReport
+        }
+        return rep
+      }
+    )
+      return house2
+
 
      default:
         return state;

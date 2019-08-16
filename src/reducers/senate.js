@@ -44,10 +44,26 @@ export default (state = [], action) => {
     )
       return senate1
 
-     default:
-        return state;
-    }
+
+    case "GET_SENATOR_ASSETS":
+      let assetReport = action.payload.assetReport
+      debugger
+      let senate2 = state.map(senator => {
+        if (senator.crp_id === action.payload_id){
+          senator.assetReport = assetReport
+        }
+        return senator
+      }
+    )
+      return senate2
+
+      default:
+         return state;
+     }
+
   }
+
+
 
 
 

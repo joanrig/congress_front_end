@@ -16,7 +16,7 @@ class MemberBills extends PureComponent {
     let bills
     if (member.bills){
       bills = member.bills.slice(0,5).map(bill =>
-        <a href={bill.govtrack_url}>{bill.short_title.substring(0,75)+'...'}</a>
+        <a href={bill.govtrack_url}>{bill.short_title.substring(0,80)+'...'}</a>
       )
     }
 

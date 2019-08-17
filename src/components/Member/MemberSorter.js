@@ -34,11 +34,14 @@ class MemberSorter extends PureComponent {
     width <= 500 ? isMobile = true : isMobile = false
 
 
+    let headline
     let buttonSize
     if (isMobile) {
       buttonSize = "tiny"
+      headline = "center headline mobile"
     } else {
       buttonSize = "large"
+      headline = "center headline desktop"
     }
 
 
@@ -73,8 +76,8 @@ class MemberSorter extends PureComponent {
 
     return (
       <>
-        <h1 className="center">
-          Who's Who in the U.S. {chamber}?  Let's sort them out.
+        <h1 className={headline}>
+          Who's Who in the U.S. {chamber}?  <br/> Let's sort them out.
         </h1>
         <h4 className="center">How to play: Search or sort to narrow results, then see if you can guess the names!  Stumped? Click on "Guess Who?"</h4>
 

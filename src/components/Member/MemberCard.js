@@ -93,7 +93,6 @@ class MemberCard extends Component {
     }
 
 
-
     //card.header
     let name
     if (this.state.showNames){
@@ -108,21 +107,37 @@ class MemberCard extends Component {
 
 
     let undoTip = "go back"
+
+//conditional sizing for mobile has no effect here
+    let hideBillsClassName
+    if (isMobile) {
+      hideBillsClassName = "undo"
+    } else {
+      hideBillsClassName = "large undo"
+    }
+
     let hideBillsButton =
     <div className="center">
       <Button
-        circular icon="large undo"
+        circular icon={hideBillsClassName}
         onClick={this.hideBills}
         id="hideBills"
         data-tooltip={undoTip}
       />
      </div>
 
+//conditional sizing for mobile has no effect here
+     let hideDonorsClassName
+     if (isMobile) {
+       hideDonorsClassName = "undo"
+     } else {
+       hideDonorsClassName = "large undo"
+     }
 
     let hideDonorsButton =
     <div className="center">
        <Button
-         circular icon="large undo"
+         circular icon={hideDonorsClassName}
          onClick={this.hideDonors}
          id="hideDonors"
          data-tooltip={undoTip}

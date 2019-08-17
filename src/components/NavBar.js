@@ -31,16 +31,19 @@ class NavBar extends PureComponent {
 
 
     let buttonSize
+    let navbarStyle
     if (isMobile) {
       buttonSize = "small"
+      navbarStyle = "NavBar mobile"
     } else {
       buttonSize = "huge"
+      navbarStyle = "NavBar desktop"
     }
 
 
     return (
 
-      <div className="NavBar">
+      <div className={navbarStyle}>
           <div className='navbar center'>
             <Link to='/' ><Button size={buttonSize} color='purple'>Home</Button></Link>
             <Link to='/senate' ><Button size={buttonSize} color='red'>Senate</Button></Link>

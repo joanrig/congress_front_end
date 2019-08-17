@@ -5,13 +5,17 @@ font-family: 'Amatic SC', cursive;
 }
 
 
-.NavBar {
+.NavBar.desktop {
   background-color:white;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index:1;
   line-height: 100px;
+}
+
+.NavBar.mobile {
+  background-color:white;
 }
 
 .center {
@@ -24,6 +28,14 @@ font-family: 'Amatic SC', cursive;
 
 p {
   font-size: 1.1em;
+}
+
+.headline.desktop {
+  font-size: 3vw
+}
+
+.headline.mobile {
+  font-size: 5vw
 }
 
 .ui.card>.content.extra,

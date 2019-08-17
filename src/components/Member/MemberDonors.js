@@ -19,7 +19,7 @@ class MemberDonors extends PureComponent {
       if (member.financial_disclosure){
         donorsSource =
           <a href={member.financial_disclosure.source} className="center">
-          visit Center for Responsive Politics for more details</a>
+          more donors & details from Center for Responsive Politics</a>
 
         donorList = member.donors.slice(0,3).map(donor =>
         <div key={donor.id}>

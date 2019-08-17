@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { Component } from 'react'
+import Countdown from './Countdown'
 
 
-const RegisterToVote = () => {
+class RegisterToVote extends Component {
+
+
+  render(){
+
+    let nextFederalElectionDate = "11/03/2020"
+
 
     return (
     <>
       <br/>
       <br/>
+      <Countdown date={nextFederalElectionDate} />
       <br/>
       <br/>
       <iframe
@@ -15,6 +23,10 @@ const RegisterToVote = () => {
         src="https://register.rockthevote.com/?partner=1&source=ovrpage" ></iframe>
     </>
     )
+  }
+
+
+
   }
 
 export default RegisterToVote

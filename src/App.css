@@ -115,6 +115,12 @@ p {
   font-size: 3vw;
 }
 
-.home.intro {
-  color:grey;
+.home.intro.mobile {
+  color: grey;
+  font-size: 3vw;
+}
+
+.home.intro.desktop {
+  color: grey;
+  font-size: 5vw;
 }

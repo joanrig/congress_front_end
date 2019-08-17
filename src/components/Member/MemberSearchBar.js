@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Card, Input } from 'semantic-ui-react'
 import MemberCard from './MemberCard'
 
 
@@ -84,16 +84,15 @@ class MemberSearchBar extends Component {
     return (
       <>
         <br/>
-        <div className="ui fluid icon input">
-          <input
+          <Input
+            size="big"
             type="text"
             placeholder={searchInstructions}
             value={this.state.search}
             onChange={this.updateSearch}
-            className="search text"
+            className="ui fluid focus input"
+            icon = "search"
           />
-          <i className="search icon"></i>
-        </div>
         <h2 className='ui block header center'>{resultsCount}</h2>
 
         <Card.Group itemsPerRow={itemsPerRow}>

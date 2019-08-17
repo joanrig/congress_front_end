@@ -23,7 +23,6 @@ class SenateContainer extends Component {
     return (
       <Container >
         <br/>
-        <br/>
         <MemberSorter renderedBy="senate"/>
         <br/>
         <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="senate"/>

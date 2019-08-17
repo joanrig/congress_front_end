@@ -35,6 +35,8 @@ class MemberCard extends Component {
      this.setState({ width: window.innerWidth });
    }
 
+
+
   toggleName = () => {
     this.setState((prevState)=>{
       return {showNames: !prevState.showNames}
@@ -83,7 +85,6 @@ class MemberCard extends Component {
     const width = this.state.width
     width <= 500 ? isMobile = true : isMobile = false
 
-
     //card.image
     let image
     if (isMobile) {
@@ -91,7 +92,6 @@ class MemberCard extends Component {
     } else {
       image = <Image className="party-logo-desktop" src={member.party_logo} wrapped ui={false}  />
     }
-
 
     //card.header
     let name
@@ -105,15 +105,25 @@ class MemberCard extends Component {
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
 
-
     let undoTip = "go back"
 
-//conditional sizing for mobile has no effect here
+    //style buttons for mobile v. desktop
     let hideBillsClassName
+    let hideDonorsClassName
+    let billsButtonIcon
+    let donorsButtonIcon
+
     if (isMobile) {
-      hideBillsClassName = "undo"
+      hideBillsClassName = "small undo"
+      hideDonorsClassName = "small undo"
+      billsButtonIcon = "small legal"
+      donorsButtonIcon = "small dollar sign"
+
     } else {
       hideBillsClassName = "large undo"
+      hideDonorsClassName = "large undo"
+      billsButtonIcon = "large legal"
+      donorsButtonIcon = "large dollar sign"
     }
 
     let hideBillsButton =
@@ -125,14 +135,6 @@ class MemberCard extends Component {
         data-tooltip={undoTip}
       />
      </div>
-
-//conditional sizing for mobile has no effect here
-     let hideDonorsClassName
-     if (isMobile) {
-       hideDonorsClassName = "undo"
-     } else {
-       hideDonorsClassName = "large undo"
-     }
 
     let hideDonorsButton =
     <div className="center">
@@ -175,13 +177,13 @@ class MemberCard extends Component {
         <MemberBio member={this.props}/>
         <div className="center">
           <Button
-            circular icon="large legal"
+            circular icon={billsButtonIcon}
             onClick={this.handleGavelClick}
             className="bills button"
             data-tooltip={legalTip}
           />
           <Button
-            circular icon="large dollar sign"
+            circular icon={donorsButtonIcon}
             onClick={this.handleDonorsClick}
             className="donors button"
             data-tooltip={moneyTip}
@@ -196,8 +198,6 @@ class MemberCard extends Component {
     if (member.gender === "F"){
       genderName = "female"
     }
-
-
 
 
     return (

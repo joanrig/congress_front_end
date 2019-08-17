@@ -41,7 +41,6 @@ class HouseContainer extends Component {
     return (
       <Container>
         <br/>
-        <br/>
         <MemberSorter renderedBy="house"/>
         <br/>
         <LoadableMemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="house"/>

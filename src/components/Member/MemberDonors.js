@@ -6,12 +6,34 @@ class MemberDonors extends PureComponent {
   constructor(props) {
     super(props)
       this.state = {
-        showDonors: this.props.showDonors
+        showDonors: this.props.showDonors,
+        width: window.innerWidth
        }
      }
 
+   componentWillMount() {
+      window.addEventListener('resize', this.handleWindowSizeChange)
+    }
+
+   componentWillUnmount() {
+      window.removeEventListener('resize', this.handleWindowSizeChange)
+    }
+
+   handleWindowSizeChange = () => {
+      this.setState({ width: window.innerWidth })
+    }
+
   render(){
     let member = this.props.member
+
+    let isMobile
+    const width = this.state.width
+    width <= 500 ? isMobile = true : isMobile = false
+
+    //style question button for mobile
+    let questionIcon
+    isMobile? questionIcon = "small question" : questionIcon = "large question"
+
 
     let donorsSource
     let donorList
@@ -47,7 +69,7 @@ class MemberDonors extends PureComponent {
       <div className="center">
         <Popup
           content={notice}
-          trigger={<Button circular icon='large question' color="yellow"/>}
+          trigger={<Button circular icon={questionIcon} color="yellow"/>}
           id="donorNotice"
         />
       </div>

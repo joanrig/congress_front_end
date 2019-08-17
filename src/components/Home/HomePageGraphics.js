@@ -6,25 +6,60 @@ class HomePageGraphics extends PureComponent {
   constructor(props){
     super()
 
+    this.state = {
+      width: window.innerWidth
+    }
+
+  }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
   }
 
   render(){
+
+    let isMobile
+    const width = this.state.width
+    width <= 500 ? isMobile = true : isMobile = false
 
     let column =
     <Grid.Column>
       <Image src={this.props.image} />
     </Grid.Column>
 
-    let row =
-      <Grid.Row>
-        {column}
-        {column}
-        {column}
-      </Grid.Row>
+    //style grid for mobile
+    let row
+    let numberOfColumns
+    if (isMobile) {
+      numberOfColumns =2
+      row =
+        <Grid.Row>
+          {column}
+          {column}
+        </Grid.Row>
+    } else {
+      numberOfColumns = 3
+      row =
+        <Grid.Row>
+          {column}
+          {column}
+          {column}
+        </Grid.Row>
+    }
+
+
 
     return(
       <>
-        <Grid columns={3} divided>
+        <Grid columns={numberOfColumns} divided>
           {row}
           {row}
           {row}

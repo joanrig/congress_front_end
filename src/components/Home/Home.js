@@ -12,15 +12,15 @@ class Home extends PureComponent {
    }
 
   componentWillMount() {
-     window.addEventListener('resize', this.handleWindowSizeChange);
+     window.addEventListener('resize', this.handleWindowSizeChange)
    }
 
   componentWillUnmount() {
-     window.removeEventListener('resize', this.handleWindowSizeChange);
+     window.removeEventListener('resize', this.handleWindowSizeChange)
    }
 
   handleWindowSizeChange = () => {
-     this.setState({ width: window.innerWidth });
+     this.setState({ width: window.innerWidth })
    }
 
   render(){
@@ -41,6 +41,7 @@ class Home extends PureComponent {
 
     return (
       <Container className="center">
+        <br/>
         <h1>
           Who's Who in the 116th United States Congress?
         </h1>

@@ -74,12 +74,7 @@ class MemberSearchBar extends Component {
 
 
     let itemsPerRow
-    if (isMobile) {
-      itemsPerRow = 2
-    } else {
-      itemsPerRow = 5
-    }
-
+    isMobile? itemsPerRow = 2 : itemsPerRow = 5
 
     return (
       <>

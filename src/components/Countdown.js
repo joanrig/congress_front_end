@@ -1,7 +1,7 @@
-import React, { Component }from 'react'
+import React, { PureComponent }from 'react'
 import { Container, Grid } from 'semantic-ui-react'
 
-class Countdown extends Component {
+class Countdown extends PureComponent {
   constructor(props) {
     super(props)
 

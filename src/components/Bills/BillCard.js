@@ -88,7 +88,7 @@ class BillCard extends PureComponent {
 
 
         <Card.Content extra className={sponsorColor}>
-          <div>
+          <div className="cosponsors">
             <strong>Cosponsors: {bill.cosponsors}</strong><br/>
             {democratSponsors}<br/>
             {republicanSponsors}<br/>

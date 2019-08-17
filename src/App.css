@@ -5,23 +5,7 @@ font-family: 'Amatic SC', cursive;
 }
 
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 .NavBar {
-
   background-color:white;
   position: -webkit-sticky;
   position: sticky;
@@ -51,16 +35,20 @@ p {
   background-color: rgb(255,102,102,0.3);
 }
 
+.cosponsors {
+  color:white;
+}
+
 .ui.cards>.card>.content.extra.red {
-  background-color: rgb(231,70,64,0.6);
+  background-color: rgb(231,70,64,0.9);
 }
 
 .ui.cards>.card>.content.extra.blue {
-  background-color: rgb(14,78,193,0.2);
+  background-color: rgb(14,78,193,0.9);
 }
 
 .ui.cards>.card>.content.extra.purple {
-  background-color: rgb(155,103, 179, 0.2);
+  background-color: rgb(155,103, 179, 0.9);
 }
 
 .ui.cards>.card>.content.extra.white {
@@ -100,4 +88,8 @@ p {
 
 .countdown {
   font-size: 30px;
+}
+
+.home.intro {
+  color:grey;
 }

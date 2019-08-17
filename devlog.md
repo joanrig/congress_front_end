@@ -2,7 +2,6 @@
 
 1. fix bugs below
 2. add loading status/ indicators
-3. add countdown until next federal election day.
 4. format dollars to include commas.
 
 
@@ -25,6 +24,9 @@ HOW FIXED: used #id instead of .class in css
 
 #NIXED FEATURES
 figure out how to flip all cards.  DID IT, but if you can flip all cards at once, you can't flip one at a time.
+
+#ADDED FEATURES
+DONE - add countdown until next federal election day.
 
 
 ###STRETCH

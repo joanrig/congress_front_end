@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Segment } from 'semantic-ui-react'
 import Countdown from './Countdown'
 
 
@@ -15,7 +14,6 @@ class RegisterToVote extends Component {
     <>
       <br/>
       <br/>
-      <Segment className="countdown background">
       <br/>
       <Countdown date={nextFederalElectionDate} />
       <br/>
@@ -27,7 +25,6 @@ class RegisterToVote extends Component {
         className = "register-to-vote"
         title="register-to-vote"
         src="https://register.rockthevote.com/?partner=1&source=ovrpage" ></iframe>
-     </Segment>
     </>
     )
   }

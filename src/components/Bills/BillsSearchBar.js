@@ -41,9 +41,23 @@ class BillsSearchBar extends Component {
         <br/>
         <br/>
       </div>,
-      bills: []
+      bills: [],
+      width: window.innerWidth
     }
   }
+
+  componentWillMount() {
+     window.addEventListener('resize', this.handleWindowSizeChange);
+   }
+
+  componentWillUnmount() {
+     window.removeEventListener('resize', this.handleWindowSizeChange);
+   }
+
+  handleWindowSizeChange = () => {
+     this.setState({ width: window.innerWidth });
+   }
+
 
   updateSearch= (event) => {
     this.setState({
@@ -66,7 +80,7 @@ class BillsSearchBar extends Component {
    } else {
      content =
      <div className="center">
-       <h2>searching for bills about {this.state.search} ... </h2>
+
        <h4>If you remain here for more than 10 seconds, your search term returned no results! Please try again.</h4>
        <Image src="http://www.aawaajnews.com/wp-content/uploads/2019/01/5c2e7f892ab31e362e493620-2732-1366.jpg"/>
       </div>
@@ -74,6 +88,15 @@ class BillsSearchBar extends Component {
    }
 
    let searchInstructions = "Hint: use broad search terms, i.e. 'immigration', 'China', 'Medicare', etc."
+
+   let isMobile
+   const width = this.state.width
+   width <= 500 ? isMobile = true : isMobile = false
+
+
+   //mobile formatting
+   let billCardsPerRow
+   isMobile ? billCardsPerRow = 2 : billCardsPerRow = 5
 
     return (
       <>
@@ -100,7 +123,7 @@ class BillsSearchBar extends Component {
         <>
           {this.state.video}
         </>
-        <Card.Group itemsPerRow={5}>
+        <Card.Group itemsPerRow={billCardsPerRow}>
           {content}
         </Card.Group>
       </>

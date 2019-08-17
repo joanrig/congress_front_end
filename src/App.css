@@ -83,10 +83,11 @@ p {
 }
 
 .search.text{
-  font-size: 1vw;
+  font-size: 1.15vw;
+  height: 20%;
 }
 
-.party-logo {
+.party-logo-desktop {
   width: 100%;
   height: 200px;
 }

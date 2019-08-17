@@ -89,7 +89,7 @@ class MemberCard extends Component {
     if (isMobile) {
       image = <Image className="party-logo-mobile" src={member.party_logo} wrapped ui={false} />
     } else {
-      image = <Image className="party-logo" src={member.party_logo} wrapped ui={false}  />
+      image = <Image className="party-logo-desktop" src={member.party_logo} wrapped ui={false}  />
     }
 
 

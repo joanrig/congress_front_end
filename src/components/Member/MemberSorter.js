@@ -9,9 +9,39 @@ import { connect } from 'react-redux'
 class MemberSorter extends PureComponent {
   constructor(props) {
     super()
+
+    this.state = {
+      width: window.innerWidth
+    }
+  }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
   }
 
   render (){
+
+    let isMobile
+    const width = this.state.width
+    width <= 500 ? isMobile = true : isMobile = false
+
+
+    let buttonSize
+    if (isMobile) {
+      buttonSize = "tiny"
+    } else {
+      buttonSize = "large"
+    }
+
+
     let tips = `You can sort after searching or vice-versa!`
 
     let loyalists
@@ -49,13 +79,13 @@ class MemberSorter extends PureComponent {
         <h4 className="center">How to play: Search or sort to narrow results, then see if you can guess the names!  Stumped? Click on "Guess Who?"</h4>
 
         <div className="center">
-          <Button size="large" color="green" onClick={() => loyalists()}>Party Loyalists</Button>
-          <Button size="large" color="blue" onClick={() => mavericks()}>Party Mavericks</Button>
-          <Button size="large" color="red" onClick={() => truants()}>Most Truant</Button>
-          <Button size="large" color="black" onClick={() => seniority()}>Longest Serving</Button>
-          <Button size="large" color="orange" onClick={() => age()}>Oldest</Button>
+          <Button size={buttonSize} color="green" onClick={() => loyalists()}>Party Loyalists</Button>
+          <Button size={buttonSize} color="blue" onClick={() => mavericks()}>Party Mavericks</Button>
+          <Button size={buttonSize} color="red" onClick={() => truants()}>Most Truant</Button>
+          <Button size={buttonSize} color="black" onClick={() => seniority()}>Longest Serving</Button>
+          <Button size={buttonSize} color="orange" onClick={() => age()}>Oldest</Button>
           <Button
-            size="large"
+            size={buttonSize}
             color="yellow"
             className="ui icon button"
             data-tooltip={tips}>

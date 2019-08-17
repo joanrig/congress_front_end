@@ -87,7 +87,11 @@ p {
 }
 
 .countdown {
-  font-size: 30px;
+  font-size: 5vw;
+}
+
+.countdown-words {
+  font-size: 3vw;
 }
 
 .home.intro {

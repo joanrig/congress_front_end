@@ -11,7 +11,20 @@ class MemberSearchBar extends Component {
     this.state = {
       search: '',
       showNames: false,
+      width: window.innerWidth
     }
+  }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
   }
 
   updateSearch= (event) => {
@@ -55,6 +68,18 @@ class MemberSearchBar extends Component {
       resultsCount = <>{count} {memberPluralized} found</>
     }
 
+    let isMobile
+    const width = this.state.width
+    width <= 500 ? isMobile = true : isMobile = false
+
+
+    let itemsPerRow
+    if (isMobile) {
+      itemsPerRow = 2
+    } else {
+      itemsPerRow = 5
+    }
+
 
     return (
       <>
@@ -71,7 +96,7 @@ class MemberSearchBar extends Component {
         </div>
         <h2 className='ui block header center'>{resultsCount}</h2>
 
-        <Card.Group itemsPerRow={5}>
+        <Card.Group itemsPerRow={itemsPerRow}>
           {filteredMembers.map(member =>
             <MemberCard
               showNames={this.state.showNames}

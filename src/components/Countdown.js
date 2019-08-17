@@ -74,7 +74,7 @@ class Countdown extends PureComponent {
 
 
   render(){
-  
+
 
     const countdown = this.state
 
@@ -83,29 +83,29 @@ class Countdown extends PureComponent {
       <Grid columns={6}>
         <Grid.Column>
         </Grid.Column>
-        <Grid.Column className="countdown">
-          <strong>{this.addLeadingZeros(countdown.days)}</strong>
+        <Grid.Column>
+          <strong className="countdown">{this.addLeadingZeros(countdown.days)}</strong>
           <br/>
           <br/>
-          <span>{countdown.days === 1 ? 'Day' : 'Days'}</span>
+          <span className="countdown-words" >{countdown.days === 1 ? 'Day' : 'Days'}</span>
         </Grid.Column>
-        <Grid.Column className="countdown">
-          <strong>{this.addLeadingZeros(countdown.hours)}</strong>
+        <Grid.Column>
+          <strong className="countdown">{this.addLeadingZeros(countdown.hours)}</strong>
           <br/>
           <br/>
-          <span>{countdown.hours === 1 ? 'Hour' : 'Hours'}</span>
+          <span className="countdown-words">{countdown.hours === 1 ? 'Hour' : 'Hours'}</span>
         </Grid.Column>
-        <Grid.Column className="countdown">
-          <strong>{this.addLeadingZeros(countdown.minutes)}</strong>
+        <Grid.Column>
+          <strong className="countdown">{this.addLeadingZeros(countdown.minutes)}</strong>
           <br/>
           <br/>
-          <span>{countdown.minutes === 1 ? 'Minute' : 'Minutes'}</span>
+          <span className="countdown-words">{countdown.minutes === 1 ? 'Minute' : 'Minutes'}</span>
         </Grid.Column>
-        <Grid.Column className="countdown">
-          <strong>{this.addLeadingZeros(countdown.seconds)}</strong>
+        <Grid.Column>
+          <strong className="countdown">{this.addLeadingZeros(countdown.seconds)}</strong>
           <br/>
           <br/>
-          <span>{countdown.minutes === 1 ? 'Second' : 'Seconds'}</span>
+          <span className="countdown-words">{countdown.minutes === 1 ? 'Second' : 'Seconds'}</span>
         </Grid.Column>
         <Grid.Column>
         </Grid.Column>

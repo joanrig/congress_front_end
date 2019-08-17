@@ -1,5 +1,5 @@
 import React, { Component }from 'react'
-import { Container } from 'semantic-ui-react'
+import { Container, Grid } from 'semantic-ui-react'
 
 class Countdown extends Component {
   constructor(props) {
@@ -36,13 +36,6 @@ class Countdown extends Component {
        seconds: 0,
      }
 
-
-     // let secondsPerYear = 365.25 * 24 * 60 * 60
-     // if (diff >= secondsPerYear){
-     //   timeLeft.years = Math.floor(diff / secondsPerYear)
-     //   diff -= timeLeft.years * secondsPerYear
-     // }
-
      let secondsPerDay = 24 * 60 * 60
      if (diff >= secondsPerDay) {
        timeLeft.days = Math.floor(diff / secondsPerDay)
@@ -57,7 +50,7 @@ class Countdown extends Component {
 
      let secondsPerMinute = 60
      if (diff >= secondsPerMinute) {
-       timeLeft.hours = Math.floor(diff / secondsPerMinute)
+       timeLeft.minutes = Math.floor(diff / secondsPerMinute)
        diff -= timeLeft.minutes * secondsPerMinute
      }
 
@@ -85,11 +78,47 @@ class Countdown extends Component {
 
     return (
       <Container className="center">
-        {this.addLeadingZeros(countdown.days)} -
-        {this.addLeadingZeros(countdown.hours)} -
-        {this.addLeadingZeros(countdown.minutes)} -
-        {this.addLeadingZeros(countdown.seconds)}
+      <Grid columns={6}>
+        <Grid.Column>
+        </Grid.Column>
+        <Grid.Column className="countdown">
+          <strong>{this.addLeadingZeros(countdown.days)}</strong>
+          <br/>
+          <br/>
+          <span>{countdown.days === 1 ? 'Day' : 'Days'}</span>
+        </Grid.Column>
+        <Grid.Column className="countdown">
+          <strong>{this.addLeadingZeros(countdown.hours)}</strong>
+          <br/>
+          <br/>
+          <span>{countdown.hours === 1 ? 'Hour' : 'Hours'}</span>
+        </Grid.Column>
+        <Grid.Column className="countdown">
+          <strong>{this.addLeadingZeros(countdown.minutes)}</strong>
+          <br/>
+          <br/>
+          <span>{countdown.minutes === 1 ? 'Minute' : 'Minutes'}</span>
+        </Grid.Column>
+        <Grid.Column className="countdown">
+          <strong>{this.addLeadingZeros(countdown.seconds)}</strong>
+          <br/>
+          <br/>
+          <span>{countdown.minutes === 1 ? 'Second' : 'Seconds'}</span>
+        </Grid.Column>
+        <Grid.Column>
+        </Grid.Column>
+      </Grid>
+      <br/>
+      <br/>
+      <br/>
+      <span className="countdown">until Election Day 2020!</span>
+
       </Container>
+
+
+
+
+
     )
   }
 }

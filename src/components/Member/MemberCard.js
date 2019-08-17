@@ -18,8 +18,21 @@ class MemberCard extends Component {
       showNames: this.props.showNames,
       //local only to toggle bills view per Card
       showBills: false,
-      showDonors: false
+      showDonors: false,
+      width: window.innerWidth
      }
+   }
+
+  componentWillMount() {
+     window.addEventListener('resize', this.handleWindowSizeChange);
+   }
+
+  componentWillUnmount() {
+     window.removeEventListener('resize', this.handleWindowSizeChange);
+   }
+
+  handleWindowSizeChange = () => {
+     this.setState({ width: window.innerWidth });
    }
 
   toggleName = () => {
@@ -63,10 +76,23 @@ class MemberCard extends Component {
   }
 
   render() {
+
     let member = this.props
 
+    let isMobile
+    const width = this.state.width
+    width <= 500 ? isMobile = true : isMobile = false
+
+
     //card.image
-    let image = <Image className="party-logo" src={member.party_logo} wrapped ui={false}  />
+    let image
+    if (isMobile) {
+      image = <Image className="party-logo-mobile" src={member.party_logo} wrapped ui={false} />
+    } else {
+      image = <Image className="party-logo" src={member.party_logo} wrapped ui={false}  />
+    }
+
+
 
     //card.header
     let name
@@ -155,6 +181,8 @@ class MemberCard extends Component {
     if (member.gender === "F"){
       genderName = "female"
     }
+
+
 
 
     return (

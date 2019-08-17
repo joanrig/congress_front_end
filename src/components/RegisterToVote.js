@@ -1,5 +1,7 @@
-import React, { Component } from 'react'
-import Countdown from './Countdown'
+import React, { Component, Suspense, lazy } from 'react'
+const Countdown = React.lazy(() => import('./Countdown'))
+
+
 
 
 class RegisterToVote extends Component {
@@ -15,7 +17,9 @@ class RegisterToVote extends Component {
       <br/>
       <br/>
       <br/>
-      <Countdown date={nextFederalElectionDate} />
+      <Suspense fallback={<div>Loading ....</div>}>
+        <Countdown date={nextFederalElectionDate} />
+      </Suspense>
       <br/>
       <br/>
       <br/>

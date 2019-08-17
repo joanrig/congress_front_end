@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Suspense, lazy } from 'react'
 import { connect } from 'react-redux'
 import { fetchHouse } from './HouseActions'
 import { Container } from 'semantic-ui-react'
-import MemberSorter from '../Member/MemberSorter'
-import MemberSearchBar from '../Member/MemberSearchBar'
+
+
+const MemberSorter = lazy(() => import('../Member/MemberSorter'))
+const MemberSearchBar = lazy(() => import('../Member/MemberSearchBar'))
 
 
 class HouseContainer extends Component {
@@ -35,9 +37,11 @@ class HouseContainer extends Component {
       <Container>
         <br/>
         <br/>
-        <MemberSorter renderedBy="house"/>
-        <br/>
-        <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="house"/>
+        <Suspense fallback={<div>Loading ...</div>}>
+          <MemberSorter renderedBy="house"/>
+          <br/>
+          <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="house"/>
+        </Suspense>
       </Container>
     )
   }

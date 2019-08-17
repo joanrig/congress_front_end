@@ -23,6 +23,7 @@ class Countdown extends PureComponent {
     }, 1000);
    }
 
+
   calculateTimeLeft(endDate){
      //diff between end date and now in seconds
      let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date()))/ 1000
@@ -73,6 +74,7 @@ class Countdown extends PureComponent {
 
 
   render(){
+  
 
     const countdown = this.state
 

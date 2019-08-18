@@ -2,12 +2,13 @@
 
 1. fix bugs below
 2. add loading status/ indicators
-4. format dollars to include commas.
 
 
 
 ###ACTIVE BUGS
 1. card won't immediate update after fetching finances; you must re-render, re-find card, re-flip.
+2. bills remain in state after navigating away from and back to bills search bar.
+3. timer shows undefined before mounting.
 
 
 ### FIXED BUGS

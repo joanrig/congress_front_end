@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Card, Form, Image } from 'semantic-ui-react'
 import { fetchBillsBySubject } from './BillsActions'
-// import BillsFilter from './BillsFilter'
+import BillsVideo from './BillsVideo'
 import BillCard from './BillCard'
 
 
@@ -12,50 +12,22 @@ class BillsSearchBar extends Component {
     super()
     this.state = {
       search: '',
-      video:
-      <div className="video center"
-        style={{
-          position: "relative",
-          paddingBottom: "56.25%" /* 16:9 */,
-          paddingTop: 25,
-          height: 0
-        }}>
-        <iframe
-          title="congressSession"
-          style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%"
-        }}
-          src="https://www.youtube.com/embed/FFroMQlKiag?start=16"
-          frameborder="0"
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-      </div>,
       bills: [],
+      showVideo: true,
       width: window.innerWidth
     }
   }
 
   componentWillMount() {
-     window.addEventListener('resize', this.handleWindowSizeChange);
+     window.addEventListener('resize', this.handleWindowSizeChange)
    }
 
   componentWillUnmount() {
-     window.removeEventListener('resize', this.handleWindowSizeChange);
+     window.removeEventListener('resize', this.handleWindowSizeChange)
    }
 
   handleWindowSizeChange = () => {
-     this.setState({ width: window.innerWidth });
+     this.setState({ width: window.innerWidth })
    }
 
 
@@ -68,19 +40,21 @@ class BillsSearchBar extends Component {
   handleSubmit = (event) => {
     event.preventDefault() 
     this.props.fetchBillsBySubject(this.state.search)
-    this.setState({ video: ''})
+    this.setState({ showVideo: false })
   }
 
   render (){
+    let video
+    this.state.showVideo? video = <BillsVideo /> :  video = ""
+
+
     let bills = this.props.bills
     let content = ""
     if (bills){
       content = this.props.bills.map(bill =><BillCard key={bill.id} {...bill} />)
-
    } else {
      content =
      <div className="center">
-
        <h4>If you remain here for more than 10 seconds, your search term returned no results! Please try again.</h4>
        <Image src="http://www.aawaajnews.com/wp-content/uploads/2019/01/5c2e7f892ab31e362e493620-2732-1366.jpg"/>
       </div>
@@ -121,7 +95,7 @@ class BillsSearchBar extends Component {
         <br/>
         <br/>
         <>
-          {this.state.video}
+          {video}
         </>
         <Card.Group itemsPerRow={billCardsPerRow}>
           {content}

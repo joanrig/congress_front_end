@@ -1,10 +1,11 @@
+const API_URL="http://localhost:3000"
 
 // async action
 export function fetchHouse(){
   //console.log('firing fetchHouse')
   console.log("c")
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/reps')
+      return fetch(API_URL+'/search/reps')
       .then(resp => resp.json())
       .then(house =>{
         console.log("d")
@@ -15,7 +16,7 @@ export function fetchHouse(){
 
 export function fetchHouseLoyalists(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/house_loyalists')
+      return fetch(API_URL+'/search/house_loyalists')
       .then(resp => resp.json())
       .then(loyalists =>dispatch({type:"LOYALISTS", loyalists} ))
      }
@@ -24,7 +25,7 @@ export function fetchHouseLoyalists(){
 
 export function fetchHouseMavericks(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/house_mavericks')
+      return fetch(API_URL+'/search/house_mavericks')
       .then(resp => resp.json())
       .then(mavericks =>dispatch({type:"MAVERICKS", mavericks} ))
      }
@@ -33,7 +34,7 @@ export function fetchHouseMavericks(){
 
 export function fetchHouseTruants(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/truant_reps')
+      return fetch(API_URL+'/search/truant_reps')
       .then(resp => resp.json())
       .then(truants =>dispatch({type:"TRUANTS", truants} ))
      }
@@ -41,7 +42,7 @@ export function fetchHouseTruants(){
 
 export function fetchHouseBySeniority(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/reps_by_seniority')
+      return fetch(API_URL+'/search/reps_by_seniority')
       .then(resp => resp.json())
       .then(seniority =>dispatch({type:"SENIORITY", seniority} ))
      }
@@ -50,7 +51,7 @@ export function fetchHouseBySeniority(){
 
 export function fetchHouseByAge(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/reps_by_age')
+      return fetch(API_URL+'/search/reps_by_age')
       .then(resp => resp.json())
       .then(age =>dispatch({type:"AGE", age} ))
      };
@@ -58,7 +59,7 @@ export function fetchHouseByAge(){
 
 export function fetchBillsByRep(id){
   return (dispatch) => {
-      return fetch("http://localhost:3000/search/bills/member/"+id)
+      return fetch(API_URL+'/search/bills/member/'+id)
       .then(resp => resp.json())
       .then(bills => dispatch({type:"FETCH_BILLS_BY_REP", payload: {bills: bills, id:id}})
       )
@@ -67,7 +68,7 @@ export function fetchBillsByRep(id){
 
 export function getRepFinances(id){
   return (dispatch) => {
-      const url = "http://localhost:3000/search/financial_disclosures/member/"+id
+      const url = API_URL+'/search/financial_disclosures/member/'+id
       fetch(url).then((response) => {
         if (response.ok) {
           return response.json();

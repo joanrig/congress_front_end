@@ -104,7 +104,6 @@ class MemberCard extends Component {
     //card.content.description
     let legalTip = "five most recent bills"
     let moneyTip = "top three donors to last campaign"
-
     let undoTip = "go back"
 
     //style buttons for mobile v. desktop

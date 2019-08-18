@@ -9,9 +9,10 @@
 1. card won't immediate update after fetching finances; you must re-render, re-find card, re-flip.
 2. bills remain in state after navigating away from and back to bills search bar.
 3. timer shows undefined before mounting.
+4. data tooltips stopped working on show bills/donors buttons
 
 
-### FIXED BUGS
+### FIXED BUGs
 BUG: freshman/ freshmen stopped working for house
 HOW FIXED: data was updated by propublica to round up time served to 2 years, changed definition of freshmen to those with seniority under 3 years.
 

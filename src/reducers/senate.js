@@ -50,16 +50,68 @@ export default (state = [], action) => {
   }
 
 
+// nothing loads
+//Can't perform a React state update on an unmounted component. This is a no-op, but it indicates a memory leak in your application. To fix, cancel all subscriptions and asynchronous tasks in the componentWillUnmount method.
+    // in MemberSearchBar (created by ConnectFunction)
+
+  // export default (state = {
+  //     senate: []
+  //   }, action) => {
+  //
+  //     switch(action.type){
+  //
+  //     case "SET_SENATE":
+  //       return { ...state, senate: action.senate }
+  //
+  //     case "LOYALISTS":
+  //       return { ...state, senate: action.loyalists }
+  //
+  //     case "MAVERICKS":
+  //       return { ...state, senate: action.mavericks }
+  //
+  //     case "TRUANTS":
+  //       return { ...state, senate: action.truants }
+  //
+  //     case "SENIORITY":
+  //       return { ...state, senate: action.seniority }
+  //
+  //     case "AGE":
+  //       return { ...state, senate: action.age }
+  //
+  //     case "FETCH_BILLS_BY_SENATOR":
+  //       let bills = action.payload.bills
+  //       let senate = state.map(senator => {
+  //         //find senator update bills
+  //         if (senator.propublica_id === action.payload.id){
+  //           senator.bills = bills
+  //         }
+  //         return senator
+  //       }
+  //     )
+  //       return { ...state, senate: senate }
+  //
+  //
+  //     case "GET_SENATOR_FINANCES":
+  //       let financialDisclosure = action.payload.financialDisclosure
+  //       let senate1 = state.map(senator => {
+  //         if (senator.crp_id === action.payload_id){
+  //           senator.financialDisclosure = financialDisclosure
+  //         }
+  //         return senator
+  //       }
+  //     )
+  //       return { ...state, senate: senate1 }
+  //
+  //      default:
+  //         return state;
+  //     }
+  //   }
 
 
-//
+
+//uncaught in promise members is not a function
 //   export default (state = {
 //     senate: [],
-//     loyalists: [],
-//     mavericks: [],
-//     truants: [],
-//     seniority: [],
-//     age: [],
 //     loading: false
 //   }, action)  => {
 //       switch(action.type){
@@ -78,35 +130,35 @@ export default (state = [], action) => {
 //     return {
 //       ...state,
 //       loading: false,
-//       loyalists: action.loyalists
+//       senate: action.loyalists
 //    }
 //
 //   case "MAVERICKS":
 //     return {
 //       ...state,
 //       loading: false,
-//       mavericks: action.mavericks
+//       senate: action.mavericks
 //     }
 //
 //   case "TRUANTS":
 //     return {
 //       ...state,
 //       loading: false,
-//       truants: action.truants
+//       senate: action.truants
 //     }
 //
 //   case "SENIORITY":
 //     return {
 //       ...state,
 //       loading: false,
-//       seniority: action.seniority
+//       senate: action.seniority
 //     }
 //
 //   case "AGE":
 //     return {
 //       ...state,
 //       loading: false,
-//       age: action.age
+//       senate: action.age
 //     }
 //
 //   case "FETCH_BILLS_BY_SENATOR":
@@ -121,6 +173,17 @@ export default (state = [], action) => {
 //     })
 //
 //     return senate
+//
+//   case "GET_SENATOR_FINANCES":
+//     let financialDisclosure = action.payload.financialDisclosure
+//     let senate1 = state.map(senator => {
+//       if (senator.crp_id === action.payload_id){
+//         senator.financialDisclosure = financialDisclosure
+//       }
+//       return senator
+//     }
+//   )
+//     return senate1
 //
 //   default:
 //     return {

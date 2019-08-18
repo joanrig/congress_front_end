@@ -3,13 +3,13 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 
-const SenateContainer = lazy(() => import('./components/Senate/SenateContainer'))
-const HouseContainer = lazy(() => import('./components/House/HouseContainer'))
-const BillsContainer = lazy(() => import('./components/Bills/BillsContainer'))
-const RegisterToVote = lazy(() => import('./components/RegisterToVote'))
-const NavBar = lazy(() => import('./components/NavBar'))
-const Home = lazy(() => import('./components/Home/Home'))
-const About = lazy(() => import('./components/About/About'))
+const SenateContainer = lazy(() => import('./Senate/SenateContainer'))
+const HouseContainer = lazy(() => import('./House/HouseContainer'))
+const BillsContainer = lazy(() => import('./Bills/BillsContainer'))
+const RegisterToVote = lazy(() => import('./RegisterToVote'))
+const NavBar = lazy(() => import('./NavBar'))
+const Home = lazy(() => import('./Home/Home'))
+const About = lazy(() => import('./About/About'))
 
 
 function App() {
@@ -61,5 +61,5 @@ export default App;
 //     </>
 //   );
 // }
-// 
+//
 // export default App;

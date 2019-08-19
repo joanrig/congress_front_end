@@ -1,10 +1,10 @@
-
+const API_URL="http://localhost:3000"
 
 // async action
 export function fetchSenate(){
   return (dispatch) => {
       dispatch ({type: 'LOADING'})
-      return fetch('http://localhost:3000/search/senators')
+      return fetch(API_URL+'/search/senators')
       .then(resp => resp.json())
       .then(senate =>dispatch({type:"SET_SENATE", senate} ))
      };
@@ -12,7 +12,7 @@ export function fetchSenate(){
 
 export function fetchSenateLoyalists(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/senate_loyalists')
+      return fetch(API_URL+'/search/senate_loyalists')
       .then(resp => resp.json())
       .then(loyalists =>dispatch({type:"LOYALISTS", loyalists} ))
      };
@@ -20,7 +20,7 @@ export function fetchSenateLoyalists(){
 
 export function fetchSenateMavericks(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/senate_mavericks')
+      return fetch(API_URL+'/search/senate_mavericks')
       .then(resp => resp.json())
       .then(mavericks =>dispatch({type:"MAVERICKS", mavericks} ))
      };
@@ -28,7 +28,7 @@ export function fetchSenateMavericks(){
 
 export function fetchSenateTruants(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/truant_senators')
+      return fetch(API_URL+'/search/truant_senators')
       .then(resp => resp.json())
       .then(truants =>dispatch({type:"TRUANTS", truants} ))
     };
@@ -36,7 +36,7 @@ export function fetchSenateTruants(){
 
 export function fetchSenateBySeniority(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/senators_by_seniority')
+      return fetch(API_URL+'/search/senators_by_seniority')
       .then(resp => resp.json())
       .then(seniority =>dispatch({type:"SENIORITY", seniority} ))
      };
@@ -44,7 +44,7 @@ export function fetchSenateBySeniority(){
 
 export function fetchSenateByAge(){
   return (dispatch) => {
-      return fetch('http://localhost:3000/search/senators_by_age')
+      return fetch(API_URL+'/search/senators_by_age')
       .then(resp => resp.json())
       .then(age =>dispatch({type:"AGE", age} ))
      };
@@ -53,7 +53,7 @@ export function fetchSenateByAge(){
 export function fetchBillsBySenator(id){
   return (dispatch) => {
       dispatch ({type: 'LOADING'})
-      return fetch("http://localhost:3000/search/bills/member/"+id)
+      return fetch(API_URL+'/search/bills/member/'+id)
       .then(resp => resp.json())
       .then(bills => dispatch({type:"FETCH_BILLS_BY_SENATOR", payload: {bills: bills, id:id}})
       )
@@ -70,7 +70,7 @@ export function showSenatorBills(){
 
 export function getSenatorFinances(id){
   return (dispatch) => {
-      const url = "http://localhost:3000/search/financial_disclosures/member/"+id
+      const url = 'http://localhost:3000/search/financial_disclosures/member/'+id
       fetch(url).then((response) => {
         if (response.ok) {
           return response.json();

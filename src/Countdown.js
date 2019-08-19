@@ -75,14 +75,12 @@ class Countdown extends PureComponent {
 
   render(){
 
-
     const countdown = this.state
+    let countdownElement
 
-    return (
-      <Container className="center">
-      <Grid columns={6}>
-        <Grid.Column>
-        </Grid.Column>
+    if(countdown.days && countdown.hours && countdown.minutes && countdown.seconds){
+      countdownElement =
+      <>
         <Grid.Column>
           <strong className="countdown">{this.addLeadingZeros(countdown.days)}</strong>
           <br/>
@@ -107,6 +105,15 @@ class Countdown extends PureComponent {
           <br/>
           <span className="countdown-words">{countdown.minutes === 1 ? 'Second' : 'Seconds'}</span>
         </Grid.Column>
+      </>
+    }
+
+    return (
+      <Container className="center">
+      <Grid columns={6}>
+        <Grid.Column>
+        </Grid.Column>
+        {countdownElement}
         <Grid.Column>
         </Grid.Column>
       </Grid>
@@ -116,10 +123,6 @@ class Countdown extends PureComponent {
       <span className="countdown">until Election Day 2020!</span>
 
       </Container>
-
-
-
-
 
     )
   }

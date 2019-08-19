@@ -181,12 +181,7 @@ class MemberCard extends Component {
             className="bills button"
             data-tooltip={legalTip}
           />
-          <Button
-            circular icon={donorsButtonIcon}
-            onClick={this.handleDonorsClick}
-            className="donors button"
-            data-tooltip={moneyTip}
-          />
+
         </div>
         <br/>
       </>
@@ -225,3 +220,11 @@ class MemberCard extends Component {
 const mapStateToProps = state => ({showDonors: state.showDonors, showBills: state.showBills})
 
 export default connect(mapStateToProps, { fetchBillsBySenator, fetchBillsByRep, getSenatorFinances, getRepFinances })(MemberCard)
+
+
+// //  <Button
+//     circular icon={donorsButtonIcon}
+//     onClick={this.handleDonorsClick}
+//     className="donors button"
+//     data-tooltip={moneyTip}
+//   />

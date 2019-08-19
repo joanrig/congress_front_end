@@ -11,7 +11,7 @@ class Home extends PureComponent {
      }
    }
 
-  componentWillMount() {
+  componentDidMount() {
      window.addEventListener('resize', this.handleWindowSizeChange)
    }
 

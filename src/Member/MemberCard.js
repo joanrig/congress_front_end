@@ -23,7 +23,7 @@ class MemberCard extends Component {
      }
    }
 
-  componentWillMount() {
+  componentDidMount() {
      window.addEventListener('resize', this.handleWindowSizeChange);
    }
 

@@ -18,7 +18,7 @@ class BillsSearchBar extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
      window.addEventListener('resize', this.handleWindowSizeChange)
    }
 

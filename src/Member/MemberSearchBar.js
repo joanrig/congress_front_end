@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Input } from 'semantic-ui-react'
+import { Card, Input, Loader } from 'semantic-ui-react'
 import MemberCard from './MemberCard'
 
 
@@ -15,7 +15,7 @@ class MemberSearchBar extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 
@@ -61,11 +61,14 @@ class MemberSearchBar extends Component {
     let memberPluralized
     count === 1 ? memberPluralized = member : memberPluralized = member + 's'
 
+    let loader =  <> loading  <Loader active inline /></>
 
     if (input) {
       resultsCount = <>{count} {memberPluralized} found in your search for {input}</>
-    } else {
-      resultsCount = <>{count} {memberPluralized} found</>
+    } else if (!input && count > 0){
+      resultsCount = <>{count} {memberPluralized} </>
+    } else if (!input && count === 0){
+      resultsCount = <>{loader}</>
     }
 
     let isMobile

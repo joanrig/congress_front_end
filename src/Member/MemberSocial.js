@@ -11,7 +11,7 @@ class MemberSocial extends PureComponent {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
   }
 

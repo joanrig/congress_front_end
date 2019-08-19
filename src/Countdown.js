@@ -80,49 +80,49 @@ class Countdown extends PureComponent {
 
     if(countdown.days && countdown.hours && countdown.minutes && countdown.seconds){
       countdownElement =
-      <>
-        <Grid.Column>
-          <strong className="countdown">{this.addLeadingZeros(countdown.days)}</strong>
-          <br/>
-          <br/>
-          <span className="countdown-words" >{countdown.days === 1 ? 'Day' : 'Days'}</span>
-        </Grid.Column>
-        <Grid.Column>
-          <strong className="countdown">{this.addLeadingZeros(countdown.hours)}</strong>
-          <br/>
-          <br/>
-          <span className="countdown-words">{countdown.hours === 1 ? 'Hour' : 'Hours'}</span>
-        </Grid.Column>
-        <Grid.Column>
-          <strong className="countdown">{this.addLeadingZeros(countdown.minutes)}</strong>
-          <br/>
-          <br/>
-          <span className="countdown-words">{countdown.minutes === 1 ? 'Minute' : 'Minutes'}</span>
-        </Grid.Column>
-        <Grid.Column>
-          <strong className="countdown">{this.addLeadingZeros(countdown.seconds)}</strong>
-          <br/>
-          <br/>
-          <span className="countdown-words">{countdown.minutes === 1 ? 'Second' : 'Seconds'}</span>
-        </Grid.Column>
-      </>
+      <div className="countdown">
+        <Grid columns={6}>
+          <Grid.Column>
+          </Grid.Column>
+          <Grid.Column>
+            <strong className="countdown">{this.addLeadingZeros(countdown.days)}</strong>
+            <br/>
+            <br/>
+            <span className="countdown-words" >{countdown.days === 1 ? 'Day' : 'Days'}</span>
+          </Grid.Column>
+          <Grid.Column>
+            <strong className="countdown">{this.addLeadingZeros(countdown.hours)}</strong>
+            <br/>
+            <br/>
+            <span className="countdown-words">{countdown.hours === 1 ? 'Hour' : 'Hours'}</span>
+          </Grid.Column>
+          <Grid.Column>
+            <strong className="countdown">{this.addLeadingZeros(countdown.minutes)}</strong>
+            <br/>
+            <br/>
+            <span className="countdown-words">{countdown.minutes === 1 ? 'Minute' : 'Minutes'}</span>
+          </Grid.Column>
+          <Grid.Column>
+            <strong className="countdown">{this.addLeadingZeros(countdown.seconds)}</strong>
+            <br/>
+            <br/>
+            <span className="countdown-words">{countdown.minutes === 1 ? 'Second' : 'Seconds'}</span>
+          </Grid.Column>
+          <Grid.Column>
+          </Grid.Column>
+        </Grid>
+        <br/>
+        <br/>
+        <br/>
+        <span className="countdown">until Election Day 2020!</span>
+      </div>
     }
 
     return (
       <Container className="center">
-      <Grid columns={6}>
-        <Grid.Column>
-        </Grid.Column>
         {countdownElement}
-        <Grid.Column>
-        </Grid.Column>
-      </Grid>
-      <br/>
-      <br/>
-      <br/>
-      <span className="countdown">until Election Day 2020!</span>
-
       </Container>
+
 
     )
   }

@@ -6,15 +6,17 @@
 
 
 ###ACTIVE BUGS
-1. card won't immediate update after fetching finances; you must re-render, re-find card, re-flip.
+1. card won't immediately update after fetching finances; you must re-render, re-find card, re-flip.
 2. bills remain in state after navigating away from and back to bills search bar.
-3. timer shows undefined before mounting.
-4. data tooltips stopped working on show bills/donors buttons
+3. data tooltips stopped working on show bills/donors buttons(observatin - sometimes they do, sometimes they don't ...)
 
 
 ### FIXED BUGs
 BUG: freshman/ freshmen stopped working for house
 HOW FIXED: data was updated by propublica to round up time served to 2 years, changed definition of freshmen to those with seniority under 3 years.
+
+BUG: timer shows undefined before mounting.
+HOW FIXED: abstracted to variable that does not render until days, hours, mins, secs are all defined.
 
 
 BUG - hide bills button would not turn red after senate/house card changed into memberCard -

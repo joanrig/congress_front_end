@@ -41,7 +41,7 @@ const AboutText = () => {
       </p>
 
       <p>
-        <b>Now I'm looking for my first job as a web developer. Yes, that's right, you can hire me. Here's my <a href="https://joan-s-portfolio.firebaseapp.com/">online portfolio<a/> which includes a link to my <a href="https://www.linkedin.com/in/joanrigdon/">LinkedIn profile</a>!</b>
+        <b>Now I'm looking for my first job as a web developer. Yes, that's right, you can hire me. Here's my <a href="https://joan-s-portfolio.firebaseapp.com/">online portfolio</a> which includes a link to my <a href="https://www.linkedin.com/in/joanrigdon/">LinkedIn profile</a>!</b>
       </p>
       <br/>
       <br/>

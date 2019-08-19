@@ -25,12 +25,12 @@ class SenateContainer extends Component {
         <br/>
         <MemberSorter renderedBy="senate"/>
         <br/>
-        <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="senate"/>
+        <MemberSearchBar senate={this.state.senate} house={this.state.house} renderedBy="senate" />
       </Container>
     )
   }
 }
 
-const mapStateToProps = state => ({members: state.members})
+const mapStateToProps = state => ({ members: state.members })
 
 export default connect(mapStateToProps, {fetchSenate })(SenateContainer)

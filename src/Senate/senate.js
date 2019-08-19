@@ -1,5 +1,7 @@
 
-export default (state = [], action) => {
+export default (state = {
+  senate: []}, action) => {
+
     switch(action.type){
 
     case "SET_SENATE":

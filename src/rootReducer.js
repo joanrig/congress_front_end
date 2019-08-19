@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import senate from './components/Senate/senate'
-import house from './components/House/house'
-import bills from './components/Bills/bills'
+import senate from './Senate/senate'
+import house from './House/house'
+import bills from './Bills/bills'
 
  export default combineReducers({
   senate,

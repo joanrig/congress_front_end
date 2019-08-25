@@ -59,11 +59,11 @@ class MemberDonors extends PureComponent {
 
     if (member.financial_disclosure){
       notice =
-      <>
+      <div>
         {member.financial_disclosure.notice}
         <br/>
         <em>--notice from data provider Center for Responsive Politics</em>
-      </>
+    </div>
 
       popUpNotice =
       <div className="center">

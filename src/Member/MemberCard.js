@@ -154,25 +154,25 @@ class MemberCard extends Component {
       align = "center"
       space = <br/>
       content =
-      <>
+      <div>
        <MemberBills
         member={this.props}
         showBills={this.state.showBills}/>
         {hideBillsButton}
-      </>
+      </div>
     } else if (this.state.showDonors){
       image = ""
       align = "center"
       space = <br/>
       content =
-      <>
+      <div>
         <MemberDonors
           member={this.props} showDonors={this.state.showDonors}/>
         {hideDonorsButton}
-      </>
+      </div>
     } else {
       content =
-      <>
+      <div>
         <MemberBio member={this.props}/>
         <div className="center">
           <Button
@@ -189,7 +189,7 @@ class MemberCard extends Component {
           />
         </div>
         <br/>
-      </>
+    </div>
     }
 
     //card.content extra/ add to className to change bg color

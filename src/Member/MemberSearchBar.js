@@ -61,7 +61,7 @@ class MemberSearchBar extends Component {
     let memberPluralized
     count === 1 ? memberPluralized = member : memberPluralized = member + 's'
 
-    let loader =  <> loading  <Loader active inline /></>
+    let loader =  <> loading <Loader active inline /></>
 
     if (input) {
       resultsCount = <>{count} {memberPluralized} found in your search for {input}</>

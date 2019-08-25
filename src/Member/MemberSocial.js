@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Icon } from 'semantic-ui-react'
+import { Icon, Popup } from 'semantic-ui-react'
 
 
 
@@ -77,11 +77,22 @@ class MemberSocial extends PureComponent {
 
 
     let phone = member.phone_clickable
+    let formattedPhone = phone.replace("tel:","").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")
+    let style
     if (phone && isMobile) {
-      phone = <a href={phone}><Icon className='phone icon social' /></a>
+      style = 'phone icon social'
     } else if (phone) {
-      phone = <a href={phone}><Icon className='large phone icon social' /></a>
+      style ='large phone icon social'
     }
+
+    let popUpNotice =
+    <span className="center">
+      <Popup
+        content={formattedPhone}
+        trigger={<Icon className={style} />}
+        id={member.id}
+      />
+    </span>
 
 
     return (
@@ -91,7 +102,7 @@ class MemberSocial extends PureComponent {
         {youtube}
         {website}
         {contact_form}
-        {phone}
+        {popUpNotice}
       </div>
     )
 

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Icon, Button, Popup } from 'semantic-ui-react'
+import { Icon, Popup } from 'semantic-ui-react'
 
 
 

@@ -181,12 +181,7 @@ class MemberCard extends Component {
             className="bills button"
             data-tooltip={legalTip}
           />
-          <Button
-            circular icon={donorsButtonIcon}
-            onClick={this.handleDonorsClick}
-            className="donors button"
-            data-tooltip={moneyTip}
-          />
+    
         </div>
         <br/>
     </span>

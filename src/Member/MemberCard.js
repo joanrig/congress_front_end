@@ -102,7 +102,7 @@ class MemberCard extends Component {
     }
 
     //card.content.description
-    let legalTip = "five most recent bills"
+    let legalTip = "most recent bills"
     let moneyTip = "top three donors to last campaign"
     let undoTip = "go back"
 
@@ -181,7 +181,7 @@ class MemberCard extends Component {
             className="bills button"
             data-tooltip={legalTip}
           />
-    
+
         </div>
         <br/>
     </span>

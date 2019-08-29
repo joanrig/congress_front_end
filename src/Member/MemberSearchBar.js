@@ -64,8 +64,18 @@ class MemberSearchBar extends Component {
 
     let loader =  <> loading  <Loader active inline /></>
 
+    let inputToDisplay
+      if (input === "womyntrue"){
+        inputToDisplay = "female"
+      } else if (input === "womynnfalse"){
+        inputToDisplay = "male"
+      } else {
+        inputToDisplay = input
+      }
+
+
     if (input) {
-      resultsCount = <>{count} {memberPluralized} found in your search for {input}</>
+      resultsCount = <>{count} {memberPluralized} found in your search for {inputToDisplay}</>
     } else if (!input && count > 0){
       resultsCount = <>{count} {memberPluralized} </>
     } else if (!input && count === 0){

@@ -41,9 +41,9 @@ class MemberSearchBar extends Component {
 
     let input = this.state.search.toLowerCase()
       if (input === "male"){
-        input = "womenfalse"
+        input = "womynfalse"
       } else if (input === "female"){
-        input = "womentrue"
+        input = "womyntrue"
       }
 
     //https://www.geeksforgeeks.org/javascript-string-prototype-indexof-function/

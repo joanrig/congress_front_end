@@ -46,9 +46,10 @@ class MemberSearchBar extends Component {
         input = "womentrue"
       }
 
+    //https://www.geeksforgeeks.org/javascript-string-prototype-indexof-function/
     let filteredMembers = members.filter(
       (member) => {
-        return member.search_term.toLowerCase().indexOf(input) !== -1
+        return member.searchable_string.toLowerCase().indexOf(input) !== -1
       }
     )
 

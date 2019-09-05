@@ -8,7 +8,6 @@ export function fetchHouse(){
       return fetch(API_URL+'/search/reps')
       .then(resp => resp.json())
       .then(house =>{
-        console.log("d")
         return dispatch({type:"SET_HOUSE", house})
     })
   }

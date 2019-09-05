@@ -67,7 +67,7 @@ class MemberSearchBar extends Component {
     let inputToDisplay
       if (input === "womyntrue"){
         inputToDisplay = "female"
-      } else if (input === "womynnfalse"){
+      } else if (input === "womynfalse"){
         inputToDisplay = "male"
       } else {
         inputToDisplay = input

@@ -95,7 +95,6 @@ class MemberSocial extends PureComponent {
     </span>
 
 
-
     return (
       <div>
         {facebook}
@@ -104,7 +103,6 @@ class MemberSocial extends PureComponent {
         {website}
         {contact_form}
         {popUpNotice}
-        <br/>
       </div>
     )
 

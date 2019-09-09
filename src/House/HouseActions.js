@@ -1,4 +1,4 @@
-const API_URL="http://localhost:3000"
+const API_URL="https://congress-api-jr.herokuapp.com/"
 
 // async action
 export function fetchHouse(){
@@ -8,7 +8,6 @@ export function fetchHouse(){
       return fetch(API_URL+'/search/reps')
       .then(resp => resp.json())
       .then(house =>{
-        console.log("d")
         return dispatch({type:"SET_HOUSE", house})
     })
   }

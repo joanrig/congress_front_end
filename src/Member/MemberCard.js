@@ -102,7 +102,7 @@ class MemberCard extends Component {
     }
 
     //card.content.description
-    let legalTip = "five most recent bills"
+    let legalTip = "most recent bills"
     let moneyTip = "top three donors to last campaign"
     let undoTip = "go back"
 
@@ -154,25 +154,25 @@ class MemberCard extends Component {
       align = "center"
       space = <br/>
       content =
-      <div>
+      <span>
        <MemberBills
         member={this.props}
         showBills={this.state.showBills}/>
         {hideBillsButton}
-      </div>
+      </span>
     } else if (this.state.showDonors){
       image = ""
       align = "center"
       space = <br/>
       content =
-      <div>
+      <span>
         <MemberDonors
           member={this.props} showDonors={this.state.showDonors}/>
         {hideDonorsButton}
-      </div>
+      </span>
     } else {
       content =
-      <div>
+      <span>
         <MemberBio member={this.props}/>
         <div className="center">
           <Button
@@ -181,15 +181,11 @@ class MemberCard extends Component {
             className="bills button"
             data-tooltip={legalTip}
           />
-          <Button
-            circular icon={donorsButtonIcon}
-            onClick={this.handleDonorsClick}
-            className="donors button"
-            data-tooltip={moneyTip}
-          />
+
         </div>
         <br/>
-    </div>
+    </span>
+
     }
 
     //card.content extra/ add to className to change bg color
@@ -225,3 +221,11 @@ class MemberCard extends Component {
 const mapStateToProps = state => ({showDonors: state.showDonors, showBills: state.showBills})
 
 export default connect(mapStateToProps, { fetchBillsBySenator, fetchBillsByRep, getSenatorFinances, getRepFinances })(MemberCard)
+
+
+// //  <Button
+//     circular icon={donorsButtonIcon}
+//     onClick={this.handleDonorsClick}
+//     className="donors button"
+//     data-tooltip={moneyTip}
+//   />

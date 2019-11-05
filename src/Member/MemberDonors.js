@@ -24,7 +24,9 @@ class MemberDonors extends PureComponent {
     }
 
   render(){
+    console.log('hello from memberDonors')
     let member = this.props.member
+    debugger
 
     let isMobile
     const width = this.state.width
@@ -38,9 +40,11 @@ class MemberDonors extends PureComponent {
     let donorsSource
     let donorList
     if (this.state.showDonors) {
-      if (member.financial_disclosure){
+      console.log('member.financialDisclosure: ', member.financialDisclosure)
+      if (member.financialDisclosure){
+
         donorsSource =
-          <a href={member.financial_disclosure.source} className="center">
+          <a href={member.financialDisclosure.financial_disclosure.source} className="center">
           more donors & details from Center for Responsive Politics</a>
 
         donorList = member.donors.slice(0,3).map(donor =>
@@ -57,10 +61,10 @@ class MemberDonors extends PureComponent {
     let notice
     let popUpNotice
 
-    if (member.financial_disclosure){
+    if (member.financialDisclosure){
       notice =
       <div>
-        {member.financial_disclosure.notice}
+        {member.financialDisclosure.financial_disclosure.notice}
         <br/>
         <em>--notice from data provider Center for Responsive Politics</em>
     </div>

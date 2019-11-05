@@ -69,6 +69,7 @@ export function showSenatorBills(){
 }
 
 export function getSenatorFinances(id){
+  console.log('hello from getSenatorFinances')
   return (dispatch) => {
       const url = 'http://localhost:3000/search/financial_disclosures/member/'+id
       fetch(url).then((response) => {
@@ -83,6 +84,10 @@ export function getSenatorFinances(id){
       )
     }
   }
+
+
+
+
 
 
 
